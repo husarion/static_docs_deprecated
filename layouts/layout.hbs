@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Husarion Docs</title>
+  <link rel="shortcut icon" type="image/ico" href="{{ base_url }}assets/img/favicon.ico"/>
+  <link rel="stylesheet" href="{{ base_url }}assets/css/style.css" type="text/css"/>
+  <script type="text/javascript" src="https://static.husarion.com/js/qa.js"></script>
+  <script type="text/javascript" src="{{ base_url }}assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ base_url }}assets/js/jquery.fancybox.pack.js"></script>
+</head>
+
+<body class="docs-page docs-page-{{theme}}" id="docs-{{platform}}">
+
+{{> top_bar }}
+
+
+<div id="wrapper" style="margin-top: 50px;">
+
+  <div class="toc_wrapper">
+    <div class="tgl_toc">
+      <a href="#">&nbsp;</a>
+    </div>
+    <div class="selected_platform">
+      {{# if platform_title }}
+        <span>{{platform_title}}</span>
+      {{/if}}
+    </div>
+    <div class="toc">
+
+      {{#each collections }}
+        <div class="section">
+        <span class="section-title">{{{this.metadata.description}}}</span>
+
+        {{#each this}}
+
+
+          {{#if toc }}
+
+            {{#each toc }}
+              <div class="l0">
+                <a class="subsection-title" href="{{ ../../../base_url }}{{@../../key}}/{{id}}">{{text}}</a>
+
+              {{#if this.children }}
+
+                <div class="l1">
+
+                  {{#each this.children }}
+
+                    <a href="#{{id}}" class="treeitem">{{text}}</a>
+
+                    {{#if this.children }}
+                      <div class="l2">
+
+                        {{#each this.children }}
+
+                          <a href="#{{id}}" class="treeitem">{{text}}</a>
+
+                        {{/each}}
+
+                      </div>
+                    {{/if}}
+
+                  {{/each}}
+
+                </div>
+              {{/if}}
+
+            {{/each}}
+
+          </div>
+          {{/if}}
+
+        {{/each}}
+        </div>
+      {{/each}}
+
+    </div>
+  </div>
+
+  <div class="content_wrapper">
+    <div class="content_page">
+
+      {{{ contents }}}
+    </div>
+  </div>
+</div>
+<script src="{{base_url}}assets/js/base.js"></script>
+
+</body>
+</html>

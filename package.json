@@ -1,0 +1,41 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "handlebars": "^4.0.8",
+    "metalsmith": "^2.3.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-browser-sync": "^1.1.1",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-html-minifier": "^2.2.0",
+    "metalsmith-in-place": "^2.0.1",
+    "metalsmith-layouts": "^1.8.1",
+    "metalsmith-mapsite": "^1.0.4",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-publish": "^0.1.5",
+    "metalsmith-word-count": "0.0.4"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "githubhook": "^1.7.1",
+    "metalsmith-autotoc": "^0.1.4",
+    "metalsmith-collection-grouping": "^0.1.0",
+    "metalsmith-collections-convention": "^1.1.1",
+    "metalsmith-convert": "^0.3.5",
+    "metalsmith-debug": "^1.1.0",
+    "metalsmith-metadata": "0.0.4",
+    "metalsmith-sass": "^1.4.0",
+    "metalsmith-sense-sass": "^2.1.0",
+    "metalsmith-watch": "^1.0.3",
+    "simple-git": "^1.73.0"
+  }
+}

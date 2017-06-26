@@ -1,0 +1,9 @@
+node_modules/
+build/
+build2/
+.sass-cache/
+.idea/
+npm-debug.log
+
+src/core2/tutorials/howtostart/test-only.md
+

@@ -1,0 +1,107 @@
+<div id="htb__top" class="htb__full_width htb__{{ theme }} htb__fixed htb__border_{{ theme }}">
+
+  <div class="htb__row">
+
+    <div id="htb__logo">
+      <h1>
+        <a href="https://husarion.com">
+          <img src="{{ base_url }}assets/img/logo_{{ theme }}.png" alt="Husarion - Platform to build and control personal robots">
+        </a>
+      </h1>
+    </div>
+
+
+    <div id="htb__top_rt">
+      <div class="htb__tgl_menu">
+        <img src="{{ base_url }}assets/img/bars.png">
+      </div>
+
+      <div class="htb__top_menu htb__tabs">
+        <ul>
+
+          {{#if robocore }}
+            <li class="htb__wiki">
+              <a href="">Wiki</a>
+            </li>
+            <li class="htb__examples">
+              <a href="">Examples</a>
+            </li>
+            <li class="htb__api">
+              <a href="">API <span>reference</span></a>
+            </li>
+          {{/if}}
+
+          {{#if core2 }}
+
+            <li class="htb__about">
+              <a href="/core2">About</a>
+            </li>
+            <li class="htb__tutorials htb__current">
+              <a href="/core2/tutorials">Tutorials</a>
+            </li>
+            <li class="htb__hardware">
+              <a href="/core2/hardware">Hardware</a>
+            </li>
+            <li class="htb__examples">
+              <a href="/core2/examples">Examples</a>
+            </li>
+            <li class="htb__api">
+              <a href="/core2/api_reference">API <span>reference</span></a>
+            </li>
+
+          {{/if}}
+
+
+        </ul>
+      </div>
+
+      <div class="htb__2nd_menu htb__hide">
+
+        <ul>
+          {{#if robocore }}
+            <li class="htb__hide htb__show@sm">
+              <a href="https://wiki.husarion.com/doku.php">Wiki</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="">Examples</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="" class="separator">API <span>reference</span></a>
+            </li>
+
+          {{/if}}
+
+          {{#if core2 }}
+
+            <li class="htb__hide htb__show@sm">
+              <a href="/core2">About</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="/core2/tutorials">Tutorials</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="/core2/hardware">Hardware</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="/core2/examples">Examples</a>
+            </li>
+            <li class="htb__hide htb__show@sm">
+              <a href="/core2/api_reference">API <span>reference</span></a>
+            </li>
+
+          {{/if}}
+
+          <li>
+            <a href="https://community.husarion.com" title="Community">Community</a>
+          </li>
+          <li>
+            <a href="https://husarion.com/downloads" title="Downloads">Downloads</a>
+          </li>
+          <li>
+            <a href="https://cloud.husarion.com/" title="Log in">Log in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

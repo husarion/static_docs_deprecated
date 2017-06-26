@@ -1,0 +1,172 @@
+$font_path : 'https://static.husarion.com/fonts/' !default;
+$fa-font-path : $font_path;
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-medium-webfont.eot');
+  src: url('#{$font_path}lato-medium-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-medium-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-medium-webfont.woff') format('woff'),
+  url('#{$font_path}lato-medium-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-mediumitalic-webfont.eot');
+  src: url('#{$font_path}lato-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-mediumitalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-mediumitalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-mediumitalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-bold-webfont.eot');
+  src: url('#{$font_path}lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-bold-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-bold-webfont.woff') format('woff'),
+  url('#{$font_path}lato-bold-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-bolditalic-webfont.eot');
+  src: url('#{$font_path}lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-bolditalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-bolditalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-bolditalic-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('#{$font_path}lato-regular-webfont.eot');
+  src: url('#{$font_path}lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-regular-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-regular-webfont.woff') format('woff'),
+  url('#{$font_path}lato-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('#{$font_path}lato-italic-webfont.eot');
+  src: url('#{$font_path}lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-italic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-italic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-italic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('#{$font_path}lato-bold-webfont.eot');
+  src: url('#{$font_path}lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-bold-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-bold-webfont.woff') format('woff'),
+  url('#{$font_path}lato-bold-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latoregular';
+  src: url('#{$font_path}lato-semibolditalic-webfont.eot');
+  src: url('#{$font_path}lato-semibolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-semibolditalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-semibolditalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-semibolditalic-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-medium-webfont.eot');
+  src: url('#{$font_path}lato-medium-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-medium-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-medium-webfont.woff') format('woff'),
+  url('#{$font_path}lato-medium-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-mediumitalic-webfont.eot');
+  src: url('#{$font_path}lato-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-mediumitalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-mediumitalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-mediumitalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-bold-webfont.eot');
+  src: url('#{$font_path}lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-bold-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-bold-webfont.woff') format('woff'),
+  url('#{$font_path}lato-bold-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'latomedium';
+  src: url('#{$font_path}lato-bolditalic-webfont.eot');
+  src: url('#{$font_path}lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-bolditalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-bolditalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-bolditalic-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+
+}
+
+
+@font-face {
+  font-family: 'latoblack';
+  src: url('#{$font_path}lato-black-webfont.eot');
+  src: url('#{$font_path}lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-black-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-black-webfont.woff') format('woff'),
+  url('#{$font_path}lato-black-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latoblack';
+  src: url('#{$font_path}lato-blackitalic-webfont.eot');
+  src: url('#{$font_path}lato-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('#{$font_path}lato-blackitalic-webfont.woff2') format('woff2'),
+  url('#{$font_path}lato-blackitalic-webfont.woff') format('woff'),
+  url('#{$font_path}lato-blackitalic-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+$font-default: 'latoregular', arial, sans-serif;
+$font-medium: 'latomedium', arial, sans-serif;
+$font-bold: 'latoblack', arial, sans-serif;

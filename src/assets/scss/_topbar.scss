@@ -1,0 +1,429 @@
+$fixed-height: 45px;
+
+#htb__top {
+
+  font-family: 'latoregular', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  height: $fixed-height;
+  padding: 5px 0 5px 0;
+  background: $bg;
+  color: $text-dark;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    a {
+      margin: 0;
+      display: block;
+      overflow: hidden;
+    }
+    img {
+      margin: 0;
+      display: block;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    &:hover, &:active, &:visited {
+      text-decoration: none;
+    }
+
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .htb__main_menu {
+    margin-top: 0;
+  }
+
+  &.htb__fixed {
+    position: fixed;
+    top: 0;
+    height: $fixed-height;
+    padding: 5px 0 5px 0;
+    z-index: 5999;
+
+    #htb__logo {
+      width: auto;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+
+    @include gridle-state('md') {
+      .htb__main_menu {
+        top: $fixed-height;
+      }
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &.htb__border_light {
+    border-bottom: 1px $gray-extralight solid;
+  }
+
+  &.htb__border_medium {
+    border-bottom: 1px $gray solid;
+  }
+
+  &.htb__border_dark {
+    border-bottom: 1px $gray-dark solid;
+  }
+
+}
+
+
+#htb__logo {
+  float: left;
+}
+
+#htb__top_rt {
+  float: right;
+  width: auto;
+}
+
+
+.htb__tgl_menu {
+  float: right;
+  margin-left: 30px;
+  margin-left: 3vw;
+  color: $primary-color;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.htb__main_menu, .htb__main_menu.htb__top_menu {
+  float: right;
+  overflow: hidden;
+  z-index: 5999;
+
+  .shop_now {
+    a {
+      border: 1px $gray solid;
+      padding: 0 10px;
+      margin-top: 0;
+      &:hover {
+        border-color: $primary-color;
+      }
+    }
+  }
+
+  @include gridle_state('md') {
+    float: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px $gray-dark solid;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+
+    ul {
+      background: $gray-darker;
+      width: 100%;
+      padding: 16px 0;
+      height: auto;
+      li {
+        float: none;
+        margin: 0;
+        height: 48px;
+        a {
+          color: $text-light;
+          display: block;
+          margin: 0 auto;
+          width: 90%;
+          line-height: 48px;
+          height: 48px;
+          text-align: center;
+          border-bottom: 1px $gray solid;
+
+        }
+
+        &:last-child a {
+          border-bottom: none;
+        }
+
+      }
+
+      li.shop_now {
+        a {
+          border: 0;
+          padding: 0 2px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.htb__md_menu {
+  float: right;
+  padding-top: 0;
+}
+
+.htb__top_menu {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 31px;
+    li {
+      float: left;
+      height: 32px;
+      margin-left: 30px;
+      margin-left: 3vw;
+
+      a {
+        display: inline-block;
+        padding: 1px 0 0 0;
+        text-decoration: none;
+        text-align: center;
+        color: $text-dark;
+        line-height: 30px;
+        height: 30px;
+        margin: 1px 0 0 0;
+
+      }
+    }
+
+    li.htb__current {
+      a {
+        font-weight: bold;
+      }
+    }
+
+    li:hover {
+      a {
+        border-bottom: 1px $text-dark solid;
+      }
+    }
+
+  }
+}
+
+.htb__tabs {
+  float: right;
+  margin-top: -5px;
+
+  ul {
+
+    height: 45px;
+
+    li {
+      margin-left: 10px;
+      margin-left: 1vw;
+
+      a {
+        padding-top: 6px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 44px;
+      }
+    }
+  }
+
+  @include gridle-state('sm') {
+    @include gridle-hide();
+  }
+}
+
+
+.htb__2nd_menu {
+  position: absolute;
+  top: $fixed-height - 1;
+  right: 0;
+  padding: 0;
+  overflow: hidden;
+  //border: none;
+  //border-bottom: 0;
+  border: 1px $gray-extralight solid;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+
+  ul {
+    background: #fff;
+    padding: 16px 0;
+    height: auto;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+
+    li {
+      float: none;
+      margin: 0;
+      height: 48px;
+      width: 100%;
+      a {
+        display: block;
+        color: $text-dark;
+        margin: 0 auto;
+        width: 90%;
+        line-height: 48px;
+        height: 48px;
+        text-align: center;
+        border-bottom: 1px $gray-lighter solid;
+
+      }
+
+      &:last-child a {
+        border-bottom: none;
+      }
+
+      &:hover a {
+        border-color: $text-dark;
+      }
+    }
+  }
+
+  @include gridle-state('md') {
+    width: 100%;
+  }
+}
+
+#htb__top.htb__dark {
+  background: $dark-gray;
+  color: $text-light;
+
+  .htb__top_menu ul li a {
+    color: $text-light;
+  }
+
+  .htb__2nd_menu {
+    border: none;
+    border-bottom: 2px $gray-dark solid;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    ul {
+      background: $gray-darker;
+      li {
+        a {
+          color: $text-light;
+          border-bottom: 1px $gray solid;
+        }
+
+        &:last-child a {
+          border-bottom: none;
+        }
+
+        &:hover a {
+          border-color: $primary-color;
+        }
+      }
+    }
+  }
+
+}
+
+#htb__top.htb__full_width {
+  .htb__container {
+    //width: 100%;
+    max-width: 100%;
+    padding-left: 5px;
+  }
+}
+
+#htb__top {
+
+  padding-top: 32px;
+
+  &.htb__fixed {
+    border-bottom: 1px $gray-lighter solid;
+  }
+
+  .htb__tgl_menu {
+    margin-left: 25px;
+    margin-right: 5px;
+  }
+
+  li, li a {
+    text-align: center;
+  }
+
+  li.htb__wiki {
+    width: 66px;
+  }
+
+  li.htb__about {
+    width: 76px;
+  }
+
+  li.htb__howtostart {
+    width: 150px;
+  }
+
+  li.htb__hardware {
+    width: 107px;
+  }
+
+  li.htb__tutorial {
+    width: 87px;
+  }
+
+  li.htb__tutorials {
+    width: 107px;
+  }
+
+  li.htb__examples {
+    width: 103px;
+  }
+
+  li.htb__api {
+    width: 36px;
+
+    span {
+      display: none;
+    }
+
+    @include gridle-state('xl') {
+      width: 142px;
+      span {
+        display: inline;
+      }
+    }
+
+  }
+
+  @include gridle-state('lg') {
+    .htb__tabs {
+      li {
+        margin-left: 3px;
+      }
+    }
+  }
+
+}
+
+#htb__current_platform {
+  float: right;
+  padding-top: 4px;
+  margin-right: 5px;
+  span, a {
+    font-size: 12px;
+  }
+
+  span.title {
+    font-weight: normal;
+  }
+
+  a.platform {
+    color: $primary-color;
+  }
+
+  @include gridle-state('md') {
+    display: none;
+  }
+}
+
+#htb__top.htb__dark .htb__2nd_menu ul li a.separator, #htb__top .htb__2nd_menu ul li a.separator {
+    border-bottom: 1px $primary-color solid;
+}

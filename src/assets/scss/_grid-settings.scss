@@ -1,0 +1,33 @@
+// Import gridle
+@import 'gridle/gridle';
+
+$gridle-generate-json-settings: false;
+
+@include gridle_setup((
+	context : 12,
+	gutter-width : 60px,
+	states-classes : true,
+	classes-prefix : 'htb__'
+));
+
+@include gridle_register_state (xl, (
+				min-width : $xl,
+));
+
+@include gridle_register_state (lg, (
+				max-width: $xl - 1,
+				gutter-width : 20px
+));
+
+@include gridle_register_state (md, (
+				max-width: $lg - 1,
+));
+
+
+@include gridle_register_state (sm, (
+				max-width: $md - 1
+));
+
+@include gridle_register_state (xs, (
+				max-width: $sm - 1
+));

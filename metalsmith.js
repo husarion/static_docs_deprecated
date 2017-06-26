@@ -1,0 +1,84 @@
+var Metalsmith = require('metalsmith');
+var markdown = require('metalsmith-markdown');
+var layouts = require('metalsmith-layouts');
+var permalinks = require('metalsmith-permalinks');
+var autotoc = require('metalsmith-autotoc');
+var debug = require('metalsmith-debug');
+var watch = require('metalsmith-watch');
+var sass = require('metalsmith-sass');
+var assets = require('metalsmith-assets');
+var convert = require('metalsmith-convert');
+var collections = require('metalsmith-collections');
+var heading_numbers = require('./lib/metalsmith-heading-numbers');
+var gallery = require('./lib/metalsmith-gallery');
+var config = require('./config.js');
+
+
+exports.metalsmith = function () {
+
+    var metalsmith = Metalsmith(__dirname)
+        .metadata({
+            title: "How to start",
+            description: "It's about saying »Hello« to the World.",
+            generator: "Metalsmith",
+            url: "http://www.metalsmith.io/",
+            base_url: '/',
+            theme: 'light'
+        })
+        .source('./src')
+        .destination('./build')
+        // .clean(true)
+        // .use(assets({
+        //     source: './src/assets',
+        //     destination: './assets'
+        // }))
+        .use(sass({
+            source: './assets/scss',
+            outputDir: 'assets/css/'   // This changes the output dir to "build/css/" instead of "build/scss/"
+        }))
+        .use(collections(config.pages))
+        .use(markdown())
+        .use(heading_numbers())
+        .use(autotoc({
+            selector: "h1, h2, h3, h4, h5, h6"
+            // headerIdPrefix: "subhead"
+        }))
+        .use(gallery())
+        .use(permalinks())
+        .use(layouts({
+            engine: 'handlebars',
+            partials: './layouts/partials'
+            // pattern: '**/*.hbs'
+            // default: 'base.hbs'
+        }));
+    // .use(convert({
+    //     src: '**/*.svg',
+    //     target: 'png'
+    // }))
+
+
+    return metalsmith;
+};
+
+exports.build = function () {
+    exports.metalsmith()
+        .build(function (err, files) {
+            if (err) {
+                throw err;
+            }
+        });
+};
+
+exports.watch = function () {
+    exports.metalsmith().use(watch({
+        paths: {
+            "${source}/**/*": true,
+            "layouts/**/*": "**/*",
+            "assets/scss/style.scss": "**/*"
+        }
+    })).build(function (err, files) {
+            if (err) {
+                throw err;
+            }
+        });
+};

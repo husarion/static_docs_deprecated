@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'grid-settings';
+@include gridle_generate_classes(all, (hide,no_gutter,show));
+
+
+.container {
+  @include gridle_container();
+  max-width: $xxl - 40;
+  //padding: 0 20px;
+  margin: 0 auto;
+  //.row {
+  //  margin: 0 -10px;
+  //}
+
+  @include gridle-state('lg') {
+    //padding: 0 60px;
+  }
+
+  @include gridle-state('sm') {
+    //padding: 0 20px;
+  }
+
+  @include gridle-state('xs') {
+    padding: 0 10px;
+  }
+}
