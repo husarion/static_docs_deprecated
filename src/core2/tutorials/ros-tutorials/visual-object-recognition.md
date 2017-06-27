@@ -751,6 +751,7 @@ ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 
 void hMain() {
     platform.begin(&RPi);
+    RPi.setBaudrate(500000);
     nh.getHardware()->initWithDevice(&platform.LocalSerial);
 	nh.initNode();
     nh.subscribe(sub);
