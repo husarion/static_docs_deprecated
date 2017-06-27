@@ -17,7 +17,7 @@ position and orientation based on wheel rotation measurement. In this
 tutorial we will use four wheeled robot with separate drive for each
 wheel. Robot scheme is presented below:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/robot_scheme.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/robot_scheme.png" width="200%" height="200%"/></center></div>
 
 We will use following symbols and their meaning:
 
