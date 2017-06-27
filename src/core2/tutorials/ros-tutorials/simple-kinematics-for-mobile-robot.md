@@ -123,7 +123,7 @@ paste following:
     
     void hMain() {
         platform.begin(&RPi);
-	RPi.setBaudrate(500000);
+        RPi.setBaudrate(500000);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
         nh.subscribe(sub);   
@@ -186,7 +186,7 @@ Main function and node initialization:
 
     void hMain() {
         platform.begin(&RPi);
-	RPi.setBaudrate(500000);
+        RPi.setBaudrate(500000);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
 
