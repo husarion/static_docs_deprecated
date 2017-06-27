@@ -546,7 +546,7 @@ appear in visualization window.
 Now we will visualize position published by your robot, run `rviz`,
 click **Add** and choose tab **By topic**.
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_v4.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_4.png" /></center></div>
 
 Find topic `/pose` and choose `Pose` and click **OK**.
 
