@@ -246,7 +246,7 @@ for buttons:
 
 You should get similar view in `rqt_graph`:
 
-![image](/assets/img/ros/man_3_1_n.png)
+![image](/assets/img/ros/man_3_1.png)
 
 ### Determining robot position ###
 
@@ -509,7 +509,7 @@ Remember, that you need to have active window with
 
 You should get something like this on your screen:
 
-![image](/assets/img/ros/man_3_2_n.png)
+![image](/assets/img/ros/man_3_2.png)
 
 ## Robot visualization with Rviz ##
 
