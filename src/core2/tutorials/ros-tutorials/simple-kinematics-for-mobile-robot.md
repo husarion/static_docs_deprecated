@@ -558,7 +558,7 @@ of your robot. Move your robot and observe as arrow changes its
 position.
 
 ![image](/assets/img/ros/man_3_v6_n.png)
-
+ 
 Visualization of any other item is performed in the same way. In further
 lessons, as you will produce more objects to visualize, you will add them
 to the same view.
