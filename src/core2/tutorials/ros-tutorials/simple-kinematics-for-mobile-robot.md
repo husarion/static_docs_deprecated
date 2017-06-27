@@ -533,7 +533,7 @@ Application main view consists of:
 3.  Visualization window
 
 4.  Object manipulation buttons
-
+  
 By default you will see only base frame, to add any other object push
 **Add** from object manipulation buttons. In new window, there are two
 tabs **By display type** and **By topic**. First one is for manual
