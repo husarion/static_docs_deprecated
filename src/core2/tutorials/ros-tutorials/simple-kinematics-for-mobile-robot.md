@@ -522,7 +522,7 @@ To run it type in terminal:
 
 New window will appear:
 
-![image](/assets/img/ros/rviz_main_num_n.png)
+![image](/assets/img/ros/man_3_3.png)
 
 Application main view consists of:
 
