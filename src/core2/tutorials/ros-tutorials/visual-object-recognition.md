@@ -619,7 +619,7 @@ will use proximity sensors. Mount two sensors on front of your robot,
 place them as indicated on scheme below, connect right sensor to
 `hSens1` port of `CORE2` and left to `hSens2`.
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/sensor_pos_on_robot.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/sensor_pos_on_robot.png" width="50%" height="50%"/></center></div>
 
 Log in to Husarion Cloud and open project that you created in previous
 manual, you will edit it a little.
