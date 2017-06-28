@@ -75,7 +75,7 @@ For definition of SLAM problem we use given values (1,2) and expected values (3,
 	    </tr>
 	</table>
 </div>
-
+ 
 ## Coordinate frames tracking ##
 
 ROS can help you with keeping track of coordinate frames over time.
