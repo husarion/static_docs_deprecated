@@ -1,5 +1,5 @@
 ---
-title: 'Creating nodes'
+title: '2 Creating nodes'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
