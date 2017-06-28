@@ -1,5 +1,5 @@
 ---
-title: 'Running ROS on multiple machines'
+title: '5 Running ROS on multiple machines'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
