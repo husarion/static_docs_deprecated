@@ -1,5 +1,5 @@
 ---
-title: 'SLAM navigation'
+title: '6 SLAM navigation'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
