@@ -17,6 +17,8 @@ creating new solutions or adjusting already existing ones. Major
 advantage of this system is great set of drivers and implemented
 algorithms widely used in robotics.
 
+### Nodes
+
 Base unit in ROS is node. Nodes are in charge of handling devices or
 computing algorithms, each node for separate task. Nodes can communicate
 with each other with use of topics or services. ROS software is
@@ -62,7 +64,7 @@ Command could be:
 - `kill` - stop selected node
 
 Detailed info could be found in
-[documentation](http://wiki.ros.org/rosnode).
+[ROS documentation](http://wiki.ros.org/rosnode).
 
 ### rostopic
 
@@ -81,7 +83,7 @@ Command could be:
 - `echo` - display messages published in the topic
 
 Detailed info could be found in
-[documentation](http://wiki.ros.org/rostopic).
+[ROS documentation](http://wiki.ros.org/rostopic).
 
 ### rqt\_graph
 
@@ -89,6 +91,27 @@ Detailed info could be found in
 in system. To run application type in terminal:
 
      $ rqt_graph
+
+## Robot platform
+
+This tutorial is created for ROSbot, open-source robot platform. You can read more about this here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform) . 
+
+The platform contains:
+- 1 × Husarion CORE2-ROS (version with Raspberry Pi 3 or ASUS Tinker Board)
+- 1 × RPLIDAR A2 360°
+- 1 × Digital camera
+- 1 × MPU9250
+- 4 × SHARP GP2Y0A41SK0F
+
+And this is how it looks like:
+<div>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/rosbot_front.png" /></center>
+</div>
+
+<div>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/rosbot_back.png" /></center>
+</div>
+
 
 ## ROS and CORE2 Work flow
 
