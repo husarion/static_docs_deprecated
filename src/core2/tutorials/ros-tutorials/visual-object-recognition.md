@@ -11,8 +11,6 @@ order: 4
 
 ## Introduction ##
 
-blabla
-
 Objects can ce recognized by robot with use of vision system. It is
 based on image characteristics like points, lines, edges colours and
 their relative positions.
