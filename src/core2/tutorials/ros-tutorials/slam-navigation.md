@@ -222,13 +222,13 @@ for publishing relation between robot base and laser scanner.
 
 We can run it from command line:
 
-    $ rosrun tf static_transform_publisher 0 0 0 0 0 0 robot_base laser_frame 100
+    $ rosrun tf static_transform_publisher 0 0 0 3.14 0 0 robot_base laser_frame 100
 
 Arguments are consecutively:
 
 -   `0 0 0` - x y z axes of translation, values are in meters
 
--   `0 0 0 ` - z y x axes of rotation, values are in radians
+-   `3.14 0 0 ` - z y x axes of rotation, values are in radians
 
 -   `robot_base` - transformation parent frame - the one that is static
 
@@ -332,7 +332,7 @@ You can use below `launch` file:
 	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
 	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 0 0 0 robot_base laser_frame 100" />
+		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
 
 	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" 
 		name="teleop_twist_keyboard" output="screen"/>
@@ -380,7 +380,7 @@ You can use below `launch` file:
 	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
 	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 0 0 0 robot_base laser_frame 100" />
+		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
 
 	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" 
 		name="teleop_twist_keyboard" output="screen"/>
