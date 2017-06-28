@@ -1,5 +1,5 @@
 ---
-title: 'Visual object recognition'
+title: '4 Visual object recognition'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
