@@ -123,9 +123,9 @@ next to robot name.
 
 To connect by ssh type in terminal:
 
-    $ ssh pi@xxx.xxx.xxx.xxx
+    $ ssh husarion@xxx.xxx.xxx.xxx
 
-password is:  `raspberry`
+password is:  `husarion`
 
 To connect by remote desktop you need a remote desktop client
 application, depending on your system, you may have various clients.
@@ -139,10 +139,10 @@ Parameters for connection:
         <td>server</td><td>`xxx.xxx.xxx.xxx`</td>
     </tr>
     <tr>
-        <td>username</td><td>`pi`</td>
+        <td>username</td><td>`husarion`</td>
     </tr>
     <tr>
-        <td>password</td><td>`raspberry`</td>
+        <td>password</td><td>`husarion`</td>
     </tr>
 </table>
 
@@ -232,7 +232,7 @@ type:
 
 As the output you should get:
 
-    pi@raspberry:~$ rosnode list 
+    husarion@core2-ros:~$ rosnode list 
     /rosout
 
 This means, that you have now one node running, it’s name is `/rosout`
@@ -243,7 +243,7 @@ check some info of this node
 
 And as the output you should get:
 
-    pi@raspberry:~$ rosnode info /rosout 
+    husarion@core2-ros:~$ rosnode info /rosout 
     -------------------------------------
     Node [/rosout]
     Publications: 
@@ -272,7 +272,7 @@ info about them. In new console type:
 
 You should get in the output:
 
-    pi@raspberry:~$ rostopic list 
+    husarion@core2-ros:~$ rostopic list 
     /rosout
     /rosout_agg
 
@@ -283,7 +283,7 @@ some info about first of them:
 
 As the output you should get:
 
-    pi@raspberry:~$ rostopic info /rosout
+    husarion@core2-ros:~$ rostopic info /rosout
     Type: rosgraph_msgs/Log
     
     Publishers: None
@@ -300,7 +300,7 @@ info about second topic:
 
 As the output you should get:
 
-    pi@raspberry:~$ rostopic info /rosout_agg 
+    husarion@core2-ros:~$ rostopic info /rosout_agg 
     Type: rosgraph_msgs/Log
     
     Publishers: 
@@ -324,7 +324,7 @@ in terminal:
 
 Output should be similar to this:
 
-    pi@raspberry:~$ ls /dev/video*
+    husarion@core2-ros:~$ ls /dev/video*
     /dev/video0  /dev/video1
 
 Each entry is for one camera. Above example means that we have two
