@@ -52,7 +52,7 @@ For definition of SLAM problem we use given values (1,2) and expected values (3,
 	    </tr>
 	</table>
 </div>
-
+ 
 
 <div>
 4.  Robot trajectory
