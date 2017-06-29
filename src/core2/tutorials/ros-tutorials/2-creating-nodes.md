@@ -166,23 +166,29 @@ Before you build node, you need to edit `CMakeLists.txt` from
 
 Find line:
 
-    project(tutorial_pkg)
+    add_compile_options(-std=c++11)
 
+and uncomment it (remove `#` sign). This will allow to use C++11 standard of C++. You should also find line:
+
+    # add_executable(${PROJECT_NAME}_node src/tutorial_pkg_node.cpp)
+    
 And add after this another line:
 
-    add_definitions(-std=c++11)
+    add_executable(tutorial_pkg_node src/tutorial_pkg_node.cpp)
 
-This will allow to use C++11 standard of C++. You should also find line:
+This will let the compiler know that it should create executable 
+file from defined source. Created executable
+will be your node. Also you need to find lines:
 
-    # add_executable(tutorial_pkg_node src/tutorial_pkg_node.cpp)
-
-and uncomment it (remove `#` sign). This will let the compiler know that
-it should create executable file from defined source. Created executable
-will be your node. Also you need to uncomment lines:
-
-    # target_link_libraries(tutorial_pkg_node
+    # target_link_libraries(${PROJECT_NAME}_node tutorial_pkg_node
     #   ${catkin_LIBRARIES}
     # )
+
+and add after this:
+
+    target_link_libraries(tutorial_pkg_node
+      ${catkin_LIBRARIES}
+    )
 
 This will cause compiler to link libraries required by your node. Save
 the changes and close editor.
