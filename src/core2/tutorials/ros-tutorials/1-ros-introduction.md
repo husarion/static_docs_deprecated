@@ -335,7 +335,7 @@ its name is `/dev/video0`. Having required information you can start
 node by typing into terminal:
 
     $ rosrun usb_cam usb_cam_node _video_device:=/dev/video0 _image_height:=480 _image_width:=640 
-    _pixel_format:=yuyv
+    _pixel_format:=yuyv _framerate:=10
 
 Remember that value of `video_device` and other parameters may vary
 depending on which camera you want to use. For a standard USB camera you
