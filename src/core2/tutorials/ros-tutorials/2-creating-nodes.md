@@ -346,6 +346,7 @@ You can use below `.launch` file:
                <param name="image_width" value="640"/>
                <param name="image_height" value="480"/>
                <param name="pixel_format" value="yuyv"/>
+               <param name="framerate" value="10"/>
          </node>
 
          <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
