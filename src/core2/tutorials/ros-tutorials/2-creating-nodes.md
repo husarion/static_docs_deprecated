@@ -35,7 +35,7 @@ Then you can initialize your workspace with command
 
 Now you can move to your workspace main directory:
 
-    $ $ cd ~/ros_workspace
+    $ cd ~/ros_workspace
 
 and compile it:
 
