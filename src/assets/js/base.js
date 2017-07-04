@@ -18,11 +18,11 @@ function scrollToSection(id) {
 
 function checkSizeAndTOC() {
     if ($('.htb__tabs').css('display') == 'none') {
-        $('html').addClass('mobile');
+        $('body').addClass('mobile');
         resetContentHeight();
 
     } else {
-        $('html').removeClass('mobile');
+        $('body').removeClass('mobile');
         minContentHeight();
     }
     updateTOC();

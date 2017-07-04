@@ -115,10 +115,8 @@
       height: 65px;
       background: #fff;
       position: absolute;
-      right: 0;
-      top: 0;
-      margin-top: -1px;
-      margin-right: -19px;
+      left: 0;
+      top: 44px;
       border: 1px $gray-lighter solid;
       border-left: none;
       display: none;
@@ -358,7 +356,6 @@
           margin: 0.5em 0;
         }
       }
-
     }
 
   }
@@ -373,11 +370,23 @@
 
   &.mobile {
     .toc_wrapper {
+      //width: 240px;
       left: -220px;
+      //border-right: 0;
+      //padding-right: 20px;
+      //background: none;
+
+      .toc, .selected_platform {
+        //background: #fff;
+        border-right: 1px #cfcfcf solid;
+      }
 
       &.expanded {
         left: 0;
-        border-right: 1px $gray-lighter solid;
+
+        .tgl_toc {
+          left: 220px;
+        }
       }
     }
 
@@ -387,6 +396,7 @@
     }
 
     .tgl_toc {
+      position: fixed;
       display: block;
     }
   }
