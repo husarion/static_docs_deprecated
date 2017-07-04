@@ -220,12 +220,12 @@ keyboard. You will need `teleop_twist_keyboard` node from
 Log in to your CORE2 device through remote desktop and run terminal. In
 first terminal window run `roscore`, in second run:
 
-    /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
+    $ /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
 
 This program is responsible for bridging your CORE2 to ROS network. In
 third terminal window run:
 
-    rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+    $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 Now you can control your robot with keyboard with following functions
 for buttons:
@@ -502,7 +502,7 @@ it publishes its own position.
 Log in to your CORE2 device through remote desktop and run terminal and
 start your robot as previously. In another terminal window run:
 
-    rostopic echo /pose
+    $ rostopic echo /pose
 
 Remember, that you need to have active window with
 `teleop_twist_keyboard` to control robot movement.
