@@ -125,6 +125,6 @@ $('.htb__tgl_menu').on('click', function() {
 
 $('.tgl_toc a').on('click', function(event) {
     event.preventDefault();
-    $('.toc_wrapper').toggleClass('expanded');
+    $('.toc_wrapper, .tgl_toc').toggleClass('expanded');
 });
 

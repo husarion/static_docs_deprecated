@@ -51,8 +51,6 @@
       //margin-top: 10px;
     }
 
-
-
     .treeitem {
       line-height: 1.5em;
       padding: 1px 10px;
@@ -108,27 +106,6 @@
     .treeitem.active {
       background-color: $primary-color;
       color: #fff;
-    }
-
-    .tgl_toc {
-      width: 19px;
-      height: 65px;
-      background: #fff;
-      position: absolute;
-      left: 0;
-      top: 44px;
-      border: 1px $gray-lighter solid;
-      border-left: none;
-      display: none;
-
-      a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: url('/assets/img/tgl_nav.png') 50% 50% no-repeat;
-        text-decoration: none;
-
-      }
     }
 
     .section-title.active {
@@ -240,7 +217,6 @@
         padding: 5px;
         border: 1px $gray-lighter solid;
       }
-
 
       span {
         display: block;
@@ -368,6 +344,27 @@
     }
   }
 
+  .tgl_toc {
+    width: 19px;
+    height: 65px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 44px;
+    border: 1px $gray-lighter solid;
+    border-left: none;
+    display: none;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url('/assets/img/tgl_nav.png') 50% 50% no-repeat;
+      text-decoration: none;
+
+    }
+  }
+
   &.mobile {
     .toc_wrapper {
       //width: 240px;
@@ -384,9 +381,6 @@
       &.expanded {
         left: 0;
 
-        .tgl_toc {
-          left: 220px;
-        }
       }
     }
 
@@ -398,6 +392,9 @@
     .tgl_toc {
       position: fixed;
       display: block;
+      &.expanded {
+        left: 220px;
+      }
     }
   }
 
