@@ -218,7 +218,7 @@ keyboard. You will need `teleop_twist_keyboard` node from
 `teleop_twist_keyboard` package.
 
 Log in to your CORE2 device through remote desktop and run terminal. In
-first terminal window run `roscore`, in second run:
+first terminal window run `$ roscore`, in second run:
 
     $ /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
 
