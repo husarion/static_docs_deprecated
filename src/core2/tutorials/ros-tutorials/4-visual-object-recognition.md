@@ -616,7 +616,7 @@ front of your robot. Observe how it turns towards object.
 In this section you will modify your robot to turn and also drive
 towards object while keeping distance to it. For keeping the distance we
 will use proximity sensors. Connect right sensor to
-`hSens1` port of `CORE2` and left to `hSens2`.
+`hSens6` port of `CORE2` and left to `hSens1`.
 
 Log in to Husarion Cloud and open project that you created in previous
 manual, you will edit it a little.
@@ -629,8 +629,8 @@ Include required header files:
 Instantiate sensor objects:
 
     using namespace hModules;
-    DistanceSensor sensR(hSens1);
-    DistanceSensor sensL(hSens2);
+    DistanceSensor sensR(hSens6);
+    DistanceSensor sensL(hSens1);
 
 Message objects for left and right sensor measurement:
 
