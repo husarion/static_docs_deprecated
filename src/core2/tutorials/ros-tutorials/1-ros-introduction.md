@@ -480,7 +480,8 @@ At first you will need a `.launch` file.
              <param name="video_device" value="/dev/video0"/>
                <param name="image_width" value="640"/>
                <param name="image_height" value="480"/>
-               <param name="pixel_format" value="rgb24"/>
+               <param name="pixel_format" value="yuyv"/>
+               <param name="framerate" value="10"/>
          </node>
 
          <node pkg="image_view" type="image_view" name="image_view">
