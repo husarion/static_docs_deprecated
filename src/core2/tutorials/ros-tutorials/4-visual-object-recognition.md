@@ -689,8 +689,8 @@ Whole file should look like this:
 #include "sensor_msgs/Range.h"
 
 using namespace hModules;
-DistanceSensor sensR(hSens1);
-DistanceSensor sensL(hSens2);
+DistanceSensor sensR(hSens6);
+DistanceSensor sensL(hSens1);
 
 using namespace hFramework;
 
