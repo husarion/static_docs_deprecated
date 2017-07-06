@@ -221,7 +221,7 @@ Main function, tasks and node initialization:
         RPi.setBaudrate(500000);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
-	sys.taskCreate(batteryCheck);
+		sys.taskCreate(batteryCheck);
 
 Subscribe to topic:
 
