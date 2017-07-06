@@ -153,7 +153,7 @@ paste following:
         hMot3.setEncoderPolarity(Polarity::Reversed);
         hMot4.setMotorPolarity(Polarity::Reversed);
         hMot4.setEncoderPolarity(Polarity::Reversed);
-	LED1.on();
+        LED1.on();
         sys.taskCreate(batteryCheck);
         while(true) {
             nh.spinOnce();
