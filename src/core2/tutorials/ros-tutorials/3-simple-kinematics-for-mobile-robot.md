@@ -112,14 +112,14 @@ paste following:
     int voltage=1;
     
     void twistCallback(const geometry_msgs::Twist &twist) {
-        float lin = twist.linear.x;
-        float ang = twist.angular.z;
-        float motorL = lin - ang * 0.5;
-        float motorR = lin + ang * 0.5;
-	hMot1.setPower(motorR*500*voltage);
-	hMot2.setPower(motorR*500*voltage);
-	hMot3.setPower(motorL*500*voltage);
-	hMot4.setPower(motorL*500*voltage);
+		float lin = twist.linear.x;
+		float ang = twist.angular.z;
+		float motorL = lin - ang * 0.5;
+		float motorR = lin + ang * 0.5;
+		hMot1.setPower(motorR*500*voltage);
+		hMot2.setPower(motorR*500*voltage);
+		hMot3.setPower(motorL*500*voltage);
+		hMot4.setPower(motorL*500*voltage);
     }
     
 	void batteryCheck(){
