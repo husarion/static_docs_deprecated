@@ -125,19 +125,19 @@ paste following:
 	void batteryCheck(){
 	    int i=0;
 	    for(;;){
-		if(sys.getSupplyVoltage()>11.1){
-		    i=0;
-		}
-		else{
-		    i++;
-		}
-		if(i>50){
-		    voltage=0;
-		}
-		if(voltage==0){
-		    LED1.toggle();
-		}
-		sys.delay(100);
+			if(sys.getSupplyVoltage()>11.1){
+			    i=0;
+			}
+			else{
+			    i++;
+			}
+			if(i>50){
+			    voltage=0;
+			}
+			if(voltage==0){
+			    LED1.toggle();
+			}
+			sys.delay(100);
 	    }
 	}
     
@@ -181,10 +181,18 @@ Load namespace for Husarion functions:
 Handle for node:
 
     ros::NodeHandle nh;
+    
+Variable for turnig off the motors in case of low voltage:
+
+    int voltage=1;
 
 Function for handling incoming messages:
 
-    void twistCallback(const geometry_msgs::Twist &twist) {
+    void twistCallback(const geometry_msgs::Twist &twist) 
+
+Function for checking voltage:
+
+	void batteryCheck()
 
 Read linear and angular target velocities, then calculate motor
 velocities:
@@ -206,13 +214,14 @@ Define subscriber for velocity topic:
 
     ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 
-Main function and node initialization:
+Main function, tasks and node initialization:
 
     void hMain() {
         platform.begin(&RPi);
         RPi.setBaudrate(500000);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
+	sys.taskCreate(batteryCheck);
 
 Subscribe to topic:
 
