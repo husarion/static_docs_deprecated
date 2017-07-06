@@ -125,7 +125,7 @@ paste following:
 	void batteryCheck(){
 	    int i=0;
 	    for(;;){
-		if(sys.getSupplyVoltage()>10.5){
+		if(sys.getSupplyVoltage()>11.1){
 		    i=0;
 		}
 		else{
@@ -197,11 +197,10 @@ velocities:
 
 Set target power for motors:
 
-    hMot1.setPower(motorL*100);
-        hMot2.setPower(motorL*100);
-        hMot3.setPower(motorR*100);
-        hMot4.setPower(motorR*100);
-    }
+    hMot1.setPower(motorL*100*voltage);
+    hMot2.setPower(motorL*100*voltage);
+    hMot3.setPower(motorR*100*voltage);
+    hMot4.setPower(motorR*100*voltage);
 
 Define subscriber for velocity topic:
 
@@ -223,9 +222,9 @@ Define reversed polarity for left front and rear motors, this may vary,
 depending on your machine configuration:
 
     hMot3.setMotorPolarity(Polarity::Reversed);
-        hMot3.setEncoderPolarity(Polarity::Reversed);
-        hMot4.setMotorPolarity(Polarity::Reversed);
-        hMot4.setEncoderPolarity(Polarity::Reversed);
+    hMot3.setEncoderPolarity(Polarity::Reversed);
+    hMot4.setMotorPolarity(Polarity::Reversed);
+    hMot4.setEncoderPolarity(Polarity::Reversed);
 
 Infinite loop, wait for incoming messages:
 
@@ -418,6 +417,8 @@ ros::NodeHandle nh;
 geometry_msgs::PoseStamped pose;
 ros::Publisher pose_pub("/pose", &pose);
 
+int voltage=1;
+
 uint16_t delay = 10; // milliseconds
 float delay_s = (float)delay/(float)1000;
 uint16_t enc_res = 1000; // encoder tics per wheel revolution
@@ -452,16 +453,16 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     float ang = twist.angular.z;
     float motorL = lin - ang * 0.5;
     float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR*100);
-	hMot2.setPower(motorR*100);
-	hMot3.setPower(motorL*100);
-	hMot4.setPower(motorL*100);
+    hMot1.setPower(motorR*500*voltage);
+    hMot2.setPower(motorR*500*voltage);
+    hMot3.setPower(motorL*500*voltage);
+    hMot4.setPower(motorL*500*voltage);
 }
 
 void batteryCheck(){
     int i=0;
     for(;;){
-        if(sys.getSupplyVoltage()>10.5){
+        if(sys.getSupplyVoltage()>11.1){
             i=0;
         }
         else{
@@ -486,9 +487,11 @@ void hMain() {
 	nh.initNode();
     nh.subscribe(sub);
     hMot3.setMotorPolarity(Polarity::Reversed);
-	hMot3.setEncoderPolarity(Polarity::Reversed);
+    hMot3.setEncoderPolarity(Polarity::Reversed);
     hMot4.setMotorPolarity(Polarity::Reversed);
-	hMot4.setEncoderPolarity(Polarity::Reversed);
+    hMot4.setEncoderPolarity(Polarity::Reversed);
+    LED1.on();
+    sys.taskCreate(batteryCheck);
     
     pose.header.frame_id="robot";
     pose.pose.position.x = 0;
