@@ -190,7 +190,7 @@ Function for handling incoming messages:
 
     void twistCallback(const geometry_msgs::Twist &twist) 
 
-Function for checking voltage:
+Function for checking battery voltage:
 
 	void batteryCheck()
 
