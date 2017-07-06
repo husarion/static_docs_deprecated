@@ -256,7 +256,7 @@ And as the output you should get:
      * /rosout/set_logger_level
      * /rosout/get_loggers
      
-    contacting node http://raspberry:48067/ ...
+    contacting node http://core2-ros:48067/ ...
     Pid: 4594
 
 You can see here that node `/rosout` is publishing to topic
@@ -289,7 +289,7 @@ As the output you should get:
     Publishers: None
     
     Subscribers: 
-     * /rosout (http://raspberry:33119/)
+     * /rosout (http://core2-ros:33119/)
 
 From this you can read, that on topic `/rosout` can be transmitted only
 messages of type `rosgraph_msgs/Log`, there is no node that publishes to
@@ -304,7 +304,7 @@ As the output you should get:
     Type: rosgraph_msgs/Log
     
     Publishers: 
-     * /rosout (http://raspberry:33119/)
+     * /rosout (http://core2-ros:33119/)
      
     Subscribers: None
 
