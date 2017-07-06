@@ -116,10 +116,10 @@ paste following:
         float ang = twist.angular.z;
         float motorL = lin - ang * 0.5;
         float motorR = lin + ang * 0.5;
-        hMot1.setPower(motorL*100);
-            hMot2.setPower(motorL*100);
-            hMot3.setPower(motorR*100);
-            hMot4.setPower(motorR*100);
+	hMot1.setPower(motorR*500*voltage);
+	hMot2.setPower(motorR*500*voltage);
+	hMot3.setPower(motorL*500*voltage);
+	hMot4.setPower(motorL*500*voltage);
     }
     
 	void batteryCheck(){
@@ -150,9 +150,9 @@ paste following:
         nh.initNode();
         nh.subscribe(sub);   
         hMot3.setMotorPolarity(Polarity::Reversed);
-            hMot3.setEncoderPolarity(Polarity::Reversed);
-            hMot4.setMotorPolarity(Polarity::Reversed);
-            hMot4.setEncoderPolarity(Polarity::Reversed);
+        hMot3.setEncoderPolarity(Polarity::Reversed);
+        hMot4.setMotorPolarity(Polarity::Reversed);
+        hMot4.setEncoderPolarity(Polarity::Reversed);
 	LED1.on();
         sys.taskCreate(batteryCheck);
         while(true) {
@@ -197,10 +197,10 @@ velocities:
 
 Set target power for motors:
 
-    hMot1.setPower(motorL*100*voltage);
-    hMot2.setPower(motorL*100*voltage);
-    hMot3.setPower(motorR*100*voltage);
-    hMot4.setPower(motorR*100*voltage);
+    hMot1.setPower(motorR*500*voltage);
+    hMot2.setPower(motorR*500*voltage);
+    hMot3.setPower(motorL*500*voltage);
+    hMot4.setPower(motorL*500*voltage);
 
 Define subscriber for velocity topic:
 
