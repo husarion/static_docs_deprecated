@@ -97,6 +97,7 @@ motors, read encoders and publish their state to appropriate topic. To
 create this node you will use Husarion Cloud. Create new project and
 paste following:
 
+`
     #include "hFramework.h"
     #include "hCloudClient.h"
     #include <stdio.h>
@@ -121,24 +122,24 @@ paste following:
             hMot4.setPower(motorR*100);
     }
     
-    void batteryCheck(){
-        int i=0;
-	for(;;){
-            if(sys.getSupplyVoltage()>10.5){
-                i=0;
-            }
-            else{
-                i++;
-            }
-            if(i>50){
-                voltage=0;
-            }
-            if(voltage==0){
-	        LED1.toggle();
-            }
-            sys.delay(100);
-	}
+void batteryCheck(){
+    int i=0;
+    for(;;){
+        if(sys.getSupplyVoltage()>10.5){
+            i=0;
+        }
+        else{
+            i++;
+        }
+        if(i>50){
+            voltage=0;
+        }
+        if(voltage==0){
+	    LED1.toggle();
+        }
+        sys.delay(100);
     }
+}
     
     ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
     
@@ -159,7 +160,8 @@ paste following:
             sys.delay(100);
         }
     }
-        
+`
+
 Below is explanation for code line by line.
 
 Include required headers:
