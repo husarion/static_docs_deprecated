@@ -238,9 +238,9 @@ depending on your machine configuration:
 Infinite loop, wait for incoming messages:
 
     while(true) {
-            nh.spinOnce();
-            sys.delay(100);
-        }
+	nh.spinOnce();
+	sys.delay(100);
+}
  
 Build your project and upload it to device.
 
