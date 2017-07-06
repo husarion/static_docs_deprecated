@@ -692,6 +692,8 @@ using namespace hModules;
 DistanceSensor sensR(hSens6);
 DistanceSensor sensL(hSens1);
 
+int voltage=1;
+
 using namespace hFramework;
 
 ros::NodeHandle nh;
@@ -738,10 +740,29 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     float ang = twist.angular.z;
     float motorL = lin - ang * 0.5;
     float motorR = lin + ang * 0.5;
-	hMot1.setPower(motorR*100);
-	hMot2.setPower(motorR*100);
+    hMot1.setPower(motorR*100);
+    hMot2.setPower(motorR*100);
     hMot3.setPower(motorL*100);
-	hMot4.setPower(motorL*100);
+    hMot4.setPower(motorL*100);
+}
+
+void batteryCheck(){
+    int i=0;
+    for(;;){
+        if(sys.getSupplyVoltage()>11.1){
+            i=0;
+        }
+        else{
+            i++;
+        }
+        if(i>50){
+            voltage=0;
+        }
+        if(voltage==0){
+	    LED1.toggle();
+        }
+        sys.delay(100);
+    }
 }
 
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
@@ -753,9 +774,11 @@ void hMain() {
 	nh.initNode();
     nh.subscribe(sub);
     hMot3.setMotorPolarity(Polarity::Reversed);
-	hMot3.setEncoderPolarity(Polarity::Reversed);
+    hMot3.setEncoderPolarity(Polarity::Reversed);
     hMot4.setMotorPolarity(Polarity::Reversed);
-	hMot4.setEncoderPolarity(Polarity::Reversed);
+    hMot4.setEncoderPolarity(Polarity::Reversed);
+    LED1.on();
+    sys.taskCreate(batteryCheck);
     
     pose.header.frame_id="robot";
     pose.pose.position.x = 0;
@@ -810,7 +833,7 @@ void hMain() {
 	    pose.pose.position.x = robot_x_pos;
 	    pose.pose.position.y = robot_y_pos;
 	    pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-        pose_pub.publish(&pose);
+            pose_pub.publish(&pose);
       
 	    int distL = sensL.getDistance();
 	    int distR = sensR.getDistance();
