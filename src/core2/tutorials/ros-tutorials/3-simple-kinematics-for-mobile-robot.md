@@ -108,6 +108,8 @@ paste following:
     using namespace hFramework;
     ros::NodeHandle nh;
     
+    int voltage=1;
+    
     void twistCallback(const geometry_msgs::Twist &twist) {
         float lin = twist.linear.x;
         float ang = twist.angular.z;
@@ -117,6 +119,25 @@ paste following:
             hMot2.setPower(motorL*100);
             hMot3.setPower(motorR*100);
             hMot4.setPower(motorR*100);
+    }
+    
+    void batteryCheck(){
+        int i=0;
+	for(;;){
+            if(sys.getSupplyVoltage()>10.5){
+                i=0;
+            }
+            else{
+                i++;
+            }
+            if(i>50){
+                voltage=0;
+            }
+            if(voltage==0){
+	        LED1.toggle();
+            }
+            sys.delay(100);
+	}
     }
     
     ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
@@ -131,6 +152,8 @@ paste following:
             hMot3.setEncoderPolarity(Polarity::Reversed);
             hMot4.setMotorPolarity(Polarity::Reversed);
             hMot4.setEncoderPolarity(Polarity::Reversed);
+	LED1.on();
+        sys.taskCreate(batteryCheck);
         while(true) {
             nh.spinOnce();
             sys.delay(100);
@@ -431,6 +454,25 @@ void twistCallback(const geometry_msgs::Twist &twist) {
 	hMot2.setPower(motorR*100);
 	hMot3.setPower(motorL*100);
 	hMot4.setPower(motorL*100);
+}
+
+void batteryCheck(){
+    int i=0;
+    for(;;){
+        if(sys.getSupplyVoltage()>10.5){
+            i=0;
+        }
+        else{
+            i++;
+        }
+        if(i>50){
+            voltage=0;
+        }
+        if(voltage==0){
+	    LED1.toggle();
+        }
+        sys.delay(100);
+    }
 }
 
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
