@@ -68,7 +68,7 @@ Syntax of `catkin_create_pkg` is:
 
     catkin_create_pkg package_name [required packages]
 
-Where `package_name` is desired package name and argument
+where `package_name` is desired package name and argument
 `required packages` is optional and contain names of packages that used
 by newly created package.
 
