@@ -51,7 +51,7 @@ And it should end with:
     #### Running command: "make -j4 -l4" in "/home/pi/ros_workspace/build"
     ####
 
-After this operation you should have tow new folders in workspace:
+After this operation you should have two new folders in workspace:
 `build` for storing files that are used during compilation and `devel`
 for storing output files.
 
