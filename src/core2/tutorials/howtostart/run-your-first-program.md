@@ -67,14 +67,23 @@ You also need to register your own account on [Husarion Cloud](https://cloud.hus
 Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
 
 hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in
+
 ![image](/assets/img/howToStart/1_signin.png)
+
 Click "Add new device"
+
 ![image](/assets/img/howToStart/2_addNewDevice.png)
+
 Enter a name for you CORE2 powered device
+
 ![image](/assets/img/howToStart/3_enterName.png)
+
 Scan QR code using your hConfig app
+
 ![image](/assets/img/howToStart/4_scanQr.png)
+
 Well done! You just added your first device to the cloud!
+
 ![image](/assets/img/howToStart/5_devAdded.png)
 
 ## Writing your first program ##
