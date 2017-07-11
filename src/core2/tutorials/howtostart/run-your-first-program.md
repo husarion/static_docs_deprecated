@@ -88,7 +88,7 @@ Well done! You just added your first device to the cloud!
 
 ## Writing your first program ##
 
-Open WebIDE. 
+### Open WebIDE. ###
 
 Click "+" next to your device name ane sellect "IDE"
 
