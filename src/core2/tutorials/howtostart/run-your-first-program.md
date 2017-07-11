@@ -88,12 +88,39 @@ Well done! You just added your first device to the cloud!
 
 ## Writing your first program ##
 
-![1. Open WebIDE|1. Click "+" next to your device name ane sellect "IDE"](/assets/img/howToStart/6_openWebIDE.png)
-![2. Create new project|2. Click "Create" button to open new project wizard](/assets/img/howToStart/7_createNewProj.png)
-![3. Select CORE2, HowToStart template, and type a project name|3. Select CORE2 board, version 1.0.0, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button](/assets/img/howToStart/8_projSettings.png)
-![4. Web IDE will appear with your first project code |4. This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet](/assets/img/howToStart/9_webIDEmain.png)
-![5. Click "<none>" next to "selected device" and select your device |5. Click "<none>" next to "selected device" and select "myFirstDev" device](/assets/img/howToStart/10_webIDEselectDev.png)
-![6. Click a button with a "cloud with arrow" to upload new firmware to your device |6. Click a button with a "cloud with arrow" to upload new firmware to your device. Well done! now you can check how your first program works.](/assets/img/howToStart/11_webIDEprogram.png)
+Open WebIDE. 
+
+Click "+" next to your device name ane sellect "IDE"
+
+![image](/assets/img/howToStart/6_openWebIDE.png)
+
+Create new project.
+
+Click "Create" button to open new project wizard
+
+![image](/assets/img/howToStart/7_createNewProj.png)
+
+Select CORE2, HowToStart template, and type a project name.
+
+Select CORE2 board, version 1.0.0, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
+
+![image](/assets/img/howToStart/8_projSettings.png)
+
+Web IDE will appear with your first project code.
+
+This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet
+
+![image](/assets/img/howToStart/9_webIDEmain.png)
+
+Click "<none>" next to "selected device" and select your device.
+
+Click "<none>" next to "selected device" and select "myFirstDev" device.
+
+![image](/assets/img/howToStart/10_webIDEselectDev.png)
+
+Click a button with a "cloud with arrow" to upload new firmware to your device. Well done! now you can check how your first program works.
+
+![image](/assets/img/howToStart/11_webIDEprogram.png)
 
 ## Using a device connected to Husarion Cloud ##
 In the previous step you have uploaded the firmware into your CORE2. Let's check how it works!<br/>
