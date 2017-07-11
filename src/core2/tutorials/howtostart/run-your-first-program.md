@@ -118,6 +118,8 @@ Click "<none>" next to "selected device" and select "myFirstDev" device.
 
 ![image](/assets/img/howToStart/10_webIDEselectDev.png)
 
+### Click a button with a "cloud with arrow" to upload new firmware to your device. ###
+
 Click a button with a "cloud with arrow" to upload new firmware to your device. Well done! now you can check how your first program works.
 
 ![image](/assets/img/howToStart/11_webIDEprogram.png)
