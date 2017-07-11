@@ -94,25 +94,25 @@ Click "+" next to your device name ane sellect "IDE"
 
 ![image](/assets/img/howToStart/6_openWebIDE.png)
 
-Create new project.
+### Create new project. ###
 
 Click "Create" button to open new project wizard
 
 ![image](/assets/img/howToStart/7_createNewProj.png)
 
-Select CORE2, HowToStart template, and type a project name.
+### Select CORE2, HowToStart template, and type a project name. ###
 
 Select CORE2 board, version 1.0.0, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
 
 ![image](/assets/img/howToStart/8_projSettings.png)
 
-Web IDE will appear with your first project code.
+### Web IDE will appear with your first project code. ###
 
 This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet
 
 ![image](/assets/img/howToStart/9_webIDEmain.png)
 
-Click "<none>" next to "selected device" and select your device.
+### Click "<none>" next to "selected device" and select your device. ###
 
 Click "<none>" next to "selected device" and select "myFirstDev" device.
 
