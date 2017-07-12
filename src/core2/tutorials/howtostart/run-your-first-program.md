@@ -65,7 +65,7 @@ This is a web Integrated Development Environment in which you can write a firmwa
 
 ![image](/assets/img/howToStart/9_webIDEmain.png)
 
-Click "\<none\>" next to "selected device" and select "myFirstDev" device.
+Click "&ltnone&rt>" next to "selected device" and select "myFirstDev" device.
 
 ![image](/assets/img/howToStart/10_webIDEselectDev.png)
 
