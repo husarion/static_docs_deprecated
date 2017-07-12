@@ -16,7 +16,7 @@ Connect your CORE2 to a DC power supply. The power connector is a standard DC 5.
 * Li-poly/Li-ion packages - 2S or 3S (e.g. 18650 batteries)
 * AA alkaline batteries (4-10 pieces)
 
-![image]
+![image](/assets/img/howToStart/core2_power_supply.png)
 
 ## Connecting to the Cloud ##
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
