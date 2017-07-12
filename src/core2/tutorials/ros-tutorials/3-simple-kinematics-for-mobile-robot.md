@@ -309,7 +309,7 @@ Variables for storing cycle time:
 Variable for storing encoder resolution, adjust this value to parameter
 of your robot:
 
-    uint16_t enc_res = 1000; // encoder tics per wheel revolution
+    uint16_t enc_res = 1400; // encoder tics per wheel revolution
 
 Variables for storing encoder values:
 
@@ -430,7 +430,7 @@ int voltage=1;
 
 uint16_t delay = 10; // milliseconds
 float delay_s = (float)delay/(float)1000;
-uint16_t enc_res = 1000; // encoder tics per wheel revolution
+uint16_t enc_res = 1400; // encoder tics per wheel revolution
 
 int32_t enc_FL = 0; // encoder tics
 int32_t enc_RL = 0; // encoder tics
