@@ -57,7 +57,7 @@ Click "Create" button to open new project wizard.
 
 ![image](/assets/img/howToStart/7_createNewProj.png)
 
-Select CORE2 board, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
+Select CORE2 board, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button.
 
 ![image](/assets/img/howToStart/8_projSettings.png)
 
