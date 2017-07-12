@@ -63,7 +63,7 @@ Click "Create" button to open new project wizard.
 
 Select CORE2 board, chose HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button.
 
-![image](/assets/img/howToStart/8_projSettings.png)
+![image](/assets/img/howToStart/8_projSettings_0.png)
 
 This is a web Integrated Development Environment in which you can write a firmware for your device, and upload the firmware through the Internet.
 
