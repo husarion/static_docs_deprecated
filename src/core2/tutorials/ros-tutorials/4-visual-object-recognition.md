@@ -708,7 +708,7 @@ ros::Publisher rangeR_pub("/rangeR", &rangeR);
 
 uint16_t delay = 10; // milliseconds
 float delay_s = (float)delay/(float)1000;
-uint16_t enc_res = 1000; // encoder tics per wheel revolution
+uint16_t enc_res = 1400; // encoder tics per wheel revolution
 
 int32_t enc_FL = 0; // encoder tics
 int32_t enc_RL = 0; // encoder tics
@@ -731,8 +731,8 @@ float robot_y_pos = 0; // meters
 float robot_x_vel = 0; // meters per second
 float robot_y_vel = 0; // meters per second
 
-float robot_width = 0.2; // meters
-float robot_length = 0.15; //meters
+float robot_width = 0.3; // meters
+float robot_length = 0.105; //meters
 float wheel_radius = 0.04; //meters
 
 void twistCallback(const geometry_msgs::Twist &twist) {
@@ -740,10 +740,10 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     float ang = twist.angular.z;
     float motorL = lin - ang * 0.5;
     float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR*100);
-    hMot2.setPower(motorR*100);
-    hMot3.setPower(motorL*100);
-    hMot4.setPower(motorL*100);
+    hMot1.setPower(motorR*700);
+    hMot2.setPower(motorR*700);
+    hMot3.setPower(motorL*700);
+    hMot4.setPower(motorL*700);
 }
 
 void batteryCheck(){
@@ -759,7 +759,7 @@ void batteryCheck(){
             voltage=0;
         }
         if(voltage==0){
-	    LED1.toggle();
+        LED1.toggle();
         }
         sys.delay(100);
     }
@@ -771,7 +771,7 @@ void hMain() {
     platform.begin(&RPi);
     RPi.setBaudrate(500000);
     nh.getHardware()->initWithDevice(&platform.LocalSerial);
-	nh.initNode();
+    nh.initNode();
     nh.subscribe(sub);
     hMot3.setMotorPolarity(Polarity::Reversed);
     hMot3.setEncoderPolarity(Polarity::Reversed);
@@ -779,15 +779,15 @@ void hMain() {
     hMot4.setEncoderPolarity(Polarity::Reversed);
     LED1.on();
     sys.taskCreate(batteryCheck);
-    
+
     pose.header.frame_id="robot";
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
     pose.pose.position.z = 0;
     pose.pose.orientation = tf::createQuaternionFromYaw(0);
-    
+
     nh.advertise(pose_pub);
-    
+
     rangeL.header.frame_id="left";
     rangeL.radiation_type=sensor_msgs::Range::ULTRASOUND;
     rangeL.field_of_view = 0.5; // rad
@@ -799,53 +799,53 @@ void hMain() {
     rangeR.field_of_view = 0.5; // rad
     rangeR.min_range = 0.05; // meters
     rangeR.max_range = 2; // meters
-    
+
     nh.advertise(rangeL_pub);
     nh.advertise(rangeR_pub);
-    
-	while(true) {
-	    enc_FR = hMot1.getEncoderCnt();
-	    enc_RR = hMot2.getEncoderCnt();
-	    enc_RL = hMot3.getEncoderCnt();
-	    enc_FL = hMot4.getEncoderCnt();
-	    
-	    enc_L = (enc_FL+enc_RL)/2;
-	    enc_R = (enc_FR+enc_RR)/2;
-	    
-	    wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
-	    wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
-	    
-	    wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
-	    wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
-	    
-	    robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width)
-	    	- robot_angular_pos)/delay_s;
-	    robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
-	    
-	    robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-	    	cos(robot_angular_pos);
-	    robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-	    	sin(robot_angular_pos);
-	    
-	    robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
-	    robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
-	    
-	    pose.pose.position.x = robot_x_pos;
-	    pose.pose.position.y = robot_y_pos;
-	    pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-            pose_pub.publish(&pose);
-      
-	    int distL = sensL.getDistance();
-	    int distR = sensR.getDistance();
-	    
-	    rangeL.range = (float)distL/100;
-	    rangeR.range = (float)distR/100;
-	    rangeL_pub.publish(&rangeL);
-	    rangeR_pub.publish(&rangeR);
-		
-		nh.spinOnce();
-		sys.delay(delay);
-	}
+
+    while(true) {
+        enc_FR = hMot1.getEncoderCnt();
+        enc_RR = hMot2.getEncoderCnt();
+        enc_RL = hMot3.getEncoderCnt();
+        enc_FL = hMot4.getEncoderCnt();
+
+        enc_L = (enc_FL+enc_RL)/2;
+        enc_R = (enc_FR+enc_RR)/2;
+
+        wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
+        wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
+
+        wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
+        wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
+
+        robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width)
+            - robot_angular_pos)/delay_s;
+        robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
+
+        robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
+            cos(robot_angular_pos);
+        robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
+            sin(robot_angular_pos);
+
+        robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
+        robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
+
+        pose.pose.position.x = robot_x_pos;
+        pose.pose.position.y = robot_y_pos;
+        pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
+        pose_pub.publish(&pose);
+
+        int distL = sensL.getDistance();
+        int distR = sensR.getDistance();
+
+        rangeL.range = (float)distL/100;
+        rangeR.range = (float)distR/100;
+        rangeL_pub.publish(&rangeL);
+        rangeR_pub.publish(&rangeR);
+
+        nh.spinOnce();
+        sys.delay(delay);
+    }
 }
 ```
 
