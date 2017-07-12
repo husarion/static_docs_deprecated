@@ -20,7 +20,7 @@ Connect your CORE2 to a DC power supply. The power connector is a standard DC 5.
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/core2_power_supply.png"
 /></center></div>
 
-Now your device is ready to use!
+Set the power switch to "ON" position and now your device is ready to use!
 
 ## Connecting to the Cloud ##
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
