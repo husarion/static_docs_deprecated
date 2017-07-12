@@ -116,10 +116,10 @@ paste following:
 		float ang = twist.angular.z;
 		float motorL = lin - ang * 0.5;
 		float motorR = lin + ang * 0.5;
-		hMot1.setPower(motorR*500*voltage);
-		hMot2.setPower(motorR*500*voltage);
-		hMot3.setPower(motorL*500*voltage);
-		hMot4.setPower(motorL*500*voltage);
+		hMot1.setPower(motorR*700*voltage);
+		hMot2.setPower(motorR*700*voltage);
+		hMot3.setPower(motorL*700*voltage);
+		hMot4.setPower(motorL*700*voltage);
     }
     
 	void batteryCheck(){
@@ -205,10 +205,10 @@ velocities:
 
 Set target power for motors:
 
-    hMot1.setPower(motorR*500*voltage);
-    hMot2.setPower(motorR*500*voltage);
-    hMot3.setPower(motorL*500*voltage);
-    hMot4.setPower(motorL*500*voltage);
+    hMot1.setPower(motorR*700*voltage);
+    hMot2.setPower(motorR*700*voltage);
+    hMot3.setPower(motorL*700*voltage);
+    hMot4.setPower(motorL*700*voltage);
 
 Define subscriber for velocity topic:
 
@@ -341,8 +341,8 @@ Variables for storing robot position:
 Variables for storing robot parameters, adjust these values to your
 robot:
 
-    float robot_width = 0.2; // meters
-    float robot_length = 0.15; //meters
+    float robot_width = 0.3; // meters
+    float robot_length = 0.105; //meters
     float wheel_radius = 0.04; //meters
 
 In main function, set start values for robot position:
@@ -453,8 +453,8 @@ float robot_y_pos = 0; // meters
 float robot_x_vel = 0; // meters per second
 float robot_y_vel = 0; // meters per second
 
-float robot_width = 0.2; // meters
-float robot_length = 0.15; //meters
+float robot_width = 0.3; // meters
+float robot_length = 0.105; //meters
 float wheel_radius = 0.04; //meters
 
 void twistCallback(const geometry_msgs::Twist &twist) {
@@ -462,10 +462,10 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     float ang = twist.angular.z;
     float motorL = lin - ang * 0.5;
     float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR*500*voltage);
-    hMot2.setPower(motorR*500*voltage);
-    hMot3.setPower(motorL*500*voltage);
-    hMot4.setPower(motorL*500*voltage);
+    hMot1.setPower(motorR*700*voltage);
+    hMot2.setPower(motorR*700*voltage);
+    hMot3.setPower(motorL*700*voltage);
+    hMot4.setPower(motorL*700*voltage);
 }
 
 void batteryCheck(){
