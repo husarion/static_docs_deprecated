@@ -88,14 +88,14 @@ Husarion Cloud allows you to share your devices conntected to Husarion cloud wit
 
 Click "+" next to your device name at https://cloud.husarion.com and select "Share"
 
-(/assets/img/howToStart/14_shareSelect.png)
+![image](/assets/img/howToStart/14_shareSelect.png)
 
 Select "Share via Link" and click "Generate link". Now you can send this link to anybody you want to access your device.
 
-(/assets/img/howToStart/15_shareDetails.png)
+![image](/assets/img/howToStart/15_shareDetails.png)
 
 3. When you open generated link, you’ll see your device’s web UI.
 
-(/assets/img/howToStart/16_shareUI.png)
+![image](/assets/img/howToStart/16_shareUI.png)
 
 Now you can share the link with anybody!
