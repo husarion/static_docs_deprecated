@@ -94,7 +94,7 @@ Select "Share via Link" and click "Generate link". Now you can send this link to
 
 ![image](/assets/img/howToStart/15_shareDetails.png)
 
-3. When you open generated link, you’ll see your device’s web UI.
+When you open generated link, you’ll see your device’s web UI.
 
 ![image](/assets/img/howToStart/16_shareUI.png)
 
