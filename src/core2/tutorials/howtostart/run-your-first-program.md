@@ -10,52 +10,13 @@ order: 1
 # Run your first program #
 ## Preparing hardware ##
 
-First, connect your CORE2 hardware to the WiFi gateway. For your convenience, you can choose the configuration that suits you best. 
-Choose one of the following configurations to connect your CORE2 to the WiFi gateway:
-
-### Option #1: ESP32 as a removable module to CORE2 ###
-Choosing this option, you will be able to easily run CORE2 in a different configuration in the future (e.g. with Raspberry Pi Zero).
-
-
-<div class="gallery gallery-6">
-
-![1. Elements you need](/assets/img/howToStart/esp_removable-01.png "[1/6] You will need: 2 nuts, stand-off, 7x2 goldpin female header, 7x2 goldpin male header, CORE2 and ESP32 module")
-![2. Place the male goldpin header](/assets/img/howToStart/esp_removable-02.png "[2/6] Place the 7x2 goldpin male header on the CORE2 hRPI connector]")
-![3. Then solder it](/assets/img/howToStart/esp_removable-03.png "[3/6] Solder the 7x2 goldpin male header to the CORE2 hRPI connector")
-![4. Solder the female header to the ESP](/assets/img/howToStart/esp_removable-04.png "[4/6] Solder the 7x2 goldpin female header to the ESP32")
-![5. Put it all together](/assets/img/howToStart/esp_removable-05.png "[5/6] Use 2 nuts, and spacer to reliably connect CORE2 and ESP32 module")
-![6. Done!](/assets/img/howToStart/esp_removable-06.png "[6/6] Well done! Now you are ready to connect your CORE2 to the Husarion cloud")
-
-</div>
-
-
-### Option #2: CORE2 + Raspberry Pi 2 or 3 ###
-
-Follow these steps to assemble CORE2 with Raspberry Pi 2 (or Raspberry Pi 3). A Linux computer is useful if you need to run complex software on your connected device (e.g. ROS libraries, video processing etc.).
-
-<div class="gallery gallery-6">
-
-![1. Elements you need](/assets/img/howToStart/raspberry_Pi2-01.png "[1/6] You will need: 8 x nut, 4 x stand-off, 7x2 goldpin female header \(with long pins\), CORE2 and Raspberry Pi 2 computer")
-![2. Place female goldpin header](/assets/img/howToStart/raspberry_Pi2-02.png "[2/6] Place 7x2 goldpin female header on the pins #1-14 of Raspberry Pi 2 male header") 
-![3. Screw CORE2 to RaspberryPi2](/assets/img/howToStart/raspberry_Pi2-03.png "[3/6]  Use 8 x nut, and 4 x stand-off to reliably connect CORE2 and Raspberry Pi 2")
-![4. Now it should look like this](/assets/img/howToStart/raspberry_Pi2-04.png "[4/6] Make sure that your CORE2 and Raspberry Pi 2 are joined together like on the picture")
-![5. Solder header to the CORE2](/assets/img/howToStart/raspberry_Pi2-05.png "[5/6] Solder 7x2 goldpin female header to the CORE")
-![6. Done!](/assets/img/howToStart/raspberry_Pi2-06.png "[6/6] Well done! Now you are ready to connect you CORE2 to the Husarion cloud")
-
-</div>
-
-Download and flash your SD card with Husarion RPi Image - instructions
-
-1. Download image for Raspberry PI from [](https://files.husarion.com/rpi-image-stable.img).
-2. Follow the official guide for writing an image to SD card - [](https://www.raspberrypi.org/documentation/installation/installing-images/).
-
-## Power supply ##
-
 Connect your CORE2 to a DC power supply. The power connector is a standard DC 5.5/2.1 (center-positive), and provides 6 to 16V output. You can use:
 
 * DC adapter
 * Li-poly/Li-ion packages - 2S or 3S (e.g. 18650 batteries)
 * AA alkaline batteries (4-10 pieces)
+
+![image]
 
 ## Connecting to the Cloud ##
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
@@ -96,7 +57,7 @@ Click "Create" button to open new project wizard
 
 ![image](/assets/img/howToStart/7_createNewProj.png)
 
-Select CORE2 board, version 1.0.0, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
+Select CORE2 board, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
 
 ![image](/assets/img/howToStart/8_projSettings.png)
 
