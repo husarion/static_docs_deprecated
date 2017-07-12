@@ -27,19 +27,19 @@ You also need to register your own account on [Husarion Cloud](https://cloud.hus
 
 Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
 
-hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in
+hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in.
 
 ![image](/assets/img/howToStart/1_signin.png)
 
-Click "Add new device"
+Click "Add new device".
 
 ![image](/assets/img/howToStart/2_addNewDevice.png)
 
-Enter a name for you CORE2 powered device
+Enter a name for you CORE2 powered device.
 
 ![image](/assets/img/howToStart/3_enterName.png)
 
-Scan QR code using your hConfig app
+Scan QR code using your hConfig app.
 
 ![image](/assets/img/howToStart/4_scanQr.png)
 
@@ -49,11 +49,11 @@ Well done! You just added your first device to the cloud!
 
 ## Writing your first program ##
 
-Click "+" next to your device name ane sellect "IDE"
+Click "+" next to your device name and sellect "IDE".
 
 ![image](/assets/img/howToStart/6_openWebIDE.png)
 
-Click "Create" button to open new project wizard
+Click "Create" button to open new project wizard.
 
 ![image](/assets/img/howToStart/7_createNewProj.png)
 
@@ -61,7 +61,7 @@ Select CORE2 board, HowToStart project template and enter name, eg. myFirstProje
 
 ![image](/assets/img/howToStart/8_projSettings.png)
 
-This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet
+This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet.
 
 ![image](/assets/img/howToStart/9_webIDEmain.png)
 
@@ -86,7 +86,7 @@ After a while your device UI will appear. Now spend a few seconds playing with a
 ## Share your device with friends ##
 Husarion Cloud allows you to share your devices conntected to Husarion cloud with other people with just a few clicks.
 
-Click "+" next to your device name at https://cloud.husarion.com and select "Share"
+Click "+" next to your device name at https://cloud.husarion.com and select "Share".
 
 ![image](/assets/img/howToStart/14_shareSelect.png)
 
