@@ -88,53 +88,53 @@ Well done! You just added your first device to the cloud!
 
 ## Writing your first program ##
 
-### Open WebIDE. ###
-
 Click "+" next to your device name ane sellect "IDE"
 
 ![image](/assets/img/howToStart/6_openWebIDE.png)
-
-### Create new project. ###
 
 Click "Create" button to open new project wizard
 
 ![image](/assets/img/howToStart/7_createNewProj.png)
 
-### Select CORE2, HowToStart template, and type a project name. ###
-
 Select CORE2 board, version 1.0.0, HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button
 
 ![image](/assets/img/howToStart/8_projSettings.png)
-
-### Web IDE will appear with your first project code. ###
 
 This is a web Integrated Development Enironment in which you can write a firmware for your device, and upload the firmware through the Internet
 
 ![image](/assets/img/howToStart/9_webIDEmain.png)
 
-### Click "<none>" next to "selected device" and select your device. ###
-
 Click "<none>" next to "selected device" and select "myFirstDev" device.
 
 ![image](/assets/img/howToStart/10_webIDEselectDev.png)
-
-### Click a button with a "cloud with arrow" to upload new firmware to your device. ###
 
 Click a button with a "cloud with arrow" to upload new firmware to your device. Well done! now you can check how your first program works.
 
 ![image](/assets/img/howToStart/11_webIDEprogram.png)
 
-## Using a device connected to Husarion Cloud ##
 In the previous step you have uploaded the firmware into your CORE2. Let's check how it works!<br/>
 
-![1. Go to https://cloud.husarion.com and click the myFirstDev's avatar|1. Go to https://cloud.husarion.com and click the myFirstDev's avatar. It's web user interface will start loading](/assets/img/howToStart/12_openDevUI.png)
-![2. After a while your device UI will appear|2. After a while your device UI will appear. Now spend a few seconds playing with a dev's interface.](/assets/img/howToStart/13_devUI.png)
+Go to https://cloud.husarion.com and click the myFirstDev's avatar. It's web user interface will start loading.
+
+![image](/assets/img/howToStart/12_openDevUI.png)
+
+After a while your device UI will appear. Now spend a few seconds playing with a dev's interface.
+
+![image](/assets/img/howToStart/13_devUI.png)
 
 ## Share your device with friends ##
 Husarion Cloud allows you to share your devices conntected to Husarion cloud with other people with just a few clicks.
 
-![1. Click "+" next to your device's name at https://cloud.husarion.com and select "Share"|1. Click "+" next to your device name at https://cloud.husarion.com and select "Share"](/assets/img/howToStart/14_shareSelect.png)
-![2. Select "Share via Link" and click "Generate link"|2. Select "Share via Link" and click "Generate link". Now you can send this link to anybody you want to access your device](/assets/img/howToStart/15_shareDetails.png)
-![3. When you open generated link, you’ll see your device’s web UI. |3. When you open generated link, you’ll see your device’s web UI.](/assets/img/howToStart/16_shareUI.png)
+Click "+" next to your device name at https://cloud.husarion.com and select "Share"
+
+(/assets/img/howToStart/14_shareSelect.png)
+
+Select "Share via Link" and click "Generate link". Now you can send this link to anybody you want to access your device.
+
+(/assets/img/howToStart/15_shareDetails.png)
+
+3. When you open generated link, you’ll see your device’s web UI.
+
+(/assets/img/howToStart/16_shareUI.png)
 
 Now you can share the link with anybody!
