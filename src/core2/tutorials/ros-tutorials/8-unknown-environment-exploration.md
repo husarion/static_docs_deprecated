@@ -1,5 +1,5 @@
 ---
-title: '7 Unknown environment exploration'
+title: '8 Unknown environment exploration'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
