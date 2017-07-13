@@ -1,5 +1,5 @@
 ---
-title: 'Path planning'
+title: '7 Path planning'
 platform_title: 'CORE2'
 core2: true
 autotoc: true
