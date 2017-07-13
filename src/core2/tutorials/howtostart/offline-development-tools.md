@@ -110,7 +110,7 @@ For Debian/Ubuntu you have to compile this tool from source:
 
 To flash the output file to CORE2, use the st-flash command:
 
-* `$ sudo st-flash write "myproject.bin 0x08010000"`
+* `$ sudo st-flash write myproject.bin 0x08010000`
 
 ***<font color="green">Info: The binary file "myproject.bin" is located in the folder selected during previous point.</font>***
 
@@ -162,6 +162,6 @@ For Mac write in a terminal:
 
 To flash the output file to CORE2, use the st-flash command:
 
-* $ sudo st-flash write "myproject.bin 0x08010000
+* $ sudo st-flash write myproject.bin 0x08010000
 
 ***<font color="green">Info: The binary file "myproject.bin" is located in the folder selected during previous point.</font>***
