@@ -132,7 +132,7 @@ You can use below `launch` file:
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
         <remap from="image" to="/usb_cam/image_raw"/>
         <param name="gui" value="false"/>
-        <param name="objects_path" value="/home/pi/ros_workspace/find_obj"/>
+        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
     </node>
 
 </launch>
@@ -374,7 +374,7 @@ You can use below `launch` file:
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
         <remap from="image" to="/usb_cam/image_raw"/>
         <param name="gui" value="false"/>
-        <param name="objects_path" value="/home/pi/ros_workspace/find_obj"/>
+        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
     </node>
 
     <node pkg="tutorial_pkg" type="action_controller_node" name="action_controller" 
