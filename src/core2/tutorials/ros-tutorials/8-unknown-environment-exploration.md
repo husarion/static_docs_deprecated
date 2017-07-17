@@ -268,7 +268,7 @@ first corner, line will become red.
 You need to use `Publish Point` button for the last time, click anywhere
 inside region and exploration task will start.
 
-![image](/assets/img/ros/man_8_4.png)
+![image](/assets/img/ros/man_8_4.png) 
 
 Robot will explore all accessible location within selected area. Observe
 as robot explores area, when there are no more frontiers or frontiers
