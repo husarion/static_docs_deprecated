@@ -467,7 +467,7 @@ Having all the elements visualized, you can set goal for robot, from
 Observe as path is generated (you should see a line from your robot
 pointing to direction) and robot is moving to its destination.
 
-![image](/assets/img/ros/man_7_3.png)
+![image](/assets/img/ros/man_7_3.png)  
 
 ## Summary ##
 
