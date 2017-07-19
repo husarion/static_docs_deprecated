@@ -1,9 +1,10 @@
 ---
 title: '7 Path planning'
-platform_title: 'CORE2'
+platform: 'CORE2'
 core2: true
 autotoc: true
 layout: layout.hbs
+page: 'Tutorials'
 order: 7
 ---
 

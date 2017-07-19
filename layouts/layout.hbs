@@ -21,57 +21,62 @@
 
   <div class="toc_wrapper">
     <div class="selected_platform">
-      {{# if platform_title }}
-        <span>{{platform_title}}</span>
+      {{# if platform }}
+        <span>{{platform}}</span>
       {{/if}}
     </div>
     <div class="toc">
+      {{#each collections}}
 
-      {{#each collections }}
-        <div class="section">
-        <span class="section-title">{{{this.metadata.description}}}</span>
+        {{#ifCond this.metadata.page '==' ../page}}
 
-        {{#each this}}
+          <div class="section">
+            <span class="section-title">{{{this.metadata.description}}}</span>
+
+            {{#each this}}
 
 
-          {{#if toc }}
+              {{#if toc }}
 
-            {{#each toc }}
-              <div class="l0">
-                <a class="subsection-title" href="{{ ../../../base_url }}{{@../../key}}/{{id}}">{{text}}</a>
-
-              {{#if this.children }}
-
-                <div class="l1">
-
-                  {{#each this.children }}
-
-                    <a href="#{{id}}" class="treeitem">{{text}}</a>
+                {{#each toc }}
+                  <div class="l0">
+                    <a class="subsection-title" href="{{ ../../../base_url }}{{@../../key}}/{{id}}">{{text}}</a>
 
                     {{#if this.children }}
-                      <div class="l2">
+
+                      <div class="l1">
 
                         {{#each this.children }}
 
                           <a href="#{{id}}" class="treeitem">{{text}}</a>
 
+                          {{#if this.children }}
+                            <div class="l2">
+
+                              {{#each this.children }}
+
+                                <a href="#{{id}}" class="treeitem">{{text}}</a>
+
+                              {{/each}}
+
+                            </div>
+                          {{/if}}
+
                         {{/each}}
 
                       </div>
                     {{/if}}
+                  </div>
 
-                  {{/each}}
+                {{/each}}
 
-                </div>
               {{/if}}
 
             {{/each}}
-
           </div>
-          {{/if}}
 
-        {{/each}}
-        </div>
+        {{/ifCond}}
+
       {{/each}}
 
     </div>

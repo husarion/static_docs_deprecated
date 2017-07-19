@@ -1,9 +1,10 @@
 ---
 title: 'Run your first program'
-platform_title: 'CORE2'
+platform: 'CORE2'
 core2: true
 autotoc: true
 layout: layout.hbs
+page: 'Tutorials'
 order: 1
 ---
 
