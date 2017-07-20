@@ -33,46 +33,19 @@
           <div class="section">
             <span class="section-title">{{{this.metadata.description}}}</span>
 
-            {{#each this}}
+            {{#if onepager}}
 
+              {{> toc }}
 
-              {{#if toc }}
+            {{else}}
 
-                {{#each toc }}
-                  <div class="l0">
-                    <a class="subsection-title" href="{{ ../../../base_url }}{{@../../key}}/{{id}}">{{text}}</a>
+              {{#each this}}
 
-                    {{#if this.children }}
+                {{> toc }}
 
-                      <div class="l1">
+              {{/each}}
 
-                        {{#each this.children }}
-
-                          <a href="#{{id}}" class="treeitem">{{text}}</a>
-
-                          {{#if this.children }}
-                            <div class="l2">
-
-                              {{#each this.children }}
-
-                                <a href="#{{id}}" class="treeitem">{{text}}</a>
-
-                              {{/each}}
-
-                            </div>
-                          {{/if}}
-
-                        {{/each}}
-
-                      </div>
-                    {{/if}}
-                  </div>
-
-                {{/each}}
-
-              {{/if}}
-
-            {{/each}}
+            {{/if}}
           </div>
 
         {{/ifCond}}

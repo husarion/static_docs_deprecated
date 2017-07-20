@@ -229,6 +229,74 @@
           width: 15%;
         }
       }
+
+      &.h300 .fancybox img {
+          max-height: 300px;
+      }
+
+      &.h100 .fancybox img {
+          hegiht: 100px;
+          margin: 0 auto;
+      }
+
+    }
+
+    .image {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      margin: 0 5px;
+
+      .fancybox {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        margin: 0 5px;
+
+        &:hover {
+          color: $primary-color;
+          text-decoration: none;
+          border-bottom: none;
+
+          img {
+            border-color: $gray-light;
+          }
+
+          span {
+            text-decoration: dashed;
+          }
+        }
+      }
+
+      img {
+        display: block;
+        padding: 5px;
+        border: 1px $gray-lighter solid;
+      }
+
+      &.center {
+        margin: 0 auto;
+      }
+
+      &.right {
+        float: right;
+      }
+
+      &.left {
+        float: left;
+      }
+
+      &.w190 .fancybox img {
+        width: 190px;
+      }
+
+      &.h100 .fancybox img {
+        height: 100px;
+      }
+
+      &.h200 .fancybox img {
+        height: 200px;
+      }
     }
 
     img {

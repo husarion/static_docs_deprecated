@@ -21,8 +21,7 @@ config.pages = {
 
 
     'core2/manuals/hardware': {
-        pattern: 'core2/manuals/hardware/*.md',
-        sortBy: 'order',
+        pattern: 'core2/manuals/hardware.md',
         metadata: {
             page: 'Manuals',
             description: 'Hardware'
