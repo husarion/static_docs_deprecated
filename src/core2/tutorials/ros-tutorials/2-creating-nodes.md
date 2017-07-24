@@ -830,4 +830,8 @@ Your node may be configured with parameters and it can:
 
 -   call service provided by other nodes
 
+---------
+
 *by Łukasz Mitka, AGH Krakow*
+
+*Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*

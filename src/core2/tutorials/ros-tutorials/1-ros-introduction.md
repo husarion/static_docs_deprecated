@@ -522,4 +522,10 @@ node, setting parameters and remapping topic names. You should be able
 to check what nodes are running in system and to which topics they are
 publishing and subscribing.
 
+
+---------
+
 *by Łukasz Mitka, AGH Krakow*
+
+*Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*
+
