@@ -1035,4 +1035,8 @@ make node that perform specific action related to recognized objects.
 You also know how to handle proximity sensors with `sensor_msgs/Range`
 message type.
 
+---------
+
 *by Łukasz Mitka, AGH Krakow*
+
+*Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*

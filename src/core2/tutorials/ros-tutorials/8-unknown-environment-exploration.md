@@ -284,4 +284,8 @@ After completing this tutorial you should be able to configure
 goals for trajectory planner to explore all unknown area, visualize
 frontiers found on the map and finally set exploration area using rviz.
 
+---------
+
 *by Łukasz Mitka, AGH Krakow*
+
+*Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*
