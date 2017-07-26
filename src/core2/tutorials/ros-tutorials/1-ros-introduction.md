@@ -327,11 +327,10 @@ Output should be similar to this:
     husarion@core2-ros:~$ ls /dev/video*
     /dev/video0  /dev/video1
 
-Each entry is for one camera. Above example means that we have two
-cameras on our system. Number of cameras may vary depending on your
-configuration, this node also support RaspberryPi camera, even though it
-is not an USB camera. In this example we will use RaspberryPi camera and
-its name is `/dev/video0`. Having required information you can start
+Each entry is for one camera. Above example means that we have two cameras on our system. 
+Number of cameras may vary depending on your configuration. This node also supports 
+Raspberry Pi camera, even though it is not an USB camera. In this example we will use 
+USB camera and its name is `/dev/video0`. Having required information you can start
 node by typing into terminal:
 
     $ rosrun usb_cam usb_cam_node _video_device:=/dev/video0 _image_height:=480 _image_width:=640 
