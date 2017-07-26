@@ -5,16 +5,27 @@ config.pages = {
         pattern: 'core2/tutorials/howtostart/*.md',
         sortBy: 'order',
         metadata: {
-            description: 'How to start'
+            page: 'Tutorials',
+            title: 'How to start'
         }
     },
+
     'core2/tutorials/ros-tutorials': {
         pattern: 'core2/tutorials/ros-tutorials/*.md',
         sortBy: 'order',
         metadata: {
-            description: 'ROS Tutorials'
+            page: 'Tutorials',
+            title: 'ROS Tutorials'
         }
+    },
 
+
+    'core2/manuals/hardware': {
+        pattern: 'core2/manuals/hardware.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'Hardware'
+        }
     }
 };
 

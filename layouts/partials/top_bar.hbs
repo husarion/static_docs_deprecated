@@ -19,7 +19,7 @@
       <div class="htb__top_menu htb__tabs">
         <ul>
 
-          {{#if robocore }}
+          {{#ifCond platform '==' 'ROBOCORE' }}
             <li class="htb__wiki">
               <a href="">Wiki</a>
             </li>
@@ -29,18 +29,18 @@
             <li class="htb__api">
               <a href="">API <span>reference</span></a>
             </li>
-          {{/if}}
+          {{/ifCond}}
 
-          {{#if core2 }}
+          {{#ifCond platform '==' 'CORE2' }}
 
             <li class="htb__about">
               <a href="/core2">About</a>
             </li>
-            <li class="htb__tutorials htb__current">
+            <li class="htb__tutorials {{#ifCond page '==' 'Tutorials'}}htb__current{{/ifCond}}">
               <a href="/core2/tutorials">Tutorials</a>
             </li>
-            <li class="htb__hardware">
-              <a href="/core2/hardware">Hardware</a>
+            <li class="htb__manuals {{#ifCond page '==' 'Manuals'}}htb__current{{/ifCond}}">
+              <a href="/core2/manuals">Manuals</a>
             </li>
             <li class="htb__examples">
               <a href="/core2/examples">Examples</a>
@@ -49,7 +49,7 @@
               <a href="/core2/api_reference">API <span>reference</span></a>
             </li>
 
-          {{/if}}
+          {{/ifCond}}
 
 
         </ul>
@@ -58,7 +58,7 @@
       <div class="htb__2nd_menu htb__hide">
 
         <ul>
-          {{#if robocore }}
+          {{#ifCond platform '==' 'ROBOCORE' }}
             <li class="htb__hide htb__show@sm">
               <a href="https://wiki.husarion.com/doku.php">Wiki</a>
             </li>
@@ -69,9 +69,9 @@
               <a href="" class="separator">API <span>reference</span></a>
             </li>
 
-          {{/if}}
+          {{/ifCond}}
 
-          {{#if core2 }}
+          {{#ifCond platform '==' 'CORE2' }}
 
             <li class="htb__hide htb__show@sm">
               <a href="/core2">About</a>
@@ -80,7 +80,7 @@
               <a href="/core2/tutorials">Tutorials</a>
             </li>
             <li class="htb__hide htb__show@sm">
-              <a href="/core2/hardware">Hardware</a>
+              <a href="/core2/manuals">Manuals</a>
             </li>
             <li class="htb__hide htb__show@sm">
               <a href="/core2/examples">Examples</a>
@@ -89,7 +89,7 @@
               <a href="/core2/api_reference">API <span>reference</span></a>
             </li>
 
-          {{/if}}
+          {{/ifCond}}
 
           <li>
             <a href="https://community.husarion.com" title="Community">Community</a>

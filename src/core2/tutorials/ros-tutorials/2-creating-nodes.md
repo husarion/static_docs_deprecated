@@ -1,9 +1,9 @@
 ---
 title: '2 Creating nodes'
-platform_title: 'CORE2'
-core2: true
+platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
+page: 'Tutorials'
 order: 2
 ---
 

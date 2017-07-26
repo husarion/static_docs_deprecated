@@ -1,0 +1,52 @@
+{{#if toc }}
+
+  {{#each toc }}
+    <div class="l0">
+
+      {{#if ../onepager}}
+
+        {{#if ../no_full_url}}
+
+          <a class="treeitem" href="#{{id}}" class="treeitem">{{text}}</a>
+
+        {{else}}
+
+          <a class="treeitem" href="/{{ ../../../base_url }}{{@../../key}}#{{id}}" class="treeitem">{{text}}</a>
+
+        {{/if}}
+
+      {{else}}
+
+      <a class="subsection-title" href="/{{ ../../../base_url }}{{@../../key}}/{{id}}">{{text}}</a>
+
+      {{/if}}
+
+      {{#if this.children }}
+
+        <div class="l1">
+
+          {{#each this.children }}
+
+            <a href="#{{id}}" class="treeitem">{{text}}</a>
+
+            {{#if this.children }}
+              <div class="l2">
+
+                {{#each this.children }}
+
+                  <a href="#{{id}}" class="treeitem">{{text}}</a>
+
+                {{/each}}
+
+              </div>
+            {{/if}}
+
+          {{/each}}
+
+        </div>
+      {{/if}}
+    </div>
+
+  {{/each}}
+
+{{/if}}

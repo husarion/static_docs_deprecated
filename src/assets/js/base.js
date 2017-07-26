@@ -47,10 +47,11 @@ function updateTOC() {
 
     $('.l1, .l2').hide();
     $('.toc').find('.treeitem').removeClass('treeparent');
+
     $('.treeitem.active').next('div').show();
     $('.treeitem.active').parents('.l0, .l1, .l2').show().prev('.treeitem').not('.active').addClass('treeparent');
 
-    $(".treeitem.active").parents(".l0, .l1, .l2").find(".subsection-title").addClass("active");
+    $(".treeitem.active").parents(".l0, .l1, .l2").find(".subsection-title:first").addClass("active");
     $(".treeitem.active").parents(".l0").prevAll(".section-title:first").addClass("active");
 
 }
