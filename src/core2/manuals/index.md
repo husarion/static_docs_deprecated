@@ -6,5 +6,6 @@ layout: layout.hbs
 page: 'Manuals'
 ---
 
-# Hardware #
+# Manuals #
 
+## Hardware ##

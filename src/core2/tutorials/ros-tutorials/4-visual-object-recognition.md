@@ -1,7 +1,6 @@
 ---
 title: '4 Visual object recognition'
 platform: 'CORE2'
-core2: true
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'

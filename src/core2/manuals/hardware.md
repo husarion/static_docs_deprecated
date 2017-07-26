@@ -95,7 +95,11 @@ This port is compatible with LEGO® MINDSTORMS® sets when a special adapter for
 
 3. **4 digital inputs/outputs.** Additionally, some hSensor ports have a hardware UART interface assigned to these IO’s, and some have a hardware I2C interface. If you want UART or I2C, please check the software documentation which physical ports to use.
 
+<div class="image center h300">
+
 ![](/assets/img/core2-hardware/hsensor.svg)
+
+</div>
 
 <table class="text_table">
 <tbody>
@@ -184,7 +188,11 @@ Each hExt port contains:
 
 All interfaces are compatible with 3.3V CMOS logic. The A/D converter range is 0 - 3.3 V.
 
+<div class="image center">
+
 ![](/assets/img/core2-hardware/hext.svg)
+
+</div>
 
 ### Pin functions ###
 
@@ -376,7 +384,11 @@ All interfaces are compatible with 3.3V CMOS logic. The A/D converter range is 0
 
 You can connect up to 6 servo motors directly to CORE2. Power supply is onboard thanks to integrated DC/DC converter with selectable voltage output (remeber that there is one power supply voltage for all servos).
 
+<div class="image center h300">
+
 ![](/assets/img/core2-hardware/hservo.svg)
+
+</div>
 
 <table class="text_table">
 <tbody>
@@ -431,8 +443,11 @@ Wikipedia provides an accessible explanation how encoders work: [incremental rot
 
 The encoder interface is compatible with the majority of popular optical and magnetic encoders integrated with motors or sold separately.
 
+<div class="image center h300">
+
 ![](/assets/img/core2-hardware/hmot.svg)
 
+</div>
 
 <table class="text_table">
 <tbody>
@@ -481,7 +496,11 @@ The encoder interface is compatible with the majority of popular optical and mag
 
 **DC motor with encoder**
 
+<div class="thumb w180 right">
+
 ![](/assets/img/core2-hardware/motors_encoders.jpg)
+
+</div>
 
 This motor type is suitable for more professional applications. It can be identified by 6 wires coming out of the encoder board. DC motor with quadrature encoder interface allows you to create own sophisticated control algorithm optimized for your application in contrast to RC servos that can't give any feedback to your algorithms.
 
@@ -490,7 +509,11 @@ Remember not to power your motors using higher voltage than recommended in their
 
 **DC motor without encoder**
 
+<div class="thumb w180 right">
+
 ![](/assets/img/core2-hardware/dc_motor.jpg)
+
+</div>
 
 Of course, in many cases you don't need the encoder - e.g. if you need to drive wheels without sensing their position. In that case you can use a simple DC motor with gearbox. It can be identified by 2 wires coming out of the motor.
 
@@ -498,7 +521,11 @@ Despite the lack of the encoder, you still can recognize the extreme positions o
 
 **LEGO® motor**
 
+<div class="thumb w180 right">
+
 ![](/assets/img/core2-hardware/lego_motors.jpg)
+
+</div>
 
 CORE2 is fully compatible with servomotors from LEGO® Mindstorms® when used with connector adapter. There are 3 types of LEGO® servomotors: motor from NXT/NXT2.0 kit and two types from EV3 kit. In fact, they are all motors with quadrature encoder. \\
 Remember that LEGO® motors have 9V nominal voltage and when you supply CORE2 with higher voltage, you should limit the PWM duty cycle.
@@ -506,7 +533,11 @@ Remember that LEGO® motors have 9V nominal voltage and when you supply CORE2 wi
 
 **Stepper motor**
 
+<div class="thumb w180 right">
+
 ![](/assets/img/core2-hardware/hstep.png)
+
+</div>
 
 Connecting a bipolar stepper motor is also possible. In this case, you need two hMotor ports to drive one stepper motor. If your motor windings have 4 or 6 terminals, it can work in the bipolar configuration (the 6-terminal motors can work in both unipolar and bipolar configuration). In the picture you can see how to connect the bipolar motor with two H-bridge outputs.
 
@@ -529,7 +560,12 @@ Communication via CAN requires terminated transmission line. Thus, CORE2 has the
 For short distances, terminator can be connected only to the one end of the bus. CORE2 has an optional jumper (to be soldered) that connects a 100Ω, 220Ω or both resistors to the line. Two CORE2s with two terminators (jumper soldered in 100Ω configuration) can communicate with full speed at long distances. <br>
 If you need to connect more than two CORE2s, you can attach jumpers in only one or two CORE2s and remove jumpers from the others to keep the total impedance greater than 45Ω. The special case is the "star" connection, where you can leave the termination only in one CORE2 that is the star common junction node. The recommended termination for this case is 100Ω or 100Ω||220Ω (in parallel) that gives the resistance ~69Ω.
 
+
+<div class="image center h300">
+
 ![](/assets/img/core2-hardware/hcan.svg)
+
+</div>
 
 <table class="text_table">
 <tbody>
@@ -557,7 +593,12 @@ If you need to connect more than two CORE2s, you can attach jumpers in only one 
 </table>
 
 ## DBG ##
+
+<div class="image center h300">
+
 ![](/assets/img/core2-hardware/dbg.svg)
+
+</div>
 
 If you are an advanced code developer you will probably appreciate it! The DBG connector
 allows you not only to upload the code to the CORE2, but it is also a debugging interface for the STM32F4 microcontroller.
@@ -584,7 +625,13 @@ The USB host connector has two functions:
 Independently from chosen function, it also works as a port for charging mobile
 devices. Data connection and charging (up to 1A) can be provided simultaneously.
 
+
+<div class="thumb h100 right">
+
 ![](/assets/img/core2-hardware/jumper_USB_opis2.jpg)(Jumpers configuration example)
+
+</div>
+
 The function is chosen by soldering small jumpers on the bottom side of the PCB
 (see the picture).
 
@@ -666,7 +713,12 @@ Just a connector for a standard microSD card. It uses one of the SPI interfaces 
 
 ## LEDs ##
 
+<div class="thumb w270 right">
+
 ![User's leds](/assets/img/core2-hardware/leds.svg "User's leds")
+
+</div>
+
 There are 3 green LEDs to be controlled by user on CORE2: LED1, LED2 and LED3. They are described **L1**, **L2**, **L3** on the PCB.
 
 The **PWR** LED is indicating that CORE2 board is powered and switched on.
@@ -693,7 +745,12 @@ The CORE2 input voltage (Vin) must be in the range 6 - 16V. The recommended inpu
 The CORE2 power supply input has overvoltage (>16V), reverse-polarity and overcurrent (~4A) protections.
 
 ## Block diagram ##
+
+<div class="thumb center">
+
 ![](/assets/img/core2-hardware/powersupply.svg)
+
+</div>
 
 <table class="text_table">
 <tbody>
@@ -877,7 +934,7 @@ Use hConfig app (to be found on AppStore or Google Play) where wizard will guide
 
 ## hRPI connector ##
 
-<div class="image right h100">
+<div class="thumb right w180">
 
 ![](/assets/img/core2-hardware/rpi_connector.png "hRPI connector")
 
@@ -1045,7 +1102,7 @@ This section will show you how to connect different types of sensors to CORE2. C
 
 Bellow schematic and source code shows you how to connect Sharp 2D120X infrared proximity sensor to CORE2. Sample source code shows how to output readings from sensor directly to the user interface of your device at [](https://cloud.husarion.com).
 
-<div class="image center h200">
+<div class="thumb center h200">
 
 ![](/assets/img/core2-hardware/sharp.svg)
 
@@ -1070,7 +1127,7 @@ while (true) {
 
 MPU9250 is a nine-axis (gyro, accelerometer, compass) inertial measuerement unit useful in a large variety of applications, e.g. drones. Below image and sample code will help you start using this awesome sensor!
 
-<div class="image center h200">
+<div class="thumb center h200">
 
 ![](/assets/img/core2-hardware/mpu9250.svg)
 

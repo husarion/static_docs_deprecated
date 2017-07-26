@@ -11,6 +11,7 @@ var convert = require('metalsmith-convert');
 var collections = require('metalsmith-collections');
 var heading_numbers = require('./lib/metalsmith-heading-numbers');
 var gallery = require('./lib/metalsmith-gallery');
+var fancybox = require('./lib/metalsmith-fancybox');
 var config = require('./config.js');
 var handlebars = require('handlebars');
 
@@ -45,6 +46,7 @@ exports.metalsmith = function () {
             // headerIdPrefix: "subhead"
         }))
         .use(gallery())
+        .use(fancybox())
         .use(permalinks())
         .use(layouts({
             engine: 'handlebars',
@@ -111,4 +113,9 @@ handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
         default:
             return options.inverse(this);
     }
+});
+
+
+handlebars.registerHelper('var',function(name, value, options){
+    options.data.root[name] = value;
 });

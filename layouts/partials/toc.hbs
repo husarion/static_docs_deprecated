@@ -5,7 +5,15 @@
 
       {{#if ../onepager}}
 
-      <a class="subsection-title" href="#{{id}}" class="treeitem">{{text}}</a>
+        {{#if ../no_full_url}}
+
+          <a class="treeitem" href="#{{id}}" class="treeitem">{{text}}</a>
+
+        {{else}}
+
+          <a class="treeitem" href="/{{ ../../../base_url }}{{@../../key}}#{{id}}" class="treeitem">{{text}}</a>
+
+        {{/if}}
 
       {{else}}
 

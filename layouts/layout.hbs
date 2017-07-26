@@ -31,21 +31,22 @@
         {{#ifCond this.metadata.page '==' ../page}}
 
           <div class="section">
-            <span class="section-title">{{{this.metadata.description}}}</span>
+            <span class="section-title">{{{this.metadata.title}}}</span>
 
-            {{#if onepager}}
+            {{#each this}}
 
-              {{> toc }}
+              {{#ifCond ../metadata.title '==' ../../title}}
 
-            {{else}}
+                {{> toc no_full_url = true }}
 
-              {{#each this}}
+              {{else}}
 
-                {{> toc }}
+                {{> toc no_full_url = false }}
 
-              {{/each}}
+              {{/ifCond}}
 
-            {{/if}}
+            {{/each}}
+
           </div>
 
         {{/ifCond}}

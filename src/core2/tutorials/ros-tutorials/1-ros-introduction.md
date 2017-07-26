@@ -1,7 +1,6 @@
 ---
 title: '1 ROS introduction'
 platform: 'CORE2'
-core2: true
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'

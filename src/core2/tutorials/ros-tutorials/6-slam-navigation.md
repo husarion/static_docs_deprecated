@@ -1,7 +1,6 @@
 ---
 title: '6 SLAM navigation'
 platform: 'CORE2'
-core2: true
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'

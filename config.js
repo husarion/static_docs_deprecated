@@ -6,7 +6,7 @@ config.pages = {
         sortBy: 'order',
         metadata: {
             page: 'Tutorials',
-            description: 'How to start'
+            title: 'How to start'
         }
     },
 
@@ -15,7 +15,7 @@ config.pages = {
         sortBy: 'order',
         metadata: {
             page: 'Tutorials',
-            description: 'ROS Tutorials'
+            title: 'ROS Tutorials'
         }
     },
 
@@ -24,7 +24,7 @@ config.pages = {
         pattern: 'core2/manuals/hardware.md',
         metadata: {
             page: 'Manuals',
-            description: 'Hardware'
+            title: 'Hardware'
         }
     }
 };
