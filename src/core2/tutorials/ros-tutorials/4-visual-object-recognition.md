@@ -746,24 +746,30 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     hMot4.setPower(motorL*700);
 }
 
-void batteryCheck(){
-    int i=0;
-    for(;;){
-        if(sys.getSupplyVoltage()>11.1){
-            i=0;
-        }
-        else{
-            i++;
-        }
-        if(i>50){
-            voltage=0;
-        }
-        if(voltage==0){
-        LED1.toggle();
-        }
-        sys.delay(100);
-    }
-}
+	void batteryCheck(){
+		int i = 0;
+		bool batteryLow = false;
+		for (;;){
+			if (sys.getSupplyVoltage() > 11.1){
+				i--;
+			}
+			else{
+				i++;
+			}
+			if (i > 50){
+				batteryLow = false;
+				i = 50;
+			}
+			if (i < -50){
+				batteryLow = true;
+				i = -50;
+			}
+			if (batteryLow == true){
+			LED1.toggle();
+			}
+		sys.delay(100);
+		}
+	}
 
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 
