@@ -97,7 +97,7 @@ motors, read encoders and publish their state to appropriate topic. To
 create this node you will use Husarion Cloud. Create new project and
 paste following:
 
-
+```
     #include "hFramework.h"
     #include "hCloudClient.h"
     #include <stdio.h>
@@ -108,10 +108,10 @@ paste following:
     
     using namespace hFramework;
     
-    	#define HYSTERESIS  10
-	#define LIMIT  20
+    #define HYSTERESIS  10
+    #define LIMIT  20
     
-    	bool batteryLow = false;
+    bool batteryLow = false;
 	
     ros::NodeHandle nh;
 
@@ -171,7 +171,7 @@ paste following:
             sys.delay(100);
         }
     }
-
+```
 
 Below is explanation for code line by line.
 
