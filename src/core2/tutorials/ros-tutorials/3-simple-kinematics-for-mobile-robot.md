@@ -107,13 +107,14 @@ paste following:
     #include "geometry_msgs/Twist.h"
     
     using namespace hFramework;
-    ros::NodeHandle nh;
     
-	#define HYSTERESIS  10
+    	#define HYSTERESIS  10
 	#define LIMIT  20
-
-	bool batteryLow = false;
     
+    	bool batteryLow = false;
+	
+    ros::NodeHandle nh;
+
     void twistCallback(const geometry_msgs::Twist &twist) {
 		float lin = twist.linear.x;
 		float ang = twist.angular.z;
@@ -194,7 +195,7 @@ Handle for node:
     
 Variable for turnig off the motors in case of low voltage:
 
-    int voltage=1;
+	bool batteryLow = false;
 
 Function for handling incoming messages:
 
@@ -215,10 +216,10 @@ velocities:
 
 Set target power for motors:
 
-    hMot1.setPower(motorR*700*voltage);
-    hMot2.setPower(motorR*700*voltage);
-    hMot3.setPower(motorL*700*voltage);
-    hMot4.setPower(motorL*700*voltage);
+	hMot1.setPower(motorR*700*!batteryLow);
+	hMot2.setPower(motorR*700*!batteryLow);
+	hMot3.setPower(motorL*700*!batteryLow);
+	hMot4.setPower(motorL*700*!batteryLow);
 
 Define subscriber for velocity topic:
 
@@ -432,11 +433,14 @@ Your final code should look like this:
 
 using namespace hFramework;
 
+#define HYSTERESIS  10
+#define LIMIT  20
+
+bool batteryLow = false;
+
 ros::NodeHandle nh;
 geometry_msgs::PoseStamped pose;
 ros::Publisher pose_pub("/pose", &pose);
-
-int voltage=1;
 
 uint16_t delay = 10; // milliseconds
 float delay_s = (float)delay/(float)1000;
@@ -472,34 +476,35 @@ void twistCallback(const geometry_msgs::Twist &twist) {
     float ang = twist.angular.z;
     float motorL = lin - ang * 0.5;
     float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR*700*voltage);
-    hMot2.setPower(motorR*700*voltage);
-    hMot3.setPower(motorL*700*voltage);
-    hMot4.setPower(motorL*700*voltage);
+	hMot1.setPower(motorR*700*!batteryLow);
+	hMot2.setPower(motorR*700*!batteryLow);
+	hMot3.setPower(motorL*700*!batteryLow);
+	hMot4.setPower(motorL*700*!batteryLow);
 }
 
-void batteryCheck(){
+void batteryCheck()
+{
 	int i = 0;
-	bool batteryLow = false;
-	for (;;){
-		if (sys.getSupplyVoltage() > 11.1){
+	for (;;) {
+		if (sys.getSupplyVoltage() < 11.1) {
 			i--;
-		}
-		else{
+		} else {
 			i++;
 		}
-		if (i > 50){
+		if (i > LIMIT) {
 			batteryLow = false;
-			i = 50;
+			i = 0 + HYSTERESIS;
 		}
-		if (i < -50){
+		if (i < -LIMIT) {
 			batteryLow = true;
-			i = -50;
+			i = 0 - HYSTERESIS;
 		}
-		if (batteryLow == true){
-		LED1.toggle();
+		if (batteryLow == true) {
+			LED1.toggle();
+		} else {
+		    LED1.on();
 		}
-	sys.delay(100);
+		sys.delay(250);
 	}
 }
 
