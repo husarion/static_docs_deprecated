@@ -109,41 +109,45 @@ paste following:
     using namespace hFramework;
     ros::NodeHandle nh;
     
-    int voltage=1;
+ 	#define HYSTERESIS  10
+	#define LIMIT  20
+
+	bool batteryLow = false;
     
     void twistCallback(const geometry_msgs::Twist &twist) {
 		float lin = twist.linear.x;
 		float ang = twist.angular.z;
 		float motorL = lin - ang * 0.5;
 		float motorR = lin + ang * 0.5;
-		hMot1.setPower(motorR*700*voltage);
-		hMot2.setPower(motorR*700*voltage);
-		hMot3.setPower(motorL*700*voltage);
-		hMot4.setPower(motorL*700*voltage);
+		hMot1.setPower(motorR*700*!batteryLow);
+		hMot2.setPower(motorR*700*!batteryLow);
+		hMot3.setPower(motorL*700*!batteryLow);
+		hMot4.setPower(motorL*700*!batteryLow);
     }
     
-	void batteryCheck(){
+	void batteryCheck()
+	{
 		int i = 0;
-		bool batteryLow = false;
-		for (;;){
-			if (sys.getSupplyVoltage() > 11.1){
+		for (;;) {
+			if (sys.getSupplyVoltage() < 11.1) {
 				i--;
-			}
-			else{
+			} else {
 				i++;
 			}
-			if (i > 50){
+			if (i > LIMIT) {
 				batteryLow = false;
-				i = 50;
+				i = 0 + HYSTERESIS;
 			}
-			if (i < -50){
+			if (i < -LIMIT) {
 				batteryLow = true;
-				i = -50;
+				i = 0 - HYSTERESIS;
 			}
-			if (batteryLow == true){
-			LED1.toggle();
+			if (batteryLow == true) {
+				LED1.toggle();
+			} else {
+			    LED1.on();
 			}
-		sys.delay(100);
+			sys.delay(250);
 		}
 	}
     
