@@ -692,9 +692,12 @@ using namespace hModules;
 DistanceSensor sensR(hSens6);
 DistanceSensor sensL(hSens2);
 
-int voltage=1;
-
 using namespace hFramework;
+
+#define HYSTERESIS 10
+#define LIMIT 20
+
+bool batteryLow = false;
 
 ros::NodeHandle nh;
 geometry_msgs::PoseStamped pose;
@@ -707,7 +710,7 @@ ros::Publisher rangeL_pub("/rangeL", &rangeL);
 ros::Publisher rangeR_pub("/rangeR", &rangeR);
 
 uint16_t delay = 10; // milliseconds
-float delay_s = (float)delay/(float)1000;
+float delay_s = (float)delay / (float)1000;
 uint16_t enc_res = 1400; // encoder tics per wheel revolution
 
 int32_t enc_FL = 0; // encoder tics
@@ -715,11 +718,11 @@ int32_t enc_RL = 0; // encoder tics
 int32_t enc_FR = 0; // encoder tics
 int32_t enc_RR = 0; // encoder tics
 
-int32_t enc_L = 0; // encoder tics
+int32_t enc_L = 0;		   // encoder tics
 float wheel_L_ang_pos = 0; // radians
 float wheel_L_ang_vel = 0; // radians per second
 
-int32_t enc_R = 0; // encoder tics
+int32_t enc_R = 0;		   // encoder tics
 float wheel_R_ang_pos = 0; // radians
 float wheel_R_ang_vel = 0; // radians per second
 
@@ -731,127 +734,141 @@ float robot_y_pos = 0; // meters
 float robot_x_vel = 0; // meters per second
 float robot_y_vel = 0; // meters per second
 
-float robot_width = 0.3; // meters
+float robot_width = 0.3;	// meters
 float robot_length = 0.105; //meters
-float wheel_radius = 0.04; //meters
+float wheel_radius = 0.04;  //meters
 
-void twistCallback(const geometry_msgs::Twist &twist) {
-    float lin = twist.linear.x;
-    float ang = twist.angular.z;
-    float motorL = lin - ang * 0.5;
-    float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR*700);
-    hMot2.setPower(motorR*700);
-    hMot3.setPower(motorL*700);
-    hMot4.setPower(motorL*700);
+void twistCallback(const geometry_msgs::Twist &twist)
+{
+	float lin = twist.linear.x;
+	float ang = twist.angular.z;
+	float motorL = lin - ang * 0.5;
+	float motorR = lin + ang * 0.5;
+	hMot1.setPower(motorR * 700 * !batteryLow);
+	hMot2.setPower(motorR * 700 * !batteryLow);
+	hMot3.setPower(motorL * 700 * !batteryLow);
+	hMot4.setPower(motorL * 700 * !batteryLow);
 }
 
-void batteryCheck(){
+void batteryCheck()
+{
 	int i = 0;
-	bool batteryLow = false;
-	for (;;){
-		if (sys.getSupplyVoltage() > 11.1){
+	for (;;)
+	{
+		if (sys.getSupplyVoltage() < 11.1)
+		{
 			i--;
 		}
-		else{
+		else
+		{
 			i++;
 		}
-		if (i > 50){
+		if (i > LIMIT)
+		{
 			batteryLow = false;
-			i = 50;
+			i = 0 + HYSTERESIS;
 		}
-		if (i < -50){
+		if (i < -LIMIT)
+		{
 			batteryLow = true;
-			i = -50;
+			i = 0 - HYSTERESIS;
 		}
-		if (batteryLow == true){
-		LED1.toggle();
+		if (batteryLow == true)
+		{
+			LED1.toggle();
 		}
-	sys.delay(100);
+		else
+		{
+			LED1.on();
+		}
+		sys.delay(250);
 	}
 }
 
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 
-void hMain() {
-    platform.begin(&RPi);
-    RPi.setBaudrate(500000);
-    nh.getHardware()->initWithDevice(&platform.LocalSerial);
-    nh.initNode();
-    nh.subscribe(sub);
-    hMot3.setMotorPolarity(Polarity::Reversed);
-    hMot3.setEncoderPolarity(Polarity::Reversed);
-    hMot4.setMotorPolarity(Polarity::Reversed);
-    hMot4.setEncoderPolarity(Polarity::Reversed);
-    LED1.on();
-    sys.taskCreate(batteryCheck);
+void hMain()
+{
+	platform.begin(&RPi);
+	RPi.setBaudrate(500000);
+	nh.getHardware()->initWithDevice(&platform.LocalSerial);
+	nh.initNode();
+	nh.subscribe(sub);
+	hMot3.setMotorPolarity(Polarity::Reversed);
+	hMot3.setEncoderPolarity(Polarity::Reversed);
+	hMot4.setMotorPolarity(Polarity::Reversed);
+	hMot4.setEncoderPolarity(Polarity::Reversed);
+	LED1.on();
+	sys.taskCreate(batteryCheck);
 
-    pose.header.frame_id="robot";
-    pose.pose.position.x = 0;
-    pose.pose.position.y = 0;
-    pose.pose.position.z = 0;
-    pose.pose.orientation = tf::createQuaternionFromYaw(0);
+	pose.header.frame_id = "robot";
+	pose.pose.position.x = 0;
+	pose.pose.position.y = 0;
+	pose.pose.position.z = 0;
+	pose.pose.orientation = tf::createQuaternionFromYaw(0);
 
-    nh.advertise(pose_pub);
+	nh.advertise(pose_pub);
 
-    rangeL.header.frame_id="left";
-    rangeL.radiation_type=sensor_msgs::Range::ULTRASOUND;
-    rangeL.field_of_view = 0.5; // rad
-    rangeL.min_range = 0.05; // meters
-    rangeL.max_range = 2; // meters
+	rangeL.header.frame_id = "left";
+	rangeL.radiation_type = sensor_msgs::Range::ULTRASOUND;
+	rangeL.field_of_view = 0.5; // rad
+	rangeL.min_range = 0.05;	// meters
+	rangeL.max_range = 2;		// meters
 
-    rangeR.header.frame_id="right";
-    rangeR.radiation_type=sensor_msgs::Range::ULTRASOUND;
-    rangeR.field_of_view = 0.5; // rad
-    rangeR.min_range = 0.05; // meters
-    rangeR.max_range = 2; // meters
+	rangeR.header.frame_id = "right";
+	rangeR.radiation_type = sensor_msgs::Range::ULTRASOUND;
+	rangeR.field_of_view = 0.5; // rad
+	rangeR.min_range = 0.05;	// meters
+	rangeR.max_range = 2;		// meters
 
-    nh.advertise(rangeL_pub);
-    nh.advertise(rangeR_pub);
+	nh.advertise(rangeL_pub);
+	nh.advertise(rangeR_pub);
 
-    while(true) {
-        enc_FR = hMot1.getEncoderCnt();
-        enc_RR = hMot2.getEncoderCnt();
-        enc_RL = hMot3.getEncoderCnt();
-        enc_FL = hMot4.getEncoderCnt();
+	while (true)
+	{
+		enc_FR = hMot1.getEncoderCnt();
+		enc_RR = hMot2.getEncoderCnt();
+		enc_RL = hMot3.getEncoderCnt();
+		enc_FL = hMot4.getEncoderCnt();
 
-        enc_L = (enc_FL+enc_RL)/2;
-        enc_R = (enc_FR+enc_RR)/2;
+		enc_L = (enc_FL + enc_RL) / 2;
+		enc_R = (enc_FR + enc_RR) / 2;
 
-        wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
-        wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
+		wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
+		wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
 
-        wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
-        wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
+		wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
+		wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
 
-        robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width)
-            - robot_angular_pos)/delay_s;
-        robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
+		robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) -
+							 robot_angular_pos) /
+							delay_s;
+		robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
 
-        robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-            cos(robot_angular_pos);
-        robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-            sin(robot_angular_pos);
+		robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
+					  cos(robot_angular_pos);
+		robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
+					  sin(robot_angular_pos);
 
-        robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
-        robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
+		robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
+		robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
 
-        pose.pose.position.x = robot_x_pos;
-        pose.pose.position.y = robot_y_pos;
-        pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-        pose_pub.publish(&pose);
+		pose.pose.position.x = robot_x_pos;
+		pose.pose.position.y = robot_y_pos;
+		pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
+		pose_pub.publish(&pose);
 
-        int distL = sensL.getDistance();
-        int distR = sensR.getDistance();
+		int distL = sensL.getDistance();
+		int distR = sensR.getDistance();
 
-        rangeL.range = (float)distL/100;
-        rangeR.range = (float)distR/100;
-        rangeL_pub.publish(&rangeL);
-        rangeR_pub.publish(&rangeR);
+		rangeL.range = (float)distL / 100;
+		rangeR.range = (float)distR / 100;
+		rangeL_pub.publish(&rangeL);
+		rangeR_pub.publish(&rangeR);
 
-        nh.spinOnce();
-        sys.delay(delay);
-    }
+		nh.spinOnce();
+		sys.delay(delay);
+	}
 }
 ```
 
