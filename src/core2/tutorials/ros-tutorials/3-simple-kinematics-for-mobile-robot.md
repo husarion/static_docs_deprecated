@@ -201,7 +201,7 @@ Load namespace for Husarion functions:
 
     using namespace hFramework;
 
-Defying variable for batteryCheck function:
+Defining parameters for a batteryCheck function:
 
     #define HYSTERESIS 10
     #define LIMIT 20
