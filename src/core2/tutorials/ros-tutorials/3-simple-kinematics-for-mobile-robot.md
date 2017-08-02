@@ -201,13 +201,16 @@ Load namespace for Husarion functions:
 
     using namespace hFramework;
 
+Defying variable for batteryCheck function:
+
+    #define HYSTERESIS 10
+    #define LIMIT 20
+
+    bool batteryLow = false;
+
 Handle for node:
 
     ros::NodeHandle nh;
-    
-Variable for turnig off the motors in case of low voltage:
-
-	bool batteryLow = false;
 
 Function for handling incoming messages:
 
