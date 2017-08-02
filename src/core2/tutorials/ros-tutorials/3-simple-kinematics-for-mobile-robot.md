@@ -98,79 +98,91 @@ create this node you will use Husarion Cloud. Create new project and
 paste following:
 
 ```
-    #include "hFramework.h"
-    #include "hCloudClient.h"
-    #include <stdio.h>
-    #include <iostream>
-    #include <ros.h>
-    #include "std_msgs/String.h"
-    #include "geometry_msgs/Twist.h"
-    
-    using namespace hFramework;
-    
-    #define HYSTERESIS  10
-    #define LIMIT  20
-    
-    bool batteryLow = false;
-	
-    ros::NodeHandle nh;
+#include "hFramework.h"
+#include "hCloudClient.h"
+#include <stdio.h>
+#include <iostream>
+#include <ros.h>
+#include "std_msgs/String.h"
+#include "geometry_msgs/Twist.h"
 
-    void twistCallback(const geometry_msgs::Twist &twist) {
-		float lin = twist.linear.x;
-		float ang = twist.angular.z;
-		float motorL = lin - ang * 0.5;
-		float motorR = lin + ang * 0.5;
-		hMot1.setPower(motorR*700*!batteryLow);
-		hMot2.setPower(motorR*700*!batteryLow);
-		hMot3.setPower(motorL*700*!batteryLow);
-		hMot4.setPower(motorL*700*!batteryLow);
-    }
-    
-	void batteryCheck()
+using namespace hFramework;
+
+#define HYSTERESIS 10
+#define LIMIT 20
+
+bool batteryLow = false;
+
+ros::NodeHandle nh;
+
+void twistCallback(const geometry_msgs::Twist &twist)
+{
+	float lin = twist.linear.x;
+	float ang = twist.angular.z;
+	float motorL = lin - ang * 0.5;
+	float motorR = lin + ang * 0.5;
+	hMot1.setPower(motorR * 700 * !batteryLow);
+	hMot2.setPower(motorR * 700 * !batteryLow);
+	hMot3.setPower(motorL * 700 * !batteryLow);
+	hMot4.setPower(motorL * 700 * !batteryLow);
+}
+
+void batteryCheck()
+{
+	int i = 0;
+	for (;;)
 	{
-		int i = 0;
-		for (;;) {
-			if (sys.getSupplyVoltage() < 11.1) {
-				i--;
-			} else {
-				i++;
-			}
-			if (i > LIMIT) {
-				batteryLow = false;
-				i = 0 + HYSTERESIS;
-			}
-			if (i < -LIMIT) {
-				batteryLow = true;
-				i = 0 - HYSTERESIS;
-			}
-			if (batteryLow == true) {
-				LED1.toggle();
-			} else {
-			    LED1.on();
-			}
-			sys.delay(250);
+		if (sys.getSupplyVoltage() < 11.1)
+		{
+			i--;
 		}
+		else
+		{
+			i++;
+		}
+		if (i > LIMIT)
+		{
+			batteryLow = false;
+			i = 0 + HYSTERESIS;
+		}
+		if (i < -LIMIT)
+		{
+			batteryLow = true;
+			i = 0 - HYSTERESIS;
+		}
+		if (batteryLow == true)
+		{
+			LED1.toggle();
+		}
+		else
+		{
+			LED1.on();
+		}
+		sys.delay(250);
 	}
-    
-    ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
-    
-    void hMain() {
-        platform.begin(&RPi);
-        RPi.setBaudrate(500000);
-        nh.getHardware()->initWithDevice(&platform.LocalSerial);
-        nh.initNode();
-        nh.subscribe(sub);   
-        hMot3.setMotorPolarity(Polarity::Reversed);
-        hMot3.setEncoderPolarity(Polarity::Reversed);
-        hMot4.setMotorPolarity(Polarity::Reversed);
-        hMot4.setEncoderPolarity(Polarity::Reversed);
-        LED1.on();
-        sys.taskCreate(batteryCheck);
-        while(true) {
-            nh.spinOnce();
-            sys.delay(100);
-        }
-    }
+}
+
+ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+
+void hMain()
+{
+	platform.begin(&RPi);
+	RPi.setBaudrate(500000);
+	nh.getHardware()->initWithDevice(&platform.LocalSerial);
+	nh.initNode();
+	nh.subscribe(sub);
+	hMot3.setMotorPolarity(Polarity::Reversed);
+	hMot3.setEncoderPolarity(Polarity::Reversed);
+	hMot4.setMotorPolarity(Polarity::Reversed);
+	hMot4.setEncoderPolarity(Polarity::Reversed);
+	LED1.on();
+	sys.taskCreate(batteryCheck);
+	while (true)
+	{
+		nh.spinOnce();
+		sys.delay(100);
+	}
+}
 ```
 
 Below is explanation for code line by line.
