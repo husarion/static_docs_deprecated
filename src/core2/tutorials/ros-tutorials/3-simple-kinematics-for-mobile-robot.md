@@ -109,7 +109,7 @@ paste following:
     using namespace hFramework;
     ros::NodeHandle nh;
     
- 	#define HYSTERESIS  10
+	#define HYSTERESIS  10
 	#define LIMIT  20
 
 	bool batteryLow = false;
