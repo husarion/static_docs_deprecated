@@ -544,8 +544,7 @@ void hMain()
 		wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
 
 		robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) -
-							 robot_angular_pos) /
-							delay_s;
+							 robot_angular_pos) / delay_s;
 		robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
 
 		robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
