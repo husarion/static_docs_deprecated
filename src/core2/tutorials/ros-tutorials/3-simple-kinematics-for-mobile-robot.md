@@ -108,9 +108,6 @@ paste following:
 
 using namespace hFramework;
 
-#define HYSTERESIS 10
-#define LIMIT 20
-
 bool batteryLow = false;
 
 ros::NodeHandle nh;
@@ -130,33 +127,24 @@ void twistCallback(const geometry_msgs::Twist &twist)
 void batteryCheck()
 {
 	int i = 0;
-	for (;;)
-	{
-		if (sys.getSupplyVoltage() < 11.1)
-		{
+	for (;;) {
+		if (sys.getSupplyVoltage() > 11.1) {
 			i--;
-		}
-		else
-		{
+		} else {
 			i++;
 		}
-		if (i > LIMIT)
-		{
-			batteryLow = false;
-			i = 0 + HYSTERESIS;
-		}
-		if (i < -LIMIT)
-		{
+		if (i > 50) {
 			batteryLow = true;
-			i = 0 - HYSTERESIS;
+			i = 50;
 		}
-		if (batteryLow == true)
-		{
+		if (i < -50) {
+			batteryLow = false;
+			i = -50;
+		}
+		if (batteryLow == true) {
 			LED1.toggle();
-		}
-		else
-		{
-			LED1.on();
+		} else {
+		    LED1.on();
 		}
 		sys.delay(250);
 	}
@@ -167,7 +155,6 @@ ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 void hMain()
 {
 	platform.begin(&RPi);
-	RPi.setBaudrate(500000);
 	nh.getHardware()->initWithDevice(&platform.LocalSerial);
 	nh.initNode();
 	nh.subscribe(sub);
@@ -201,10 +188,7 @@ Load namespace for Husarion functions:
 
     using namespace hFramework;
 
-Defining parameters for a batteryCheck function:
-
-    #define HYSTERESIS 10
-    #define LIMIT 20
+Defining variable for a batteryCheck function:
 
     bool batteryLow = false;
 
@@ -244,7 +228,6 @@ Main function, tasks and node initialization:
 
     void hMain() {
         platform.begin(&RPi);
-        RPi.setBaudrate(500000);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
 		sys.taskCreate(batteryCheck);
@@ -448,9 +431,6 @@ Your final code should look like this:
 
 using namespace hFramework;
 
-#define HYSTERESIS 10
-#define LIMIT 20
-
 bool batteryLow = false;
 
 ros::NodeHandle nh;
@@ -501,33 +481,24 @@ void twistCallback(const geometry_msgs::Twist &twist)
 void batteryCheck()
 {
 	int i = 0;
-	for (;;)
-	{
-		if (sys.getSupplyVoltage() < 11.1)
-		{
+	for (;;) {
+		if (sys.getSupplyVoltage() > 11.1) {
 			i--;
-		}
-		else
-		{
+		} else {
 			i++;
 		}
-		if (i > LIMIT)
-		{
-			batteryLow = false;
-			i = 0 + HYSTERESIS;
-		}
-		if (i < -LIMIT)
-		{
+		if (i > 50) {
 			batteryLow = true;
-			i = 0 - HYSTERESIS;
+			i = 50;
 		}
-		if (batteryLow == true)
-		{
+		if (i < -50) {
+			batteryLow = false;
+			i = -50;
+		}
+		if (batteryLow == true) {
 			LED1.toggle();
-		}
-		else
-		{
-			LED1.on();
+		} else {
+		    LED1.on();
 		}
 		sys.delay(250);
 	}
@@ -538,7 +509,6 @@ ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
 void hMain()
 {
 	platform.begin(&RPi);
-	RPi.setBaudrate(500000);
 	nh.getHardware()->initWithDevice(&platform.LocalSerial);
 	nh.initNode();
 	nh.subscribe(sub);
