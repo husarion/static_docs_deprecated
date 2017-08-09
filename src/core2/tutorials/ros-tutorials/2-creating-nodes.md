@@ -619,7 +619,7 @@ You can use below `.launch` file:
 
          <node pkg="image_view" type="image_saver" name="image_saver">
           <param name="save_all_image" value="false" />
-          <param name="filename_format" value="/home/pi/ros_workspace/left%04d.%s"/>
+          <param name="filename_format" value="/home/husarion/ros_workspace/left%04d.%s"/>
           <remap from="/image" to="/usb_cam/image_raw"/>
          </node>
 
