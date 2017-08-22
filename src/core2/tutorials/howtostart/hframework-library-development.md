@@ -18,22 +18,23 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
  * Open Visual Studio Code.
  * Close the opened project if you have one already loaded.
  * Install Husarion plugin for Visual Studio Code. 
- 	Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
+ 	
+	Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
 
 	or
 
 	Find terminal tab on bottom and click on it. Then type 
 
-<code>set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;</code>
+	<code>set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;</code>
 
 6. Use cd command to change directory to folder you've previously unzipped.
 
 <code>example: >cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master</code>
 
 7. Type
-<pre><code>mkdir build\stm32_core2_1.0.0\
-cd build\stm32_core2_1.0.0\
-cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja</code></pre>
+		mkdir build\stm32_core2_1.0.0\
+		cd build\stm32_core2_1.0.0\
+		cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
 
 8. Type
 	<code>ninja</code>
