@@ -13,12 +13,12 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
 
 ## hFramework sourcecode compilation ##
 
-1. Download current version of hFramework on your computer.
-(Github link: https://github.com/husarion/hFramework)
-2. Unpack downloaded file.
-3. Open Visual Studio Code. Close open project if you have one already loaded.
-4. Install Husarion plugin for Visual Studio Code.
-5. Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
+ * Download current version of hFramework on your computer (Github link: https://github.com/husarion/hFramework). 
+ * Unpack downloaded file.
+ * Open Visual Studio Code.
+ * Close the opened project if you have one already loaded.
+ * Install Husarion plugin for Visual Studio Code.
+Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
 
 or
 
