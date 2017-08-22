@@ -40,6 +40,10 @@ If you see on terminal the following line - compilation has succeed.
 
 ## Using the library compiled by yourself ##
 
+     mkdir build\stm32_core2_1.0.0\
+     cd build\stm32_core2_1.0.0\
+     cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
+     
 1. Create a new folder for your project.
 2. In VSCode File -> Open Folder
 ![image](/assets/img/howToStart/com_p2.png)
