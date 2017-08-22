@@ -19,13 +19,8 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
  4. Close the opened project if you have one already loaded.
  5. Install Husarion plugin for Visual Studio Code. 
  	
-	* Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
-
-	or
-
-	* Find terminal tab on bottom and click on it. Then type 
-
-		`set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;`
+	* Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open, or
+	* Find terminal tab on bottom and click on it. Then type `set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;`
 
 6. Use `cd` command to change directory to folder you've previously unzipped. Example:
 
@@ -44,21 +39,21 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
 9. Compiler should run and create static library for hFramework.
 If you see on terminal the following line - compilation has succeed.
 
-![image](/assets/img/howToStart/lib_p9.png)
+	![image](/assets/img/howToStart/lib_p9.png)
 
 ## Using the library compiled by yourself ##
      
 1. Create a new folder for your project.
 2. In VSCode File -> Open Folder
 
-![image](/assets/img/howToStart/com_p2.png)
+	![image](/assets/img/howToStart/com_p2.png)
 
 In the opened window find the directory you just created. Project tree should be empty.
 3. Press [Ctrl]+[Shift]+[P]. Small console will open on the top.
 4. Type “Create Husarion project” and press Enter to accept.
 5. In the project tree you should find files like on this screenshot:
 
-![image](/assets/img/howToStart/com_p5.png)
+	![image](/assets/img/howToStart/com_p5.png)
 
 6. Open CMakeLists.txt and remove line: <code>enable_module(hCloudClient)</code>
 7. Open main.cpp and remove lines: "#include <code>hCloudClient.h</code> and <code>platform.begin(&RPi);</code>.
