@@ -25,9 +25,9 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
 
 	* Find terminal tab on bottom and click on it. Then type 
 
-	<code>set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;</code>
+		`set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;`
 
-6. Use cd command to change directory to folder you've previously unzipped. Example:
+6. Use `cd` command to change directory to folder you've previously unzipped. Example:
 
 		cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master</code>
 
