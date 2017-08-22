@@ -11,16 +11,21 @@ order: 3
 
 If you like to develop [hFramework](https://github.com/husarion/hFramework) together with our Community, or to adapt it to your purposes, this is a way how to do it.
 
-## hFramework sourcecode compilation ##
+## Preparation ##
 
  1. Download current version of hFramework on your computer (Github link: https://github.com/husarion/hFramework). 
  2. Unpack downloaded file.
  3. Open Visual Studio Code.
  4. Close the opened project if you have one already loaded.
- 5. Install Husarion plugin for Visual Studio Code. 
+ 5. Install Husarion plugin for Visual Studio Code.
+ 6. Activate terminal commands:
  	
-	* Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open, or
-	* Find terminal tab on bottom and click on it. Then type set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;
+	* Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open 
+	**or**
+	* Find terminal tab on bottom and click on it. Then type 
+			set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;
+
+## hFramework sourcecode compilation ##
 
 6. Use `cd` command to change directory to folder you've previously unzipped. Example:
 
