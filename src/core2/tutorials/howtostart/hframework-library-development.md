@@ -23,17 +23,20 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
 or
 
 Find terminal tab on bottom and click on it. Then type 
-	set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;
-6. Use cd command to change directory to folder you've previously unzipped.
-example: >cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master
-7. Type
 
-     <pre><code>mkdir build\stm32_core2_1.0.0\
-     cd build\stm32_core2_1.0.0\
-     cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja</code></pre>
+<code>set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;</code>
+
+6. Use cd command to change directory to folder you've previously unzipped.
+
+<code>example: >cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master</code>
+
+7. Type
+<pre><code>mkdir build\stm32_core2_1.0.0\
+cd build\stm32_core2_1.0.0\
+cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja</code></pre>
 
 8. Type
-	ninja
+	<code>ninja</code>
 9. Compiler should run and create static library for hFramework.
 If you see on terminal the following line - compilation has succeed.
 
@@ -53,15 +56,18 @@ In the opened window find the directory you just created. Project tree should be
 
 ![image](/assets/img/howToStart/com_p5.png)
 
-6. Open CMakeLists.txt and remove line: "enable_module(hCloudClient)".
-7. Open main.cpp and remove lines: "#include "hCloudClient.h" and "platform.begin(&RPi);".
+6. Open CMakeLists.txt and remove line: <code>enable_module(hCloudClient)</code>
+7. Open main.cpp and remove lines: "#include <code>hCloudClient.h</code> and <code>platform.begin(&RPi);</code>.
 (These lines contain functions used to connect platform to cloud. You can add them later, after first compilation).
 8. Press [Ctrl]+[Shift]+[P], type “Change Husarion project variable” and press Enter.
 9. Type “HFRAMEWORK_PATH” and press Enter.
 10. Type path to hFramework directory.
-example: C:/Users/husarion/Downloads/hFramework-master/hFramework-master
+
+<code>example: C:/Users/husarion/Downloads/hFramework-master/hFramework-master</code>
+
 11. Press [Ctrl]+[Shift]+[B] to compile your project. If everything goes well, no message should pop up and in project tree you should find tree new output files:
 	myproject.bin
 	myproject.elf
 	myproject.hex
+	
 That means you have successfully builded your first project, together with hFramework sources.
