@@ -27,11 +27,9 @@ Find terminal tab on bottom and click on it. Then type
 6. Use cd command to change directory to folder you've previously unzipped.
 example: >cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master
 7. Type
-	mkdir build\stm32_core2_1.0.0\
-
-	cd build\stm32_core2_1.0.0\
-
-	cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
+    mkdir build\stm32_core2_1.0.0\
+    cd build\stm32_core2_1.0.0\
+    cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
 8. Type
 	ninja
 9. Compiler should run and create static library for hFramework.
