@@ -17,12 +17,12 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
  * Unpack downloaded file.
  * Open Visual Studio Code.
  * Close the opened project if you have one already loaded.
- * Install Husarion plugin for Visual Studio Code.
-Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
+ * Install Husarion plugin for Visual Studio Code. 
+ 	Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open.
 
-or
+	or
 
-Find terminal tab on bottom and click on it. Then type 
+	Find terminal tab on bottom and click on it. Then type 
 
 <code>set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;</code>
 
