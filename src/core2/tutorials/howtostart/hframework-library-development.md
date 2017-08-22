@@ -20,9 +20,7 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
  5. Install Husarion plugin for Visual Studio Code. 
  	
 	* Press [Ctrl]+[Shift]+[P]. Then type “flash project to CORE2” and press Enter to accept. Terminal window on the bottom should open, or
-	* Find terminal tab on bottom and click on it. Then type 
-
-				set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;
+	* Find terminal tab on bottom and click on it. Then type set PATH=%PATH%;C:%HOMEPATH%\.vscode\HusarionTools\bin;
 
 6. Use `cd` command to change directory to folder you've previously unzipped. Example:
 
