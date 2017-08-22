@@ -28,30 +28,31 @@ Find terminal tab on bottom and click on it. Then type
 example: >cd C:\Users\husarion\Downloads\hFramework-master\hFramework-master
 7. Type
 
-     mkdir build\stm32_core2_1.0.0\
+     <pre><code>mkdir build\stm32_core2_1.0.0\
      cd build\stm32_core2_1.0.0\
-     cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
-     
+     cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja</code></pre>
+
 8. Type
 	ninja
 9. Compiler should run and create static library for hFramework.
 If you see on terminal the following line - compilation has succeed.
+
 ![image](/assets/img/howToStart/lib_p9.png)
 
 ## Using the library compiled by yourself ##
-
-     mkdir build\stm32_core2_1.0.0\
-     cd build\stm32_core2_1.0.0\
-     cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
      
 1. Create a new folder for your project.
 2. In VSCode File -> Open Folder
+
 ![image](/assets/img/howToStart/com_p2.png)
+
 In the opened window find the directory you just created. Project tree should be empty.
 3. Press [Ctrl]+[Shift]+[P]. Small console will open on the top.
 4. Type “Create Husarion project” and press Enter to accept.
 5. In the project tree you should find files like on this screenshot:
+
 ![image](/assets/img/howToStart/com_p5.png)
+
 6. Open CMakeLists.txt and remove line: "enable_module(hCloudClient)".
 7. Open main.cpp and remove lines: "#include "hCloudClient.h" and "platform.begin(&RPi);".
 (These lines contain functions used to connect platform to cloud. You can add them later, after first compilation).
