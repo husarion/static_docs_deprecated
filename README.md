@@ -91,4 +91,4 @@ For Manuals:
     </tr>
 </table>
 
-/* Only small letters and hyphens are allowed in filename. If the article name is \# Tutorial for CORE2 \#, the filename has only small letters and hyphens instead whitespaces: `tutorial-for-core2.md`.
+* Only small letters and hyphens are allowed in filename. If the article name is \# Tutorial for CORE2 \#, the filename has only small letters and hyphens instead whitespaces: `tutorial-for-core2.md`.
