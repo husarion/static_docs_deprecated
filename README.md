@@ -1,61 +1,94 @@
-# Obsługa dokumentacji
+# How to edit Husarion Docs
 
-Strony źródłowe są w **/src**. Jest to czysty markdown, ale można używać też HTML.
- 
-Ważne - nazwa pliku .md powinna być spójna z głównym nagłówkiem (\# nazwa pliku \#), czyli np. jeżeli główny nagłówek to: 
- 
-\# jakaś tam podstrona \#
- 
-to plik powinien mieć nazwę jakas-tam-podstrona.md
- 
-Numery kolejnych nagłówków (\#\# Nagłówek 2 poziomu \#\#,  \#\#\# Nagłówek 3 poziomu \#\#\#) są generowane automatycznie zarówno w spisie treści jak i w samej treści.
- 
-Ważne aby w każdym pliku *.md były uzupełnione metadane. Na początku każdego pliku:
+## Basics
+
+This repository contains sources of the documentation that is available as [Tutorials](https://husarion.com/core2/tutorials/) and [Manuals](https://husarion.com/core2/manuals/hardware/) pages. They are automatically generated from master branch, but before that, the pull reuqests has to be approved by admin. The preview on GitHub can look slightly different than the publicated version.
+
+The sources are written using Markdown. The syntax of Markdown is well-described on the [Daring Fireball website](https://daringfireball.net/projects/markdown/syntax). You can also use HTML if Markdown is not enough.
+
+Source text for articles is stored in **/src** catalog.
+
+## Images
+
+Images are stored in **/assets/img**
+
+Standard Markdown syntax is applicable for images, but there is an additional possibility to create galleries:
+
+ ```
+<div class="gallery gallery-6">
+    ![The caption under image](/assets/img/image.png "the description shown after enlarging the image")
+    ![The caption under image 2](/assets/img/image2.png "the description shown after enlarging the image 2")
+</div>
+ ```
+The `gallery-6` means 6 images in row. If necessary, also the `gallery-2`, `gallery-3` etc. can be implemented.
+
+## Metadata headers and ToC generation
+
+Each .md file contains the metadata needed for generate HTML pages that are properly referenced to ToC on the left menu, here is an example:
+
 ``` 
 ---
-title: 'Tytuł strony - mało ważny'
-platform_title: 'Wyświetlany tytuł platformy'
-nazwa_platformy: true        // na tej wyświetlane jest odpowiednie menu górne itd
-autotoc: true                // czy generować spis treści
-layout: layout.hbs           // użyty layout
-order: 2                     //kolejność w sekcji
+title: 'The first step of tutorial'		// page title, not critical
+platform: 'CORE2'						// which hardware platform is documented
+autotoc: true                			// generate ToC or not?
+layout: layout.hbs           			// don't change
+order: 2                     			// the order in section (and the number displayed in ToC)
 ---
 ```
 
- 
-Konfiguracja dostępnych sekcji jest w config.js.
- 
-W razie potrzeby kolejne sekcje dodajemy zgodnie z widoczną konwencją:
- 
-    'platforma/sekcja_dokumentacji/podstrony' : {
-       pattern: 'platforma/sekcja_dokumentacji/podstrony/*.md',
-       sortBy: 'order',
-       metadata: {
-           description: 'wyświetlany tytuł sekcji w menu bocznym'
-       }
-    }
- 
-Dokumentacja przebudowuje się automatycznie po puszczeniu pusha do brancha master. Potem jest widoczna tu: https://test-docs.husarion.com/
+The ToC has 3 or 4 levels. It depends on the page.
 
-## Obrazki
- 
-Obrazki wrzucamy do /assets/img. Wyświetlanie - standardowy markdown.
- 
-Tworzenie galerii zdjęć:
- ```
-<div class="gallery gallery-6">
-    ![To jest podpis pod obrazkiem](/assets/img/zrodlo_obrazka.png "a ten opis wyświetla się przy powiększeniu obrazka")
-    ![To jest podpis pod obrazkiem 2](/assets/img/zrodlo_obrazka_2.png "a ten opis wyświetla się przy powiększeniu obrazka 2")
-</div>
- ```
-`Gallery-6` - oznacza do 6 obrazków obok siebie. Docelowo będzie jeszcze `gallery-2`, `gallery-3` i inne w miarę potrzeby. Jak widać wewnątrz `<div class=”gallery”>` dodajemy standardowy markdown z obrazkami.
- 
-Standardowy markdown opisany jest np. tutaj:
-https://daringfireball.net/projects/markdown/syntax
- 
-## Narzędzie ułatwiające konwersje plików do rozszerzenia .md
+For Tutorials:
+<table>
+    <tr>
+       <th>Level</th>
+       <th>ToC level</th>
+       <th>Syntax</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1. Article</td>
+        <td>\# Article \# - must be consistent with filename (article.md)*</td>
+    </tr>
+	<tr>
+        <td>2</td>
+        <td>1.1. Chapter</td>
+        <td>\#\# Chapter \#\#</td>
+    </tr>
+	<tr>
+        <td>3</td>
+        <td> Subchapter </td>
+        <td>\#\#\# Subchapter \#\#\#</td>
+    </tr>
+</table>
 
-Wchodzimy na stronę z linku poniżej:
-https://convertfiles.online/convert/tex/md
-Wybieramy jakie rozszerzenie ma nasz oryginalny plik np: .tex.
-Konwertujemy do .md, ale musimy pamiętać, że konwerter nie zrobi za nas wszystkiego!!! Po wygenerowaniu pliku .md sprawdźmy dokładnie czy znajduję się w nim wszystko co znaleść się powinno. 
+For Manuals:
+<table>
+    <tr>
+       <th>Level</th>
+       <th>ToC level</th>
+       <th>Syntax</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><strong>Section</strong></td>
+        <td>\# Section \# - must be consistent with filename (section.md)*</td>
+    </tr>
+	<tr>
+        <td>2</td>
+        <td>1. Article</td>
+        <td>\# Article \#</td>
+    </tr>
+	<tr>		
+        <td>3</td>
+        <td>1.1. Chapter</td>
+        <td>## Chapter ##</td>
+    </tr>
+	<tr>
+        <td>4</td>
+        <td> Subchapter </td>
+        <td>### Subchapter ###</td>
+    </tr>
+</table>
+
+* Only small letters and hyphens are allowed in filename. If the article name is \# Tutorial for CORE2 \#, the filename has only small letters and hyphens instead whitespaces: `tutorial-for-core2.md`.
