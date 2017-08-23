@@ -29,7 +29,7 @@ Each .md file contains the metadata needed for generate HTML pages that are prop
 ``` 
 ---
 title: 'The first step of tutorial'		// page title, not critical
-platform: 'CORE2'						// which hardware platform is documented
+platform: 'CORE2'				// which hardware platform is documented
 autotoc: true                			// generate ToC or not?
 layout: layout.hbs           			// don't change
 order: 2                     			// the order in section (and the number displayed in ToC)
@@ -48,17 +48,17 @@ For Tutorials:
     <tr>
         <td>1</td>
         <td>1. Article</td>
-        <td>\# Article \# - must be consistent with filename (article.md)*</td>
+        <td># Article # - must be consistent with filename (article.md)*</td>
     </tr>
 	<tr>
         <td>2</td>
         <td>1.1. Chapter</td>
-        <td>\#\# Chapter \#\#</td>
+        <td>## Chapter ##</td>
     </tr>
 	<tr>
         <td>3</td>
         <td> Subchapter </td>
-        <td>\#\#\# Subchapter \#\#\#</td>
+        <td>### Subchapter ###</td>
     </tr>
 </table>
 
@@ -72,12 +72,12 @@ For Manuals:
     <tr>
         <td>1</td>
         <td><strong>Section</strong></td>
-        <td>\# Section \# - must be consistent with filename (section.md)*</td>
+        <td># Section # - must be consistent with filename (section.md)*</td>
     </tr>
 	<tr>
         <td>2</td>
         <td>1. Article</td>
-        <td>\# Article \#</td>
+        <td># Article #</td>
     </tr>
 	<tr>		
         <td>3</td>
@@ -91,4 +91,4 @@ For Manuals:
     </tr>
 </table>
 
-* Only small letters and hyphens are allowed in filename. If the article name is \# Tutorial for CORE2 \#, the filename has only small letters and hyphens instead whitespaces: `tutorial-for-core2.md`.
+/* Only small letters and hyphens are allowed in filename. If the article name is \# Tutorial for CORE2 \#, the filename has only small letters and hyphens instead whitespaces: `tutorial-for-core2.md`.
