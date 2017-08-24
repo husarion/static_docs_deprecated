@@ -27,7 +27,7 @@ Build tools - Husarion extension for VSCode that include:
 1. Download and install VS Code from [https://code.visualstudio.com/](https://code.visualstudio.com/)
 2. Launch VS Code, press Ctrl-Shift-X, find “husarion" extension and click “Install". VS Code will ask you if you want to install also the dependencies - agree with it. Reload VSCode.
 3. ***<font color="green">Info: At this point you should have the following extensions installed: C/C++, CMake and Husarion. Do not install "CMake Tools" extension. If you already have it installed, disable it for workspaces with Husarion projects.</font>***
-4. Download Zadig (http://zadig.akeo.ie/), connect CORE2 via micro USB cable and launch Zadig. Click [Options] -> [List All Devices], choose “FT230X Basic UART" from the drop-down list and click “Replace Driver".
+4. Download Zadig (http://zadig.akeo.ie/), connect CORE2 via micro USB cable and launch Zadig. Click [Options] -> [List All Devices], choose “FT230X Basic UART" from the drop-down list, select "WinUSB (v6.1.7600.16385)" driver and click “Replace Driver".
 5. ***<font color="green">Info: This step is needed to flash the program to the microcontroller on CORE2. You need the administrator rights to do change the driver for USB device. If you encounter any problems with installation of the new driver, try to remove all old drivers related to USB Serial port or FTDI chip.</font>***
 
 ### Using the VSCode + extension ###
