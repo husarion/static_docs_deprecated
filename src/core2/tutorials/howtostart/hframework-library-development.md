@@ -17,16 +17,15 @@ You need to collect all required software:
 
 Install Chocolatey following this guide: https://chocolatey.org/install
 
-After Chocolatey installation, in the same terminal type: <code>choco install git</code> and follow the instructions. It will automatically install Git for Windows.
+After Chocolatey installation, in the same terminal type: `choco install git` and follow the instructions. It will automatically install Git for Windows.
 
-Open Visual Studio Code.
-
-Install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if you have not done this before.
+Open Visual Studio Code and install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if you have not done this before.
 			
 ## Cloning hFramework repository ##
 
-1. Press [Ctrl]+[Shift]+[P] and type <code>git: clone</code>, then type <code>https://github.com/husarion/hFramework.git</code>, then specify the destination folder, e.g. <code>C:\Husarion</code>.
-2. Press [Ctrl]+[Shift]+[P] and type <code>git: checkout</code>, choose <code>origin/devel</code>.
+Press [Ctrl]+[Shift]+[P] and type `git: clone`, then type `https://github.com/husarion/hFramework.git`, then specify the destination folder, e.g. `C:\Husarion`.
+
+Then press [Ctrl]+[Shift]+[P] and type `git: checkout`, choose `origin/devel`. The access to master branch is limited but you can work with devel branch.
 
 ## hFramework sourcecode compilation ##
 
@@ -58,9 +57,9 @@ Install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if 
 	![image](/assets/img/howToStart/com_p5.png)
 
 7. Before the first build you have to comment hCloudClient module (remember to save "ctrl + s"). 
-	Open CMakeLists.txt and comment the line: 
+		Open CMakeLists.txt and comment the line: 
 			`enable_module(hCloudClient)`
-	Open main.cpp and comment two lines: 
+		Open main.cpp and comment two lines: 
 			`#include "hCloudClient.h"`
 			`platform.begin(&RPi);`
 		
