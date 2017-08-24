@@ -58,8 +58,11 @@ Then press [Ctrl]+[Shift]+[P] and type `git: checkout`, choose `origin/devel`. T
 
 7. Before the first build you have to comment hCloudClient module (remember to save "ctrl + s"). 
 		Open CMakeLists.txt and comment the line: 
+		
 			`enable_module(hCloudClient)`
+			
 		Open main.cpp and comment two lines: 
+		
 			`#include "hCloudClient.h"`
 			`platform.begin(&RPi);`
 		
