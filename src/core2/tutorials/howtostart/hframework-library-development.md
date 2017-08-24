@@ -17,14 +17,14 @@ You need to collect all required software:
 
 
  1. Install Chocolatey following this guide: https://chocolatey.org/install
- 2. After Chocolatey installation, in the same terminal type: ‘choco install git’ and follow the instructions. It will automatically install Git for Windows.
+ 2. After Chocolatey installation, in the same terminal type: <code>choco install git</code> and follow the instructions. It will automatically install Git for Windows.
  3. Open Visual Studio Code.
  4. Install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if you have not done this before.
 			
 ## Cloning hFramework repository ##
 
-1. Press [Ctrl]+[Shift]+[P] and type `git: clone`, then type `https://github.com/husarion/hFramework.git`, then specify the destination folder, e.g. `C:\Husarion`.
-2. Press [Ctrl]+[Shift]+[P] and type `git: checkout`, choose `origin/devel`.
+1. Press [Ctrl]+[Shift]+[P] and type <code>git: clone</code>, then type <code>https://github.com/husarion/hFramework.git</code>, then specify the destination folder, e.g. <code>C:\Husarion</code>.
+2. Press [Ctrl]+[Shift]+[P] and type <code>git: checkout</code>, choose <code>origin/devel</code>.
 
 ## hFramework sourcecode compilation ##
 
@@ -55,11 +55,10 @@ You need to collect all required software:
 
 	![image](/assets/img/howToStart/com_p5.png)
 
-7. Before the first build you have to comment hCloudClient module (remember to save "ctrl + s"): 
-
-		* Open CMakeLists.txt and comment the line: 
+7. Before the first build you have to comment hCloudClient module (remember to save "ctrl + s"). 
+	Open CMakeLists.txt and comment the line: 
 			`enable_module(hCloudClient)`
-		* Open main.cpp and comment two lines: 
+	Open main.cpp and comment two lines: 
 			`#include "hCloudClient.h"`
 			`platform.begin(&RPi);`
 		
@@ -67,7 +66,7 @@ You need to collect all required software:
 9. Type “HFRAMEWORK_PATH” and press [Enter].
 10. Type or copy the path to hFramework directory. Remember to use "/", not "\". Example:
 
-		C:/Users/husarion/Downloads/hFramework-master/hFramework-master
+		C:/Husarion/hFramework
 
 11. Press [Ctrl]+[Shift]+[B] to build your project. If everything goes well, no message should pop up and in project tree you should find tree new output files:
 
@@ -75,8 +74,8 @@ You need to collect all required software:
 		myproject.elf
 		myproject.hex
 	
-	**That means you have successfully builded your first project, together with hFramework sources.**
-12. Now you can uncomment the 3 lines that you have previously commented to build projects with the hCloudClient.
+	**That means you have successfully built your first project, together with hFramework sources.**
+12. Now you can uncomment the 3 lines that you have previously commented, to build project with the hCloudClient.
 13. To program CORE2 via USB, click [Ctrl]+[Shift]+[P] and select "flash project to CORE2". Make sure that you replaced USB driver for your CORE2 to the "WinUSB (v6.1.7600.16385)" using [Zadig](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/#offline-development-tools-installation-guide).
 
 P.S. To get back to the previous version of the USB driver you need to open "device manager" in Windows and uninstall USB connection associated with FTDI/CORE2, together with the driver for this device (tick the checkbox). In uninstallation confirmation windows select a checkbox to uninstall the driver and click OK.
