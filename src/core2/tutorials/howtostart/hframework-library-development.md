@@ -15,11 +15,13 @@ If you like to develop [hFramework](https://github.com/husarion/hFramework) toge
 
 You need to collect all required software:
 
+Install Chocolatey following this guide: https://chocolatey.org/install
 
- 1. Install Chocolatey following this guide: https://chocolatey.org/install
- 2. After Chocolatey installation, in the same terminal type: <code>choco install git</code> and follow the instructions. It will automatically install Git for Windows.
- 3. Open Visual Studio Code.
- 4. Install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if you have not done this before.
+After Chocolatey installation, in the same terminal type: <code>choco install git</code> and follow the instructions. It will automatically install Git for Windows.
+
+Open Visual Studio Code.
+
+Install "Husarion" extension in VSC ([Ctrl]+[Shift]+[X] and find "Husarion") if you have not done this before.
 			
 ## Cloning hFramework repository ##
 
