@@ -55,7 +55,7 @@ Well done! You just added your first device to the cloud!
 
 ### Connecting via the command line ###
 
-If you have CORE2-ROS, you can also connect to the cloud via the command line. This is recommended only if you already know how to open terminal or connect via SSH to your device.
+If you have CORE2-ROS, you can also connect to the cloud via the command line. This is recommended only if you are able to open terminal or connect via SSH to your device.
 
  * Open https://cloud.husarion.com in your browser, sign in and click "Add new device". 
  * Enter a name for you device.
