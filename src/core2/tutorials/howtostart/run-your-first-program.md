@@ -25,7 +25,9 @@ Set the power switch to "ON" position and now your device is ready to use!
 ## Connecting to the Cloud ##
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
-* [AppStore - comming soon](https://husarion.com)
+* AppStore - coming soon
+
+If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
 
 You also need to register your own account on [Husarion Cloud](https://cloud.husarion.com).
 
@@ -39,17 +41,26 @@ Click "Add new device".
 
 ![image](/assets/img/howToStart/2_addNewDevice.png)
 
-Enter a name for you CORE2 powered device.
+Enter a name for your CORE2 powered device.
 
 ![image](/assets/img/howToStart/3_enterName.png)
 
-Scan QR code using your hConfig app.
+Scan QR code using the hConfig app.
 
 ![image](/assets/img/howToStart/4_scanQr.png)
 
 Well done! You just added your first device to the cloud!
 
 ![image](/assets/img/howToStart/5_devAdded.png)
+
+### Connecting via the command line ###
+
+If you have CORE2-ROS, you can also connect to the cloud via the command line. This is recommended only if you are able to open terminal or connect via SSH to your device.
+
+ * Open https://cloud.husarion.com in your browser, sign in and click "Add new device". 
+ * Enter a name for you device.
+ * Copy the text code, located below the QR code.
+ * Run `husarion-register` on your CORE2-ROS device. When asked, paste the previously copied code.
 
 ## Writing your first program ##
 
