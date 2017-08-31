@@ -1047,6 +1047,7 @@ You need to have Visual Studio Code installed with Husarion extension. Please fo
   * Choose WinUSB driver and click **Replace Driver**
 5. Open command line prompt.
 6. Flash bootloader with commands:
+
   on Linux in the terminal:
   ```
   ./core2-flasher --unprotect
