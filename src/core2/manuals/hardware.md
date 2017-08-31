@@ -1036,31 +1036,29 @@ In this section you will find instructions on how to update CORE2 bootloader whe
 
 ## Updating CORE2 bootloader ##
 
-1. Download CORE2 SDK from [](https://files.husarion.com/sdk/CORE2_SDK-stable.zip).
-2. Extract zip archive.
-3. Locate core2-flasher utility (tools/YOUR_ARCH/core2-flasher).
-4. Connect CORE2 to PC via USB.
-5. Install drivers (Windows only)
+You need to have Visual Studio Code installed with Husarion extension. Please follow this guide if you haven't done this before: [VSCode installation](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/#offline-development-tools-installation-guide) 
+1. Locate core2-flasher utility (YOUR_HOME_PATH/.vscode/extensions/husarion.husarion-VERSION/sdk/tools/YOUR_ARCH/core2-flasher).
+2. Download the bootloader [HEX file](https://files.husarion.com/bootloader/bootloader_1_0_0_core2.hex) to the folder with core2-flasher
+3. Connect CORE2 to PC via USB.
+4. Install drivers (Windows only)
   * Download Zadig [Usb driver installator - Zadig](http://zadig.akeo.ie/)
   * Run Zadig
   * Select FT231X USB UART in Zadig window
   * Choose WinUSB driver and click **Replace Driver**
-6. Open command line prompt.
-7. Flash bootloader with commands:
-  * on Linux in the terminal:
-  * ./core2-flasher --unprotect
-  * ./core2-flasher bootloaders/bootloader_1_0_0_core2.hex
-  * ./core2-flasher --protect
-  * on Windows in the terminal:
-  * before running commands install drivers for Windows:
-    * Download USB driver installator - [Zadig](http://zadig.akeo.ie).
-    * Run Zadig.
-    * Plug in your CORE2 to USB port via microUSB.
-    * Select FT230X USB UART in Zadig window.
-    * Choose WinUSB driver and click Replace Driver.
-  * core2-flasher.exe --unprotect
-  * core2-flasher.exe bootloaders/bootloader_1_0_0_core2.hex
-  * core2-flasher.exe --protect
+5. Open command line prompt.
+6. Flash bootloader with commands:
+  on Linux in the terminal:
+  ```
+  ./core2-flasher --unprotect
+  ./core2-flasher bootloader_1_0_0_core2.hex
+  ./core2-flasher --protect
+  ```
+  on Windows in the terminal:
+  ```
+  core2-flasher.exe --unprotect
+  core2-flasher.exe bootloader_1_0_0_core2.hex
+  core2-flasher.exe --protect
+  ```
 
 ## Updating ESP32 firmware ##
 
