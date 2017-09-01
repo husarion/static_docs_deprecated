@@ -1063,29 +1063,14 @@ You need to have Visual Studio Code installed with Husarion extension. Please fo
 
 ## Updating ESP32 firmware ##
 
-1. Download CORE2 SDK from [](https://files.husarion.com/sdk/CORE2_SDK-stable.zip).
-2. Extract zip archive.
-3. Install prerequisites:
-  * sudo apt-get install python-pip libftdi1
-  * sudo pip2 install pylibftdi
-4. Download ESP and flasher firmware from [](https://files.husarion.com/esp-firmware-stable.zip)
-5. Remove ESP from RPi connector if you have it plugged in.
-6. Locate core2-flasher utility (tools/YOUR_ARCH/core2-flasher).
-7. Connect CORE2 to PC via USB
-8. Flash 'ESP firmware flasher' firmware (called flasher-firmware.hex) into you CORE2 using the flasher tool you extracted from SDK archive with command:
-  * sudo ./core2-flasher flasher-firmware.hex
-9. Configure CORE2 into ESP flash mode with command:
-  * sudo ./core2-flasher --switch-to-esp-flash
-10. Insert ESP to RPi connector in CORE2.
-11. Use script 'flash_esp.sh' to flash ESP firmware via CORE2:
-  * sudo ./flash_esp.sh
-12. The "ESP firmware flasher" won't allow the ESP to login to the Husarion Cloud. [Download](https://files.husarion.com/how_to_start.hex) and flash the example code to the CORE2:
-  * sudo ./core2-flasher how_to_start.hex
+Make sure that your CORE2 is connected with your cloud account. [This is a guide](https://husarion.com/core2/tutorials/howtostart/run-your-first-program/#run-your-first-program-connecting-to-the-cloud) that explains how to do it.
 
-You can also use the following script that does everything for you:
-* wget https://files.husarion.com/esp-flash.sh -O esp-flash.sh && bash esp-flash.sh
+1. Turn CORE2 on and login to the cloud account. The device should be visible as "online".
+2. Click "+" and "More".
+3. Click OTA upgrade. Process should start immediately and inform you about progress. Do not turn off power supply!
+4. When finished, you shall see the message: "OTA progress: success: upgrade completed". 
 
-Now you can use CORE2 + ESP following the [How to start tutorial.](https://husarion.com/core2/tutorials/howtostart/run-your-first-program/)
+That's all, your ESP32 firmware is up-to-date.
 
 ## Linux image for RaspberryPi ##
 
