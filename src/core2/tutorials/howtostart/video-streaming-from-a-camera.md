@@ -25,7 +25,7 @@ Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToSt
 
 Click "Generate new QR code" in the pop-up window:
 
-![image](/assets/img/howToStart/add_camera.png)
+<center>![image](/assets/img/howToStart/add_camera.png)</center>
 
 Launch the hVideo app on your smartphone, choose the "Pair with robot" option in the hVideo menu:
 
