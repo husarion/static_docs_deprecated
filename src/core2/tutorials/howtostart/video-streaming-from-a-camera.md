@@ -60,7 +60,7 @@ Create a new project and use the "UI example" template to see how it can be done
 <div style="text-align: center">![image](/assets/img/howToStart/create-project-webui.png)</div>
 
 The stream is enabled in cfgHandler() function:
-'''
+```
 void cfgHandler()
 {
     auto l = platform.ui.label("l1");
@@ -68,6 +68,23 @@ void cfgHandler()
     auto b = platform.ui.button("btn1");
     b.setText("button1");
     b.setLocation(100, 100);
-    platform.ui.video.enable();
+    platform.ui.video.enable();  // enable the video stream and display in the default web UI
 }
-'''
+```
+The video stream will be displayed on default robot user interface.
+
+In some cases you will need to align the image position or other properties, together with other features like buttons, sliders, images etc. It means that you need to create a custom robot UI in HTML. Choose another template - "4-wheels spy robot" - and explore the more advanced example of user interface. The additional line is added to the cfgHandler():
+```
+void cfgHandler()
+{
+	auto l1 = platform.ui.label("l1");
+	auto g1 = platform.ui.button("g1");
+	auto g2 = platform.ui.button("g2");
+	auto g3 = platform.ui.button("g3");
+	platform.ui.loadHtml({Resource::WEBIDE, "/web_ui/ui.html"});    // overwrite the default web UI with the custom one
+	platform.ui.video.enable();                                     // enable the video stream and display in the web UI
+}
+```
+Two files: "ui.html" and "ui.css" define the video container, its location and size, together with other page elements. Feel free to modify the template and create your own, great UI for your robot :) See the screenshot from the "4-wheels spy robot" user interface:
+
+<div style="text-align: center">![image](/assets/img/howToStart/interface2.jpg)</div>
