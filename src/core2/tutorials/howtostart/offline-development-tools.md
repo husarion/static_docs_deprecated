@@ -4,7 +4,7 @@ platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
-order: 2
+order: 3
 ---
 
 # Offline development tools #
