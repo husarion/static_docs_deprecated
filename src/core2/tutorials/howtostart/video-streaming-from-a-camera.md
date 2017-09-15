@@ -53,3 +53,21 @@ Now reboot the robot. If you don't have a non-standard camera, it shouldn't need
 
 ## Displaying the stream in the robot UI ##
 
+Once you have configured the video stream, you can display it in the Web UI of your robot now.
+
+Create a new project and use the "UI example" template to see how it can be done:
+
+<div style="text-align: center">![image](/assets/img/howToStart/create-project-webui.png)</div>
+
+The stream is enabled in cfgHandler() function:
+'''
+void cfgHandler()
+{
+    auto l = platform.ui.label("l1");
+    l.setText("label1");
+    auto b = platform.ui.button("btn1");
+    b.setText("button1");
+    b.setLocation(100, 100);
+    platform.ui.video.enable();
+}
+'''
