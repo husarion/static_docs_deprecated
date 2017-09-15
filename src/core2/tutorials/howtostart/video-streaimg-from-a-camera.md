@@ -1,5 +1,5 @@
 ---
-title: 'How to add a camera to your robot'
+title: 'Video streaming from a camera'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
@@ -7,7 +7,10 @@ page: 'Tutorials'
 order: 2
 ---
 
-# How to add a camera to your robot #
+# Video streaming from a camera #
+
+Husarion Cloud supports streaming a video from a camera attached to your robot to the Web User Interface.
+
 ## Setting up the hardware ##
 ### CORE2 + smartphone/tablet ###
 Your robot with CORE2 can use a camera that is built into a smartphone or a tablet. The video from camera can be viewed in the robot's user interface. Currently this feature is available only for Android devices.
@@ -16,17 +19,17 @@ At first, your CORE2 needs to be connected to your account on [cloud.husarion.co
 
 Install the [hVideo](https://play.google.com/store/apps/details?id=com.husarion.video2&hl=en) app on your smartphone or tablet. Enable Wi-Fi or mobile data transmission on the device.
 
-Login to the Husarion Cloud, find your robot, click <img src="/assets/img/howToStart/plus.png"/> and "Add camera".
+Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
 
-<img src="/assets/img/howToStart/cloud_add_camera.png"/>
+<div><center>![image](/assets/img/howToStart/cloud_add_camera.png)</center></div>
 
 Click "Generate new QR code" in the pop-up window:
 
-<img src="/assets/img/howToStart/add_camera.png"/>
+![image](/assets/img/howToStart/add_camera.png)
 
 Launch the hVideo app on your smartphone, choose the "Pair with robot" option in the hVideo menu:
 
-<img src="/assets/img/howToStart/pair-with-robot.png"/>
+![image](/assets/img/howToStart/pair-with-robot.png)
 
 and scan the QR code displayed at Husarion Cloud with your smartphone.
 
@@ -38,15 +41,15 @@ CORE2-ROS contains a single board computer with Linux operating system and USB p
 
 At first, your CORE2-ROS needs to be connected to your account on [cloud.husarion.com](https://cloud.husarion.com/).
 
-Login to the Husarion Cloud, find your robot, click <img src="/assets/img/howToStart/plus.png"/> and "Add camera".
+Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
 
-<img src="/assets/img/howToStart/cloud_add_camera.png"/>
+![image](/assets/img/howToStart/cloud_add_camera.png)
 
 Click "Enable USB camera" in the pop-up window:
 
-<img src="/assets/img/howToStart/add_camera.png"/>
+![image](/assets/img/howToStart/add_camera.png)
 
-If you don't have a non-standard camera, it shouldn't need any additional configuration and the video stream should now be available in the Web UI of your robot.
+Now reboot the robot. If you don't have a non-standard camera, it shouldn't need any additional configuration and the video stream should now be available in the Web UI of your robot.
 
 ## Displaying the stream in the robot UI ##
 
