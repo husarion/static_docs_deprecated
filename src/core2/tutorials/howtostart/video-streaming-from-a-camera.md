@@ -25,11 +25,11 @@ Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToSt
 
 Click "Generate new QR code" in the pop-up window:
 
-<center>![image](/assets/img/howToStart/add_camera.png)</center>
+<div style="text-align: center">![image](/assets/img/howToStart/add_camera.png)</div>
 
 Launch the hVideo app on your smartphone, choose the "Pair with robot" option in the hVideo menu:
 
-![image](/assets/img/howToStart/pair-with-robot.png)
+<div style="text-align: center">![image](/assets/img/howToStart/pair-with-robot.png)</div>
 
 and scan the QR code displayed at Husarion Cloud with your smartphone.
 
@@ -43,11 +43,11 @@ At first, your CORE2-ROS needs to be connected to your account on [cloud.husario
 
 Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
 
-![image](/assets/img/howToStart/cloud_add_camera.png)
+<div style="text-align: center">![image](/assets/img/howToStart/cloud_add_camera.png)</div>
 
 Click "Enable USB camera" in the pop-up window:
 
-![image](/assets/img/howToStart/add_camera.png)
+<div style="text-align: center">![image](/assets/img/howToStart/add_camera.png)</div>
 
 Now reboot the robot. If you don't have a non-standard camera, it shouldn't need any additional configuration and the video stream should now be available in the Web UI of your robot.
 
