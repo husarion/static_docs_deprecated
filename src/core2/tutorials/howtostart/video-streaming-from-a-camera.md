@@ -21,7 +21,7 @@ Install the [hVideo](https://play.google.com/store/apps/details?id=com.husarion.
 
 Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
 
-<div><center>![image](/assets/img/howToStart/cloud_add_camera.png)</center></div>
+<div style="text-align: center">![image](/assets/img/howToStart/cloud_add_camera.png)</div>
 
 Click "Generate new QR code" in the pop-up window:
 
