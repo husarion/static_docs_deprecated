@@ -36,8 +36,8 @@ To create new project, select empty folder, press Ctrl-Shift-P, type “create h
 
 ***<font color="green">Info: The "Husarion" extension may start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash project).
-To flash project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
+To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
+To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
 
 ***<font color="green">Info: Autocomplete function is partially supported.</font>***
 
@@ -54,7 +54,7 @@ To flash project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash co
 
 1. Plug in ST-LINK device.
 2. Using Windows automatic driver detection software install ST-LINK driver for your device.
-3. Simply press F5 button in VSCode window to run flash application and start debugging.
+3. Simply press F5 button in VSCode window to flash application and start debugging.
 
 
 ## Offline development tools for Linux ##
@@ -84,14 +84,17 @@ To create new project, select empty folder, press Ctrl-Shift-P, type “create h
 
 ***<font color="green">Info: The “husarion" extension can start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash project).
-To flash project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
+To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
+To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
 
-***<font color="green">Info: Debugging is not yet supported. Autocomplete function is partially supported.</font>***
+### Changing hardware platform ###
 
-### Flashing with ST-LINK V/2 ###
+1. Click Ctrl-Shift-P, then chose “Change Husarion project variable.”
+2. Select BOARD_TYPE to change board type or BOARD_VERSION to change board version.
 
-***<font color="green">Info: For more advanced users. You don’t need this tool if flashing CORE2 via USB is enough. In addition, currently it has to be used from command-line, because it is not integrated with VS Code yet.</font>***
+### Installing ST-LINK ###
+
+***<font color="green">Info: For advanced users. You don’t need this tool if flashing CORE2 via USB is enough.</font>***
 
 To install the st-flash software, follow the instructions from here: https://github.com/texane/stlink/blob/master/README.md
 
@@ -108,11 +111,11 @@ For Debian/Ubuntu you have to compile this tool from source:
 * `$ sudo make install`
 * `$ sudo ldconfig`
 
-To flash the output file to CORE2, use the st-flash command:
+### Debugging ###
 
-* `$ sudo st-flash write myproject.bin 0x08010000`
-
-***<font color="green">Info: The binary file "myproject.bin" is located in the folder selected during previous point.</font>***
+1. Plug in ST-LINK device.
+2. Make sure you have installed ST-LINK installed.
+3. Simply press F5 button in VSCode window to flash application and start debugging.
 
 ## Offline development tools for Mac ##
 
@@ -121,23 +124,22 @@ To flash the output file to CORE2, use the st-flash command:
 Build tools:
 * GNU ARM Embedded Toolchain
 * support for CMake
-<!-- * flasher tool for downloading the code to CORE2 via USB cable -->
+* flasher tool for downloading the code to CORE2 via USB cable
 * st-flash tool for downloading the code to CORE2 via ST-LINK V/2 debugger
 
 ### Installation guide ###
 
 ***<font color="green">Info: In order to compile projects for CORE2, you need a compiler that can compile code for its ARM processor. We recommend installing the cross-compiler and other dependencies from your distribution packages.</font>***
 
-1. Install C++ cross-compiler - type in the terminal:
-* $ brew tap PX4/homebrew-px4
-* $ brew update
-* $ brew install gcc-arm-none-eabi-48
-2. Install CMake:
-* $ brew install cmake
-3. Install Ninja:
-* $ brew install ninja
+1. If you don't have brew installed, follow the instructions at https://brew.sh
+2. Install C++ cross-compiler - execute in the terminal:
+* `$ brew tap PX4/homebrew-px4`
+* `$ brew update`
+* `$ brew install gcc-arm-none-eabi-48`
+3. Install CMake, Ninja and STLink:
+* `$ brew install cmake ninja stlink`
 4. Download and install VS Code from https://code.visualstudio.com/
-5. Launch VS Code, press Ctrl-Shift-X, find "husarion" extension and click "Install". VS Code will ask you if you want to install also the dependencies - agree with it. Reload VSCode.
+5. Launch VS Code, press Ctrl-Shift-X, find "husarion" extension and click "Install". VS Code will ask you if you want to install also the dependencies - agree. Reload VSCode.
 
 ### Using the VSCode + extension ###
 
@@ -145,23 +147,10 @@ To create new project, select empty folder, press Ctrl-Shift-P, type "create hus
 
 ***<font color="green">Info: The "husarion" extension can start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash project).
-<!-- To flash project to CORE2 via micro USB, press Ctrl-Shift-P and type "flash core2" and press enter. -->
+To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
+To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type "flash core2" and press enter. 
 
-***<font color="green">Info: Flashing from the VSCode window and debugging are not yet supported. Autocomplete function is partially supported.</font>***
+### Debugging ###
 
-### Flashing with ST-LINK V/2 ###
-
-<!-- ***<font color="green">Info: For more advanced users. You don’t need this tool if flashing CORE2 via USB is enough. In addition, currently it has to be used from command-line, because it is not integrated with VS Code yet.</font>*** -->
-
-***<font color="green">The always up-to-date manual how to install the tool can be found here: https://github.com/texane/stlink/blob/master/README.md </font>***
-
-For Mac write in a terminal:
- 
-* $ brew install stlink
-
-To flash the output file to CORE2, use the st-flash command:
-
-* $ sudo st-flash write myproject.bin 0x08010000
-
-***<font color="green">Info: The binary file "myproject.bin" is located in the folder selected during previous point.</font>***
+1. Plug in the ST-LINK device.
+2. Simply press F5 button in VSCode window to flash application and start debugging.
