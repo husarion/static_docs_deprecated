@@ -39,8 +39,6 @@ To create new project, select empty folder, press Ctrl-Shift-P, type “create h
 To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
 To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
 
-***<font color="green">Info: Autocomplete function is partially supported.</font>***
-
 ### Useful extensions ###
 * Builtin Git support - Ctrl-Shift-G You need to install Git first. We recommend using Chocolatey to do it.
 * Git History (git log)
