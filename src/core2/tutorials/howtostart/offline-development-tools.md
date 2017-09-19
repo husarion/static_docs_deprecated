@@ -20,7 +20,9 @@ Code editor: Visual Studio Code
 Build tools - Husarion extension for VSCode that include:
 * GNU ARM Embedded Toolchain
 * support for CMake
-* flasher program for downloading the code to CORE2
+* flasher program for downloading the code to CORE2 via USB
+* code autocompletion
+* native debugger support
 
 ### Installation guide ###
 
@@ -64,6 +66,7 @@ Build tools:
 * support for CMake
 * flasher tool for downloading the code to CORE2 via USB cable
 * st-flash tool for downloading the code to CORE2 via ST-LINK V/2 debugger
+* code autocompletion
 
 ### Installation guide ###
 
@@ -124,6 +127,7 @@ Build tools:
 * support for CMake
 * flasher tool for downloading the code to CORE2 via USB cable
 * st-flash tool for downloading the code to CORE2 via ST-LINK V/2 debugger
+* code autocompletion
 
 ### Installation guide ###
 
