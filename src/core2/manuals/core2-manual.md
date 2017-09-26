@@ -1,6 +1,6 @@
 ---
 title: 'CORE2 Manual'
-platform: 'Hardware'
+platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 order: 1
