@@ -45,11 +45,17 @@ Left motor should be connected to A motor port and the right one to D motor port
 <div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_1.png)</div>
 <div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter</i></div>
 
+<p></p>
+
 <div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_2.png)</div>
 <div style="text-align: right"><i>Assembled robot with RoboCORE controller</i></div>
 
+<p></p>
+
 <div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_3.png)</div>
 <div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter - side view</i></p></div>
+
+<p></p>
 
 ## Code ##
 
