@@ -11,5 +11,5 @@ page: 'Manuals'
 ## Hardware ##
 
 <script type="text/javascript">
-    window.location.replace("/core2/manuals/hardware");
+    window.location.replace("/core2/manuals/core2-manual");
 </script>
