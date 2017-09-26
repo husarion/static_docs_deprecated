@@ -23,16 +23,19 @@ Sensors will detect object in front of the robot therefore you need to place bot
 Connect right sensor to hSens1 port and left one to hSens2 port.
 Left motor should be connected to A motor port and the right one to D motor port.
 
-Zdjêcia (1)(2)(3)
+![image](/assets/img/howToStart/shadowBOT_1.png)
+![image](/assets/img/howToStart/shadowBOT_2.png)
+![image](/assets/img/howToStart/shadowBOT_3.png)
+
 
 ## Code ##
 
 After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (how to) or online with Husarion Cloud (how to).
-
-'
 kod programu
 '
 
+
+'
 ## Useful links ##
 
 https://github.com/husarion/hSensors - open source hFramework libraries for LEGO Mindstorms sensors
