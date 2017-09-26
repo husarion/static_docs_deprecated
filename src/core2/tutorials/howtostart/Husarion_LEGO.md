@@ -42,8 +42,9 @@ Sensors will detect object in front of the robot therefore you need to place bot
 Connect right sensor to hSens1 port and left one to hSens2 port.
 Left motor should be connected to A motor port and the right one to D motor port.
 
-<div style="text-align: center">![image](//assets/img/howToStart/shadowBOT_1.png)Assembled robot with RoboCORE controller</div>
-
+<div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_1.png)Assembled robot with RoboCORE controller</div>
+![image](/assets/img/howToStart/add_camera.png)
+![image](/assets/img/howToStart/add_camera.png)
 <figure>
   <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_2.png">
   <figcaption>Assembled robot with CORE2 controller and CORE2brick adapter</figcaption>
