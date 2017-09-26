@@ -13,7 +13,24 @@ In this tutorial we will help you build autonomic, mechatronic, 3-wheel tracking
 See video: YouTube
 
 
-Wstawiæ tabele!!!
+<table>
+    <tr>
+        <td>RoboCORE / CORE2 port name</td><td>module connected</td>
+    </tr>
+    <tr>
+        <td>hSens1</td><td>`LEGO Distance Sensor (facing forward-right)`</td>
+    </tr>
+    <tr>
+        <td>hSens2</td><td>`LEGO Distance Sensor (facing forward-left)`</td>
+    </tr>
+    <tr>
+        <td>hMot1 / hMotA</td><td>`husarionEV3 Large Servo Motor (left one)
+hMot4 / hMotD`</td>
+    </tr>
+    <tr>
+        <td>hMot4 / hMotD</td><td>`EV3 Large Servo Motor (right one)`</td>
+    </tr>
+</table>
 
 
 ## Building and Connections ##
