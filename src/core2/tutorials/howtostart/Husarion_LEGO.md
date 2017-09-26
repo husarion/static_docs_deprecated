@@ -1,5 +1,5 @@
 ---
-title: 'Getting started with Husarion and LEGO Mindstorms'
+title: 'Getting started with Husarion + LEGO Mindstorms'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
