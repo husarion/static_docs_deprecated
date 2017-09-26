@@ -43,7 +43,7 @@ https://husarion.com/core2/manuals/hardware/ - CORE2 hardware documentation
 
 https://husarion.com/core2/tutorials/howtostart/offline-development-tools/ - conifguring offline dev tools
 
-https://cloud.husarion.com/ - Husarion cloud to manage all your CORE2 or RoboCORE based robots. Web IDE (Integrated Development Environment) is on-site, so you can develop a code directly from a web browser. Write control algorithms and web user interface for your robot and control it from anywhere.
+https://cloud.husarion.com/ - Husarion cloud to manage all your CORE2 or RoboCORE based robots. Web IDE (Integrated Development Environment) is online, so you can develop a code directly from a web browser. Write control algorithms and web user interface for your robot and control it from anywhere.
 
 https://play.google.com/store/apps/details?id=com.husarion.configtool2 - hConfig app to connect CORE2 to the internet and cloud.husarion.com
 
