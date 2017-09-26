@@ -15,7 +15,7 @@ See video: YouTube
 
 <table>
     <tr>
-        <td>RoboCORE / CORE2 port name</td><td>module connected</td>
+    <td><b>RoboCORE / CORE2 port name</b></td><td><b>module connected</b></td>
     </tr>
     <tr>
         <td>hSens1</td><td>`LEGO Distance Sensor (facing forward-right)`</td>
