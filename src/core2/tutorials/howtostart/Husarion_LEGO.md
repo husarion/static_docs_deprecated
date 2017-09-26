@@ -46,7 +46,9 @@ Left motor should be connected to A motor port and the right one to D motor port
 
 ## Code ##
 
-After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (how to) or online with Husarion Cloud (how to).
+After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (<a href="https://husarion.com/core2/tutorials/howtostart/offline-development-tools/">how to</a>
+) or online with Husarion Cloud (<a href="https://husarion.com/core2/tutorials/howtostart/run-your-first-program/">how to</a>
+).
 kod programu
 
 ```
