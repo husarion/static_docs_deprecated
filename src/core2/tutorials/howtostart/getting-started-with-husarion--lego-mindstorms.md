@@ -67,7 +67,7 @@ After assembling your robot, you can run the following program. You can do it ei
 ) or online with Husarion Cloud (<a href="https://husarion.com/core2/tutorials/howtostart/run-your-first-program/">how to</a>
 ).
 
-```
+```cpp
 
 #include "hFramework.h"
 #include "hCloudClient.h"
