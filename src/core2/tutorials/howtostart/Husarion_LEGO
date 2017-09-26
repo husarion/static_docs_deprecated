@@ -47,6 +47,22 @@ Left motor should be connected to A motor port and the right one to D motor port
 ![image](/assets/img/howToStart/shadowBOT_2.png)
 ![image](/assets/img/howToStart/shadowBOT_3.png)
 
+<figure>
+  <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_1.png">
+  <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+</figure>
+<figure>
+  <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_2.png">
+  <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+</figure><figure>
+  <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_3.png">
+  <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+</figure>
+
+
+![image](/assets/img/howToStart/shadowBOT_2.png)
+![image](/assets/img/howToStart/shadowBOT_3.png)
+
 ## Code ##
 
 After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (<a href="https://husarion.com/core2/tutorials/howtostart/offline-development-tools/">how to</a>
