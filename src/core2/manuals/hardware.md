@@ -1,5 +1,5 @@
 ---
-title: 'CORE2 Manual'
+title: 'Hardware'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
