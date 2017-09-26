@@ -31,10 +31,118 @@ Left motor should be connected to A motor port and the right one to D motor port
 
 After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (how to) or online with Husarion Cloud (how to).
 kod programu
-'
 
+```
 
-'
+#include "hFramework.h"
+#include "hCloudClient.h"
+#include <Lego_Ultrasonic.h>
+using namespace hSensors;
+
+bool KeyW, KeyS, KeyA, KeyD;
+float distL, distR, moveForward, moveRight, driveL, driveR;
+int stateL, stateR, directionR;
+bool automatic = false;
+float speed = 0.1;
+
+float stopDist = 15;
+float outDist = 60;
+float turnRatio = 1.2;
+
+void cfgHandler(){ platform.ui.loadHtml({Resource::WEBIDE, "/ui.html"}); }
+
+void onKeyEvent(KeyEventType type, KeyCode code)
+{
+    platform.ui.onKeyEvent = [](KeyEventType type, KeyCode code) {
+        bool isPressed = (type == KeyEventType::Pressed);
+        if (code == KeyCode::Key_W || code == KeyCode::Up)      KeyW = isPressed;
+        if (code == KeyCode::Key_S || code == KeyCode::Down)    KeyS = isPressed;
+        if (code == KeyCode::Key_A || code == KeyCode::Left)    KeyA = isPressed;
+        if (code == KeyCode::Key_D || code == KeyCode::Right)   KeyD = isPressed;
+
+        if (isPressed && code == KeyCode::Key_E) automatic = !automatic;
+        if (isPressed && code == KeyCode::Key_Z) speed -= 0.1;
+        if (isPressed && code == KeyCode::Key_Q) speed += 0.1;
+        if (speed > 1) speed = 1;
+        else if (speed < 0) speed = 0;
+    };
+}
+
+void hMain()
+{
+    // Code for RoboCORE
+    platform.begin(&Usb);
+    // Code for CORE2
+    //platform.begin(&RPi);
+    
+    platform.ui.configHandler = cfgHandler;
+    platform.ui.onKeyEvent = onKeyEvent;
+    platform.ui.setProjectId("@@@PROJECT_ID@@@");
+
+    hBtn1.setOnPressHandler([] {automatic = !automatic;});
+
+    // Code for RoboCORE:
+    Lego_Ultrasonic sensor_l(hSens2);
+    Lego_Ultrasonic sensor_r(hSens1);
+    // Code for CORE2
+    //hLegoSensor_i2c sensor_l_port(hSens2);
+    //hLegoSensor_i2c sensor_r_port(hSens1);
+    //Lego_Ultrasonic sensor_l(sensor_l_port);
+    //Lego_Ultrasonic sensor_r(sensor_r_port);
+
+    for (;;) {
+        distL = sensor_l.readDist();
+        distR = sensor_r.readDist();
+
+        stateL = 1;
+        stateR = 1;
+        if (distL < stopDist)   stateL = 0;
+        if (distR < stopDist)   stateR = 0;
+        if (distL > outDist)    stateL = 2;
+        if (distR > outDist)    stateR = 2;
+        if (distR > 0 && distR < outDist && distL > 0 && distL < outDist)   {directionR = distR < distL; LED1.on();}else{LED1.off();}
+
+        if (stateL == 1 && stateR == 1) {
+            moveForward = 1;
+            if (directionR) { moveRight = 0.5; }
+            else { moveRight = -0.5; }
+        }
+        if (stateL == 2 || stateR == 2) {
+            moveForward = 0.2;
+            if (directionR) { moveRight = 1; }
+            else { moveRight = -1; }
+        }
+        if (stateL == 2 && stateR == 2) {
+            moveForward = 0;
+            if (directionR) { moveRight = 1; }
+            else { moveRight = -1; }
+        }
+        if (stateL == 0 || stateR == 0) {
+            moveForward = 0;
+            moveRight = 0;
+        }
+
+        if (!automatic || KeyW || KeyA || KeyS || KeyD) {
+            automatic = false;
+            moveForward = 1 * (int)KeyW - 1 * (int)KeyS;
+            moveRight = 1 * (int)KeyD - 1 * (int)KeyA;
+        }
+        driveL = (moveForward + moveRight * turnRatio) * speed * 1000;
+        driveR = (moveForward - moveRight * turnRatio) * speed * 1000;
+        
+        // Code for RoboCORE
+        hMot4.setPower(-driveR); // right motor
+        hMot1.setPower(-driveL); // left motor
+        // Code for CORE2
+        //hMot4.setPower(driveR); // right motor
+        //hMot1.setPower(driveL); // left motor
+
+        sys.delay(50);
+    }
+}
+
+```
+
 ## Useful links ##
 
 https://github.com/husarion/hSensors - open source hFramework libraries for LEGO Mindstorms sensors
