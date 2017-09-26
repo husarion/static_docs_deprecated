@@ -43,9 +43,13 @@ Connect right sensor to hSens1 port and left one to hSens2 port.
 Left motor should be connected to A motor port and the right one to D motor port.
 
 <div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_1.png)</div>
-<div style="text-align: right"><i>Assembled robot with RoboCORE controller</i></div>
-<div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_2.png)<p align="right"> <i>Assembled robot with CORE2 controller and CORE2brick adapter</i></p></div>
-<div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_3.png)<p align="right"> <i>Assembled robot with CORE2 controller and CORE2brick adapter - side view</i></p></div>
+<div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter</i></div>
+
+<div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_2.png)</div>
+<div style="text-align: right"><i>Assembled robot with RoboCORE controller</i></p></div>
+
+<div style="text-align: center">![image](/assets/img/howToStart/shadowBOT_3.png)
+<div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter - side view</i></p></div>
 
 ## Code ##
 
