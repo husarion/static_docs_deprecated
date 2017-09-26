@@ -17,6 +17,8 @@ See video on YouTube.
 </iframe>
 </div>
 
+<p></p>
+
 <table>
     <tr>
     <td><b>RoboCORE / CORE2 port name</b></td><td><b>module connected</b></td>
