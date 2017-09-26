@@ -133,16 +133,20 @@ Parameters for connection:
 
 <table>
     <tr>
-        <td>protocol</td><td>`rdp`</td>
+        <td>RoboCORE / CORE2 port name</td><td>module connected</td>
     </tr>
     <tr>
-        <td>server</td><td>`xxx.xxx.xxx.xxx`</td>
+        <td>hSens1</td><td>`LEGO Distance Sensor (facing forward-right)`</td>
     </tr>
     <tr>
-        <td>username</td><td>`husarion`</td>
+        <td>hSens2</td><td>`LEGO Distance Sensor (facing forward-left)`</td>
     </tr>
     <tr>
-        <td>password</td><td>`husarion`</td>
+        <td>hMot1 / hMotA</td><td>`husarionEV3 Large Servo Motor (left one)
+hMot4 / hMotD`</td>
+    </tr>
+    <tr>
+        <td>hMot4 / hMotD</td><td>`EV3 Large Servo Motor (right one)`</td>
     </tr>
 </table>
 
