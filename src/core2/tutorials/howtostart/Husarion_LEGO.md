@@ -170,18 +170,18 @@ void hMain()
 
 ## Useful links ##
 
-Open source hFramework libraries for LEGO Mindstorms sensors - https://github.com/husarion/hSensors 
+1. Open source hFramework libraries for LEGO Mindstorms sensors - https://github.com/husarion/hSensors 
 
-RoboCORE hardware documentation - https://wiki.husarion.com/robocore:hardware:description 
+2. RoboCORE hardware documentation - https://wiki.husarion.com/robocore:hardware:description 
 
-CORE2 hardware documentation - https://husarion.com/core2/manuals/hardware/
+3. CORE2 hardware documentation - https://husarion.com/core2/manuals/hardware/
 
-Configuring offline dev tools - https://husarion.com/core2/tutorials/howtostart/offline-development-tools/
+4. Configuring offline dev tools - https://husarion.com/core2/tutorials/howtostart/offline-development-tools/
 
-Husarion cloud to manage all your CORE2 or RoboCORE based robots. Web IDE (Integrated Development Environment) is online, so you can develop a code directly from a web browser. Write control algorithms and web user interface for your robot and control it from anywhere - https://cloud.husarion.com/
+5. Husarion cloud to manage all your CORE2 or RoboCORE based robots. Web IDE (Integrated Development Environment) is online, so you can develop a code directly from a web browser. Write control algorithms and web user interface for your robot and control it from anywhere - https://cloud.husarion.com/
 
-hConfig app to connect CORE2 to the internet and cloud.husarion.com - https://play.google.com/store/apps/details?id=com.husarion.configtool2
+6. hConfig app to connect CORE2 to the internet and cloud.husarion.com - https://play.google.com/store/apps/details?id=com.husarion.configtool2
 
-RoboCORE app to connect RoboCORE to the internet and cloud husarion.com. And to stream video through Web RTC - https://play.google.com/store/apps/details?id=io.robocore.rcapp.prod
+7. RoboCORE app to connect RoboCORE to the internet and cloud husarion.com. And to stream video through Web RTC - https://play.google.com/store/apps/details?id=io.robocore.rcapp.prod
 
-hVideo app for CORE2. Pair your phone with your CORE2 based robot and integrate video streaming with its user interface - https://play.google.com/store/apps/details?id=com.husarion.video2
+8. hVideo app for CORE2. Pair your phone with your CORE2 based robot and integrate video streaming with its user interface - https://play.google.com/store/apps/details?id=com.husarion.video2
