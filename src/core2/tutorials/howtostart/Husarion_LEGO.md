@@ -12,8 +12,10 @@ order: 6
 In this tutorial we will help you build autonomic, mechatronic, 3-wheel tracking robot. It needs to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and CORE2 or RoboCORE. You can control your robot via cloud.husarion.com using W S A D keys, change speed with Q/Z keys and turn on automatic mode with E key or hBtn1.
 See video on YouTube.
 
+<div style="text-align: center">
 <iframe width="854" height="480" src="https://www.youtube.com/embed/kKvd2eyvoZE" frameborder="0" allowfullscreen>
 </iframe>
+</div>
 
 <table>
     <tr>
