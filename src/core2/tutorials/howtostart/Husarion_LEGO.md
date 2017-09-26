@@ -23,6 +23,9 @@ Sensors will detect object in front of the robot therefore you need to place bot
 Connect right sensor to hSens1 port and left one to hSens2 port.
 Left motor should be connected to A motor port and the right one to D motor port.
 
+![image](/assets/img/howToStart/shadowBOT_1.png)
+![image](/assets/img/howToStart/shadowBOT_2.png)
+![image](/assets/img/howToStart/shadowBOT_3.png)
 
 ## Code ##
 
