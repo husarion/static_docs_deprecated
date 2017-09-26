@@ -44,14 +44,14 @@ Left motor should be connected to A motor port and the right one to D motor port
 
 <figure>
   <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_1.png">
-  <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+  <figcaption>Assembled robot with RoboCORE controller</figcaption>
 </figure>
 <figure>
   <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_2.png">
   <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
 </figure><figure>
   <img src="https://github.com/husarion/static_docs/blob/master/src/assets/img/howToStart/shadowBOT_3.png">
-  <figcaption>Fig.1 - A view of the pulpit rock in Norway.</figcaption>
+  <figcaption>Assembled robot with CORE2 controller and CORE2brick adapter - side view</figcaption>
 </figure>
 
 ## Code ##
