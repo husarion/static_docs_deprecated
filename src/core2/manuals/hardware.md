@@ -1074,8 +1074,8 @@ That's all, your ESP32 firmware is up-to-date.
 
 ## Linux image for RaspberryPi ##
 
-1. Download image for Raspberry PI from [](https://files.husarion.com/rpi-image-stable.img).
-2. Follow the official guide for writing image to SD card - [](https://www.raspberrypi.org/documentation/installation/installing-images/).
+1. Download image for Raspberry Pi from [here](https://files.husarion.com/rpi-image-stable.img).
+2. Follow the [official guide on raspberrypi.org webpage](https://www.raspberrypi.org/documentation/installation/installing-images/) for writing image to SD card.
 
 ***
 
