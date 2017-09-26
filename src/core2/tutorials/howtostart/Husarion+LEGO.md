@@ -7,7 +7,7 @@ page: 'Tutorials'
 order: 6
 ---
 
-#Getting started with Husarion + LEGO Mindstorms
+#Getting started with Husarion + LEGO Mindstorms#
 
 In this tutorial we will help you build autonomic, mechatronic, 3-wheel tracking robot. It needs to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and CORE2. You can control your robot via cloud.husarion.com using W S A D keys, change speed with Q/Z keys and turn on automatic mode with E key or hBtn1.
 See video: YouTube
@@ -16,7 +16,7 @@ See video: YouTube
 Wstawiæ tabele!!!
 
 
-##Building and Connections
+##Building and Connections##
 
 Sensors will detect object in front of the robot therefore you need to place both sensors on the front of the robot. Right one should be directed  a little bit to the right, and the left one symmetrically to the left.
 
@@ -25,7 +25,7 @@ Left motor should be connected to A motor port and the right one to D motor port
 
 Zdjêcia (1)(2)(3)
 
-##Code
+##Code##
 
 After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code (how to) or online with Husarion Cloud (how to).
 
@@ -33,7 +33,7 @@ After assembling your robot, you can run the following program. You can do it ei
 kod programu
 '
 
-##Useful links
+##Useful links##
 
 https://github.com/husarion/hSensors - open source hFramework libraries for LEGO Mindstorms sensors
 
