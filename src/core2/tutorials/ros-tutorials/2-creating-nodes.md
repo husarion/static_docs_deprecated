@@ -461,7 +461,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
-``` cpp
+``` 
 
 **Task 3** Run your node with parameter `print_brightness` set to `true`
 and again set to `false`. Observe how behaviour of node changes.
