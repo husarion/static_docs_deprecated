@@ -170,6 +170,7 @@ To remind, you will need to run following nodes:
 For the `explore_server` node you will need to specify some parameters
 and paths for `.yaml` configuration files:
 
+``` launch
     <node pkg="frontier_exploration" type="explore_server" name="explore_server" 
     	output="screen" >
         <param name="frequency" type="double" value="1.0"/>
@@ -177,6 +178,7 @@ and paths for `.yaml` configuration files:
         <rosparam ns="explore_costmap" subst_value="true" 
 		file="$(find tutorial_pkg)/exploration.yaml" command="load" />
     </node>
+```
 
 Parameter `frequency` defines how often new goal should be recalculated
 and `goal_aliasing` defines last goal and new goal before it is
