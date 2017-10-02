@@ -58,7 +58,7 @@ For definition of SLAM problem we use given values (1,2) and expected values (3,
 4.  Robot trajectory
 	<table border="0" width="100%" cellspacing="0" cellpadding="0">
 	    <tr>
-		<td><center><i>x<sub>{1:t}</sub> = { x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ..., z<sub>t</sub>}</i></center></td>
+		<td><center><i>x<sub>{1:t}</sub> = { x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ..., x<sub>t</sub>}</i></center></td>
 		<td width="60">(4)</td>
 	    </tr>
 	</table>
