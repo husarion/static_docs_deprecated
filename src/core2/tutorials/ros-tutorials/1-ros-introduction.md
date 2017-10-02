@@ -454,8 +454,10 @@ and end with closing one: `<\launch>`. Between them should be placed
 markers defining nodes. You can define node by `node` marker, it’s
 structure is as follows:
 
+``` launch
     <node pkg="package_name" type="node" name="id" required="true" output="screen">
     </node>
+``` 
 
 Where fields `pkg`, `type` and `name` are required, rest are optional.
 Meaning of fields:
@@ -477,7 +479,9 @@ For each node can be set parameters or topics could be remapped.
 
 For setting parameters use marker `param`:
 
+``` launch
     <param name="name" value="value"/>
+``` 
 
 Meaning of fields:
 
@@ -487,7 +491,9 @@ Meaning of fields:
 
 For remapping topic names use marker `remap`:
 
+``` launch
     <remap from="/old" to="/new"/>
+``` 
 
 Meaning of fields:
 
@@ -502,6 +508,7 @@ this time with use of `roslaunch` tool.
 
 At first you will need a `.launch` file.
 
+``` launch
      <launch>
 
          <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
@@ -517,6 +524,7 @@ At first you will need a `.launch` file.
          </node>
 
      </launch>
+``` 
 
 Copy the above code to text editor, adjust value of `video_device` and
 other parameters if needed and save it to file `tutorial.launch` in your
