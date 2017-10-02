@@ -129,7 +129,9 @@ next to robot name.
 
 To connect by ssh type in terminal:
 
+``` bash
     $ ssh husarion@xxx.xxx.xxx.xxx
+``` 
 
 password is:  `husarion`
 
