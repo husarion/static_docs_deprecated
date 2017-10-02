@@ -125,38 +125,55 @@ Open file in your favourite text editor and paste:
 
 Code explanation line by line:
 
+``` cpp
     #include <ros/ros.h>
+``` 
 
 Add header files for basic ROS libraries.
 
+``` cpp
     int main(int argc, char **argv) {
+``` 
 
 Beginning of node main function.
 
+
+``` cpp
     ros::init(argc, argv, "example_node");
+``` 
 
 Initialization of ROS node, this function contacts with ROS master and
 registers node in the system.
 
+``` cpp
     ros::NodeHandle n("~");
+``` 
 
 Get the handle for node, this handle is required for interactions with
 system e.g. subscribing to topic.
 
+``` cpp
     ros::Rate loop_rate(50);
+``` 
 
 Define rate for repeatable operations.
 
+``` cpp
     while (ros::ok()) {
+``` 
 
 Check if ROS is working. E.g. if ROS master is stopped or there was sent
 signal to stop system, `ros::ok()` will return false.
 
+``` cpp
     ros::spinOnce();
+``` 
 
 Process all incoming messages.
 
+``` cpp
     loop_rate.sleep();
+``` 
 
 Wait until defined time passes.
 
@@ -260,6 +277,7 @@ Image message is an object consisting of following fields:
 
 Then you need function for processing received message:
 
+``` cpp
     void imageCallback(const sensor_msgs::ImageConstPtr &image) {
        long long sum = 0;
        for( int value : image->data )
@@ -269,36 +287,51 @@ Then you need function for processing received message:
        int avg = sum/image->data.size();
        std::cout << "Brightness: " << avg << std::endl;
     }
+``` 
 
 Code explanation line by line:
 
+``` cpp
     void imageCallback(const sensor_msgs::ImageConstPtr &image)
+``` 
 
 Function definition, argument is pointer to incoming message.
 
+``` cpp
     long long sum = 0;
+``` 
 
 Variable for storing sum of all pixel values.
 
+``` cpp
     for( int value : image->data )
+``` 
 
 Iteration through every pixel and colour.
 
+``` cpp
     sum+=value;
+``` 
 
 Add current pixel value to sum.
 
+``` cpp
     int avg = sum/image->data.size();
+``` 
 
 Calculate average value.
 
+``` cpp
     std::cout << "Brightness: " << avg << std::endl;
+``` 
 
 Print brightness value to screen.
 
 Last thing to do is defining topic to subscribe:
 
+``` cpp
     ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+``` 
 
 Here we use method `subscribe` of `NodeHandle` object. Arguments of
 method are:
@@ -313,6 +346,7 @@ method are:
 
 Your final code should look like this:
 
+``` cpp
      #include <ros/ros.h>
      #include <sensor_msgs/Image.h>
 
@@ -335,6 +369,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
+``` 
 
 **Task 2** Build your node and run it with `usb_cam` node. Use
 `rosnode`, `rostopic` and `rqt_graph` tools to examine system and check
@@ -369,11 +404,15 @@ should print image brightness to screen.
 To receive parameter you need variable to store its value, in this
 example variable should have a global scope:
 
+``` cpp
     bool print_b;
+``` 
 
 Then receive parameter value:
 
+``` cpp
     n.param<bool>("print_brightness", print_b, false);
+``` 
 
 Here we use method `param` of `NodeHandle` object. Arguments of method
 are:
@@ -386,12 +425,15 @@ are:
 
 Last thing is to print brightness dependant on parameter value:
 
+``` cpp
     if(print_b){
             std::cout << "Brightness: " << avg << std::endl;
         }
+``` 
 
 Your final code should look like this:
 
+``` cpp
      #include <ros/ros.h>
      #include <sensor_msgs/Image.h>
      
@@ -419,6 +461,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
+``` cpp
 
 **Task 3** Run your node with parameter `print_brightness` set to `true`
 and again set to `false`. Observe how behaviour of node changes.
@@ -431,15 +474,21 @@ with only one field `data`, which contain actual integer data.
 
 Begin with including message header file:
 
+``` cpp
     #include <std_msgs/UInt8.h>
+``` 
 
 Next define publisher object with global scope:
 
+``` cpp
     ros::Publisher brightness_pub;
+``` 
 
 Then register in system to publish to a specific topic:
 
+``` cpp
     brightness_pub = n.advertise<std_msgs::UInt8>("brightness" , 1);
+``` 
 
 Here we use method `advertise` of `NodeHandle` object. Arguments of
 method are:
@@ -454,15 +503,18 @@ case it is `std_msgs::UInt8`.
 Last thing is to put some data into message and send it to topic with
 some frequency:
 
+``` cpp
     std_msgs::UInt8 brightness_value;
     brightness_value.data=avg;
     brightness_pub.publish(brightness_value);
+``` 
 
 In our example it can be done while processing each message incoming
 from camera topic.
 
 Your final code should look like this:
 
+``` cpp
      #include <ros/ros.h>
      #include <sensor_msgs/Image.h>
      #include <std_msgs/UInt8.h>
@@ -496,6 +548,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
+``` 
 
 **Task 4** Compile your node and run it with `usb_cam`. Use `rosnode`,
 `rostopic` and `rqt_graph` tools to examine system, then use
@@ -525,20 +578,28 @@ per given number of frames.
 
 Begin with importing required header files:
 
+``` cpp
     #include <std_srvs/Empty.h>
+``` 
 
 We need one variable for counting passed frames:
 
+``` cpp
     int frames_passed = 0;
+``` 
 
 In `imageCallback` function increment counter with every incoming
 message:
 
+``` cpp
     frames_passed++;
+``` 
 
 Create a client which will be caling to service:
 
+``` cpp
     ros::ServiceClient client = n.serviceClient<std_srvs::Empty>("/image_saver/save");
+``` 
 
 Here we use method `serviceClient` of `NodeHandle` object. Method has
 only one argument, it is the name of service. You also need to determine
@@ -546,19 +607,26 @@ message type for service: `std_srvs::Empty`.
 
 Instantiate message object:
 
+``` cpp
     std_srvs::Empty srv;
+``` 
 
 Check if required number of frames passed and reset counter:
 
+``` cpp
     if (frames_passed>100){
              frames_passed=0;
+``` 
 
 Call the service:
 
+``` cpp
     client.call(srv);
+``` 
 
 Your final code should look like this:
 
+``` cpp
      #include <ros/ros.h>
      #include <sensor_msgs/Image.h>
      #include <std_msgs/UInt8.h>
@@ -601,6 +669,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
+``` cpp
 
 **Task 5** Build your node and run it with `usb_cam` and `image_saver`
 nodes. Use `rosnode`, `rostopic` and `rqt_graph` tools to examine system
@@ -642,14 +711,19 @@ not and string for short summary of executed action.
 
 Start with including required header files:
 
+``` cpp
     #include <std_srvs/Trigger.h>
+``` 
 
 Add variable for storing number of saved images:
 
+``` cpp
     int saved_imgs = 0;
+``` 
 
 Next, you need a function to execute when service is called:
 
+``` cpp
     bool saved_img(std_srvs::Trigger::Request  &req, std_srvs::Trigger::Response &res)
     {
        res.success=1;
@@ -659,6 +733,7 @@ Next, you need a function to execute when service is called:
        res.message= str;
        return true;
     }
+``` 
 
 Arguments for this function are pointers to request and response data.
 All services are called the same way, even if it does not carry any
@@ -666,30 +741,41 @@ data, in that case these are pointer of void type.
 
 Prepare string with response description:
 
+``` cpp
     std::string str("Saved images: ");
     std::string num = std::to_string(saved_imgs);
     str.append(num);
+``` 
 
 Fill string field with data:
 
+``` cpp
     res.message= str;
+``` 
 
 Fill integer field with data, this mean service was executed properly:
 
+``` cpp
     res.success=1;
+``` 
 
 Finish function, response will be sent to requesting node:
 
+``` cpp
     return true;
+``` 
 
 next thing to do is to increment image counter after saving frame:
 
+``` cpp
     saved_imgs++;
+``` 
 
 Last thing to do is to register provided service in the system:
 
+``` cpp
     ros::ServiceServer service = n.advertiseService("saved_images", saved_img);
-
+``` 
 Here we use method `advertiseService` of `NodeHandle` object. Arguments
 of method are:
 
@@ -699,6 +785,7 @@ of method are:
 
 Your final code should look like this:
 
+``` cpp
      #include <ros/ros.h>
      #include <sensor_msgs/Image.h>
      #include <std_msgs/UInt8.h>
@@ -754,6 +841,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
+``` 
 
 **Task 6** Build your node and run it as in previous task. Use
 `rosnode`, `rostopic` and `rqt_graph` tools to examine system.
