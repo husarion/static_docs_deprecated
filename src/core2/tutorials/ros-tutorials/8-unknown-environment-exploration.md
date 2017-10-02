@@ -184,7 +184,7 @@ published to trajectory planner.
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
     <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
