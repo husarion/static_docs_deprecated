@@ -160,7 +160,7 @@ message to `/cmd_vel` with speed and direction depending on object.
 Create a new file, name it `action_controller.cpp` and place it in `src`
 folder under `tutorial_pkg`. Then open it in text editor and paste:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <std_msgs/Float32MultiArray.h>
 #include <geometry_msgs/Twist.h>
@@ -228,47 +228,64 @@ Below is explanation for code line by line.
 
 Include required headers:
 
+``` cpp
     #include <ros/ros.h>
     #include <std_msgs/Float32MultiArray.h>
     #include <geometry_msgs/Twist.h>
+``` 
 
 Define constants for recognized objects, adjust values to IDs of objects
 recognized by your system:
 
+``` cpp
     #define SMILE 8
     #define ARROW_LEFT 9
     #define ARROW_UP 10
     #define ARROW_DOWN 11
+``` 
 
 Integer for storing object identifier:
 
+``` cpp
     int id = 0;
+``` 
 
 Publisher for velocity commands:
 
+``` cpp
     ros::Publisher action_pub;
+``` 
 
 Velocity command message:
 
+``` cpp
     geometry_msgs::Twist set_vel;
+``` 
 
 Callback function for handling incoming messages with recognized objects
 data:
 
+``` cpp
     void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
+``` 
 
 Check if size of `data` field is non zero, if it is, then object is
 recognized. When `data` field size is zero, then no object was
 recognized.
 
+``` cpp
     if (object->data.size() > 0) {
+``` 
 
 Read id of recognized object:
 
+``` cpp
     id = object->data[0];
+``` 
 
 Depending on recognized object, set appropriate speed values:
 
+``` cpp
     switch (id) {
              case ARROW_LEFT:
                 set_vel.linear.x = 0;
@@ -286,50 +303,65 @@ Depending on recognized object, set appropriate speed values:
                 set_vel.linear.x = 0;
                 set_vel.angular.z = 0;
           }
+``` 
 
 Publish velocity command message:
 
+``` cpp
     action_pub.publish(set_vel);
+``` 
 
 Stop all motors when no object was detected:
 
+``` cpp
     } else {
           // No object detected
           set_vel.linear.x = 0;
           set_vel.angular.z = 0;
           action_pub.publish(set_vel);
        }
+``` 
 
 Main function, node initialization and set main loop interval:
 
+``` cpp
     int main(int argc, char **argv) {
        ros::init(argc, argv, "action_controller");
        ros::NodeHandle n("~");
        ros::Rate loop_rate(50);
+``` 
 
 Subscribe to `/objects` topic:
 
+``` cpp
     ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
+``` 
 
 Prepare publisher for velocity commands:
 
+``` cpp
     action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
+``` 
 
 Set zeros for initial speed values:
 
+``` cpp
     set_vel.linear.x = 0;
        set_vel.linear.y = 0;
        set_vel.linear.z = 0;
        set_vel.angular.x = 0;
        set_vel.angular.y = 0;
        set_vel.angular.z = 0;
+``` 
 
 Main loop, wait trigger messages:
 
+``` cpp
     while (ros::ok()) {
           ros::spinOnce();
           loop_rate.sleep();
        }
+``` 
 
 Last thing to do is edit the `CMakeLists.txt` file. Find line:
 
@@ -398,45 +430,64 @@ Open `action_controller.cpp` file in text editor.
 
 Begin with including of required header file:
 
+``` cpp
     #include <opencv2/opencv.hpp>
+``` 
 
 Variable for storing camera centre, this should be half of your camera
 horizontal resolution:
 
+``` cpp
     int camera_center = 320; // left 0, right 640
+``` 
 
 Variable for defining maximum rotation speed:
 
+``` cpp
     float max_ang_vel = 6.0;
+``` 
 
 Variable for object width and height:
 
+``` cpp
     float objectWidth = object->data[1];
     float objectHeight = object->data[2];
+``` 
 
 Variable for storing calculated object centre:
 
+``` cpp
     float x_pos;
+``` 
 
 Variable defining how much rotation speed should increase with every
 pixel of object displacement:
 
+``` cpp
     float speed_coefficient = (float) camera_center / max_ang_vel;
+``` 
 
 Object for homography matrix:
 
+``` cpp
     cv::Mat cvHomography(3, 3, CV_32F);
+``` 
 
 Vectors for storing input and output planes:
 
+``` cpp
     std::vector<cv::Point2f> inPts, outPts;
+```
 
 Add new case in `switch` statement:
 
+``` cpp
     case SMILE:
+``` 
 
 Extract coefficients homography matrix:
 
+``` cpp
     cvHomography.at<float>(0, 0) = object->data[3];
     cvHomography.at<float>(1, 0) = object->data[4];
     cvHomography.at<float>(2, 0) = object->data[5];
@@ -446,30 +497,39 @@ Extract coefficients homography matrix:
     cvHomography.at<float>(0, 2) = object->data[9];
     cvHomography.at<float>(1, 2) = object->data[10];
     cvHomography.at<float>(2, 2) = object->data[11];
+``` 
 
 Define corners of input plane:
 
+``` cpp
     inPts.push_back(cv::Point2f(0, 0));
     inPts.push_back(cv::Point2f(objectWidth, 0));
     inPts.push_back(cv::Point2f(0, objectHeight));
     inPts.push_back(cv::Point2f(objectWidth, objectHeight));
+``` 
 
 Calculate perspective transformation:
 
+``` cpp
     cv::perspectiveTransform(inPts, outPts, cvHomography);
+``` 
 
 Calculate centre of object from its corners:
 
+``` cpp
     x_pos = (int) (outPts.at(0).x + outPts.at(1).x + outPts.at(2).x + outPts.at(3).x) / 4;
+``` 
 
 Calculate angular speed value proportional to position of object and put
 it into velocity message:
 
+``` cpp
     set_vel.angular.z = -(x_pos - camera_center) / speed_coefficient; 
+``` 
 
 Your final file should look like this:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <std_msgs/Float32MultiArray.h>
 #include <geometry_msgs/Twist.h>
@@ -623,27 +683,36 @@ manual, you will edit it a little.
 
 Include required header files:
 
+``` cpp
     #include <DistanceSensor.h>
     #include "sensor_msgs/Range.h"
+``` 
 
 Instantiate sensor objects:
 
+``` cpp
     using namespace hModules;
     DistanceSensor sensR(hSens6);
     DistanceSensor sensL(hSens2);
+``` 
 
 Message objects for left and right sensor measurement:
 
+``` cpp
     sensor_msgs::Range rangeL;
     sensor_msgs::Range rangeR;
+``` 
 
 Publishers for measurement messages:
 
+``` cpp
     ros::Publisher rangeL_pub("/rangeL", &rangeL);
     ros::Publisher rangeR_pub("/rangeR", &rangeR);
+``` 
 
 In main function, put initial values for measurement messages:
 
+``` cpp
     rangeL.header.frame_id="left";
     rangeL.radiation_type=sensor_msgs::Range::ULTRASOUND;
     rangeL.field_of_view = 0.5; // rad
@@ -655,30 +724,39 @@ In main function, put initial values for measurement messages:
     rangeR.field_of_view = 0.5; // rad
     rangeR.min_range = 0.05; // meters
     rangeR.max_range = 2; // meters
+``` 
 
 Run publishers:
 
+``` cpp
     nh.advertise(rangeL_pub);
     nh.advertise(rangeR_pub);
+``` 
 
 Read sensors:
 
+``` cpp
     int distL = sensL.getDistance();
     int distR = sensR.getDistance();
+``` 
 
 Convert measurement values to meters and put them into messages:
 
+``` cpp
     rangeL.range = (float)distL/100;
     rangeR.range = (float)distR/100;
+``` 
 
 Publish messages:
 
+``` cpp
     rangeL_pub.publish(&rangeL);
     rangeR_pub.publish(&rangeR);
+``` 
 
 Whole file should look like this:
 
-```
+``` cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
 #include <ros.h>
@@ -864,19 +942,24 @@ file in text editor.
 
 Begin with including of required header file:
 
+``` cpp
     #include <sensor_msgs/Range.h>
+``` 
 
 Add variables for measured object distance, average distance and desired
 distance to obstacle:
 
+``` cpp
     float distL = 0;
     float distR = 0;
     float average_dist = 0;
     float desired_dist = 0.3;
+``` 
 
 Callback functions for incoming sensor messages, their task is only to
 put values into appropriate variables:
 
+``` cpp
     void distL_callback(const sensor_msgs::Range &range) {
        distL = range.range;
     }
@@ -884,26 +967,31 @@ put values into appropriate variables:
     void distR_callback(const sensor_msgs::Range &range) {
        distR = range.range;
     }
+``` 
 
 Then, in `switch` statement, calculate average distance and set velocity
 proportional to it only if both sensors found an obstacle, else set zero
 value for linear velocity:
 
+``` cpp
     if (distL > 0 && distR > 0) {
         average_dist = (distL + distR) / 2;
         set_vel.linear.x = (average_dist - desired_dist) * 6;
     } else {
        set_vel.linear.x = 0;
     } 
+``` 
 
 In main function, subscribe to sensor topics:
 
+``` cpp
     ros::Subscriber distL_sub = n.subscribe("/rangeL", 1, distL_callback);
     ros::Subscriber distR_sub = n.subscribe("/rangeR", 1, distR_callback);
+``` 
 
 Final file should look like this:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <std_msgs/Float32MultiArray.h>
 #include <std_msgs/Int32MultiArray.h>
