@@ -97,7 +97,7 @@ motors, read encoders and publish their state to appropriate topic. To
 create this node you will use Husarion Cloud. Create new project and
 paste following:
 
-```
+```cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
 #include <stdio.h>
@@ -176,6 +176,7 @@ Below is explanation for code line by line.
 
 Include required headers:
 
+``` cpp
     #include "hFramework.h"
     #include "hCloudClient.h"
     #include <stdio.h>
@@ -183,73 +184,97 @@ Include required headers:
     #include <ros.h>
     #include "std_msgs/String.h"
     #include "geometry_msgs/Twist.h"
+``` 
 
 Load namespace for Husarion functions:
 
+``` cpp
     using namespace hFramework;
+``` 
 
 Defining variable for a batteryCheck function:
 
+``` cpp
     bool batteryLow = false;
+``` 
 
 Handle for node:
 
+``` cpp
     ros::NodeHandle nh;
+``` 
 
 Function for handling incoming messages:
 
+``` cpp
     void twistCallback(const geometry_msgs::Twist &twist) 
+``` 
 
 Function for checking battery voltage:
 
+``` cpp
 	void batteryCheck()
+``` 
 
 Read linear and angular target velocities, then calculate motor
 velocities:
 
+``` cpp
     float lin = twist.linear.x;
         float ang = twist.angular.z;
         float motorL = lin - ang * 0.5;
         float motorR = lin + ang * 0.5;
     }
+``` 
 
 Set target power for motors:
 
+``` cpp
 	hMot1.setPower(motorR*700*!batteryLow);
 	hMot2.setPower(motorR*700*!batteryLow);
 	hMot3.setPower(motorL*700*!batteryLow);
 	hMot4.setPower(motorL*700*!batteryLow);
+``` 
 
 Define subscriber for velocity topic:
 
+``` cpp
     ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+``` 
 
 Main function, tasks and node initialization:
 
+``` cpp
     void hMain() {
         platform.begin(&RPi);
         nh.getHardware()->initWithDevice(&platform.LocalSerial);
         nh.initNode();
-		sys.taskCreate(batteryCheck);
+	sys.taskCreate(batteryCheck);
+``` 
 
 Subscribe to topic:
 
+``` cpp
     nh.subscribe(sub);
+``` 
 
 Define reversed polarity for left front and rear motors, this may vary,
 depending on your machine configuration:
 
+``` cpp
     hMot3.setMotorPolarity(Polarity::Reversed);
     hMot3.setEncoderPolarity(Polarity::Reversed);
     hMot4.setMotorPolarity(Polarity::Reversed);
     hMot4.setEncoderPolarity(Polarity::Reversed);
-
+``` 
 Infinite loop, wait for incoming messages:
 
+``` cpp
 	while(true) {
 		nh.spinOnce();
 		sys.delay(100);
 	}
+``` 
 
 Build your project and upload it to device.
 
@@ -300,35 +325,48 @@ Open Husarion WebIDE and open project that you created in section 2.2.
 
 Add header file:
 
+``` cpp
     #include "geometry_msgs/PoseStamped.h"
+``` 
 
 Define message type for robot position:
 
+``` cpp
     geometry_msgs::PoseStamped pose;
+``` 
 
 Define publisher for robot pose:
 
+``` cpp
     ros::Publisher pose_pub("/pose", &pose);
+``` 
 
 Variables for storing cycle time:
 
+``` cpp
     uint16_t delay = 10; // milliseconds
     float delay_s = (float)delay/(float)1000; //seconds
+``` 
 
 Variable for storing encoder resolution, adjust this value to parameter
 of your robot:
 
+``` cpp
     uint16_t enc_res = 1400; // encoder tics per wheel revolution
+``` 
 
 Variables for storing encoder values:
 
+``` cpp
     int32_t enc_FL = 0; // encoder tics
     int32_t enc_RL = 0; // encoder tics
     int32_t enc_FR = 0; // encoder tics
     int32_t enc_RR = 0; // encoder tics
+``` 
 
 Variables for storing left and right wheel position:
 
+``` cpp
     int32_t enc_L = 0; // encoder tics
     float wheel_L_ang_pos = 0; // radians
     float wheel_L_ang_vel = 0; // radians per second
@@ -336,9 +374,11 @@ Variables for storing left and right wheel position:
     int32_t enc_R = 0; // encoder tics
     float wheel_R_ang_pos = 0; // radians
     float wheel_R_ang_vel = 0; // radians per second
+``` 
 
 Variables for storing robot position:
 
+``` cpp
     float robot_angular_pos = 0; // radians
     float robot_angular_vel = 0; // radians per second
 
@@ -346,82 +386,109 @@ Variables for storing robot position:
     float robot_y_pos = 0; // meters
     float robot_x_vel = 0; // meters per second
     float robot_y_vel = 0; // meters per second
+``` 
 
 Variables for storing robot parameters, adjust these values to your
 robot:
 
+``` cpp
     float robot_width = 0.3; // meters
     float robot_length = 0.105; //meters
     float wheel_radius = 0.04; //meters
+``` 
 
 In main function, set start values for robot position:
 
+``` cpp
     pose.header.frame_id="robot";
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
     pose.pose.position.z = 0;
     pose.pose.orientation = tf::createQuaternionFromYaw(0);
+``` 
 
 Run publisher:
 
+``` cpp
     nh.advertise(pose_pub);
+``` 
 
 In infinite while loop, read encoder values:
 
+``` cpp
     enc_FR = hMot1.getEncoderCnt();
     enc_RR = hMot2.getEncoderCnt();
     enc_RL = hMot3.getEncoderCnt();
     enc_FL = hMot4.getEncoderCnt();
+``` 
 
 Calculate virtual left and right encoder values:
 
+``` cpp
     enc_L = (enc_FL+enc_RL)/2;
     enc_R = (enc_FR+enc_RR)/2;
+``` 
 
 Calculate angular velocity for wheels:
 
+``` cpp
     wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
     wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
+``` 
 
 Calculate angular position for wheels:
 
+``` cpp
     wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
     wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
+``` 
 
 Calculate angular velocity for robot:
 
+``` cpp
     robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) - 
     	robot_angular_pos)/delay_s;
+``` 
 
 Calculate angular position for robot:
 
+``` cpp
     robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
+``` 
 
 Calculate linear velocities for robot:
 
+``` cpp
     robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
     	cos(robot_angular_pos);
     robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
     	sin(robot_angular_pos);
+``` 
 
 Calculate linear positions for robot:
 
+``` cpp
     robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
     robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
+``` 
 
 Put calculated values to message:
 
+``` cpp
     pose.pose.position.x = robot_x_pos;
     pose.pose.position.y = robot_y_pos;
     pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
+``` 
 
 Publish message:
 
+``` cpp
     pose_pub.publish(&pose);
+``` 
 
 Your final code should look like this:
 
-```
+``` cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
 #include <ros.h>
