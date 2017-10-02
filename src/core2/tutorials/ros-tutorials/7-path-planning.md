@@ -145,7 +145,7 @@ This parameter defines coordinate frame tied to robot.
 
 Your final file should look like below:
 
-``` yaml
+``` 
 	obstacle_range: 2.5
 	raytrace_range: 3.0
 	footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
