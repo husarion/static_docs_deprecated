@@ -89,63 +89,86 @@ In package `tutorial_pkg` in `src` folder create file
 
 Begin with headers:
 
+``` cpp
     #include <ros/ros.h>
     #include <std_msgs/Char.h>
     #include <std_srvs/Empty.h>
+``` 
 
 Publisher for current task:
 
+``` cpp
     ros::Publisher task_pub;
+``` 
 
 Constants with IDs of objects to be found:
 
+``` cpp
     #define OBJECT_1_ID 1
     #define OBJECT_2_ID 2
     #define HOME_1_ID 3
     #define HOME_2_ID 4
+``` 
 
 Vector to store sequence of searched objects:
 
+``` cpp
     std::vector<int> objects;
-
+``` 
+    
 Number of currently searched object:
 
+``` cpp
     uint8_t current_object = 0;
+``` 
 
 Message for sending id of currently searched object:
 
+``` cpp
     std_msgs::Char task;
+``` 
 
 Service callback function for reporting found objects:
 
+``` cpp
     bool object_found(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res) {
        current_object++;
     }
+``` 
 
 In `main` function, define sequence of searched objects:
 
+``` cpp
     objects.push_back(OBJECT_1_ID);
     objects.push_back(OBJECT_2_ID);
     objects.push_back(HOME_1_ID);
     objects.push_back(HOME_2_ID);
+``` 
 
 Node initialization:
 
+``` cpp
     ros::init(argc, argv, "mission_controller");
     ros::NodeHandle n("~");
     ros::Rate loop_rate(50);
+``` 
 
 Register service, here will be reported objects that are found:
 
+``` cpp
     ros::ServiceServer service = n.advertiseService("/object_found", object_found);
+``` 
 
 Publish topic with ID of currently searched object:
 
+``` cpp
     task_pub = n.advertise<std_msgs::Char>("/task", 1);
+``` 
 
 In infinite while loop, trigger incoming messages, check ID of currently
 searched object and publish it:
 
+``` cpp
     ros::spinOnce();
     loop_rate.sleep();
     if (current_object < objects.size()) {
@@ -155,10 +178,11 @@ searched object and publish it:
        task.data = 0;
     }
     task_pub.publish(task);
+``` 
 
 Your final file should look like this:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <std_msgs/Char.h>
 #include <std_srvs/Empty.h>
@@ -210,38 +234,51 @@ and open it with text editor.
 
 Begin with header files:
 
+``` cpp
     #include <ros/ros.h>
     #include <std_msgs/Float32MultiArray.h>
     #include <geometry_msgs/Twist.h>
     #include <sensor_msgs/Range.h>
     #include <std_msgs/Char.h>
     #include <std_srvs/Empty.h>
+``` 
 
 Publisher and message for desired velocity:
 
+``` cpp
     ros::Publisher action_pub;
     geometry_msgs::Twist set_vel;
+``` 
 
 Variables for distance measured by sensors:
 
+``` cpp
     float distL = 0;
     float distR = 0;
+``` 
 
 Variable for currently searched object ID:
 
+``` cpp
     u_char search_obj;
+``` 
 
 IDs of objects to be searched by this node:
 
+``` cpp
     int objectID;
     int homeID;
+``` 
 
 Client for found object reporting service:
 
+``` cpp
     ros::ServiceClient client;
+``` 
 
 Callbacks for updating distances and object ID:
 
+``` cpp
     void distL_callback(const sensor_msgs::Range &range) {
        distL = range.range;
     }
@@ -253,10 +290,12 @@ Callbacks for updating distances and object ID:
     void task_callback(const std_msgs::Char &task) {
        search_obj = task.data;
     }
+```
 
 Callback for handling recognized objects, if ID is in accordance with
 searched object, report it to service:
 
+``` cpp
     void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
        if (object->data.size() > 0) {
           if (search_obj == object->data[0]) {
@@ -266,54 +305,72 @@ searched object, report it to service:
           }
        }
     }
+``` 
 
 In main function, node initialization:
 
+``` cpp
     ros::init(argc, argv, "action_controller");
     ros::NodeHandle n("~");
+``` 
 
 Subscribe to topics:
 
+``` cpp
     ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
     ros::Subscriber distL_sub = n.subscribe("/rangeL", 1, distL_callback);
     ros::Subscriber distR_sub = n.subscribe("/rangeR", 1, distR_callback);
     ros::Subscriber task_sub = n.subscribe("/task", 1, task_callback);
+``` 
 
 Get `objectID` and `homeID` params, robot will search only for objects
 with these IDs:
 
+``` cpp
     n.param<int>("objectID", objectID, 0);
     n.param<int>("homeID", homeID, 0);
+``` 
 
 Instantiate client for service:
 
+``` cpp
     client = n.serviceClient<std_srvs::Empty>("/object_found");
+``` 
 
 Set loop rate:
 
+``` cpp
     ros::Rate loop_rate(10);
+``` 
 
 Instantiate velocity publisher:
 
+``` cpp
     action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
+``` 
 
 Set default values for velocity:
 
+``` cpp
     set_vel.linear.x = 0;
     set_vel.linear.y = 0;
     set_vel.linear.z = 0;
     set_vel.angular.x = 0;
     set_vel.angular.y = 0;
     set_vel.angular.z = 0;
+``` 
 
 In infinite while loop, trigger incoming messages:
 
+``` cpp
     ros::spinOnce();
     loop_rate.sleep();
+``` 
 
 If searched object ID comply with this node’s ID, set desired robot
 velocity based on sensor measurements:
 
+``` cpp
     if (search_obj == objectID || search_obj == homeID) {
              if (distL > 1) {
                 distL = 1;
@@ -339,10 +396,11 @@ velocity based on sensor measurements:
              set_vel.angular.z = 0;
           }
           action_pub.publish(set_vel);
+``` 
 
 Your final file should look like this:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <std_msgs/Float32MultiArray.h>
 #include <geometry_msgs/Twist.h>
