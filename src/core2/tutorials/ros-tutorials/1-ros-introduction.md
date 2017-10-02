@@ -74,7 +74,9 @@ Rostopic is command line application for examining which topics are
 already being published and subscribed, check details of selected topic
 or read messages being sent on it. Use of application is as follow:
 
+``` bash
      $ rostopic command [topic_name]
+``` 
 
 Command could be:
 
@@ -92,7 +94,9 @@ Detailed info could be found in
 `rqt_graph` is graphical tool for visualization of data flow across nodes
 in system. To run application type in terminal:
 
+``` bash
      $ rqt_graph
+```
 
 ## Robot platform
 
