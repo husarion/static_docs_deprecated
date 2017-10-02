@@ -30,7 +30,7 @@ See video on YouTube.
         <td>hSens2</td><td>`LEGO Distance Sensor (facing forward-left)`</td>
     </tr>
     <tr>
-        <td>hMot1 / hMotA</td><td>`husarionEV3 Large Servo Motor (left one)
+        <td>hMot1 / hMotA</td><td>`EV3 Large Servo Motor (left one)
 hMot4 / hMotD`</td>
     </tr>
     <tr>
