@@ -145,7 +145,7 @@ This parameter defines coordinate frame tied to robot.
 
 Your final file should look like below:
 
-
+``` yaml
 	obstacle_range: 2.5
 	raytrace_range: 3.0
 	footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
@@ -157,7 +157,7 @@ Your final file should look like below:
 		topic: scan, marking: true, clearing: true}
 	global_frame: map
 	robot_base_frame: robot_base
-
+``` 
 
 Save it as `costmap_common_params.yaml` in `tutorial_pkg` directory.
 
