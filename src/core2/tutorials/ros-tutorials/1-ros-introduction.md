@@ -53,7 +53,9 @@ Rosnode is command line application for examining which nodes are
 registered in the system and also check their statuses. Use of
 application is as follow:
 
+``` bash
      $ rosnode command [node_name]
+``` 
 
 Command could be:
 
