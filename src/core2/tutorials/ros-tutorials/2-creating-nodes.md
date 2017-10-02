@@ -108,6 +108,7 @@ place it in `src` folder under `tutorial_pkg`:
 
 Open file in your favourite text editor and paste:
 
+``` cpp
      #include <ros/ros.h>
      
      int main(int argc, char **argv) {
@@ -119,7 +120,9 @@ Open file in your favourite text editor and paste:
            loop_rate.sleep();
         }
      }
-     
+```
+
+
 Code explanation line by line:
 
     #include <ros/ros.h>
