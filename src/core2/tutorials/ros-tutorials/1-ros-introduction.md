@@ -53,7 +53,7 @@ Rosnode is command line application for examining which nodes are
 registered in the system and also check their statuses. Use of
 application is as follow:
 
-``` cmd
+``` bash
      $ rosnode command [node_name]
 ``` 
 
@@ -170,14 +170,18 @@ First step in work with ROS is to run master process called roscore.
 This node handle registration of other nodes, topics and services. After
 this you can run your nodes. To start master you can use command:
 
+``` bash
     $ roscore
+``` 
 
 ### Starting system step by step
 
 You can start ROS by typing each name of each node manually, you can do
 this with command:
 
+``` bash
     $ rosrun package_name node_type [options]
+``` 
 
 Package\_name and node\_type are names of package and node that you want
 to run.
@@ -187,7 +191,9 @@ to run.
 If you want to bind specific identifier to node, at the end of the
 command, add:
 
+``` bash
     __name:=new_node_name
+``` 
 
 Note that there are two underscores before the name.
 
@@ -195,7 +201,9 @@ Note that there are two underscores before the name.
 
 You can also set parameter value by adding:
 
+``` bash
     _param:=value
+``` 
 
 Note that there is an underscore before the parameter name.
 
@@ -207,7 +215,9 @@ accepts, check documentation for exact node.
 If you want to change name of topic subscribed or published by node you
 can use remapping option. To do this, at the end of the command, add:
 
+``` bash
     old_topic_name:=new_topic_name
+``` 
 
 Note that there is no underscore before the old name.
 
@@ -215,7 +225,7 @@ Note that there is no underscore before the old name.
 
 In this section, we will set up ROS system that is equipped with a USB
 camera and show image from camera on display. We are going to work only
-on PC, you do not need to plug CORE2, Raspberry Pi or any other device
+on PC, you do notneed to plug CORE2, Raspberry Pi or any other device
 beside USB camera, if you are using laptop, integrated camera will be
 OK.
 
@@ -223,7 +233,9 @@ OK.
 
 We will begin with master, to do it type in command line:
 
+``` bash
     $ roscore
+``` 
 
 You should see something like this:
 
@@ -237,21 +249,28 @@ don’t worry that you didn’t started any node yet.
 Let’s begin with checking the list of existing nodes, in new terminal
 type:
 
+``` bash
     $ rosnode list
+``` 
 
 As the output you should get:
 
+``` bash
     husarion@core2-ros:~$ rosnode list 
     /rosout
+``` 
 
 This means, that you have now one node running, it’s name is `/rosout`
 and it is responsible for handling console log mechanism. Next you can
 check some info of this node
 
+``` bash
     $ rosnode info /rosout
+``` 
 
 And as the output you should get:
 
+``` bash
     husarion@core2-ros:~$ rosnode info /rosout 
     -------------------------------------
     Node [/rosout]
@@ -267,6 +286,7 @@ And as the output you should get:
      
     contacting node http://core2-ros:48067/ ...
     Pid: 4594
+``` 
 
 You can see here that node `/rosout` is publishing to topic
 `/rosout_agg`, subscribing topic `/rosout` and offer two services:
