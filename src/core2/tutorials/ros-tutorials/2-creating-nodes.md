@@ -669,7 +669,7 @@ Your final code should look like this:
            loop_rate.sleep();
         }
      }
-``` cpp
+```
 
 **Task 5** Build your node and run it with `usb_cam` and `image_saver`
 nodes. Use `rosnode`, `rostopic` and `rqt_graph` tools to examine system
