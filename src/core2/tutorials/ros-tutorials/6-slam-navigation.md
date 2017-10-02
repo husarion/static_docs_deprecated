@@ -95,27 +95,36 @@ mentioned in `/pose`.
 
 Begin with headers:
 
+``` cpp
     #include <ros/ros.h>
     #include <geometry_msgs/PoseStamped.h>
     #include <tf/transform_broadcaster.h>
+``` 
 
 Publisher for transformation:
 
+``` cpp
     static tf::TransformBroadcaster br;
+``` 
 
 Transformation message:
 
+``` cpp
     tf::Transform transform;
+``` 
 
 Quaternion for storing rotation data:
 
+``` cpp
     tf::Quaternion q;
+``` 
 
 Function for handling incoming `/PoseStamped` messages, extract
 quaternion parameters from message and put it to quaternion structure,
 put translation parameters into transform message, put quaternion
 structure into transform message, publish transform:
 
+``` cpp
     void pose_callback(const geometry_msgs::PoseStampedPtr &pose) {
        q.setX(pose->pose.orientation.x);
        q.setY(pose->pose.orientation.y);
@@ -128,6 +137,7 @@ structure into transform message, publish transform:
        br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", 
        		"robot_base"));
     }
+``` 
 
 Publishing of transform is done with `sendTransform` function which
 parameter is `StampedTransform` object. This object parameters are:
@@ -143,6 +153,7 @@ parameter is `StampedTransform` object. This object parameters are:
 
 In main function just initialize node and subscribe to `/pose` topic:
 
+``` cpp
     int main(int argc, char **argv) {
        ros::init(argc, argv, "drive_controller");
        ros::NodeHandle n("~");
@@ -153,10 +164,11 @@ In main function just initialize node and subscribe to `/pose` topic:
           loop_rate.sleep();
        }
     }
+``` 
 
 Your final file should look like this:
 
-```
+``` cpp
 #include <ros/ros.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <tf/transform_broadcaster.h>
