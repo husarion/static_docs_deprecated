@@ -389,7 +389,7 @@ Load trajectory planner parameters:
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
 	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
@@ -409,16 +409,16 @@ You can use below `launch` file:
 		<param name="ymax" value="2.5"/>		
 	</node>
 
-  <node pkg="move_base" type="move_base" name="move_base" output="screen">
-  	<param name="controller_frequency" value="10.0"/>
-    <rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-    	command="load" ns="global_costmap" />
-    <rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-    	command="load" ns="local_costmap" />
-    <rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
-  </node>
+  	<node pkg="move_base" type="move_base" name="move_base" output="screen">
+  		<param name="controller_frequency" value="10.0"/>
+    		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
+    			command="load" ns="global_costmap" />
+    		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
+    			command="load" ns="local_costmap" />
+    		<rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
+    		<rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
+    		<rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
+  	</node>
 
   <node pkg="rviz" type="rviz" name="rviz"/>
 
