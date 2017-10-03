@@ -45,11 +45,11 @@ and it will use less CPU making interface more responsive.
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
     <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-        <param name="video_device" value="/dev/video0"/>
+     	<param name="video_device" value="/dev/video0"/>
         <param name="image_width" value="640"/>
         <param name="image_height" value="480"/>
         <param name="pixel_format" value="yuyv"/>
@@ -118,7 +118,7 @@ that you just chosen to store recognized objects.
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
     <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
@@ -392,7 +392,7 @@ how it drives and turns depending on objects.
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
     <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
