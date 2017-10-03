@@ -173,7 +173,8 @@ void hMain()
         if (distR < stopDist)   stateR = 0;
         if (distL > outDist)    stateL = 2;
         if (distR > outDist)    stateR = 2;
-        if (distR > 0 && distR < outDist && distL > 0 && distL < outDist)   {directionR = distR < distL; LED1.on();}else{LED1.off();}
+        if (distR > 0 && distR < outDist && distL > 0 && distL < outDist) {
+            directionR = distR < distL; LED1.on();}else{LED1.off();}
 
         if (stateL == 1 && stateR == 1) {
             moveForward = 1;
