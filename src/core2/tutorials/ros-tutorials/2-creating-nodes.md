@@ -681,6 +681,7 @@ directory.
 
 You can use below `.launch` file:
 
+``` launch
      <launch>
 
          <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
@@ -702,6 +703,7 @@ You can use below `.launch` file:
          </node>
 
      </launch>
+``` 
 
 ### Providing a service ###
 
