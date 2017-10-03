@@ -9,14 +9,21 @@ order: 6
 
 # Getting started with Husarion + LEGO Mindstorms #
 
-In this tutorial we will help you build autonomic, mechatronic, 3-wheel robots. It needs to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and CORE2 or RoboCORE. You can control your robot via cloud.husarion.com using W S A D keys, change speed with Q/Z keys and turn on automatic mode with E key or hBtn1.
-See video on YouTube.
+In this tutorial we will help you build autonomic, mechatronic 3-wheels robots. Robot have to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and the CORE2 each one. You can drive your robot via cloud.husarion.com using W, S, A, D keys, changing speed with Q, Z keys and turn on automatic mode with E key or hBtn1. The task of the wallBOT is to drive by a wall on the right, bypassing obstacles left side. And the task of the shadowBOT is to follow the tracked object
+
+See wallBOT video on YouTube:
 
 <div style="text-align: center">
-<iframe width="620" height="480" src="https://www.youtube.com/embed/Ynh4iYeNsqA" frameborder="0" allowfullscreen>
+<iframe width="854" height="480" src="https://www.youtube.com/embed/xxxxxxxxxxx" frameborder="0" allowfullscreen>
 </iframe>
 </div>
 
+See shadowBOT video on YouTube:
+
+<div style="text-align: center">
+<iframe width="854" height="480" src="https://www.youtube.com/embed/Ynh4iYeNsqA" frameborder="0" allowfullscreen>
+</iframe>
+</div>
 
 <p></p>
 
