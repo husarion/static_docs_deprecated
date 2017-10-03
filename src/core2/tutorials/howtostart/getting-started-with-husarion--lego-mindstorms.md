@@ -219,6 +219,7 @@ void hMain()
 ### WallBOT ###
 
 ```cpp
+
 #include "hFramework.h"
 #include "hCloudClient.h"
 #include <Lego_Ultrasonic.h>
@@ -307,6 +308,7 @@ void hMain()
        sys.delay(50);
    }
 }
+```
 
 ## Useful links ##
 
