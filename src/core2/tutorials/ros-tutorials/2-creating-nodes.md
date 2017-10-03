@@ -381,7 +381,7 @@ You can use below `.launch` file:
      <launch>
 
          <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-             <param name="video_device" value="/dev/video0"/>
+               <param name="video_device" value="/dev/video0"/>
                <param name="image_width" value="640"/>
                <param name="image_height" value="480"/>
                <param name="pixel_format" value="yuyv"/>
@@ -685,21 +685,21 @@ You can use below `.launch` file:
      <launch>
 
          <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-             <param name="video_device" value="/dev/video0"/>
-             <param name="image_width" value="640"/>
-             <param name="image_height" value="480"/>
-             <param name="pixel_format" value="yuyv"/>
-             <param name="framerate" value="10"/>
+               <param name="video_device" value="/dev/video0"/>
+               <param name="image_width" value="640"/>
+               <param name="image_height" value="480"/>
+               <param name="pixel_format" value="yuyv"/>
+               <param name="framerate" value="10"/>
          </node>
 
          <node pkg="image_view" type="image_saver" name="image_saver">
-          <param name="save_all_image" value="false" />
-          <param name="filename_format" value="/home/husarion/ros_workspace/left%04d.%s"/>
-          <remap from="/image" to="/usb_cam/image_raw"/>
+               <param name="save_all_image" value="false" />
+               <param name="filename_format" value="/home/husarion/ros_workspace/left%04d.%s"/>
+               <remap from="/image" to="/usb_cam/image_raw"/>
          </node>
 
          <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
-          <param name="print_brightness" value="false"/>
+               <param name="print_brightness" value="false"/>
          </node>
 
      </launch>
