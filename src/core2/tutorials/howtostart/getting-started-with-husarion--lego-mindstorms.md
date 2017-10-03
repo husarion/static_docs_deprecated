@@ -13,7 +13,7 @@ In this tutorial we will help you build autonomic, mechatronic, 3-wheel tracking
 See video on YouTube.
 
 <div style="text-align: center">
-<iframe width="854" height="480" src="https://www.youtube.com/embed/Ynh4iYeNsqA" frameborder="0" allowfullscreen>
+<iframe width="620" height="480" src="https://www.youtube.com/embed/Ynh4iYeNsqA" frameborder="0" allowfullscreen>
 </iframe>
 </div>
 
