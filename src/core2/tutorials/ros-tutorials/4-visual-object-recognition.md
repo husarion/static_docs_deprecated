@@ -48,18 +48,18 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-     	<param name="video_device" value="/dev/video0"/>
-        <param name="image_width" value="640"/>
-        <param name="image_height" value="480"/>
-        <param name="pixel_format" value="yuyv"/>
-        <param name="framerate" value="2"/>
-    </node>
+	<node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
+		<param name="video_device" value="/dev/video0"/>
+		<param name="image_width" value="640"/>
+		<param name="image_height" value="480"/>
+		<param name="pixel_format" value="yuyv"/>
+		<param name="framerate" value="2"/>
+	</node>
 
-    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-        <remap from="image" to="/usb_cam/image_raw"/>
-        <param name="gui" value="true"/>
-    </node>
+	<node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+		<remap from="image" to="/usb_cam/image_raw"/>
+		<param name="gui" value="true"/>
+	</node>
 
 </launch>
 ```
@@ -121,19 +121,19 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-        <param name="video_device" value="/dev/video0"/>
-        <param name="image_width" value="640"/>
-        <param name="image_height" value="480"/>
-        <param name="pixel_format" value="yuyv"/>
-        <param name="framerate" value="2"/>
-    </node>
+	<node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
+		<param name="video_device" value="/dev/video0"/>
+		<param name="image_width" value="640"/>
+		<param name="image_height" value="480"/>
+		<param name="pixel_format" value="yuyv"/>
+		<param name="framerate" value="2"/>
+	</node>
 
-    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-        <remap from="image" to="/usb_cam/image_raw"/>
-        <param name="gui" value="false"/>
-        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
-    </node>
+	<node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+		<remap from="image" to="/usb_cam/image_raw"/>
+		<param name="gui" value="false"/>
+		<param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
+	</node>
 
 </launch>
 ```
