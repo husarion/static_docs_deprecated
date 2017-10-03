@@ -224,16 +224,20 @@ void hMain()
 #include "hCloudClient.h"
 #include <Lego_Ultrasonic.h>
 using namespace hSensors;
+
 bool KeyW, KeyS, KeyA, KeyD;
 float dif_r, dif_f, dif_r_last, sensor_f_dist, sensor_r_dist, moveForward, moveRight, driveL, driveR;
 bool automatic = false;
 float speed = 0.1;
+
 float stopDist = 15;
 float outDist = 60;
 float turnRatio = 0.7;
 float sensor_f_dist_zero = 18;
 float sensor_r_dist_zero = 12;
+
 void cfgHandler(){ platform.ui.loadHtml({Resource::WEBIDE, "/ui.html"}); }
+
 void onKeyEvent(KeyEventType type, KeyCode code)
 {
    platform.ui.onKeyEvent = [](KeyEventType type, KeyCode code) {
@@ -259,18 +263,23 @@ void hMain()
    platform.ui.configHandler = cfgHandler;
    platform.ui.onKeyEvent = onKeyEvent;
    platform.ui.setProjectId("@@@PROJECT_ID@@@");
+   
    hBtn1.setOnPressHandler([] {automatic = !automatic;});
+   
    // Code for RoboCORE:
    Lego_Ultrasonic sensor_f(hSens2);
    Lego_Ultrasonic sensor_r(hSens1);
+   
    // Code for CORE2
    //hLegoSensor_i2c sensor_f_port(hSens2);
    //hLegoSensor_i2c sensor_r_port(hSens1);
    //Lego_Ultrasonic sensor_f(sensor_f_port);
    //Lego_Ultrasonic sensor_r(sensor_r_port);
+   
    for (;;) {
        sensor_f_dist = sensor_f.readDist();
        sensor_r_dist = sensor_r.readDist();
+       
        dif_r = 0;
        if (sensor_r_dist > -1) dif_r = sensor_r_dist- sensor_r_dist_zero;
        if (dif_r < 0) {
@@ -290,6 +299,7 @@ void hMain()
        
        moveForward=1;
        moveRight = dif_r * 0.08 - (dif_r_last - dif_r) * 0.01 - dif_f * 0.25;
+       
        if (!automatic || KeyW || KeyA || KeyS || KeyD) {
            automatic = false;
            moveForward = 1 * (int)KeyW - 1 * (int)KeyS;
