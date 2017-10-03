@@ -532,7 +532,7 @@ them will be required.
 To run your nodes you need two `launch` files, one for each robot. First
 will be running on one robot:
 
-```
+``` launch
 <launch>
 
     <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
@@ -567,7 +567,7 @@ identify objects which will be searched by robot.
 
 Second `launch` file will be running on another robot:
 
-```
+``` launch
 <launch>
 
     <node pkg="usb_cam" type="usb_cam_node" name="usb_cam_2">
