@@ -9,7 +9,7 @@ order: 6
 
 # Getting started with Husarion + LEGO Mindstorms #
 
-In this tutorial we will help you build autonomic, mechatronic, 3-wheel tracking robot. It needs to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and CORE2 or RoboCORE. You can control your robot via cloud.husarion.com using W S A D keys, change speed with Q/Z keys and turn on automatic mode with E key or hBtn1.
+In this tutorial we will help you build autonomic, mechatronic, 3-wheel robots. It needs to be equipped with two motors, two ultrasonic distance meter sensors, a power supply and CORE2 or RoboCORE. You can control your robot via cloud.husarion.com using W S A D keys, change speed with Q/Z keys and turn on automatic mode with E key or hBtn1.
 See video on YouTube.
 
 <div style="text-align: center">
@@ -22,24 +22,41 @@ See video on YouTube.
 
 <table>
     <tr>
-    <td><b>RoboCORE / CORE2 port name</b></td><td><b>module connected</b></td>
+    <td><b>RoboCORE / CORE2 port name</b></td>
+    <td><b>module connected</b></td>
+    <td><b>position in wallBOT</b></td>
+    <td><b>position in shadowBOT</b></td>
     </tr>
     <tr>
-        <td>hSens1</td><td>`LEGO Distance Sensor (facing forward-right)`</td>
+        <td>hSens1</td>
+        <td>`LEGO Distance Sensor`</td>
+        <td>`facing right`</td>
+        <td>`facing forward-right`</td>
     </tr>
     <tr>
-        <td>hSens2</td><td>`LEGO Distance Sensor (facing forward-left)`</td>
+        <td>hSens2</td>
+        <td>`LEGO Distance Sensor`</td>
+        <td>`facing forward`</td>
+        <td>`facing forward-left`</td>
     </tr>
     <tr>
-        <td>hMot1 / hMotA</td><td>`EV3 Large Servo Motor (left one)`</td>
+        <td>hMot1 / hMotA</td>
+        <td>`EV3 Large Servo Motor`</td>
+        <td>`left one`</td>
+        <td>`left one`</td>
     </tr>
     <tr>
-        <td>hMot4 / hMotD</td><td>`EV3 Large Servo Motor (right one)`</td>
+        <td>hMot4 / hMotD</td>
+        <td>`EV3 Large Servo Motor`</td>
+        <td>`right one`</td>
+        <td>`right one`</td>
     </tr>
 </table>
 
 
 ## Building and Connections ##
+
+### ShadowBOT ###
 
 Sensors will detect object in front of the robot therefore you need to place both sensors on the front of the robot. Right one should be directed  a little bit to the right, and the left one symmetrically to the left.
 
@@ -61,9 +78,32 @@ Left motor should be connected to A motor port and the right one to D motor port
 
 <p></p>
 
+### WallBOT ###
+
+One of sensors will detect the wall on the right side of the robot. It should be placed in the front of the robot and face to the right. Connect this sensor to hSens1 port.
+Your robot need another sensor facing ahead to detect any obstacles and evade them. Connect it to hSens2 port.
+Left motor should be connected to A motor port and the right one to D motor port.
+
+<div style="text-align: center">![image](/assets/img/howToStart/wallBOT_1.jpg)</div>
+<div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter</i></div>
+
+<p></p>
+
+<div style="text-align: center">![image](/assets/img/howToStart/wallBOT_2.jpg)</div>
+<div style="text-align: right"><i>Assembled robot with RoboCORE controller</i></div>
+
+<p></p>
+
+<div style="text-align: center">![image](/assets/img/howToStart/wallBOT_3.jpg)</div>
+<div style="text-align: right"><i>Assembled robot with CORE2 controller and CORE2brick adapter - side view</i></p></div>
+
+<p></p>
+
 ## Code ##
 
 After assembling your robot, you can run the following program. You can do it either offline with Visual Studio Code <a href="https://husarion.com/core2/tutorials/howtostart/offline-development-tools/">(how to)</a> or online with Husarion Cloud <a href="https://husarion.com/core2/tutorials/howtostart/run-your-first-program/">(how to)</a>.
+
+### ShadowBOT ###
 
 ```cpp
 
@@ -175,6 +215,98 @@ void hMain()
 }
 
 ```
+
+### WallBOT ###
+
+```cpp
+#include "hFramework.h"
+#include "hCloudClient.h"
+#include <Lego_Ultrasonic.h>
+using namespace hSensors;
+bool KeyW, KeyS, KeyA, KeyD;
+float dif_r, dif_f, dif_r_last, sensor_f_dist, sensor_r_dist, moveForward, moveRight, driveL, driveR;
+bool automatic = false;
+float speed = 0.1;
+float stopDist = 15;
+float outDist = 60;
+float turnRatio = 0.7;
+float sensor_f_dist_zero = 18;
+float sensor_r_dist_zero = 12;
+void cfgHandler(){ platform.ui.loadHtml({Resource::WEBIDE, "/ui.html"}); }
+void onKeyEvent(KeyEventType type, KeyCode code)
+{
+   platform.ui.onKeyEvent = [](KeyEventType type, KeyCode code) {
+       bool isPressed = (type == KeyEventType::Pressed);
+       if (code == KeyCode::Key_W || code == KeyCode::Up)      KeyW = isPressed;
+       if (code == KeyCode::Key_S || code == KeyCode::Down)    KeyS = isPressed;
+       if (code == KeyCode::Key_A || code == KeyCode::Left)    KeyA = isPressed;
+       if (code == KeyCode::Key_D || code == KeyCode::Right)   KeyD = isPressed;
+       if (isPressed && code == KeyCode::Key_E) automatic = !automatic;
+       if (isPressed && code == KeyCode::Key_Z) speed -= 0.1;
+       if (isPressed && code == KeyCode::Key_Q) speed += 0.1;
+       if (speed > 1) speed = 1;
+       else if (speed < 0) speed = 0;
+   };
+}
+void hMain()
+{
+   // Code for RoboCORE
+   platform.begin(&Usb);
+   // Code for CORE2
+   //platform.begin(&RPi);
+   
+   platform.ui.configHandler = cfgHandler;
+   platform.ui.onKeyEvent = onKeyEvent;
+   platform.ui.setProjectId("@@@PROJECT_ID@@@");
+   hBtn1.setOnPressHandler([] {automatic = !automatic;});
+   // Code for RoboCORE:
+   Lego_Ultrasonic sensor_f(hSens2);
+   Lego_Ultrasonic sensor_r(hSens1);
+   // Code for CORE2
+   //hLegoSensor_i2c sensor_f_port(hSens2);
+   //hLegoSensor_i2c sensor_r_port(hSens1);
+   //Lego_Ultrasonic sensor_f(sensor_f_port);
+   //Lego_Ultrasonic sensor_r(sensor_r_port);
+   for (;;) {
+       sensor_f_dist = sensor_f.readDist();
+       sensor_r_dist = sensor_r.readDist();
+       dif_r = 0;
+       if (sensor_r_dist > -1) dif_r = sensor_r_dist- sensor_r_dist_zero;
+       if (dif_r < 0) {
+           LED3.on();
+       } else {
+           LED3.off();
+       }
+       if (dif_r > sensor_r_dist_zero*1.8) dif_r = sensor_r_dist_zero*1.8;
+       dif_f = 0;
+       if (sensor_f_dist < sensor_f_dist_zero && sensor_f_dist > -1) {
+           dif_f = sensor_f_dist_zero - sensor_f_dist;
+           dif_r = 0;
+           LED1.on();
+       } else {
+           LED1.off();
+       }
+       
+       moveForward=1;
+       moveRight = dif_r * 0.08 - (dif_r_last - dif_r) * 0.01 - dif_f * 0.25;
+       if (!automatic || KeyW || KeyA || KeyS || KeyD) {
+           automatic = false;
+           moveForward = 1 * (int)KeyW - 1 * (int)KeyS;
+           moveRight = 1 * (int)KeyD - 1 * (int)KeyA;
+       }
+       driveL = (moveForward + moveRight * turnRatio) * speed * 1000;
+       driveR = (moveForward - moveRight * turnRatio) * speed * 1000;
+       
+       //Code for RoboCORE
+       hMot4.setPower(-driveR); // right motor
+       hMot1.setPower(-driveL); // left motor
+       //Code for CORE2
+       //hMot4.setPower(driveR); // right motor
+       //hMot1.setPower(driveL); // left motor
+       
+       sys.delay(50);
+   }
+}
 
 ## Useful links ##
 
