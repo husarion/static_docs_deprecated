@@ -338,7 +338,7 @@ Shut down `rplidarNode` and run it again, but with some other nodes:
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
 	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
@@ -386,7 +386,7 @@ We need to set few parameters:
 
 You can use below `launch` file:
 
-```
+``` launch
 <launch>
 
 	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
