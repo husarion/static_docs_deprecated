@@ -189,44 +189,44 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
-    <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-    	args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
+	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
+		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
 
-    <node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/> 
+	<node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/> 
 
 	<node pkg="gmapping" type="slam_gmapping" name="gmapping">
 		<param name="base_frame" value="robot_base"/>
 		<param name="odom_frame" value="world" />
 		<param name="delta" value="0.1"/>
-	    <param name="xmin" value="-2.5"/>
-        <param name="ymin" value="-2.5"/>
-        <param name="xmax" value="2.5"/>
-	    <param name="maxUrange" value="5"/>	
+		<param name="xmin" value="-2.5"/>
+		<param name="ymin" value="-2.5"/>
+		<param name="xmax" value="2.5"/>
+		<param name="maxUrange" value="5"/>	
 	</node>
 
-  <node pkg="move_base" type="move_base" name="move_base" output="screen">
-    <param name="controller_frequency" value="10.0"/>
-    <rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-    	command="load" ns="global_costmap" />
-    <rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-    	command="load" ns="local_costmap" />
-    <rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
-  </node>
+	<node pkg="move_base" type="move_base" name="move_base" output="screen">
+		<param name="controller_frequency" value="10.0"/>
+		rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
+			command="load" ns="global_costmap" />
+		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
+			command="load" ns="local_costmap" />
+		<rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
+		<rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
+		<rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
+	</node>
 
-    <node pkg="frontier_exploration" type="explore_client" 
-    	name="explore_client" output="screen"/>
+	<node pkg="frontier_exploration" type="explore_client" 
+		name="explore_client" output="screen"/>
 
-    <node pkg="frontier_exploration" type="explore_server" 
-    	name="explore_server" output="screen" >
-        <param name="frequency" type="double" value="1.0"/>
-        <param name="goal_aliasing" type="double" value="0.5"/>
-        <rosparam ns="explore_costmap" subst_value="true" 
-		file="$(find tutorial_pkg)/exploration.yaml" command="load" />
-    </node>
+	<node pkg="frontier_exploration" type="explore_server" 
+		name="explore_server" output="screen" >
+		<param name="frequency" type="double" value="1.0"/>
+		<param name="goal_aliasing" type="double" value="0.5"/>
+		<rosparam ns="explore_costmap" subst_value="true" 
+			file="$(find tutorial_pkg)/exploration.yaml" command="load" />
+	</node>
 
 </launch>
 ```
