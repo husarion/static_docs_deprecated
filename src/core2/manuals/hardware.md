@@ -1072,10 +1072,15 @@ Make sure that your CORE2 is connected with your cloud account. [This is a guide
 
 That's all, your ESP32 firmware is up-to-date.
 
-## Linux image for RaspberryPi ##
+## Linux image for RaspberryPi/Tinkerboard ##
 
-1. Download image for Raspberry Pi from [here](https://files.husarion.com/rpi-image-stable.img).
+1. Download image for Raspberry Pi/Tinkerboard from [here](https://husarion.com/downloads) (there is a single image for both platforms).
 2. Follow the [official guide on raspberrypi.org webpage](https://www.raspberrypi.org/documentation/installation/installing-images/) for writing image to SD card.
+
+## Updating Linux image for RaspberryPi/Tinkerboard ##
+
+1. [Login to your CORE2-ROS](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/#1-ros-introduction-ros-and-core2-work-flow).
+2. Execute in terminal: `apt-get update; apt-get dist-upgrade -y`
 
 ***
 
