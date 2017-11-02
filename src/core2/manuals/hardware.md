@@ -740,9 +740,13 @@ while (true) {
 # Power supply #
 Before powering the CORE2 you should know something about its power supply input.
 
-The CORE2 input voltage (Vin) must be in the range 6 - 16V. The recommended input voltage range is 7 - 15V. The power connector is a standard DC 5.5/2.1 (centre-positive) type.
+The **CORE2** input voltage (Vin) must be in the range 6 - 16V. The recommended input voltage range is 7 - 15V. The power connector is a standard DC 5.5/2.1 (centre-positive) type. The minimum power supply output current to run CORE2 itself is about 150mA@12V and 200mA@9V.
 
-The CORE2 power supply input has overvoltage (>16V), reverse-polarity and overcurrent (~4A) protections.
+The **CORE2-ROS** input voltage (Vin) must be in the range 6.5 - 16V. The recommended input voltage range is 7.5 - 15V. The minimum power supply output current to run CORE2-ROS depends on SBC board used with CORE2. 
+For Raspberry Pi, the minimum output current that must be provided from supply is about 700mA@12V and 900mA@9V.
+For ASUS Tinker Board the minimum current is 1A@12V and 1.3A@9V.
+
+The CORE2 power supply input has overvoltage (>16V), reverse-polarity and overcurrent (~4A) protections. The long-term overvoltage state shall be avoided!
 
 ## Block diagram ##
 
