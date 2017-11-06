@@ -128,7 +128,8 @@ This port is compatible with LEGO® MINDSTORMS® sets when a special adapter for
         <td>hSensX.pin3</td>
         <td>GPIO</td>
         <td>I2C_SCL (in hSens 1 &amp; 2) <br>
-            UART_TX (in hSens 3 &amp; 4)</td>
+            UART_TX (in hSens 3 &amp; 4) <br>
+	    no alt. function (in hSens 5 &amp; 6)</td>
         <td></td>
     </tr>
     <tr>
