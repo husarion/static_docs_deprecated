@@ -88,8 +88,7 @@ To create new project, select empty folder, press Ctrl-Shift-P, type “create h
 
 ***<font color="green">Info: The “husarion" extension can start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
-To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
+To compile project press Ctrl-Shift-B. To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
 
 ### Changing hardware platform ###
 
