@@ -158,7 +158,7 @@ This port is compatible with LEGO® MINDSTORMS® sets when a special adapter for
 </tbody>
 </table>
 
-***Advice: use <mark>ctrl + SPACE</mark> after typing "software_name." to see methods in the web IDE.***
+[comment]: <> (***Advice: use <mark>ctrl + SPACE</mark> after typing "software_name." to see methods in the web IDE.***)
 
 Using ADC
 ```
@@ -351,7 +351,7 @@ All interfaces are compatible with 3.3V CMOS logic. The A/D converter range is 0
   </tbody>
 </table>
 
-***Advice: use <mark>ctrl + SPACE</mark> after typing "software_name." to see methods in the web IDE.***
+[comment]: <> (***Advice: use <mark>ctrl + SPACE</mark> after typing "software_name." to see methods in the web IDE.***)
 
 
 ### Communication interfaces ###
