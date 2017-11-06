@@ -41,8 +41,7 @@ To create new project, select empty folder, press Ctrl-Shift-P, type “create h
 
 ***<font color="green">Info: The "Husarion" extension may start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
-To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
+To compile project press Ctrl-Shift-B. To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type “flash core2" and press enter.
 
 ### Useful extensions ###
 * Builtin Git support - Ctrl-Shift-G You need to install Git first. We recommend using Chocolatey to do it.
@@ -151,8 +150,7 @@ To create new project, select empty folder, press Ctrl-Shift-P, type "create hus
 
 ***<font color="green">Info: The "husarion" extension can start downloading additional data now; please be patient.</font>***
 
-To compile project press Ctrl-Shift-B (this happens automatically when you flash the project).
-To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type "flash core2" and press enter. 
+To compile project press Ctrl-Shift-B. To flash the project to CORE2 via micro USB, press Ctrl-Shift-P and type "flash core2" and press enter. 
 
 ### Debugging ###
 
