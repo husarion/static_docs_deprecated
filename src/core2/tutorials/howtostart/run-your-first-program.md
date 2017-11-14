@@ -25,7 +25,7 @@ Set the power switch to "ON" position and now your device is ready to use!
 ## Connecting to the Cloud ##
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
-* AppStore - coming soon
+* [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
 
 If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
 
