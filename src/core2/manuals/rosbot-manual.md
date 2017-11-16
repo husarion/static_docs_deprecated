@@ -81,7 +81,7 @@ here</a>.</td>
     </tr>
 </table>
 
-***
+
 
 # Rear panel description #
 
