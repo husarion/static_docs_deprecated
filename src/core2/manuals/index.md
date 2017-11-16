@@ -10,6 +10,8 @@ page: 'Manuals'
 
 ## Hardware ##
 
-<script type="text/javascript">
-    window.location.replace("/core2/manuals/hardware");
-</script>
+A description of all hardware functionalities of CORE2 development board: specifications, connectivity, electrical parameters etc.
+
+## ROSbot manual ##
+
+Hardware documentation of ROSbot.
