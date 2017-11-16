@@ -40,10 +40,7 @@ Connect peripherals:
 * Plug in DC power cable.
 
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
-<div class="gallery h300">
-![Appearance](/assets/img/howToStart/cables_ralph.png "Appearance")
-</div>
-
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png"></center></div>
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
 <div style="text-align: right"><i>Properly assembled CORE2 telepresence robot</i></div>
