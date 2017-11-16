@@ -85,7 +85,7 @@ here</a>.</td>
 
 # Rear panel description #
 
-![image](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/scheme_back.png)
+![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
 
 <table>
     <tr>
