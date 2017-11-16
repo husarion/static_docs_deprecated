@@ -10,9 +10,9 @@ onepager: true
 
 <div class="gallery h300">
 
-![Front](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/colour_front.jpg "Front")
-![Back](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/colour_back.jpg "Back")
-![Perspective](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/colour_perspective.jpg "Perspective")
+![Front](/assets/img/ROSbot_manual/colour_front.jpg "Front")
+![Back](/assets/img/ROSbot_manual/colour_back.jpg "Back")
+![Perspective](/assets/img/ROSbot_manual/colour_perspective.jpg "Perspective")
 
 </div>
 
