@@ -69,12 +69,10 @@ Connect peripherals:
 /></center></div>
 
 * When robot is programmed, open it's user interface and click 'Turn off motors'.
-
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
-
 * When you find proper position (when you are using less force to hold it stable) click on 'Calibrate' button in Web UI.
-
 * Now after clicking 'turn on motors' your robot will start balancing correctly.
+
 
 
 To steer your robot use WASD keys or arrows. Key G to switchs leg position and keys 1, 2, 3 to change gears.
