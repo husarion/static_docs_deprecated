@@ -1095,7 +1095,7 @@ This section will show you how to connect different types of sensors to CORE2. C
 
 ## Sharp distance sensor ##
 
-Bellow schematic and source code shows you how to connect Sharp 2D120X infrared proximity sensor to CORE2. Sample source code shows how to output readings from sensor directly to the user interface of your device at [](https://cloud.husarion.com).
+Bellow schematic and source code shows you how to connect [Sharp GP2Y0A41SK0F](http://www.sharp-world.com/products/device/lineup/data/pdf/datasheet/gp2y0a41sk_e.pdf "Sharp GP2Y0A41SK0F")infrared proximity sensor to CORE2. Sample source code shows how to output readings from sensor directly to the user interface of your device at [](https://cloud.husarion.com).
 
 <div class="thumb center h200">
 
