@@ -8,7 +8,7 @@ order: 6
 ---
 # Ralph - quick start #
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_izo_hd.jpg" height="75%" width="75%"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_izo_hd.jpg" height="100%" width="100%"></center></div>
 
 ## Unboxing ##
 
@@ -40,7 +40,7 @@ Connect peripherals:
 * Plug in DC power cable.
 
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="75%" width="75%"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="40%" width="40%"></center></div>
 
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
@@ -65,9 +65,9 @@ Connect peripherals:
 
 * Place your robot with CORE2 facing up and turn it on.
 * Open WebIDE (cloud.husarion.com) and create a new project using template 'self-balancing telepresence' and upload it to your CORE2.
+
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
 /></center></div>
-
 * When robot is programmed, open it's user interface and click 'Turn off motors'.
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
 * When you find proper position (when you are using less force to hold it stable) click on 'Calibrate' button in Web UI.
