@@ -1,5 +1,5 @@
 ---
-title: 'Ralph quick start'
+title: 'Ralph - quick start'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
