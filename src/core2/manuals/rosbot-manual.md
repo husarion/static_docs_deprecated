@@ -23,10 +23,10 @@ onepager: true
 ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. To find a platform that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot, as a project that everybody can use to avoid building own autonomous robot platforms from scratch.
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
-![image](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/scheme_connection.png)
+![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
 
 <table>
-    <tr>
+    <tr>Scheme connection
        <th>Component</th>
        <th>Quantity</th>
        <th>Description</th>
