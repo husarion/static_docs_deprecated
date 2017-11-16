@@ -40,7 +40,9 @@ Connect peripherals:
 * Plug in DC power cable.
 
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="40%" width="40%"></center></div>
+<div class="gallery h300">
+![Appearance](/assets/img/howToStart/cables_ralph.png "Appearance")
+</div>
 
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
