@@ -20,8 +20,8 @@ config.pages = {
     },
 
 
-    'core2/manuals/hardware': {
-        pattern: 'core2/manuals/hardware.md',
+    'core2/manuals': {
+        pattern: 'core2/manuals/*.md',
         metadata: {
             page: 'Manuals',
             title: 'Hardware'
