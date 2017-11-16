@@ -1080,7 +1080,7 @@ That's all, your ESP32 firmware is up-to-date.
 
 ## OS image for RaspberryPi/Tinkerboard ##
 
-### installing new image ###
+### Installing new image ###
 
 1. Download image for Raspberry Pi/Tinkerboard from [here](https://husarion.com/downloads) (there is a single image for both platforms).
 2. Follow the [official guide on raspberrypi.org webpage](https://www.raspberrypi.org/documentation/installation/installing-images/) for writing image to SD card.
