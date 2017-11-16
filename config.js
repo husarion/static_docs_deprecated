@@ -20,8 +20,16 @@ config.pages = {
     },
 
 
-    'core2/manuals': {
-        pattern: 'core2/manuals/*.md',
+    'core2/manuals/hardware': {
+        pattern: 'core2/manuals/hardware.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'Hardware'
+        }
+    },
+    
+    'core2/manuals/rosbot-manual': {
+        pattern: 'core2/manuals/rosbot-manual.md',
         metadata: {
             page: 'Manuals',
             title: 'Hardware'
