@@ -20,7 +20,7 @@ onepager: true
 
 <iframe width="854" height="480" src="https://vimeo.com/225576807" frameborder="0" allowfullscreen> </iframe>
 
-ROSbot is autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. Something that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot as a project everybody can use to avoid building own autonomous robot platforms from scratch.
+ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. To find a platform that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot, as a project that everybody can use to avoid building own autonomous robot platforms from scratch.
 
 ![image](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/scheme_side.png)
 ![image](https://github.com/husarion/static_docs/blob/master/src/assets/img/ROSbot_manual/scheme_connection.png)
@@ -48,7 +48,7 @@ here</a>.</td>
         <td>RpLidar A2, 360 degree and up to 8m range, <a href="https://www.slamtec.com/en/Lidar"> more details</a>.</td>
     </tr>
     <tr>
-        <td>Ultradonic distance sensor</td>
+        <td>Ultrasonic distance sensor</td>
         <td>4</td>
         <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor"> more details</a>.</td>
     </tr>
@@ -74,7 +74,7 @@ here</a>.</td>
         <td>1.0 megapixel RGB camera with CMOS OV9712 H.264</td>
     </tr>
     <tr>
-        <td>Batterie</td>
+        <td>Batteries</td>
         <td>3</td>
         <td>Li-on 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage 
 		Notes: Use only protected batteries! Using unprotected batteries may result in serious injuries or fire.  Device may be shipped interchangeably with similar batteries.</td>
@@ -106,12 +106,12 @@ here</a>.</td>
     <tr>
         <td>Micro USB</td>
         <td>1</td>
-        <td>From CORE2</td>
+        <td>Serial USB from CORE2</td>
     </tr>
     <tr>
         <td>Charging connector</td>
         <td>1</td>
-        <td>Standard four pin connector for charging 3 Li-Ion batteries</td>
+        <td>Standard 4-pin connector for charging 3 Li-Ion batteries</td>
     </tr>
     <tr>
         <td>hCfg button</td>
@@ -119,7 +119,7 @@ here</a>.</td>
         <td>Button used for connecting ROSbot to [husarion cloud](https://cloud.husarion.com/)</td>
     </tr>
     <tr>
-        <td>Power swich</td>
+        <td>Power switch</td>
         <td>1</td>
         <td>Switch to turn on and off the robot.</td>
     </tr>
@@ -147,7 +147,7 @@ here</a>.</td>
 
 # Software #
 
-ROSbot use OS based on Ubuntu 16.04 which contain all needed components to start working with ROS immediatle. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). We also created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with this frameworks. 
+ROSbot uses OS based on Ubuntu 16.04 which contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). We also created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with these frameworks. 
 
 
 # Docs and links #
