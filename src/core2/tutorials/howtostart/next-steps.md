@@ -4,7 +4,7 @@ platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
-order: 6
+order: 7
 ---
 # Next steps #
 You can find more information on:
