@@ -8,7 +8,7 @@ order: 6
 ---
 # Ralph - quick start #
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="75%" width="75%"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_izo_hd.jpg" height="75%" width="75%"></center></div>
 
 ## Unboxing ##
 
