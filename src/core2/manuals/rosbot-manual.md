@@ -19,6 +19,7 @@ onepager: true
 # Overview #
 
 <iframe width="854" height="480" src="https://vimeo.com/225576807" frameborder="0" allowfullscreen> </iframe>
+<iframe src="https://vimeo.com/225576807" width="320" height="240" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. To find a platform that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot, as a project that everybody can use to avoid building own autonomous robot platforms from scratch.
 
