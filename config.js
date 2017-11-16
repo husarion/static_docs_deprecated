@@ -24,7 +24,7 @@ config.pages = {
         pattern: 'core2/manuals/hardware.md',
         metadata: {
             page: 'Manuals',
-            title: 'Hardware'
+            title: 'CORE2 manual'
         }
     },
     
@@ -32,7 +32,7 @@ config.pages = {
         pattern: 'core2/manuals/rosbot-manual.md',
         metadata: {
             page: 'Manuals',
-            title: 'Hardware'
+            title: 'ROSbot manual'
         }
     }
 };
