@@ -19,13 +19,16 @@ onepager: true
 # Overview #
 
 <div align="center">
-<iframe src="https://player.vimeo.com/video/225576807" width="854" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/225576807" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
 ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. To find a platform that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot, as a project that everybody can use to avoid building own autonomous robot platforms from scratch.
 
+## Components ##
+
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 ![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
+![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
 
 <table>
     <tr>Scheme connection
@@ -83,11 +86,9 @@ here</a>.</td>
     </tr>
 </table>
 
+## Rear panel description ##
 
-
-# Rear panel description #
-
-![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
+![Rear panel](/assets/img/ROSbot_manual/rear_panel.png "Rear panel")
 
 <table>
     <tr>
@@ -147,10 +148,34 @@ here</a>.</td>
     </tr>
 </table>
 
+## Power suply ##
+
+ROSbot is supplied from an internal, rechargeable Li-Ion battery pack (3x protected 18650 cells). ROSbot shall be charged using a dedicated Li-Ion or Li-Poly charger with 4-pin JST XH connector.
+If only the right firmware is preloaded to the internal controller (CORE2), the LED1 is programmed to indicate the power status:
+- the LED1 is on when the robot is turned on
+- the LED1 is blinking when battery is low – please charge immediately!
+
 # Software #
 
-ROSbot uses OS based on Ubuntu 16.04 which contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). We also created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with these frameworks. 
+## SBC Linux image ##
 
+ROSbot uses OS based on Ubuntu 16.04 which contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard).
+
+# First steps #
+
+## Connection to Husarion Cloud ##
+
+*Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on Google Play and appStore), any PC computer to work with ROSbot, the Wi-Fi network.
+*Login or register on cloud.husarion.com.
+*Register your ROSbot on your cloud account by clicking “Add new device”.
+*Launch the hConfig application and follow the instructions.
+Note: The app will ask you to hold hCfg button on CORE2 and to watch LR1, LR2 LEDs – they are all available on the rear panel.
+*Now you should see your ROSbot online and you can start with ROSbot tutorial.
+
+## ROS tutorials ##
+
+ROS (Robot Operating System) provides libraries and tools to help software developers create robot applications. It provides hardware abstraction, device drivers, libraries, visualizers, message-passing, package management, and more. It's very powerful and 
+functional tool dedicated to design robots. We created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with these frameworks. 
 
 # Docs and links #
 All helpful documents and links in one place:
