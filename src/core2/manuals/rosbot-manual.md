@@ -78,7 +78,7 @@ here</a>.</td>
     <tr>
         <td>Batteries</td>
         <td>3</td>
-        <td>Li-on 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage 
+        <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
 		Notes: Use only protected batteries! Using unprotected batteries may result in serious injuries or fire.  Device may be shipped interchangeably with similar batteries.</td>
     </tr>
 </table>
