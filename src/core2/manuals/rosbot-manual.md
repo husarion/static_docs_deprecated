@@ -16,15 +16,24 @@ onepager: true
 
 </div>
 
-# Overview #
+## Overview ##
 
 <div align="center">
 <iframe src="https://player.vimeo.com/video/225576807" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
-ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an affordable robot platform for rapid autonomous robot development. To find a platform that can be a base for custom service robots, inspection robots and robots working in swarms. This is why we are creating ROSbot, as a project that everybody can use to avoid building own autonomous robot platforms from scratch.
+ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
+- 4-wheels mobile platform containing DC motors with encoders and an alluminium frame
+- Digital camera
+- RPLIDAR A2 laser scanner
+- MPU 9250 inertial sensor (accelerometer + gyro)
+- rear panel providing interfaces for additional modules
 
-## Components ##
+ROSbot is an affordable robot platform for rapid development of autonomous robots. It can be a base for custom service robots, inspection robots and robots working in swarms. 
+
+It can work with or without Husarion cloud that allows you remote management and firmware update.
+
+# Components #
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 ![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
@@ -39,13 +48,13 @@ ROSbot is an autonomous robot platform powered by Husarion. It's hard to find an
     <tr>
         <td>CORE2</td>
         <td>1</td>
-        <td>Development board for Internet-connected automation & robotics devices, <a href="https://husarion.com/core2/">details 
+        <td>A real-time controller board for Internet-connected automation & robotics devices, <a href="https://husarion.com/core2/">details 
 here</a>.</td>
     </tr>
     <tr>
-        <td>Asus Tinker Board</td>
+        <td>ASUS Tinker Board</td>
         <td>1</td>
-        <td>Powerful single board computer powered by Asus to use ROS, <a href="https://www.asus.com/us/Single-Board-Computer/Tinker-Board/">more details</a>.</td>
+        <td>A powerful, single board computer, with Ubuntu-based OS customized to use ROS, <a href="https://www.asus.com/us/Single-Board-Computer/Tinker-Board/">more details</a>.</td>
     </tr>
     <tr>
         <td>LIDAR</td>
@@ -53,7 +62,7 @@ here</a>.</td>
         <td>RpLidar A2, 360 degree and up to 8m range, <a href="https://www.slamtec.com/en/Lidar"> more details</a>.</td>
     </tr>
     <tr>
-        <td>Ultrasonic distance sensor</td>
+        <td>Infrared distance sensor</td>
         <td>4</td>
         <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor"> more details</a>.</td>
     </tr>
@@ -82,7 +91,7 @@ here</a>.</td>
         <td>Batteries</td>
         <td>3</td>
         <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
-		Notes: Use only protected batteries! Using unprotected batteries may result in serious injuries or fire.  Device may be shipped interchangeably with similar batteries.</td>
+		Note: Device may be shipped interchangeably with similar batteries.</td>
     </tr>
 </table>
 
@@ -119,12 +128,12 @@ here</a>.</td>
     <tr>
         <td>hCfg button</td>
         <td>1</td>
-        <td>Button used for connecting ROSbot to [husarion cloud](https://cloud.husarion.com/)</td>
+        <td>Button used for connecting ROSbot to [husarion cloud](https://cloud.husarion.com/) Please use non-metallic object to press this button.</td>
     </tr>
     <tr>
         <td>Power switch</td>
         <td>1</td>
-        <td>Switch to turn on and off the robot.</td>
+        <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
     </tr>
     <tr>
         <td>LED</td>
@@ -148,18 +157,22 @@ here</a>.</td>
     </tr>
 </table>
 
-## Power suply ##
+## Power supply ##
 
-ROSbot is supplied from an internal, rechargeable Li-Ion battery pack (3x protected 18650 cells). ROSbot shall be charged using a dedicated Li-Ion or Li-Poly charger with 4-pin JST XH connector.
+ROSbot is supplied from an internal, rechargeable Li-Ion battery pack (3x protected 18650 cells). ROSbot shall be charged using a dedicated Li-Ion or Li-Poly charger with 4-pin JST XH connector. 
 If only the right firmware is preloaded to the internal controller (CORE2), the LED1 is programmed to indicate the power status:
 - the LED1 is on when the robot is turned on
 - the LED1 is blinking when battery is low – please charge immediately!
 
-# Software #
+Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may cause decreasing their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low please charge batteries as soon as possible.
 
-## SBC Linux image ##
+If you are going to use ROSbot stationary for a long time, please leave the charger connected all the time. It will increase the batteries lifetime. In case you need to replace batteries, use only 18650 Li-Ion batteries, with the capacity in a range of 1800...3500mAh and with a protection circuit! Using unprotected batteries may result in serious injuries or fire.
 
-ROSbot uses OS based on Ubuntu 16.04 which contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard).
+## Software ##
+
+Software for ROSbot can be divided into 2 parts:
+ * A firmware that works on the real-time controller (CORE2) and can be developed and uploaded from [Husarion Cloud](https://cloud.husarion.com/) with WebIDE. It can also be developed offline using [Visual Studio Code IDE](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/).
+ * OS based on Ubuntu 16.04, which runs on the SBC (ASUS Tinker Board) and contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). Remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. The OS has been modified to make the file system insensitive to sudden power cuts.
 
 # First steps #
 
@@ -180,7 +193,7 @@ functional tool dedicated to design robots. We created the set of [ROS tutorials
 # Docs and links #
 All helpful documents and links in one place:
 
-* [CORE2 Safety Instructions](http://files.husarion.com/doc_files/CORE2_Safety_Instructions.pdf "CORE2 Safety Instructions") - important!
+* [ROSbot Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
 * [ROSbot project on hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform "ROSbot project on hackaday.io")
 * [ROSbot project on instructables.com](http://www.instructables.com/id/ROSbot-Autonomous-Robot-With-LiDAR/ "ROSbot project on instructables.com")
 * [ROSbot assembly instruction](https://cdn.hackaday.io/files/21885936327840/ROSbot_assembly_instruction.pdf "ROSbot assembly instruction")
