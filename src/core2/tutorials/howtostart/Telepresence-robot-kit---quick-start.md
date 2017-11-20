@@ -1,12 +1,12 @@
 ---
-title: 'Ralph - quick start'
+title: 'Telepresence robot kit - quick start'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
 order: 6
 ---
-# Ralph - quick start #
+# Telepresence robot kit - quick start #
 
 <iframe width="1156" height="560" src="https://www.youtube.com/embed/7LCDYbutM80" frameborder="0" gesture="media" allowfullscreen></iframe>
 
