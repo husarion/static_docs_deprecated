@@ -16,7 +16,7 @@ onepager: true
 
 </div>
 
-## Overview ##
+# Overview #
 
 <div align="center">
 <iframe src="https://player.vimeo.com/video/225576807" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -33,7 +33,7 @@ ROSbot is an affordable robot platform for rapid development of autonomous robot
 
 It can work with or without Husarion cloud that allows you remote management and firmware update.
 
-# Components #
+## Components ##
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 ![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
