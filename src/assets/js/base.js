@@ -1,22 +1,39 @@
 // Cache selectors
+
+$('.toc').find('a.treeitem').each(function() {
+     var href = $(this).attr("href");
+     if (href.match("^\/")) {
+        	href = $(this).attr('href');
+        	str = href.substring(href.indexOf("#"));
+       
+        	if(window.location.pathname == href.substring(0, href.indexOf("#"))+'/') {
+	        	$(this).attr('href', str);
+        	} else {
+	        	$(this).removeClass('treeitem').addClass('subsection-title');
+        	}
+        }
+});
+
 var last_item,
     toc = $(".toc"),
     top_offset = 45,
-    toc_items = toc.find("a.treeitem"),
+    toc_items = toc.find("a.treeitem");
+    
     scroll_items = toc_items.map(function() {
-        var item = $($(this).attr("href"));
-        if (item.length) {
-            return item;
-        }
+	     var href = $(this).attr("href");
+        	var item = $(href);
+        	if (item.length) {
+        	   	return item;
+    		}
     });
-
+    
 function scrollToSection(id) {
     var offsetTop = $(id).offset().top - top_offset + 2;
     window.location.hash = id;
     $('html, body').scrollTop(offsetTop);
 }
 
-function checkSizeAndTOC() {
+function checkSize() {
     if ($('.htb__tabs').css('display') == 'none') {
         $('body').addClass('mobile');
         resetContentHeight();
@@ -25,7 +42,6 @@ function checkSizeAndTOC() {
         $('body').removeClass('mobile');
         minContentHeight();
     }
-    updateTOC();
 }
 
 function updateTOC() {
@@ -34,8 +50,9 @@ function updateTOC() {
         if ($(this).offset().top < from_top)
             return this;
     });
-
+    
     cur = cur.length == 0 ? scroll_items[0] : cur[cur.length - 1];
+
     var id = cur.attr('id');
 
     if (last_item !== id) {
@@ -43,7 +60,9 @@ function updateTOC() {
         toc_items.removeClass("active").filter("[href='#" + id + "']").addClass("active");
     }
 
-    $(".section-title").removeClass("active");
+    window.location.hash = id;
+
+    $(".section-title, .subsection-title").removeClass("active");
 
     $('.l1, .l2').hide();
     $('.toc').find('.treeitem').removeClass('treeparent');
@@ -53,6 +72,7 @@ function updateTOC() {
 
     $(".treeitem.active").parents(".l0, .l1, .l2").find(".subsection-title:first").addClass("active");
     $(".treeitem.active").parents(".l0").prevAll(".section-title:first").addClass("active");
+    
 
 }
 
@@ -88,10 +108,11 @@ $(window).load(function() {
     if (inital_section)
         scrollToSection("#" + inital_section);
 
-    checkSizeAndTOC();
+    checkSize();
 });
 
 $(window).on('scroll', function() {
+    checkSize();
     updateTOC();
 });
 
@@ -99,7 +120,7 @@ var resize_delay;
 
 $(window).on('resize', function() {
     clearTimeout(resize_delay);
-    resize_delay = setTimeout(checkSizeAndTOC, 50);
+    resize_delay = setTimeout(checkSize, 50);
 });
 
 $(".slider").on('click', function() {
@@ -128,4 +149,3 @@ $('.tgl_toc a').on('click', function(event) {
     event.preventDefault();
     $('.toc_wrapper, .tgl_toc').toggleClass('expanded');
 });
-
