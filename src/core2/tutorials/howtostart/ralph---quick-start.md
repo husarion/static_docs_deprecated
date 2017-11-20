@@ -5,7 +5,6 @@ autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
 order: 6
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_izo_hd.jpg" height="100%" width="100%"></center></div>
 ---
 # Ralph - quick start #
 
