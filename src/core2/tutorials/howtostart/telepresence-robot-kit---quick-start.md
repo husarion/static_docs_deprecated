@@ -8,7 +8,7 @@ order: 6
 ---
 # Telepresence robot kit - quick start #
 
-<iframe width="1156" height="560" src="https://www.youtube.com/embed/7LCDYbutM80" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="1156" height="560" src="https://www.youtube.com/embed/JkIj5ssHpKw" frameborder="0" gesture="media" allowfullscreen></iframe>
 
 ## Unboxing ##
 
