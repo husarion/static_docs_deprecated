@@ -22,6 +22,20 @@ Standard Markdown syntax is applicable for images, but there is an additional po
  ```
 The `gallery-6` means 6 images in row. If necessary, also the `gallery-2`, `gallery-3` etc. can be implemented.
 
+## Videos
+
+From Vimeo:
+```
+<div align="center">
+<iframe src="https://player.vimeo.com/video/225576807" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+```
+
+From Youtube:
+```
+<iframe width="1156" height="560" src="https://www.youtube.com/embed/JkIj5ssHpKw" frameborder="0" gesture="media" allowfullscreen></iframe>
+```
+
 ## Metadata headers and ToC generation
 
 Each .md file contains the metadata needed for generate HTML pages that are properly referenced to ToC on the left menu, here is an example:
