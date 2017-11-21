@@ -19,7 +19,7 @@ onepager: true
 # Overview #
 
 <div align="center">
-<iframe src="https://player.vimeo.com/video/225576807" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe width="800" height="388" src="https://www.youtube.com/embed/aqJC23XcnyI" frameborder="0" gesture="media" allowfullscreen></iframe>
 </div>
 
 ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
@@ -31,13 +31,15 @@ ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot control
 
 ROSbot is an affordable robot platform for rapid development of autonomous robots. It can be a base for custom service robots, inspection robots and robots working in swarms. 
 
-It can work with or without Husarion cloud that allows you remote management and firmware update.
+You can use your ROSbot offline however we recommend connecting to Husarion Cloud as it gives you access to a lot of additional functionalities like remote management and firmware updates.
 
 ## Components ##
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
-![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
+
 ![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
+
+![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
 
 <table>
     <tr>Scheme connection
@@ -128,7 +130,7 @@ here</a>.</td>
     <tr>
         <td>hCfg button</td>
         <td>1</td>
-        <td>Button used for connecting ROSbot to [husarion cloud](https://cloud.husarion.com/) Please use non-metallic object to press this button.</td>
+        <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/). Please use non-metallic object to press this button.</td>
     </tr>
     <tr>
         <td>Power switch</td>
@@ -164,7 +166,7 @@ If only the right firmware is preloaded to the internal controller (CORE2), the 
 - the LED1 is on when the robot is turned on
 - the LED1 is blinking when battery is low – please charge immediately!
 
-Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may cause decreasing their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low please charge batteries as soon as possible.
+Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may decrease their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low please charge batteries as soon as possible.
 
 If you are going to use ROSbot stationary for a long time, please leave the charger connected all the time. It will increase the batteries lifetime. In case you need to replace batteries, use only 18650 Li-Ion batteries, with the capacity in a range of 1800...3500mAh and with a protection circuit! Using unprotected batteries may result in serious injuries or fire.
 
