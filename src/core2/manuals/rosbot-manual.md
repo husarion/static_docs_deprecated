@@ -39,24 +39,22 @@ You can use your ROSbot offline however we recommend connecting to Husarion Clou
 
 ![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
 
+### Internal connections diagram ###
+
 ![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
 
+### Components description ###
+
 <table>
-    <tr>Scheme connection
+    <tr>
        <th>Component</th>
        <th>Quantity</th>
        <th>Description</th>
     </tr>
     <tr>
-        <td>CORE2</td>
+        <td>CORE2-ROS</td>
         <td>1</td>
-        <td>A real-time controller board for Internet-connected automation & robotics devices, <a href="https://husarion.com/core2/">details 
-here</a>.</td>
-    </tr>
-    <tr>
-        <td>ASUS Tinker Board</td>
-        <td>1</td>
-        <td>A powerful, single board computer, with Ubuntu-based OS customized to use ROS, <a href="https://www.asus.com/us/Single-Board-Computer/Tinker-Board/">more details</a>.</td>
+        <td>Advanced version of CORE2 with an ASUS Tinker board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS. <a href="https://husarion.com/core2/">More details here</a>.</td>
     </tr>
     <tr>
         <td>LIDAR</td>
@@ -180,12 +178,12 @@ Software for ROSbot can be divided into 2 parts:
 
 ## Connection to Husarion Cloud ##
 
-*Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on Google Play and appStore), any PC computer to work with ROSbot, the Wi-Fi network.
-*Login or register on cloud.husarion.com.
-*Register your ROSbot on your cloud account by clicking “Add new device”.
-*Launch the hConfig application and follow the instructions.
+* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on Google Play and appStore), any PC computer to work with ROSbot, the Wi-Fi network.
+* Login or register on cloud.husarion.com.
+* Register your ROSbot on your cloud account by clicking “Add new device”.
+* Launch the hConfig application and follow the instructions.
 Note: The app will ask you to hold hCfg button on CORE2 and to watch LR1, LR2 LEDs – they are all available on the rear panel.
-*Now you should see your ROSbot online and you can start with ROSbot tutorial.
+* Now you should see your ROSbot online and you can start with ROSbot tutorial.
 
 ## ROS tutorials ##
 
