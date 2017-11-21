@@ -23,7 +23,7 @@ The kit contains:
 
 ## Assembly ##
 
-To make your robot working properly, you need to complete a few following steps written below. Start with mechanical assembly:
+To make your robot work properly, you need to complete few following steps written below. Start with mechanical assembly:
 
 *	Put each wheel on the coupler and screw it on with M4 screw.
 *	Put CORE2 on the designated place and fix it with four M3 screws.
@@ -69,9 +69,9 @@ Connect the peripherals:
 /></center></div>
 * When robot is programmed, open its user interface and click 'Turn off motors'.
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
-* When you find proper position (when you are using less force to hold it stable) click on 'Calibrate' button in Web UI.
+* When you find proper position (when you are using the less force to hold it stable) click on 'Calibrate' button in Web UI.
 * Now after clicking 'turn on motors' your robot will start balancing correctly.
 
 
 
-To steer your robot use WASD keys or arrows. Key G to switchs leg position and keys 1, 2, 3 to change gears.
+To steer your robot use WASD keys or arrows. Use G key to switch leg position and 1, 2, 3 keys to change gears.
