@@ -16,7 +16,7 @@ The kit contains:
 
 * CORE2 robotic controller
 * Metal robot frame
-* 2 x Wheels
+* 2 x Wheel
 * 3 x Li-Ion batteries 18650
 * Li-Ion charger 
 * Screwdriver
@@ -74,4 +74,4 @@ Connect the peripherals:
 
 
 
-To steer your robot use WASD keys or arrows. Use G key to switch leg position and 1, 2, 3 keys to change gears.
+To steer your robot use WSAD keys or arrows. Use G key to switch leg position and 1, 2, 3 keys to change gears.
