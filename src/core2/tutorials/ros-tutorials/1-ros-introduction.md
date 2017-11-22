@@ -28,7 +28,7 @@ performing one type of task and can contain one or multiple nodes.
 ### Topics
 
 In ROS, topic is a data stream used to exchange information between
-topics. The are used to send frequent messages of one type. This could
+nodes. The are used to send frequent messages of one type. This could
 be sensor readout or motor goal speed. Each topic is registered under
 the unique name and with defined message type. Nodes can connect with it
 to publish messages or subscribe them. For a given topic, one node can
