@@ -1092,8 +1092,24 @@ That's all, your ESP32 firmware is up-to-date.
 
 ***
 
-# Connecting sensors #
-This section will show you how to connect different types of sensors to CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use almost all market available sensors and other external modules. The following examples will help you connect not only presented sensors but also many more external add-ons.
+# External hardware #
+This section will show you how to connect and use different types of external hardware modules with CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. The following examples will help you connect not only the modules made by Husarion but also the third-party drivers, sensors etc.
+
+## Servo controller for CORE2 ##
+
+Allows to connect 12 additional servos to CORE2.
+
+Communicates with CORE2 via hSensor interface. Up to four servo controllers can work on one hSensor port thanks to 2-bit addressing. The step down DC/DC converter with software-controlled output voltage is available on board to simplify power connections - you can supply the servo controller and CORE2 from the same power source.
+
+Servo controller can deliver up to 3A average current to the servos.
+
+The picture below describes the pinout of the Servo driver.
+
+<div class="thumb center h200">
+
+![](/assets/img/core2-hardware/servo_driver.png)
+
+</div>
 
 ## Sharp distance sensor ##
 
