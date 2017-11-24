@@ -10,6 +10,9 @@ order: 6
 
 <iframe width="800" height="388" src="https://www.youtube.com/embed/JkIj5ssHpKw" frameborder="0" gesture="media" allowfullscreen></iframe>
 
+This kit allows you to build your own telepresence robot in just about minutes. 
+If you don't have one, you can purchase the complete kit <a href="https://store.husarion.com/">here</a>.
+
 ## Unboxing ##
 
 The kit contains:
