@@ -25,7 +25,7 @@ onepager: true
     </tr>
     <tr>
         <td>Power input</td>
-        <td>6.5-16V</td>
+        <td>6.8-16V</td>
         <td>70...3000mA current consumption, depends on external modules<br>standard 5.5/2.1 mm DC plug (centre-positive)</td>
     </tr>
     <tr>
