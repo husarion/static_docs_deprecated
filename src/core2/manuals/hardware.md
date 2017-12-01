@@ -1105,7 +1105,7 @@ Servo controller can deliver up to 3A average current to the servos.
 
 The picture below describes the pinout of the Servo driver.
 
-<div class="thumb center h200">
+<div class="thumb center h350">
 ![](/assets/img/core2-hardware/servo_driver.png)
 </div>
 
@@ -1116,7 +1116,7 @@ Build your program for CORE2 following the example available on https://husarion
 Library for ServoDriver is available on GitHub:
 https://github.com/husarion/modules
 
-###Specification###
+### Specification ###
 
  * Integrated DC/DC converter
  * Output voltage (+V servo) selectable by software: 5V / 6V / 7.4V / 8.6V
