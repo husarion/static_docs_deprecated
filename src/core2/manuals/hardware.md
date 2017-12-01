@@ -1106,10 +1106,35 @@ Servo controller can deliver up to 3A average current to the servos.
 The picture below describes the pinout of the Servo driver.
 
 <div class="thumb center h200">
-
 ![](/assets/img/core2-hardware/servo_driver.png)
-
 </div>
+
+### First run ###
+
+Connect the Vin voltage (+6V...+16V) and servos that you need. Connect the UART interface to hSens3 or hSens4 on CORE2 using the flat IDC cable. 
+Build your program for CORE2 following the example available on https://husarion.com/core2/examples/
+Library for ServoDriver is available on GitHub:
+https://github.com/husarion/modules
+
+###Specification###
+
+ * Integrated DC/DC converter
+ * Output voltage (+V servo) selectable by software: 5V / 6V / 7.4V / 8.6V
+ * 12 PWM outputs, 3.3V logic level, compatible with most analog and digital RC servos
+ * 3A nominal output current
+ * 5A peak output current
+ * Input voltage range (Vin): 6...16V
+ * Logic supply voltage: +5V typical, +4...+10V is acceptable.
+ * Overcurrent and short-circuit protection
+
+### Address selection ###
+
+You can connect up to four servo controllers to one UART interface (hSens3 or hSens4 port of CORE2) in parallel. The IDC flat cable allows to crimp additional connectors anywhere along the cable. 
+Each command sent by CORE2 to servo controller contains an address from 0 to 3. Each servo controller will execute only the commands that match the local address, configured with jumper. The default address is 0 (without jumper).
+
+### LED behavior ###
+
+In the current firmware, the LED is turned on if both power supplies (+5V and +Vin) are connected. LED is blinking when servo controller receives commands.
 
 ## Sharp distance sensor ##
 
