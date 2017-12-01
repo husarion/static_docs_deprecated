@@ -93,6 +93,11 @@ You can use your ROSbot offline however we recommend connecting to Husarion Clou
         <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
 		Note: Device may be shipped interchangeably with similar batteries.</td>
     </tr>
+    <tr>
+        <td>Antenna</td>
+        <td>1</td>
+        <td>Connected directly to the ASUS Tinker Board Wi-Fi module. Uses an RP-SMA(m) <-> I-PEX MHF4 cable to connect the antenna with SBC.</td>
+    </tr>	
 </table>
 
 ## Rear panel description ##
