@@ -208,7 +208,7 @@ You can use below `launch` file:
 
 	<node pkg="move_base" type="move_base" name="move_base" output="screen">
 		<param name="controller_frequency" value="10.0"/>
-		rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
+		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
 			command="load" ns="global_costmap" />
 		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
 			command="load" ns="local_costmap" />
