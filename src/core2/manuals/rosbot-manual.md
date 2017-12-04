@@ -33,6 +33,8 @@ ROSbot is an affordable robot platform for rapid development of autonomous robot
 
 You can use your ROSbot offline however we recommend connecting to Husarion Cloud as it gives you access to a lot of additional functionalities like remote management and firmware updates.
 
+If you do not own ROSbot yet, you can purchase it <a href="https://store.husarion.com/">here</a>.
+
 ## Components ##
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
