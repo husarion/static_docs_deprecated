@@ -819,10 +819,10 @@ void twistCallback(const geometry_msgs::Twist &twist)
 	float ang = twist.angular.z;
 	float motorL = lin - ang * 0.5;
 	float motorR = lin + ang * 0.5;
-	hMot1.setPower(motorR * 700 * !batteryLow);
-	hMot2.setPower(motorR * 700 * !batteryLow);
-	hMot3.setPower(motorL * 700 * !batteryLow);
-	hMot4.setPower(motorL * 700 * !batteryLow);
+	hMot1.setPower(motorR * (-700) * !batteryLow);
+	hMot2.setPower(motorR * (-700) * !batteryLow);
+	hMot3.setPower(motorL * (-700) * !batteryLow);
+	hMot4.setPower(motorL * (-700) * !batteryLow);
 }
 
 void batteryCheck()
