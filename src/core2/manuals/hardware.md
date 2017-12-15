@@ -938,6 +938,63 @@ Follow these steps to assembly CORE2 with Raspberry Pi 2 (or Raspberry Pi 3). Li
 
 Use hConfig app (to be found on AppStore or Google Play) where wizard will guide you through all the steps required to connect your CORE2 to the Husarion cloud.
 
+### Status LEDs ###
+
+There are 2 status LEDs - LR1 and LR2 - controlled directly from the ESP32/RPi device. These LEDs can't be controlled from STM32 microcontroller. The following table shows their behavior under different conditions:
+
+<table class="text_table">
+<tbody>
+    <tr>
+        <th>Mode</th>
+        <th>LR1 (yellow)</th>
+        <th>LR2 (blue)</th>
+	<th>Period</th>
+	<th>Behavior</th>
+    </tr>
+    <tr>
+        <td>Config mode</td>
+        <td colspan="2">blinking alternately</td>
+	<td>600 ms</td>
+	<td> </td>
+    </tr>
+    <tr>
+        <td>Connecting</td>
+        <td>OFF</td>
+        <td>blinking</td>
+	<td>300 ms</td>
+	<td> </td>
+    </tr>
+    <tr>
+        <td>Connected</td>
+        <td>OFF</td>
+        <td>ON</td>
+	<td>-</td>
+	<td> </td>
+    </tr>
+    <tr>
+        <td>Not configured</td>
+        <td>blinking</td>
+        <td>OFF</td>
+	<td>100/1000 ms</td>
+	<td> </td>
+    </tr>
+    <tr>
+        <td>Invalid auth.</td>
+        <td>blinking</td>
+        <td>OFF</td>
+	<td>100 ms</td>
+	<td> </td>
+    </tr>
+    <tr>
+        <td>No Internet</td>
+        <td>blinking</td>
+        <td>ON</td>
+	<td>100 ms</td>
+	<td> </td>
+    </tr>
+</tbody>
+</table>
+
 ## hRPI connector ##
 
 <div class="thumb right w180">
