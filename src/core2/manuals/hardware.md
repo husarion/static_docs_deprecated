@@ -955,42 +955,42 @@ There are 2 status LEDs - LR1 and LR2 - controlled directly from the ESP32/RPi d
         <td>Config mode</td>
         <td colspan="2">blinking alternately</td>
 	<td>600 ms</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_config.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_config.gif)</td>
     </tr>
     <tr>
         <td>Connecting</td>
         <td>OFF</td>
         <td>blinking</td>
 	<td>300 ms</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_connecting.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_connecting.gif)</td>
     </tr>
     <tr>
         <td>Connected</td>
         <td>OFF</td>
         <td>ON</td>
 	<td>-</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_connected.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_connected.gif)</td>
     </tr>
     <tr>
         <td>Not configured</td>
         <td>blinking</td>
         <td>OFF</td>
 	<td>100/1000 ms</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_not_conf.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_not_conf.gif)</td>
     </tr>
     <tr>
         <td>Invalid auth.</td>
         <td>blinking</td>
         <td>OFF</td>
 	<td>100 ms</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_invalid_auth.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_invalid_auth.gif)</td>
     </tr>
     <tr>
         <td>No Internet</td>
         <td>blinking</td>
         <td>ON</td>
 	<td>100 ms</td>
-	<td><div class="image center h32">![](/assets/img/core2-hardware/lr12_gif/LR12_no_internet.gif)</div></td>
+	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_no_internet.gif)</td>
     </tr>
 </tbody>
 </table>
