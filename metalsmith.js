@@ -20,8 +20,8 @@ exports.metalsmith = function () {
 
     var metalsmith = Metalsmith(__dirname)
         .metadata({
-            title: "How to start",
-            description: "It's about saying »Hello« to the World.",
+            title: "Husarion Docs",
+            description: "Husarion Docs",
             generator: "Metalsmith",
             url: "http://www.metalsmith.io/",
             base_url: '/',
@@ -29,11 +29,6 @@ exports.metalsmith = function () {
         })
         .source('./src')
         .destination('./build')
-        // .clean(true)
-        // .use(assets({
-        //     source: './src/assets',
-        //     destination: './assets'
-        // }))
         .use(sass({
             source: './assets/scss',
             outputDir: 'assets/css/'   // This changes the output dir to "build/css/" instead of "build/scss/"
@@ -43,7 +38,6 @@ exports.metalsmith = function () {
         .use(heading_numbers())
         .use(autotoc({
             selector: "h1, h2, h3, h4, h5, h6"
-            // headerIdPrefix: "subhead"
         }))
         .use(gallery())
         .use(fancybox())
@@ -51,13 +45,7 @@ exports.metalsmith = function () {
         .use(layouts({
             engine: 'handlebars',
             partials: './layouts/partials'
-            // pattern: '**/*.hbs'
-            // default: 'base.hbs'
         }));
-    // .use(convert({
-    //     src: '**/*.svg',
-    //     target: 'png'
-    // }))
 
 
     return metalsmith;
