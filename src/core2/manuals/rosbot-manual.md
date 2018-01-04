@@ -35,6 +35,49 @@ You can use your ROSbot offline however we recommend connecting to Husarion Clou
 
 If you do not own ROSbot yet, you can purchase it <a href="https://store.husarion.com/">here</a>.
 
+# Hardware guide #
+
+## Specification ##
+
+<table>
+    <tr>
+       <th>Attribute</th>
+       <th>Description</th>
+    </tr>
+    <tr>
+        <td>Dimensions with camera and LiDAR</td>
+        <td>285*235*147mm / 11.2*9.25*5.79in [L*W*H]</td>
+    </tr>
+    <tr>
+        <td>Dimensions without camera and LiDAR</td>
+        <td>240*235*106mm / 9.45*9.25*4.17in [L*W*H]</td>
+    </tr>
+    <tr>
+        <td>Weight</td>
+        <td>2,84kg / 100oz (with camera and LiDAR), 2,45kg / 86oz (without camera and LiDAR)</td>
+    </tr>
+    <tr>
+        <td>Wheel diameter / Clearance / Wheelbase</td>
+        <td>85mm / 22mm / 105mm</td>
+    </tr>
+    <tr>
+        <td>Chassis material</td>
+        <td>Powder-coated aluminum plate, 1.5mm thick</td>
+    </tr>
+    <tr>
+        <td>Maximum speed</td>
+        <td>0.7 m/s</td>
+    </tr>
+    <tr>
+        <td>Maximum load capacity</td>
+        <td>10kg / 352oz</td>
+    </tr>
+    <tr>
+        <td>Battery life</td>
+        <td>1.5h - 3h</td>
+    </tr>
+</table>
+
 ## Components ##
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
@@ -179,7 +222,13 @@ If you are going to use ROSbot stationary for a long time, please leave the char
 
 Software for ROSbot can be divided into 2 parts:
  * A firmware that works on the real-time controller (CORE2) and can be developed and uploaded from [Husarion Cloud](https://cloud.husarion.com/) with WebIDE. It can also be developed offline using [Visual Studio Code IDE](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/).
- * OS based on Ubuntu 16.04, which runs on the SBC (ASUS Tinker Board) and contains all components needed to start working with ROS immediately. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). Remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. The OS has been modified to make the file system insensitive to sudden power cuts.
+ * OS based on Ubuntu 16.04, which runs on the SBC (ASUS Tinker Board) and contains all components needed to start working with ROS immediately. The microSD card with OS is included with each ROSbot. The OS has been modified to make the file system insensitive to sudden power cuts.
+ 
+ In some cases you will need to flash the OS image to the microSD card once again:
+ - in case of accidential damage of the system,
+ - to update the OS (it can be udpated remotely, but flashing the microSD card can be easier sometimes),
+ - to clear all user changes and restore factory settings.
+ To do that, you have to disassembly the top cover, unscrew the 4 screws on the CORE2 corners and carefully carry up CORE2 with SBC. Then you can change the microSD card and flash the OS. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). If you want to replace the included card, remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. 
 
 # First steps #
 
