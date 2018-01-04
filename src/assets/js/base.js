@@ -50,7 +50,7 @@ function checkSize() {
 }
 
 function updateTOC() {
-    var from_top = $(this).scrollTop() + top_offset;
+    var from_top = $(this).scrollTop() + top_offset + 10;
 
     var cur = scroll_items.map(function() {
         var el = $(this);
