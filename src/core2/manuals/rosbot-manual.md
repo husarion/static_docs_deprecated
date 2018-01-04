@@ -46,11 +46,11 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     </tr>
     <tr>
         <td>Dimensions with camera and LiDAR</td>
-        <td>285*235*147mm / 11.2*9.25*5.79in [L*W*H]</td>
+        <td>285 x 235 x 147mm / 11.2 x 9.25 x 5.79in [L x W x H]</td>
     </tr>
     <tr>
         <td>Dimensions without camera and LiDAR</td>
-        <td>240*235*106mm / 9.45*9.25*4.17in [L*W*H]</td>
+        <td>240 x 235 x 106mm / 9.45 x 9.25 x 4.17in [L x W x H]</td>
     </tr>
     <tr>
         <td>Weight</td>
