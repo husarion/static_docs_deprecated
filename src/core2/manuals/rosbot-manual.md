@@ -253,3 +253,5 @@ All helpful documents and links in one place:
 * [ROSbot project on hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform "ROSbot project on hackaday.io")
 * [ROSbot project on instructables.com](http://www.instructables.com/id/ROSbot-Autonomous-Robot-With-LiDAR/ "ROSbot project on instructables.com")
 * [ROSbot assembly instruction](https://cdn.hackaday.io/files/21885936327840/ROSbot_assembly_instruction.pdf "ROSbot assembly instruction")
+* [ROSbot on ROS webpage](http://robots.ros.org/rosbot/)
+* [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot/)
