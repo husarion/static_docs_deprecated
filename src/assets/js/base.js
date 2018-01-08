@@ -189,3 +189,27 @@ $(".slider").on('click', function() {
     $(this).hide();
     $(".content", x).show();
 });
+
+$(document).ready(function() {
+   $("#main-menu .dropdown-content a").on('click', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+   }));
+   $("#main-menu .product-dropdown-toggle").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "block");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
+   $("#main-menu .docs-dropdown-toggle").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "block");
+   }));
+   $("#main-menu .dropdown-content").on('mouseleave', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
+   $("#main-menu .dropdown-content a.ros").on('click', (function() {
+       $("#products .product.core2 .versions a.show_rpi").click();
+   }));
+   $("#main-menu .dropdown-content a.esp").on('click', (function() {
+       $("#products .product.core2 .versions a.show_esp").click();
+   }));
+});
