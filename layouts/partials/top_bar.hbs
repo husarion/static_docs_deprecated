@@ -12,48 +12,39 @@
 
 
     <div id="htb__top_rt">
-      <div class="htb__tgl_menu">
-        <img src="{{ base_url }}assets/img/bars.png">
-      </div>
+    
+      <nav id="main-menu">
+       <ul>
+         <li class="dropdown">
+           <a href="#" class="product-dropdown-toggle" data-toggle="dropdown" role="button">Products</a>
+           <ul class="product-dropdown-menu" role="menu">
+             <div class="dropdown-content">
+               <a href="https://husarion.com/#products" class="esp">CORE2</a>
+               <a href="https://husarion.com/#products" class="ros">CORE2 - ROS</a>
+               <a href="https://husarion.com/#rosbot">ROSBot</a>
+               <a href="https://husarion.com/#telepresence">Telepresence</a>
+             </div>
+           </ul>
+         </li>
 
-      <div class="htb__top_menu htb__tabs">
-        <ul>
-
-          {{#ifCond platform '==' 'ROBOCORE' }}
-            <li class="htb__wiki">
-              <a href="">Wiki</a>
-            </li>
-            <li class="htb__examples">
-              <a href="">Examples</a>
-            </li>
-            <li class="htb__api">
-              <a href="">API <span>reference</span></a>
-            </li>
-          {{/ifCond}}
-
-          {{#ifCond platform '==' 'CORE2' }}
-
-            <li class="htb__about">
-              <a href="/core2">About</a>
-            </li>
-            <li class="htb__tutorials {{#ifCond page '==' 'Tutorials'}}htb__current{{/ifCond}}">
-              <a href="/core2/tutorials">Tutorials</a>
-            </li>
-            <li class="htb__manuals {{#ifCond page '==' 'Manuals'}}htb__current{{/ifCond}}">
-              <a href="/core2/manuals">Manuals</a>
-            </li>
-            <li class="htb__examples">
-              <a href="/core2/examples">Examples</a>
-            </li>
-            <li class="htb__api">
-              <a href="/core2/api_reference">API <span>reference</span></a>
-            </li>
-
-          {{/ifCond}}
-
-
-        </ul>
-      </div>
+         <li class="dropdown">
+           <a href="#" class="docs-dropdown-toggle" data-toggle="dropdown" role="button">Docs</a>
+           <ul class="docs-dropdown-menu" role="menu">
+             <div class="dropdown-content">
+               <a href="https://husarion.com/core2/">About</a>
+               <a href="https://husarion.com/core2/tutorials/">Tutorials</a>
+               <a href="https://husarion.com/core2/manuals/">Manuals</a>
+               <a href="https://husarion.com/core2/examples/">Examples</a>
+               <a href="https://husarion.com/core2/api_reference/">API</a>
+               <a href="https://husarion.com/downloads" title="Downloads">Downloads</a>
+             </div>
+           </ul>
+         </li>
+         <li><a href="https://community.husarion.com">Community</a></li>
+         <li><a href="https://store.husarion.com">Shop</a></li>
+         <li class="sign_up"><a href="https://cloud.husarion.com">Log In</a></li>
+       </ul>
+     </nav>
 
       <div class="htb__2nd_menu htb__hide">
 
@@ -91,15 +82,6 @@
 
           {{/ifCond}}
 
-          <li>
-            <a href="https://community.husarion.com" title="Community">Community</a>
-          </li>
-          <li>
-            <a href="https://husarion.com/downloads" title="Downloads">Downloads</a>
-          </li>
-          <li>
-            <a href="https://cloud.husarion.com/" title="Log in">Log in</a>
-          </li>
         </ul>
       </div>
     </div>
