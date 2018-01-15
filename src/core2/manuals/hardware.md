@@ -81,7 +81,7 @@ onepager: true
 
 ## hSensor ##
 
-CORE2 is equipped with six hSensor ports.
+CORE2 is equipped with six hSensor ports (Shrouded Box Header: 2×3-Pin, 0.1" (2.54 mm) Male).
 
 The hSensor is intended to be used with many different sensors, such as spatial orientation sensors (like MPU9250), light sensors, sound sensors, limit switches and many others.
 
@@ -176,7 +176,7 @@ while (true) {
 
 ## hExt ##
 
-CORE2 is equipped with one hExt port.
+CORE2 is equipped with one hExt port (Shrouded Box Header: 2×10-Pin, 0.1" (2.54 mm) Male).
 
 hExt is a universal expansion port which contains 12 GPIO pins and very popular communication interfaces used in embedded systems: UART, I2C and SPI. The purpose of this port is to enable the communication with various electronic modules, (e.g. with the external servo driver) or creation your own ones.
 
