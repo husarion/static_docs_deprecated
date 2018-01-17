@@ -206,6 +206,18 @@ $(document).ready(function() {
        $("#main-menu .product-dropdown-menu").css("display", "none");
        $("#main-menu .docs-dropdown-menu").css("display", "none");
    }));
+   $("#main-menu .community").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
+   $("#main-menu .store").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
+   $("#main-menu .sign_up").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
    $("#main-menu .dropdown-content a.ros").on('click', (function() {
        $("#products .product.core2 .versions a.show_rpi").click();
    }));
