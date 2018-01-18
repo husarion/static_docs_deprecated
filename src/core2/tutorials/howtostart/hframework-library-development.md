@@ -23,9 +23,11 @@ Open Visual Studio Code and install "Husarion" extension in VSC ([Ctrl]+[Shift]+
 			
 ## Cloning hFramework repository ##
 
-Press [Ctrl]+[Shift]+[P] and type `git: clone`, then type `https://github.com/husarion/hFramework.git`, then specify the destination folder, e.g. `C:\Husarion`.
+Press [Ctrl]+[Shift]+[P] and type `Git: Clone`, then type `https://github.com/husarion/hFramework.git`, then specify the destination folder, e.g. `C:\Husarion`.
 
-Then press [Ctrl]+[Shift]+[P] and type `git: checkout`, choose `origin/devel`. The access to master branch is limited but you can work with devel branch.
+Next you have to open this folder by clicking in `File -> Open Folder...` and chose for example `C:\Husarion\hFramework`. 
+
+Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/devel`. The access to master branch is limited but you can work with devel branch.
 
 ## hFramework sourcecode compilation ##
 
