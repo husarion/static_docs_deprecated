@@ -53,21 +53,20 @@ Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/dev
 
 3. In the opened window find the directory you just created. Project tree should be empty.
 4. Press [Ctrl]+[Shift]+[P]. Small console will open on the top.
+
 5. Type “Create Husarion project” and press Enter to accept.
 6. In the project tree you should find files like on this screenshot:
 
 	![image](/assets/img/howToStart/com_p5.png)
 
 7. Before the first build you have to comment hCloudClient module (remember to save "ctrl + s"). 
-		Open CMakeLists.txt and comment the line: 
+Open CMakeLists.txt and comment the line: 
 		
-			`enable_module(hCloudClient)`
-			
-		Open main.cpp and comment two lines: 
-		
-			`#include "hCloudClient.h"`
-			`platform.begin(&RPi);`
-		
+			`#enable_module(hCloudClient)
+                         #enable_module(hSensors)
+                         #enable_module(hModules)
+                         #enable_module(hROS)`
+					
 8. Press [Ctrl]+[Shift]+[P], type “Change Husarion project variable” and press [Enter].
 9. Type “HFRAMEWORK_PATH” and press [Enter].
 10. Type or copy the path to hFramework directory. Remember to use "/", not "\". Example:
@@ -81,7 +80,7 @@ Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/dev
 		myproject.hex
 	
 	**That means you have successfully built your first project, together with hFramework sources.**
-12. Now you can uncomment the 3 lines that you have previously commented, to build project with the hCloudClient.
-13. To program CORE2 via USB, click [Ctrl]+[Shift]+[P] and select "flash project to CORE2". Make sure that you replaced USB driver for your CORE2 to the "WinUSB (v6.1.7600.16385)" using [Zadig](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/#offline-development-tools-installation-guide).
+12. In next step find folder `tools` in your `.vscode\extensions\husarion.husarion-1.5.6\sdk` directory, and copy this folder to hFramework repository that you cloned from git, e.g. `C:/Husarion/hFramework`.
+13. To program CORE2 via USB, click [Ctrl]+[Shift]+[P] and select "Flash project to CORE2". Make sure that you replaced USB driver for your CORE2 to the "WinUSB (v6.1.7600.16385)" using [Zadig](https://husarion.com/core2/tutorials/howtostart/offline-development-tools/#offline-development-tools-installation-guide).
 
 P.S. To get back to the previous version of the USB driver you need to open "device manager" in Windows and uninstall USB connection associated with FTDI/CORE2, together with the driver for this device (tick the checkbox). In uninstallation confirmation windows select a checkbox to uninstall the driver and click OK.
