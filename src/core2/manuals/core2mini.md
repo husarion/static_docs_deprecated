@@ -35,7 +35,7 @@ onepager: true
     </tr>
     <tr>
         <td>ADC</td>
-        <td>up to 13 channels</td>
+        <td>up to 3 channels</td>
         <td>12-bit resolution</td>
     </tr>
     <tr>
