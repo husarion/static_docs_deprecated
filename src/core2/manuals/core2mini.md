@@ -1,6 +1,6 @@
 ---
-title: 'Hardware'
-platform: 'CORE2mini'
+title: 'CORE2 mini manual'
+platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 order: 2
@@ -76,17 +76,17 @@ onepager: true
 
 ## hSensor ##
 
-CORE2mini is equipped with three hSensor ports (Shrouded Box Header: 2◊3-Pin, 0.1" (2.54 mm) Male).
+CORE2mini is equipped with three hSensor ports (Shrouded Box Header: 2√ó3-Pin, 0.1" (2.54 mm) Male).
 
 The hSensor is intended to be used with many different sensors, such as spatial orientation sensors (like MPU9250), light sensors, sound sensors, limit switches and many others.
 
 **Each hSensor port contains three basic elements:**
 
-1. An **Analog to Digital Converter (ADC)** channel. The full range is 0 ñ 3.3V. The alternative function is interrupt input.
+1. An **Analog to Digital Converter (ADC)** channel. The full range is 0 ‚Äì 3.3V. The alternative function is interrupt input.
 
 2. An **auxiliary 5V supply output** dedicated to supplying the sensor circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, we recommend keeping the current below 50mA. If you are sure that the total 5V current will not exceed 2A, you can go higher, up to 500mA. See "Power supply" section for more details.
 
-3. **4 digital inputs/outputs.** Additionally, some hSensor ports have a hardware UART interface assigned to these IOís, and some have a hardware I2C interface. If you want UART or I2C, please check the software documentation which physical ports to use.
+3. **4 digital inputs/outputs.** Additionally, some hSensor ports have a hardware UART interface assigned to these IO‚Äôs, and some have a hardware I2C interface. If you want UART or I2C, please check the software documentation which physical ports to use.
 
 <div class="image center h300">
 
@@ -245,11 +245,11 @@ while (1) {
 ## hMotor ##
 CORE2mini is equipped with four hMotor ports.
 
-The hMotor is intended to be used with a DC motor with encoder, but you donít have to use the encoder interface if you have a standard DC motor. The hMotor interface is fully-compatible with LEGOÆ MINDSTORMSÆ sets (remeber that you have to use special adapter to use these sets).
+The hMotor is intended to be used with a DC motor with encoder, but you don‚Äôt have to use the encoder interface if you have a standard DC motor. The hMotor interface is fully-compatible with LEGO¬Æ MINDSTORMS¬Æ sets (remeber that you have to use special adapter to use these sets).
 
 **Each hMot port contains three basic elements:**
 
-An **H - bridge** for driving the DC motor (with or without encoder) or a stepper motor. It can also be used for driving other devices, but donít forget about a PWM signal on the output and its limitations. The maximum average output current for each hMot is 1A, and the maximum peak current is 2A. The H-bridge is supplied from the CORE2mini power supply voltage Vin (6 - 16V) and you can expect the same at the H-bridge output.
+An **H - bridge** for driving the DC motor (with or without encoder) or a stepper motor. It can also be used for driving other devices, but don‚Äôt forget about a PWM signal on the output and its limitations. The maximum average output current for each hMot is 1A, and the maximum peak current is 2A. The H-bridge is supplied from the CORE2mini power supply voltage Vin (6 - 16V) and you can expect the same at the H-bridge output.
 
 An **auxiliary 5V supply** output dedicated to supplying the encoder circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, it is recommended keeping the current below 50mA. If you are sure that the total 5 V current will not exceed 2A, you can go higher, up to 1A. See "Power supply" section for more details.
 
@@ -334,7 +334,7 @@ Of course, in many cases you don't need the encoder - e.g. if you need to drive 
 
 Despite the lack of the encoder, you still can recognize the extreme positions of your mechanism using the limit switches.
 
-**LEGOÆ motor**
+**LEGO¬Æ motor**
 
 <div class="thumb w180 right">
 
@@ -342,8 +342,8 @@ Despite the lack of the encoder, you still can recognize the extreme positions o
 
 </div>
 
-CORE2mini is fully compatible with servomotors from LEGOÆ MindstormsÆ when used with connector adapter. There are 3 types of LEGOÆ servomotors: motor from NXT/NXT2.0 kit and two types from EV3 kit. In fact, they are all motors with quadrature encoder. \\
-Remember that LEGOÆ motors have 9V nominal voltage and when you supply CORE2mini with higher voltage, you should limit the PWM duty cycle.
+CORE2mini is fully compatible with servomotors from LEGO¬Æ Mindstorms¬Æ when used with connector adapter. There are 3 types of LEGO¬Æ servomotors: motor from NXT/NXT2.0 kit and two types from EV3 kit. In fact, they are all motors with quadrature encoder. \\
+Remember that LEGO¬Æ motors have 9V nominal voltage and when you supply CORE2mini with higher voltage, you should limit the PWM duty cycle.
 
 
 **Stepper motor**
@@ -372,7 +372,7 @@ To use the DBG interface, you need an additional hardware programmer/debugger: S
 You also need to configure the offline development environment. You will find the instructions here: [Husarion SDK](https://wiki.husarion.com/howto:installation)
 
 ## hSerial ##
-The hSerial port is an USB device port with a standard micro B USB connector, but it's called "hSerial" because this port is connected to the serial port of the microcontroller. It is not the native USB port - it uses the FTDIÆ chip to connect the internal serial port to your computer or other USB host.
+The hSerial port is an USB device port with a standard micro B USB connector, but it's called "hSerial" because this port is connected to the serial port of the microcontroller. It is not the native USB port - it uses the FTDI¬Æ chip to connect the internal serial port to your computer or other USB host.
 
 The hSerial port can be used to:
 * read logs from the CORE2mini device on your computer,
@@ -577,13 +577,13 @@ You can supply the CORE2mini with:
 
 How much current does it need? It strongly depends on the robot configuration. A CORE2mini without any devices connected needs up to 80mA. When you connect certain motors, current peaks can reach several amperes. The average current should not exceed 4A, otherwise the overcurrent protection will be triggered and unexpected resets will occur. Remember this when you are designing your device.
 
-CORE2mini has two internal voltage regulators. The input voltage (behind protection circuit) Vin(p) is converted to 5V by a switching regulator, and then to 3.3V by a linear voltage regulator. Be aware of the current limits ñ the total current must not exceed 2A through the 5V line. We will also remind you about power limitations in the description of individual interfaces.
+CORE2mini has two internal voltage regulators. The input voltage (behind protection circuit) Vin(p) is converted to 5V by a switching regulator, and then to 3.3V by a linear voltage regulator. Be aware of the current limits ‚Äì the total current must not exceed 2A through the 5V line. We will also remind you about power limitations in the description of individual interfaces.
 
 The supply voltage +5V(sw) for hSens connectors can be switched on and off. It is enabled by default but can be switched off in the software.</br>
 
 **Power supply alternatives**
 
-If you are not willing to use AA or similar alkaline batteries, the first alternative is to use NiCd or NiMH rechargeable batteries - but they have much lower nominal voltage. The better alternative are Li-Ion or Li-Poly batteries. Fortunately, these are available in the same shape as AA batteries and they are called ì14500î. The name comes from their dimensions: 14x50mm.
+If you are not willing to use AA or similar alkaline batteries, the first alternative is to use NiCd or NiMH rechargeable batteries - but they have much lower nominal voltage. The better alternative are Li-Ion or Li-Poly batteries. Fortunately, these are available in the same shape as AA batteries and they are called ‚Äú14500‚Äù. The name comes from their dimensions: 14x50mm.
 
 Some examples:
 [14500 reachargeable battery on AliExpress](http://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20160428221617&SearchText=14500+rechargeable)
@@ -592,10 +592,10 @@ Of course, you will also need a charger.
 
 Remebmer that Li-Ion and Li-Poly batteries have higher nominal voltage and you have to use 3 cells instead of 6 cells. To do that, you can:
 * use only one 3*AA battery holder with 3 Li-Ion/Poly batteries,
-* use 6*AA battery holder with 3 ìdummyî batteries and 3 Li-Ion/Poly batteries.
-The ìdummyî (placeholder) batteries examples:
+* use 6*AA battery holder with 3 ‚Äúdummy‚Äù batteries and 3 Li-Ion/Poly batteries.
+The ‚Äúdummy‚Äù (placeholder) batteries examples:
 [AA placeholder on AliExpress](http://www.aliexpress.com/wholesale?catId=0&initiative_id=AS_20160428223009&SearchText=AA+placeholder)
-They cannot be charged - they are only the ìlinkî to omit 3 unnecessary places in the battery holder.
+They cannot be charged - they are only the ‚Äúlink‚Äù to omit 3 unnecessary places in the battery holder.
 
 ***
 
