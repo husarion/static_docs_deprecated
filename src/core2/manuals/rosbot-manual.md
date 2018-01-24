@@ -3,7 +3,7 @@ title: 'ROSbot manual'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
-order: 2
+order: 3
 page: 'Manuals'
 onepager: true
 ---
