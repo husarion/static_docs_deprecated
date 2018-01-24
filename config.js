@@ -28,6 +28,14 @@ config.pages = {
         }
     },
     
+     'core2/manuals/core2mini': {
+        pattern: 'core2/manuals/core2mini.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'CORE2mini manual'
+        }
+    },
+    
     'core2/manuals/rosbot-manual': {
         pattern: 'core2/manuals/rosbot-manual.md',
         metadata: {
