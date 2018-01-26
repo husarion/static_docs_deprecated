@@ -36,6 +36,14 @@ config.pages = {
         }
     },
     
+    'core2/manuals/telepresence': {
+        pattern: 'core2/manuals/telepresence.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'Telepresence robot kit manual'
+        }
+    },
+    
     'core2/manuals/rosbot-manual': {
         pattern: 'core2/manuals/rosbot-manual.md',
         metadata: {
