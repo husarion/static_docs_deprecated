@@ -26,21 +26,21 @@ onepager: true
     <tr>
         <td>Power input</td>
         <td>6.8-16V</td>
-        <td>70...3000mA current consumption, depends on external modules<br>standard 5.5/2.1 mm DC plug (centre-positive)</td>
+        <td>70...2500mA current consumption, depends on external modules<br>standard 5.5/2.1 mm DC plug (centre-positive)</td>
     </tr>
     <tr>
         <td>I/O ports</td>
         <td>20</td>
-        <td>3.3V/5V tolerant GPIOs<br>series resistance is 330?</td>
+        <td>3.3V/5V tolerant GPIOs<br>series resistance is 330 ohms</td>
     </tr>
     <tr>
         <td>ADC</td>
-        <td>up to 3 channels</td>
+        <td>3 channels</td>
         <td>12-bit resolution</td>
     </tr>
     <tr>
         <td>PWM</td>
-        <td>up to 6 channels:<br/>
+        <td>6 channels:<br/>
         - 4x 3.3V<br/>
         - 2x H-bridge output
         </td>
@@ -50,18 +50,13 @@ onepager: true
     </tr>
     <tr>
         <td>UART</td>
-        <td>up to 2 channels</td>
+        <td>2 channels</td>
         <td>baudrate: 4800, 9600, 14400, 19200, 38400, 57600, 115200, 128000, 256000, 1000000, 2000000, 4000000</td>
     </tr>
     <tr>
         <td>I2C</td>
-        <td>1 channels</td>
+        <td>1 channel</td>
         <td>up to 400kHz</td>
-    </tr>
-    <tr>
-        <td>SPI</td>
-        <td>1</td>
-        <td>up to 1 Mbps</td>
     </tr>
     <tr>
         <td>External Interrupts</td>
@@ -84,7 +79,7 @@ The hSensor is intended to be used with many different sensors, such as spatial 
 
 1. An **Analog to Digital Converter (ADC)** channel. The full range is 0 – 3.3V. The alternative function is interrupt input.
 
-2. An **auxiliary 5V supply output** dedicated to supplying the sensor circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, we recommend keeping the current below 50mA. If you are sure that the total 5V current will not exceed 2A, you can go higher, up to 500mA. See "Power supply" section for more details.
+2. An **auxiliary 5V supply output** dedicated to supplying the sensor circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, we recommend keeping the current below 50mA. If you are sure that the total 5V current will not exceed 1.5A, you can go higher, up to 500mA. See "Power supply" section for more details.
 
 3. **4 digital inputs/outputs.** Additionally, some hSensor ports have a hardware UART interface assigned to these IO’s, and some have a hardware I2C interface. If you want UART or I2C, please check the software documentation which physical ports to use.
 
@@ -221,7 +216,7 @@ You can connect up to 4 servo motors directly to CORE2mini. Power supply is onbo
         <td align="center">2</td>
         <td align="left">Servo power supply output</td>
         <td>selectable voltage level: 5V / 6V / 7.4V / 8.6V (tolerance +/- 0.2V) <br>
-        Maximum current comsuption for all servos: 2.5A (continous) , 4A (peak)</td>
+        Maximum current comsuption for all servos: 2A (continous) , 3.5A (peak)</td>
 	</tr>
     <tr>
         <td align="center">3</td>
@@ -243,7 +238,7 @@ while (1) {
 ```
 
 ## hMotor ##
-CORE2mini is equipped with four hMotor ports.
+CORE2mini is equipped with two hMotor ports.
 
 The hMotor is intended to be used with a DC motor with encoder, but you don’t have to use the encoder interface if you have a standard DC motor. The hMotor interface is fully-compatible with LEGO® MINDSTORMS® sets (remeber that you have to use special adapter to use these sets).
 
@@ -251,7 +246,7 @@ The hMotor is intended to be used with a DC motor with encoder, but you don’t 
 
 An **H - bridge** for driving the DC motor (with or without encoder) or a stepper motor. It can also be used for driving other devices, but don’t forget about a PWM signal on the output and its limitations. The maximum average output current for each hMot is 1A, and the maximum peak current is 2A. The H-bridge is supplied from the CORE2mini power supply voltage Vin (6 - 16V) and you can expect the same at the H-bridge output.
 
-An **auxiliary 5V supply** output dedicated to supplying the encoder circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, it is recommended keeping the current below 50mA. If you are sure that the total 5 V current will not exceed 2A, you can go higher, up to 1A. See "Power supply" section for more details.
+An **auxiliary 5V supply** output dedicated to supplying the encoder circuit. The maximum current is not limited for each port, but due to the 5 V line total current limit, it is recommended keeping the current below 50mA. If you are sure that the total 5 V current will not exceed 1.5A, you can go higher, up to 1A. See "Power supply" section for more details.
 
 A **quadrature encoder interface** is used to control position or speed of the electric motor shaft, so you know whether your control algorithm works as you expected. Husarion CORE2mini uses hardware quadrature encoder interface provided by STM32F4 microcontroller (functionality built into some timer peripheral interfaces of STM32F4). For this reason you don't waste processing power of CPU to detect each slope on encoder output signal. Everything is done by special hardware interface, so you don't have to worry about missing any change of your motor shaft.
 Wikipedia provides an accessible explanation how encoders work: [incremental rotary encoder](https://en.wikipedia.org/wiki/Rotary_encoder)
@@ -380,97 +375,6 @@ The hSerial port can be used to:
 * other communication with any USB host device (FTDI driver is needed).
 
 CORE2mini cannot be powered via the USB hSerial port!
-## USB host ##
-
-The USB host connector has two functions:
-* a full-speed, native USB 2.0 host port, that works with STM32F4 microcontroller (default),
-* an expansion of the USB port from Raspberry Pi Zero (for more advanced users).
-
-Independently from chosen function, it also works as a port for charging mobile
-devices. Data connection and charging (up to 1A) can be provided simultaneously.
-
-
-<div class="thumb h100 right">
-
-![](/assets/img/core2-hardware/jumper_USB_opis2.jpg)(Jumpers configuration example)
-
-</div>
-
-The function is chosen by soldering small jumpers on the bottom side of the PCB
-(see the picture).
-
-In the first case, the USB host port allows you to connect any smartphone or tablet
-with a USB device port or USB OTG port. If you are more familiar with programming,
-you can connect any compatible USB device. If you are a beginner, use the device
-supported by our libraries.
-
-The second function of this port is provided for more advanced users, because it
-needs soldering the twisted-pair wire from Raspberry Pi Zero board to the CORE2mini
-board. Thanks to that function, you are able to connect e.g. Wi-Fi dongle to the Raspberry
-Pi Zero without using the additional USB-OTG adapter. For more information see the
- chapter [Raspberry Pi configuration](#raspberry-pi-configuration).
-
-The table below explains the jumpers functions.
-
-<table class="text_table">
-<tbody>
-    <tr>
-        <th>Position</th>
-        <th align="center">Jumper 1</th>
-        <th align="center">Jumper 2</th>
-        <th align="center">Jumper 3</th>
-    </tr>
-    <tr>
-        <td align="center">A</td>
-        <td align="center">USB works with STM32F4</td>
-        <td align="center">USB works with STM32F4</td>
-        <td align="center">USB power is controlled by STM32F4</td>
-    </tr>
-    <tr>
-        <td align="center">B</td>
-        <td align="center">USB works with Raspberry Pi Zero</td>
-        <td align="center">USB works with Raspberry Pi Zero</td>
-        <td align="center">USB power is permanently switched on</td>
-    </tr>
-</tbody>
-</table>
-
-The second table explains in easy way which configuration is for you:
-
-<table class="text_table">
-<tbody>
-    <tr>
-        <th align="left">USB function</th>
-        <th align="center">Jumper 1 pos.</th>
-        <th align="center">Jumper 2 pos.</th>
-        <th align="center">Jumper 3 pos.</th>
-    </tr>
-    <tr>
-        <td align="left">USB works with STM32F4</td>
-        <td align="center">A</td>
-        <td align="center">A</td>
-        <td align="center">A</td>
-    </tr>
-    <tr>
-        <td align="left">USB works with Raspberry Pi Zero</td>
-        <td align="center">B</td>
-        <td align="center">B</td>
-        <td align="center">B</td>
-    </tr>
-    <tr>
-        <td align="left">Charging only (with no communication)</td>
-        <td align="center">unsoldered</td>
-        <td align="center">unsoldered</td>
-        <td align="center">B</td>
-    </tr>
-    <tr>
-        <td align="left">Charging controlled by STM32F4 (defualt)</td>
-        <td align="center">unsoldered</td>
-        <td align="center">unsoldered</td>
-        <td align="center">A</td>
-    </tr>
-</tbody>
-</table>
 
 ## hSD ##
 Just a connector for a standard microSD card. It uses one of the SPI interfaces available in the microcontroller. The rest is software.
@@ -479,7 +383,7 @@ Just a connector for a standard microSD card. It uses one of the SPI interfaces 
 
 <div class="thumb w270 right">
 
-![User's leds](/assets/img/core2-hardware/leds.svg "User's leds")
+![User&apos;s leds](/assets/img/core2-hardware/leds.svg "User&apos;s leds")
 
 </div>
 
@@ -506,7 +410,7 @@ Before powering the CORE2mini you should know something about its power supply i
 
 The **CORE2mini** input voltage (Vin) must be in the range 6 - 16V. The recommended input voltage range is 7 - 15V. The power connector is a standard DC 5.5/2.1 (centre-positive) type. The minimum power supply output current to run CORE2 itself is about 150mA@12V and 200mA@9V.
 
-The CORE2mini power supply input has overvoltage (>16V), reverse-polarity and overcurrent (~4A) protections. The long-term overvoltage state shall be avoided!
+The CORE2mini power supply input has overvoltage (>16V), reverse-polarity and overcurrent (~3A) protections. The long-term overvoltage  or reverse-polarity state shall be avoided!
 
 ## Block diagram ##
 
@@ -532,7 +436,7 @@ The CORE2mini power supply input has overvoltage (>16V), reverse-polarity and ov
     </tr>
     <tr>
         <td>+5V</td>
-        <td align="center">2A</td>
+        <td align="center">1.5A</td>
         <td>hMot, hRPI, USB host</td>
         <td></td>
     </tr>
@@ -575,9 +479,9 @@ You can supply the CORE2mini with:
 
 **CORE2mini cannot be supplied from the USB port of your laptop.** Why? This is a controller designed for automation & robotics applications and has motor drivers on its board. Motors cannot be supplied from USB due to the current and voltage requirements. To avoid the risk of damaging the USB port we decided to supply CORE2mini separately. CORE2mini is designed to be programmed wirelessly and the USB connection is not the basic way to program or supply the controller (however, programming is possible through hSerial).
 
-How much current does it need? It strongly depends on the robot configuration. A CORE2mini without any devices connected needs up to 80mA. When you connect certain motors, current peaks can reach several amperes. The average current should not exceed 4A, otherwise the overcurrent protection will be triggered and unexpected resets will occur. Remember this when you are designing your device.
+How much current does it need? It strongly depends on the robot configuration. A CORE2mini without any devices connected needs up to 80mA. When you connect certain motors, current peaks can reach several amperes. The average current should not exceed 3.5A, otherwise the overcurrent protection will be triggered and unexpected resets will occur. Remember this when you are designing your device.
 
-CORE2mini has two internal voltage regulators. The input voltage (behind protection circuit) Vin(p) is converted to 5V by a switching regulator, and then to 3.3V by a linear voltage regulator. Be aware of the current limits – the total current must not exceed 2A through the 5V line. We will also remind you about power limitations in the description of individual interfaces.
+CORE2mini has two internal voltage regulators. The input voltage (behind protection circuit) Vin(p) is converted to 5V by a switching regulator, and then to 3.3V by a linear voltage regulator. Be aware of the current limits – the total current must not exceed 1.5A through the 5V line. We will also remind you about power limitations in the description of individual interfaces.
 
 The supply voltage +5V(sw) for hSens connectors can be switched on and off. It is enabled by default but can be switched off in the software.</br>
 
