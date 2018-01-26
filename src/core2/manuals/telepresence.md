@@ -24,8 +24,7 @@ onepager: true
 Telepresence robot kit is a development kit based on Husarion CORE2 controller. It integrates:
 
 - 2-wheels solid frame containing DC motors with encoders and an alluminium bumpers
-- MPU 9250 inertial sensor (accelerometer + gyro)
-- rear leg with mini servo
+- IMU inertial sensor (accelerometer + gyro)
 - 3 x Li-Ion batteries 18650
 - Li-Ion charger 
 - Screwdriver
@@ -66,6 +65,48 @@ If you don't have one, you can purchase the complete kit <a href="https://store.
         <td>Battery life</td>
         <td>3h - 6h</td>
     </tr>
+</table>
+
+## Components description ##
+
+<table>
+    <tr>
+       <th>Component</th>
+       <th>Quantity</th>
+       <th>Description</th>
+    </tr>
+    <tr>
+        <td>CORE2</td>
+        <td>1</td>
+        <td>CORE2 is real-time controller, based on STM32F407 microcontroller.<a href="https://husarion.com/core2/">More details here</a>.</td>
+    </tr>
+    <tr>
+        <td>DC motor</td>
+        <td>2</td>
+        <td>Xinhe Motor XH-25D
+		Motor used: RF-370, 6VDC nominal, 5000rpm
+		No load speed at the output shaft: 165 rpm
+		Stall torque: 2.9 kg*cm
+		Stall current: 2.2A
+		Gear ratio: ~34 (exact ratio is 30613/900)
+		Encoder: magnetic, 48ppr, 12 poles</td>
+    </tr>
+    <tr>
+        <td>IMU sensor</td>
+        <td>1</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/hardware/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+    </tr>
+    <tr>
+        <td>Batteries</td>
+        <td>3</td>
+        <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
+		Note: Device may be shipped interchangeably with similar batteries.</td>
+    </tr>
+    <tr>
+        <td>Servo</td>
+        <td>1</td>
+        <td>Tower Pro MG90S micro servo to move the foot. <a href="http://www.towerpro.com.tw/product/mg90s-3/">More details here</a>.</td>
+    </tr>	
 </table>
 
 ## Assembly ##
