@@ -69,10 +69,10 @@ Connect the peripherals:
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
 /></center></div>
 * When robot is programmed, open its user interface and click 'Turn off motors'.
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/ralph_interface.jpg"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence/ralph_interface.jpg"
 /></center></div>
 * You can do it also by browser on your smartphone.
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/ralph_interface_mobile.jpg"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence/ralph_interface_mobile.jpg"
 /></center></div>
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
 * When you find proper position (when you are using the less force to hold it stable) click on 'Calibrate' button in Web UI.
