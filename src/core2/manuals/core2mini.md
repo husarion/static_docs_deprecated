@@ -511,43 +511,6 @@ This can be done thanks to cheap Wi-Fi module, such as ESP32, as well as a Linux
 
 By now you know 2 basic ways to connect CORE2mini to the Internet, ESP32 adapter or a Raspberry Pi computer. In the future other options will be available.
 
-## ESP32 configuration ##
-If you are just getting acquainted with CORE2mini, this configuration will work best for you!
-
-In short, the ESP32 is a small, cheap and popular 2.4GHz Wi-Fi module, dedicated for simple Internet of Things application/products. The computing power is small, so you shall treat ESP32 as a gateway to the Internet and nothing more.
-
-Here are two possible configurations of ESP32 + CORE2mini. Chose the one that suits you best and follow below steps:
-
-### Option #1: ESP32 soldered directly to CORE2mini ###
-
-Follow these steps to permanently connect ESP32 into CORE2mini:
-
-<div class="gallery gallery-6 h100">
-
-![1. Elements you need](/assets/img/core2-hardware/montowanie_esp-01.svg "[1/5] You will need: 7x2 goldpin female header, CORE2mini and ESP32 module")
-![2. Place male goldpin header](/assets/img/core2-hardware/montowanie_esp-02.svg "[2/5] Place 7x2 goldpin male header on the CORE2mini hRPI connector")
-![3. Then solder it](/assets/img/core2-hardware/montowanie_esp-03.svg "[3/5] Solder 7x2 goldpin male header to the CORE2mini hRPI connector")
-![4. Place ESP on the soldered header](/assets/img/core2-hardware/montowanie_esp-04.svg "[4/5] Place ESP32 on the header soldered in the previous step")
-![5. And solder ESP to the CORE2](/assets/img/core2-hardware/montowanie_esp-05.svg "[5/5] Now solder ESP32 directly into CORE2mini male header")
-
-</div>
-
-
-### Option #2: ESP32 as removable module to the CORE2mini ###
-
-In this configuration you will be able to easily run CORE2mini in a different configuration in the future (e.g. with Raspberry Pi Zero).
-
-<div class="gallery gallery-6 h100">
-
-![1. Elements you need](/assets/img/core2-hardware/esp_removable-01.svg "[1/6] You will need: two screws, one 12mm standoff, 7x2 goldpin female header, 7x2 goldpin male header, CORE2mini and ESP32 module")
-![2. Place male goldpin header](/assets/img/core2-hardware/esp_removable-02.svg "[2/6] Place 7x2 goldpin male header on the CORE2mini hRPI connector")
-![3. Then solder it](/assets/img/core2-hardware/esp_removable-03.svg "[3/6] Solder 7x2 goldpin male header to the CORE2mini hRPI connector")
-![4. Solder female header to the ESP](/assets/img/core2-hardware/esp_removable-04.svg "[4/6] Solder 7x2 goldpin female header to the ESP32")
-![5. Put it all together](/assets/img/core2-hardware/esp_removable-05.svg "[5/6] Use 2 screws and standoff to reliably connect CORE2mini and ESP32 module")
-![6. Done!](/assets/img/core2-hardware/esp_removable-06.svg "[6/6] Well done! Now you are ready to connect you CORE2mini to the Husarion cloud")
-
-</div>
-
 ## Connecting CORE2mini to the cloud ##
 
 Use hConfig app (to be found on AppStore or Google Play) where wizard will guide you through all the steps required to connect your CORE2mini to the Husarion cloud.
@@ -703,8 +666,6 @@ guide for connecting CORE2mini with our cloud.
     </tr>
 </tbody>
 </table>
-
-
 
 ***
 
