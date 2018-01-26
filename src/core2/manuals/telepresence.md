@@ -131,7 +131,7 @@ Connect the peripherals:
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="50%" width="50%"></center></div>
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
-<div style="text-align: left"><i>Properly assembled CORE2 telepresence robot</i></div>
+<div style="text-align: center"><i>Properly assembled CORE2 telepresence robot</i></div>
 
 # Software #
 
@@ -143,7 +143,7 @@ Connect the peripherals:
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
 /></center></div>
 * When robot is programmed, open its user interface and click 'Turn off motors'.
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence_robot_kit/interface.jpg"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence_robot_kit/interface.png"
 /></center></div>
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
 * When you find proper position (when you are using the less force to hold it stable) click on 'Calibrate' button in Web UI.
