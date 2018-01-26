@@ -84,9 +84,5 @@ To steer your robot use WSAD keys or arrows. Use G key to switch leg position an
 # Docs and links #
 All helpful documents and links in one place:
 
-* [ROSbot Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
-* [ROSbot project on hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform "ROSbot project on hackaday.io")
-* [ROSbot project on instructables.com](http://www.instructables.com/id/ROSbot-Autonomous-Robot-With-LiDAR/ "ROSbot project on instructables.com")
-* [ROSbot assembly instruction](https://cdn.hackaday.io/files/21885936327840/ROSbot_assembly_instruction.pdf "ROSbot assembly instruction")
-* [ROSbot on ROS webpage](http://robots.ros.org/rosbot/)
-* [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot/)
+* [Telepresence robot kit Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
+* [Telepresence robot kit Tutorial](https://husarion.com/core2/tutorials/howtostart/telepresence-robot-kit---quick-start/ "ROSbot Safety Instructions")
