@@ -33,7 +33,40 @@ Telepresence robot kit is a development kit based on Husarion CORE2 controller. 
 If you don't have one, you can purchase the complete kit <a href="https://store.husarion.com/">here</a>.
 
 
-#Hardware guide#
+# Hardware guide #
+
+## Specification ##
+
+<table>
+    <tr>
+       <th>Attribute</th>
+       <th>Description</th>
+    </tr>
+    <tr>
+        <td>Dimensions with camera and LiDAR</td>
+        <td>100 x 232 x 260mm / 3.94 x 9.13 x 10.24in [L x W x H]</td>
+    </tr>
+    <tr>
+        <td>Weight</td>
+        <td>0.95kg / 33.5oz (without tablet)</td>
+    </tr>
+    <tr>
+        <td>Wheel diameter / Clearance</td>
+        <td>85mm / 9mm</td>
+    </tr>
+    <tr>
+        <td>Chassis material</td>
+        <td>Powder-coated aluminum plate, 2mm thick</td>
+    </tr>
+    <tr>
+        <td>Maximum speed</td>
+        <td>0.5 m/s</td>
+    </tr>
+    <tr>
+        <td>Battery life</td>
+        <td>3h - 6h</td>
+    </tr>
+</table>
 
 ## Assembly ##
 
