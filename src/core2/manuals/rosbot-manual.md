@@ -24,7 +24,7 @@ onepager: true
 
 ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
 - 4-wheels mobile platform containing DC motors with encoders and an alluminium frame
-- Digital camera
+- Orbbec Astra RGBD camera
 - RPLIDAR A2 laser scanner
 - MPU 9250 inertial sensor (accelerometer + gyro)
 - rear panel providing interfaces for additional modules
@@ -128,9 +128,9 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/hardware/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
     </tr>
     <tr>
-        <td>Digital camera</td>
+        <td>RGBD camera</td>
         <td>1</td>
-        <td>1.0 megapixel RGB camera with CMOS OV9712 H.264</td>
+        <td>Orbbec Astra with RGB image size 1280x960 and depth image size 640x480.</td> 
     </tr>
     <tr>
         <td>Batteries</td>
