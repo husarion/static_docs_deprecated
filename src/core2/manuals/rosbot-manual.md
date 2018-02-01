@@ -20,6 +20,7 @@ onepager: true
 
 <div align="center">
 <iframe width="800" height="388" src="https://www.youtube.com/embed/aqJC23XcnyI" frameborder="0" gesture="media" allowfullscreen></iframe>
+	<div> * Video shows previous version of Husarion ROSbot. </div>	
 </div>
 
 ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
@@ -83,10 +84,6 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 
 ![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
-
-### Internal connections diagram ###
-
-![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
 
 ### Components description ###
 
