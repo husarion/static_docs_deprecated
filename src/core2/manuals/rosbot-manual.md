@@ -144,8 +144,6 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ## Rear panel description ##
 
-![Rear panel](/assets/img/ROSbot_manual/rear_panel.png "Rear panel")
-
 <table>
     <tr>
        <th>Component</th>
