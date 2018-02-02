@@ -66,8 +66,12 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>Powder-coated aluminum plate, 1.5mm thick</td>
     </tr>
     <tr>
-        <td>Maximum speed</td>
-        <td>0.7 m/s</td>
+        <td>Maximum translational velocity</td>
+        <td>1.25 m/s</td>
+    </tr>
+    <tr>
+        <td>Maximum rotational velocity</td>
+        <td>420 deg/s (7.33 rad/s)</td>
     </tr>
     <tr>
         <td>Maximum load capacity</td>
@@ -144,6 +148,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ## Rear panel description ##
 
+
 <table>
     <tr>
        <th>Component</th>
@@ -161,14 +166,14 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>From SBC</td>
     </tr>
     <tr>
-        <td>Micro USB</td>
+        <td>USB type B</td>
         <td>1</td>
         <td>Serial USB from CORE2</td>
     </tr>
     <tr>
         <td>Charging connector</td>
         <td>1</td>
-        <td>Standard 4-pin connector for charging 3 Li-Ion batteries</td>
+        <td>6-pin connector for charging 3 Li-Ion batteries.</td>
     </tr>
     <tr>
         <td>hCfg button</td>
@@ -176,14 +181,24 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/). Please use non-metallic object to press this button.</td>
     </tr>
     <tr>
+        <td>reset button</td>
+        <td>1</td>
+        <td>Button used for reset CORE2</td>
+    </tr>
+    <tr>
+        <td>hBtn</td>
+        <td>2</td>
+        <td>Programable buttons.</td>
+    </tr>	
+    <tr>
         <td>Power switch</td>
         <td>1</td>
         <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
     </tr>
     <tr>
         <td>LED</td>
-        <td>3</td>
-        <td>LR1(yellow), LR2(blue), L1(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
+        <td>6</td>
+        <td>LR1(yellow), LR2(blue), L1(red), L2(blue), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
     </tr>
     <tr>
         <td>Outputs for servo</td>
