@@ -723,6 +723,8 @@ Just a connector for a standard microSD card. It uses one of the SPI interfaces 
 
 There are 3 green LEDs to be controlled by user on CORE2: LED1, LED2 and LED3. They are described **L1**, **L2**, **L3** on the PCB.
 
+
+
 The **PWR** LED is indicating that CORE2 board is powered and switched on.
 
 The **LR1**, **LR2** LEDs are used by modules connected to RPI connector.
@@ -736,6 +738,9 @@ while (true) {
 }
 ```
 
+In case you observe LEDs blinking in a strange way, it means that the microcontroller fell into hard fault state and needs reset. It can happen if you accidentally execute an inappropriate program code. The picture below shows how it looks like:
+
+![](/assets/img/core2-hardware/L123_hard_fault.gif)</td>
 
 ***
 
