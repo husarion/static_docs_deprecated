@@ -740,7 +740,9 @@ while (true) {
 
 In case you observe LEDs blinking in a strange way, it means that the microcontroller fell into hard fault state and needs reset. It can happen if you accidentally execute an inappropriate program code. The picture below shows how it looks like:
 
-![](/assets/img/core2-hardware/L123_hard_fault.gif)</td>
+<div class="image h200">
+![](/assets/img/core2-hardware/L123_hard_fault.gif)
+</div>
 
 ***
 
