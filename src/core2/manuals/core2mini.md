@@ -715,5 +715,5 @@ That's all, your ESP32 firmware is up-to-date.
 # Docs for download #
 All downloadable documents in one place:
 
-* [CORE2mini Safety Instructions](http://files.husarion.com/doc_files/CORE2mini_Safety_Instructions.pdf "CORE2mini Safety Instructions") - important!
+* [CORE2mini Safety Instructions](https://files.husarion.com/docs2/CORE2mini_safety_instructions_1.0.pdf "CORE2mini Safety Instructions") - important!
 * [CORE2mini board mechanical drawing](http://files.husarion.com/doc_files/CORE2mini_board.pdf "CORE2mini board mechanical drawing")
