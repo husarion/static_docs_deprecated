@@ -152,6 +152,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ## Rear panel description ##
 
+![Side scheme](/assets/img/ROSbot_manual/ROSbot2_rear_panel.png "Rear panel description")
 
 <table>
     <tr>
@@ -160,39 +161,44 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
        <th>Description</th>
     </tr>
     <tr>
+        <td>Antenna connector</td>
+        <td>1</td>
+        <td>Wi-Fi antenna RP-SMA socket. Required for Wi-Fi connectivity.</td>
+    </tr>
+    <tr>
+        <td>USB</td>
+        <td>2</td>
+        <td>USB 2.0 host ports from SBC.</td>
+    </tr>
+    <tr>
         <td>HDMI</td>
         <td>1</td>
-        <td>From SBC</td>
+        <td>HDMI output from SBC.</td>
     </tr>
     <tr>
-        <td>USB 2.0</td>
-        <td>2</td>
-        <td>From SBC</td>
-    </tr>
-    <tr>
-        <td>USB type B</td>
+        <td>Power switch</td>
         <td>1</td>
-        <td>Serial USB from CORE2</td>
+        <td>Turns ROSbot completely ON or OFF.</td>
     </tr>
     <tr>
-        <td>Charging connector</td>
-        <td>1</td>
-        <td>6-pin connector for charging 3 Li-Ion batteries.</td>
-    </tr>
-    <tr>
-        <td>hCfg button</td>
-        <td>1</td>
-        <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/). Please use non-metallic object to press this button.</td>
+        <td>LEDs</td>
+        <td>6</td>
+        <td>LR1(yellow), LR2(blue), L1(red), L2(green), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
     </tr>
     <tr>
         <td>reset button</td>
         <td>1</td>
-        <td>Button used for reset CORE2</td>
+        <td>Button used for reset CORE2.</td>
+    </tr>
+    <tr>
+        <td>hCfg button</td>
+        <td>1</td>
+        <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/).</td>
     </tr>
     <tr>
         <td>hBtn</td>
         <td>2</td>
-        <td>Programable buttons.</td>
+        <td>hBtn1, hBtn2 - programable buttons.</td>
     </tr>	
     <tr>
         <td>Power switch</td>
@@ -200,19 +206,28 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
     </tr>
     <tr>
-        <td>LED</td>
-        <td>6</td>
-        <td>LR1(yellow), LR2(blue), L1(red), L2(blue), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
-    </tr>
-    <tr>
         <td>Outputs for servo</td>
         <td>6</td>
         <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hservo">here</a>.</td>
     </tr>
-	    <tr>
+    <tr>
+        <td>USB serial</td>
+        <td>1</td>
+        <td>USB serial port used for debugging the firmware on CORE2-ROS controller.</td>
+    </tr>
+    <tr>
+        <td>Charging connector</td>
+        <td>1</td>
+        <td>6-pin connector for charging internal Li-Ion batteries.</td>
+    </tr>
+    <tr>
+        <td>IR distance sensor</td>
+        <td>2</td>
+        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor">here</a>.</td>
+    <tr>
         <td>hExt</td>
         <td>1</td>
-        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hext">here</a>.</td>
+        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hext">here</a>.     </td>
     </tr>
     <tr>
         <td>hSens</td>
