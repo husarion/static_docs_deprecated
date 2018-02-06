@@ -91,7 +91,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 
-![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
+![Back](/assets/img/ROSbot_manual/colour_back.jpg "Scheme back")
 
 ### Components description ###
 
