@@ -32,11 +32,38 @@ Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/dev
 ## hFramework sourcecode compilation ##
 
 1. Open a terminal in VSCode and enter following commands:
+
+	**if you use cmd.exe:**
 	```
 	del CMakeCache.txt
+	del build.ninja
 	mkdir build\stm32_core2_1.0.0
 	cd build\stm32_core2_1.0.0
 	set PATH=%PATH%;%HOMEPATH%\.vscode\HusarionTools\bin
+	cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
+	ninja
+	```
+	
+	**if you use bash (Windows & mingw - eg. gitforwindows.org):**
+	```
+	rm CMakeCache.txt
+	rm build.ninja
+	mkdir build
+	cd build
+	mkdir stm32_core2_1.0.0
+	cd stm32_core2_1.0.0
+	export PATH="$PATH:$HOMEPATH/.vscode/HusarionTools/bin"
+	cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
+	ninja
+	```
+	
+	**if you use bash (Linux):**
+	```
+	rm CMakeCache.txt
+	rm build.ninja
+	mkdir build/stm32_core2_1.0.0
+	cd build/stm32_core2_1.0.0
+	export PATH="$PATH:$HOMEPATH/.vscode/HusarionTools/bin"
 	cmake ../.. -DBOARD_TYPE=core2 -DPORT=stm32 -DHFRAMEWORK_PATH=. -GNinja
 	ninja
 	```
