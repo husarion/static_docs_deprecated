@@ -630,7 +630,7 @@ devices. Data connection and charging (up to 1A) can be provided simultaneously.
 
 <div class="thumb h100 right">
 
-![](/assets/img/core2-hardware/jumper_USB_opis2.jpg)(Jumpers configuration example)
+![Jumpers configuration example](/assets/img/core2-hardware/jumper_USB_opis2.jpg "Jumpers configuration example")
 
 </div>
 
@@ -713,16 +713,15 @@ The second table explains in easy way which configuration is for you:
 ## hSD ##
 Just a connector for a standard microSD card. It uses one of the SPI interfaces available in the microcontroller. The rest is software.
 
-## LEDs ##
+## LEDs and buttons ##
 
 <div class="thumb w270 right">
 
-![User's leds](/assets/img/core2-hardware/leds.svg "User's leds")
+![LEDs](/assets/img/core2-hardware/leds.svg "LEDs")
 
 </div>
 
-There are 3 green LEDs to be controlled by user on CORE2: LED1, LED2 and LED3. They are described **L1**, **L2**, **L3** on the PCB.
-
+There are 3 green LEDs and 2 buttons to be controlled by user on CORE2. The hLED1, hLED2 and hLED3 are described as **L1**, **L2**, **L3** on the PCB. The buttons hBtn1 and hBtn2 are placed near the LEDs.
 
 
 The **PWR** LED is indicating that CORE2 board is powered and switched on.
@@ -740,9 +739,21 @@ while (true) {
 
 In case you observe LEDs blinking in a strange way, it means that the microcontroller fell into hard fault state and needs reset. It can happen if you accidentally execute an inappropriate program code. The picture below shows how it looks like:
 
-<div class="image h200">
+<div class="image h120">
 ![](/assets/img/core2-hardware/L123_hard_fault.gif)
 </div>
+
+The buttons can be used in a very simple way:
+
+```
+while (true) {
+	if(hBtn1.isPressed() == 1){ 
+		LED3.on();
+	}else{
+		LED3.off();
+	sys.delay(50);
+}
+```
 
 ***
 
