@@ -56,7 +56,7 @@ config.pages = {
         pattern: 'core2/manuals/external-modules.md',
         metadata: {
             page: 'Manuals',
-            title: 'ROSbot manual'
+            title: 'External modules'
         }
     }
 };
