@@ -65,6 +65,10 @@ If you don't have one, you can purchase the complete kit <a href="https://store.
         <td>Battery life</td>
         <td>3h - 6h</td>
     </tr>
+    <tr>
+        <td>Maximum tablet dimensions</td>
+        <td>202 x 136 x 9mm / 7.95 x 5.35 x 0.35in (iPad mini 7,9")</td>
+    </tr>
 </table>
 
 ## Components description ##
@@ -132,6 +136,14 @@ Connect the peripherals:
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
 <div style="text-align: center"><i>Properly assembled CORE2 telepresence robot</i></div>
+
+## Charging ##
+
+Telepresence robot gets power from 3 Li-Ion cells. As with all reachargeable batteries they should be treated in an appropriate way. The basic rules are:
+* Use the charger included in the kit. If you don't have one, use a charger for Li-Ion or Li-Poly batteries with at most 1A charging current and balancing feature.
+* Don't discharge the batteries below 3.5V per cell (10.5V for all cells). Further discharge can trigger the overdischarge protection, built into each cell. In such case some of chargers would not allow to charge batteries because of too low voltage - the protection simply cut-offs on of terminals. The charger can interpret this as damaged battery and will not charge it. The workaround for that is to connect the battery to the other current-limited voltage source for a few seconds - it will turn off the protection and the battery would charge again with normal charger as before (if it is not damaged).
+* Use robot UI or LED controls to monitor the battery state. The best option is when the firmware disables the motors in case of low battery state. Such feature will help you to avoid discharging batteries too much.
+* If you don't use robot for a long time, leave the batteries partially charged (about 11.4V for all cells). It's a recommended charge level for a long-term storage.
 
 # Software #
 
