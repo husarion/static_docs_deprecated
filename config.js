@@ -50,6 +50,14 @@ config.pages = {
             page: 'Manuals',
             title: 'ROSbot manual'
         }
+    },
+
+	'core2/manuals/external-modules': {
+        pattern: 'core2/manuals/external-modules.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'ROSbot manual'
+        }
     }
 };
 
