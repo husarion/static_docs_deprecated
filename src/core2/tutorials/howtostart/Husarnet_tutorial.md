@@ -40,7 +40,7 @@ sudo systemctl start husarnet
 1. Install the application from http://users.atomshare.net/~zlmch/hNode.apk
 2. Start the application and enter the link shown (http://cloud.husarion.com/c/XXXX) in your browser.
 ![image](/assets/img/husarnet/hNode.png)
-3. Chose the histname for your device and click "Add device for your account"
+3. Chose the hostname for your device and click "Add device for your account"
 ![image](/assets/img/husarnet/platform.png)
 4. The app will connect to ROS master and publish data from phone sensors. Use `rostopic list` to check what's available.
 ![image](/assets/img/husarnet/console.png)
@@ -51,7 +51,7 @@ Now we will show you example of using husarnet. We create network with Virtual M
 
 ![image](/assets/img/husarnet/platform_2.png)
 
-You must choose which device will be ROS_MASTER. In my network it will be laptop with ubuntu image runing on Virtual Machine. 
+You must choose which device will be ROS_MASTER. In my network it will be laptop with ubuntu image running on Virtual Machine. 
 
 On start we have to program our CORE2-ROS with this code:
 
@@ -160,7 +160,7 @@ void hMain()
 
 Now open terminal in your Virtual Machine and in first tab run `roscore`.
 
-In secound one connect yourself with CORE2-ROS by ssh. Type `ssh yourCORE2-ROShostname`, then answer `yes` and tape passsword. You will see husarion graphic, it's mean that you are conected to CORE2-ROS terminal. Tape `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2` to start communication between CORE2 and linux SBC. You will see the list of publisher and subscriber. 
+In second one connect yourself with CORE2-ROS by ssh. Type `ssh yourCORE2-ROShostname`, then answer `yes` and tape password. You will see husarion graphic, it's mean that you are connected to CORE2-ROS terminal. Tape `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2` to start communication between CORE2 and linux SBC. You will see the list of publisher and subscriber. 
 
 ![image](/assets/img/husarnet/console_2.png)
 
@@ -267,7 +267,7 @@ int main(int argc, char **argv)
 }
 ```
 
-This node has previesly saved object for recognition in this case `#define POXIPOL 10`. The manual how to save obcect from scene you can find <a href="https://husarion.com/core2/tutorials/ros-tutorials/4-visual-object-recognition/">here</a>.
+This node has previously saved object for recognition in this case `#define POXIPOL 10`. The manual how to save obcect from scene you can find <a href="https://husarion.com/core2/tutorials/ros-tutorials/4-visual-object-recognition/">here</a>.
 
 Now we will create find.launch file.  
 
@@ -285,7 +285,7 @@ Now we will create find.launch file.
 </launch>
 
 ```
-Open new tab in terminal, reach directory of your .launch file and tape `roslaunch find.launch`. You will see find_object_2d GUI with saved by you objects.
+Open new tab in terminal, reach directory of your .launch file and tape `roslaunch find.launch`. You will see find_object_2d GUI with saved by you object.
 
 ![image](/assets/img/husarnet/find_object_2d.png)
 
