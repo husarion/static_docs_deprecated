@@ -47,7 +47,7 @@ sudo systemctl start husarnet
 
 ## Using Husarnet with the Cloud ##
 
-No we will show you example of using husarnet. We create network with Virtual Machine, CORE2ROS and smartphone. After correctly completing all the configuration steps, your network should look like this:
+Now we will show you example of using husarnet. We create network with Virtual Machine, CORE2ROS and smartphone. After correctly completing all the configuration steps, your network should look like this:
 
 ![image](/assets/img/husarnet/platform_2.png)
 
@@ -158,14 +158,13 @@ void hMain()
 
 ```
 
-
 Now open terminal in your Virtual Machine and in first tab run `roscore`.
 
 In secound one connect yourself with CORE2-ROS by ssh. Type `ssh yourCORE2-ROShostname`, then answer `yes` and tape passsword. You will see husarion graphic, it's mean that you are conected to CORE2-ROS terminal. Tape `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2` to start communication between CORE2 and linux SBC. You will see the list of publisher and subscriber. 
 
 ![image](/assets/img/husarnet/console_2.png)
 
-Now we transport video stream to our local topic. Tape `rosrun image_transport republish compressed in:=/phone/camera1/image out:=/localimg`
+Now we transport video stream to our local topic to make more conveniente to use it. Tape `rosrun image_transport republish compressed in:=/phone/camera1/image out:=/localimg`
 
 You have to create your own ROS node. The instruction of creating node you can find <a href="https://husarion.com/core2/tutorials/ros-tutorials/2-creating-nodes/">here</a>. Source file object_follower.cpp should look like this:
 
@@ -291,7 +290,6 @@ Open new tab in terminal, reach directory of your .launch file and tape `roslaun
 ![image](/assets/img/husarnet/find_object_2d.png)
 
 After robot find the objects he will follow them.
-
 
 ## Camera support ##
 
