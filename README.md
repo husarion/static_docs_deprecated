@@ -2,7 +2,7 @@
 
 ## Basics
 
-This repository contains sources of the documentation that is available as [Tutorials](https://husarion.com/core2/tutorials/) and [Manuals](https://husarion.com/core2/manuals/hardware/) pages. They are automatically generated from master branch, but before that, the pull reuqests has to be approved by admin. The preview on GitHub can look slightly different than the publicated version.
+This repository contains sources of the documentation that is available as [Tutorials](https://husarion.com/core2/tutorials/) and [Manuals](https://husarion.com/core2/manuals/core2/) pages. They are automatically generated from master branch, but before that, the pull reuqests has to be approved by admin. The preview on GitHub can look slightly different than the publicated version.
 
 The sources are written using Markdown. The syntax of Markdown is well-described on the [Daring Fireball website](https://daringfireball.net/projects/markdown/syntax). You can also use HTML if Markdown is not enough.
 

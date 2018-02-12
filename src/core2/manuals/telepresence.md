@@ -94,7 +94,7 @@ If you don't have one, you can purchase the complete kit <a href="https://store.
     <tr>
         <td>IMU sensor</td>
         <td>1</td>
-        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/hardware/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/core2/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
     </tr>
     <tr>
         <td>Batteries</td>

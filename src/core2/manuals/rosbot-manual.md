@@ -114,7 +114,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>Infrared distance sensor</td>
         <td>4</td>
-        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor"> more details</a>.</td>
+        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor"> more details</a>.</td>
     </tr>
     <tr>
         <td>DC motor</td>
@@ -130,7 +130,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>IMU sensor</td>
         <td>1</td>
-        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/hardware/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/core2/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
     </tr>
     <tr>
         <td>RGBD camera</td>
@@ -183,7 +183,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>LEDs</td>
         <td>6</td>
-        <td>LR1(yellow), LR2(blue), L1(red), L2(green), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
+        <td>LR1(yellow), LR2(blue), L1(red), L2(green), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/core2/#hardware-leds">here</a>.</td>
     </tr>
     <tr>
         <td>reset button</td>
@@ -208,7 +208,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>Outputs for servo</td>
         <td>6</td>
-        <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hservo">here</a>.</td>
+        <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hservo">here</a>.</td>
     </tr>
     <tr>
         <td>USB serial</td>
@@ -223,16 +223,16 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>IR distance sensor</td>
         <td>2</td>
-        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor">here</a>.</td>
+        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor">here</a>.</td>
     <tr>
         <td>hExt</td>
         <td>1</td>
-        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hext">here</a>.     </td>
+        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hext">here</a>.     </td>
     </tr>
     <tr>
         <td>hSens</td>
         <td>1</td>
-        <td>4 xGPIO, ADC, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hsensor">here</a>.</td>
+        <td>4 xGPIO, ADC, UART, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hsensor">here</a>.</td>
     </tr>
 </table>
 
@@ -257,7 +257,7 @@ Software for ROSbot can be divided into 2 parts:
  - in case of accidential damage of the system,
  - to update the OS (it can be udpated remotely, but flashing the microSD card can be easier sometimes),
  - to clear all user changes and restore factory settings.
- To do that, you have to disassembly the top cover, unscrew the 4 screws on the CORE2 corners and carefully carry up CORE2 with SBC. Then you can change the microSD card and flash the OS. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). If you want to replace the included card, remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. 
+ To do that, you have to disassembly the top cover, unscrew the 4 screws on the CORE2 corners and carefully carry up CORE2 with SBC. Then you can change the microSD card and flash the OS. You can find the image and flash manual [here](https://husarion.com/core2/manuals/core2/#hardware-os-image-for-raspberrypi-tinkerboard). If you want to replace the included card, remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. 
 
 # First steps #
 

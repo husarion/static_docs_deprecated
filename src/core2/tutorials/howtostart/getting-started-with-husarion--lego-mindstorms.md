@@ -335,7 +335,7 @@ void hMain()
 
 2. RoboCORE hardware documentation - https://wiki.husarion.com/robocore:hardware:description 
 
-3. CORE2 hardware documentation - https://husarion.com/core2/manuals/hardware/
+3. CORE2 hardware documentation - https://husarion.com/core2/manuals/core2/
 
 4. Configuring offline dev tools - https://husarion.com/core2/tutorials/howtostart/offline-development-tools/
 
