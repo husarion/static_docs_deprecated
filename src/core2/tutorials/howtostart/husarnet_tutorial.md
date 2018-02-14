@@ -1,10 +1,10 @@
 ---
-title: 'Husarnet tutorials'
+title: 'Husarnet tutorial'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
-order: ???
+order: 9
 ---
 
 # Husarnet tutorial #
