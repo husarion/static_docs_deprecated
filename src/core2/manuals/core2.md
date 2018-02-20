@@ -938,6 +938,7 @@ There are 2 status LEDs - LR1 and LR2 - controlled directly from the ESP32/RPi d
 ## Connecting to CORE2-ROS through SSH ##
 
 To obtain IP address of your CORE2-ROS, log into cloud.husarion.com and enter "More" section in drop down menu next to your robot name. You will see this:
+
 ![](/assets/img/core2-hardware/CORE2-ssh-ip.PNG)
 
 Then open Linux terminal or putty on Windows and execute the following command (IP as on screenshot above):
