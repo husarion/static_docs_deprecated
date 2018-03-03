@@ -233,7 +233,13 @@ need to load some environment variables:
 
 These environment variables allow you to run node regardless of
 directory you are working in. You have to load it every time you open
-new terminal or you can add it to your `.bashrc` file.
+new terminal or you can add line:
+
+```
+. ~/ros_workspace/devel/setup.sh
+```
+
+to your `.bashrc` file.
 
 To run your node you can use command line or `.launch` file as with any
 other node. Remember that package is `tutorial_pkg` and node is
@@ -329,7 +335,7 @@ Print brightness value to screen.
 
 Last thing to do is defining topic to subscribe:
 
-``` cpp
+v cpp
     ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
 ``` 
 
