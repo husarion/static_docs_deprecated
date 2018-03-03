@@ -335,7 +335,7 @@ Print brightness value to screen.
 
 Last thing to do is defining topic to subscribe:
 
-v cpp
+``` cpp
     ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
 ``` 
 
