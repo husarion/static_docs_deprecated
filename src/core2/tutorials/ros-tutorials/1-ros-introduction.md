@@ -103,7 +103,7 @@ in system. To run application type in terminal:
 This tutorial is created for ROSbot, open-source robot platform. You can read more about this here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform) . 
 
 The platform contains:
-- 1 × Husarion CORE2-ROS (version with Raspberry Pi 3 or ASUS Tinker Board)
+- 1 × Husarion CORE2-ROS version with ASUS Tinker Board
 - 1 × RPLIDAR A2 360°
 - 1 × Digital camera
 - 1 × MPU9250
