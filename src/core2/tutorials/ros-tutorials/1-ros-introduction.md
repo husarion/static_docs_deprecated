@@ -115,7 +115,7 @@ And this is how it looks like:
 </div>
 
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" /></center>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
 </div>
 
 
