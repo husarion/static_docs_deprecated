@@ -110,13 +110,14 @@ The platform contains:
 - 4 × SHARP GP2Y0A41SK0F
 
 And this is how it looks like:
+
 <div>
-<p text-align: justify>
-<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="20%"/>
-<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="20%"/>
-</p>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="45%" /></center>
 </div>
 
+<div>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
+</div>
 
 ## ROS and CORE2 Work flow
 
