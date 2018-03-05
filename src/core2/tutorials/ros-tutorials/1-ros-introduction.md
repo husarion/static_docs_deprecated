@@ -110,12 +110,12 @@ The platform contains:
 - 4 × SHARP GP2Y0A41SK0F
 
 And this is how it looks like:
-<div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/rosbot_front.png" /></center>
+<div>/
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" /></center>
 </div>
 
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/rosbot_back.png" /></center>
+<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" /></center>
 </div>
 
 
