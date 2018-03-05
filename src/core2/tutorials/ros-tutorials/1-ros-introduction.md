@@ -433,7 +433,7 @@ Interpretation of the graph is as follows:
 
 `Roslaunch` is a tool that simplifies running of multiple nodes at one
 time. This tool uses `.launch` files that contain configuration of all
-nodes to be run. Usage of `rosluanch` is simple, in new terminal type:
+nodes to be run. Usage of `roslaunch` is simple, in new terminal type:
 
     roslaunch package file.launch
 
