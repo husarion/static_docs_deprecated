@@ -105,7 +105,7 @@ This tutorial is created for ROSbot, open-source robot platform. You can read mo
 The platform contains:
 - 1 × Husarion CORE2-ROS version with ASUS Tinker Board
 - 1 × RPLIDAR A2 360°
-- 1 × Digital camera
+- 1 x RGBD camera Orbbec Astra
 - 1 × MPU9250
 - 4 × SHARP GP2Y0A41SK0F
 
