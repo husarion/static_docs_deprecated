@@ -111,11 +111,8 @@ The platform contains:
 
 And this is how it looks like:
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="50%" /></center>
-</div>
-
-<div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
+<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="50%" text-align: "left" />
+<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" text-align: "right" />
 </div>
 
 
