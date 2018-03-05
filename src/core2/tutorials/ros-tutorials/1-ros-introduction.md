@@ -112,8 +112,8 @@ The platform contains:
 And this is how it looks like:
 <div>
 <p text-align: justify>
-<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="50%"/>
-<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%"/>
+<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="20%"/>
+<img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="20%"/>
 </p>
 </div>
 
