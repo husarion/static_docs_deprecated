@@ -675,7 +675,7 @@ front of your robot. Observe how it turns towards object.
 
 In this section you will modify your robot to turn and also drive
 towards object while keeping distance to it. For keeping the distance we
-will use proximity sensors. Connect multiplexes to
+will use proximity sensors. Connect multiplexer to
 `hSens3` port of `CORE2` and sensors to proper chanel like below:
 
 ch0 - RR sensor
@@ -716,7 +716,7 @@ ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
 ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
 ``` 
 
-Strukture abd mutex to use sensor data:
+Strukture and mutex to use sensor data:
 
 ``` 
 struct hMUX{
@@ -728,6 +728,7 @@ struct hMUX{
     hMUX(bool tp2, bool tp3, bool tp4, bool tactive, float* tdis):p2(tp2), p3(tp3), p4(tp4), active(tactive), dis(tdis){}
     hMUX(bool tp2, bool tp3, bool tp4, bool tactive):p2(tp2), p3(tp3), p4(tp4), active(tactive){}
 };
+
 hMUX tMUX[] = {
     hMUX(false, false, false, true, &dis4),//ch0
     hMUX(false, false, true, true, &dis3),//ch1
@@ -980,6 +981,7 @@ void hMain()
     rangeFL.field_of_view = 0.3; // rad
     rangeFL.min_range = 0.04;    // meters
     rangeFL.max_range = 0.3;        // meters
+    
     rangeFR.header.frame_id = "front_right";
     rangeFR.radiation_type = sensor_msgs::Range::ULTRASOUND;
     rangeFR.field_of_view = 0.3; // rad
