@@ -675,8 +675,13 @@ front of your robot. Observe how it turns towards object.
 
 In this section you will modify your robot to turn and also drive
 towards object while keeping distance to it. For keeping the distance we
-will use proximity sensors. Connect right sensor to
-`hSens6` port of `CORE2` and left to `hSens2`.
+will use proximity sensors. Connect multiplexes to
+`hSens3` port of `CORE2` and sensors to proper chanel like below:
+
+ch0 - RR sensor
+ch1 - RL sensor
+ch6 - FL sensor
+ch7 - FR sensor
 
 Log in to Husarion Cloud and open project that you created in previous
 manual, you will edit it a little.
@@ -690,70 +695,134 @@ Include required header files:
 Instantiate sensor objects:
 
 ``` cpp
-    hSensor &sensL(hSens2);
-    hSensor &sensR(hSens6);
+    hSensor& sensMUX(hSens3);
 ``` 
 
-Message objects for left and right sensor measurement:
+Message objects for all sensor measurement:
 
 ``` cpp
-    sensor_msgs::Range rangeL;
-    sensor_msgs::Range rangeR;
+sensor_msgs::Range rangeFL;
+sensor_msgs::Range rangeFR;
+sensor_msgs::Range rangeRL;
+sensor_msgs::Range rangeRR;
 ``` 
 
 Publishers for measurement messages:
 
 ``` cpp
-    ros::Publisher rangeL_pub("/rangeL", &rangeL);
-    ros::Publisher rangeR_pub("/rangeR", &rangeR);
+ros::Publisher rangeFL_pub("/rangeFL", &rangeFL);
+ros::Publisher rangeFR_pub("/rangeFR", &rangeFR);
+ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
+ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
+``` 
+
+Strukture abd mutex to use sensor data:
+
+``` 
+struct hMUX{
+    bool p2;
+    bool p3;
+    bool p4;
+    bool active;
+    float* dis;
+    hMUX(bool tp2, bool tp3, bool tp4, bool tactive, float* tdis):p2(tp2), p3(tp3), p4(tp4), active(tactive), dis(tdis){}
+    hMUX(bool tp2, bool tp3, bool tp4, bool tactive):p2(tp2), p3(tp3), p4(tp4), active(tactive){}
+};
+hMUX tMUX[] = {
+    hMUX(false, false, false, true, &dis4),//ch0
+    hMUX(false, false, true, true, &dis3),//ch1
+    hMUX(false, true, false, false),//ch2
+    hMUX(false, true, true, false),//ch3
+    hMUX(true, false, false, false),//ch4
+    hMUX(true, false, true, false),//ch5
+    hMUX(true, true, false, true, &dis1),//ch6
+    hMUX(true, true, true, true, &dis2)//ch7
+};
 ``` 
 
 Function to read sensors data:
 
 ``` cpp
-    float getDistance(hSensor &sens)
-    {
-        float volts = sens.pin1.analogReadRaw() * 0.001220703;
-        float dist = 20 * (1 / volts);
-        return (dist);
-    }  
+void IRSensorReadout(){
+    sensMUX.pin1.enableADC();
+    sensMUX.pin2.setOut();
+    sensMUX.pin3.setOut();
+    sensMUX.pin4.setOut();
+    for(;;){
+        for(size_t i = 0; i<8; i++){
+            if(tMUX[i].active == true){
+                sensMUX.pin2.write(tMUX[i].p2);
+                sensMUX.pin3.write(tMUX[i].p3);
+                sensMUX.pin4.write(tMUX[i].p4);
+                sys.delay(MUXStepTime);
+                float temp = 20*(1/(sensMUX.pin1.analogReadRaw()*0.001220703));
+                if(temp > 30) temp = 30;
+                if(temp < 4) temp = 4;
+                *tMUX[i].dis = temp;
+            }
+        }
+    }
+}
 ``` 
 
 In main function, put initial values for measurement messages:
 
 ``` cpp
-    rangeL.header.frame_id="left";
-    rangeL.radiation_type=sensor_msgs::Range::ULTRASOUND;
-    rangeL.field_of_view = 0.3; // rad
-    rangeL.min_range = 0.04; // meters
-    rangeL.max_range = 0.3; // meters
-
-    rangeR.header.frame_id="right";
-    rangeR.radiation_type=sensor_msgs::Range::ULTRASOUND;
-    rangeR.field_of_view = 0.3; // rad
-    rangeR.min_range = 0.04; // meters
-    rangeR.max_range = 0.3; // meters
+    rangeFL.header.frame_id = "front_left";
+    rangeFL.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeFL.field_of_view = 0.3; // rad
+    rangeFL.min_range = 0.04;    // meters
+    rangeFL.max_range = 0.3;        // meters
+    
+    rangeFR.header.frame_id = "front_right";
+    rangeFR.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeFR.field_of_view = 0.3; // rad
+    rangeFR.min_range = 0.04;    // meters
+    rangeFR.max_range = 0.3;        // meters
+    
+    rangeRL.header.frame_id = "rear_left";
+    rangeRL.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeRL.field_of_view = 0.3; // rad
+    rangeRL.min_range = 0.04;    // meters
+    rangeRL.max_range = 0.3;        // meters
+    
+    rangeRR.header.frame_id = "rear_right";
+    rangeRR.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeRR.field_of_view = 0.3; // rad
+    rangeRR.min_range = 0.04;    // meters
+    rangeRR.max_range = 0.3;        // meters
 ``` 
 
 Run publishers:
 
 ``` cpp
-    nh.advertise(rangeL_pub);
-    nh.advertise(rangeR_pub);
+    nh.advertise(rangeFL_pub);
+    nh.advertise(rangeFR_pub);
+    nh.advertise(rangeRL_pub);
+    nh.advertise(rangeRR_pub);
 ``` 
 
-Convert measurement values to meters and put them into messages:
+Assigning values to variables and put them into messages:
 
 ``` cpp
-    rangeL.range = getDistance(sensL)/100;
-    rangeR.range = getDistance(sensR)/100;
+        rangeFL.range = dis1;
+        rangeFR.range = dis2;
+        rangeRL.range = dis3;
+        rangeRR.range = dis4;
+        
+        rangeFL_pub.publish(&rangeFL);
+        rangeFR_pub.publish(&rangeFR);
+        rangeRL_pub.publish(&rangeRL);
+        rangeRR_pub.publish(&rangeRR);
 ``` 
 
 Publish messages:
 
 ``` cpp
-    rangeL_pub.publish(&rangeL);
-    rangeR_pub.publish(&rangeR);
+        rangeFL_pub.publish(&rangeFL);
+        rangeFR_pub.publish(&rangeFR);
+        rangeRL_pub.publish(&rangeRL);
+        rangeRR_pub.publish(&rangeRR);
 ``` 
 
 Whole file should look like this:
@@ -766,53 +835,88 @@ Whole file should look like this:
 #include "geometry_msgs/Twist.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "sensor_msgs/Range.h"
-
+#include <stddef.h>
+#include <stdio.h>
 using namespace hFramework;
-
-hSensor& sensL(hSens2);
-hSensor& sensR(hSens6);
-
+hSensor& sensMUX(hSens3);
+float MUXStepTime = 50; //200ms for scan
+float dis1 = 0; //Sharp LF
+float dis2 = 0; //Sharp RF
+float dis3 = 0; //Sharp LR
+float dis4 = 0; //Sharp RR
 bool batteryLow = false;
-
+struct hMUX{
+    bool p2;
+    bool p3;
+    bool p4;
+    bool active;
+    float* dis;
+    hMUX(bool tp2, bool tp3, bool tp4, bool tactive, float* tdis):p2(tp2), p3(tp3), p4(tp4), active(tactive), dis(tdis){}
+    hMUX(bool tp2, bool tp3, bool tp4, bool tactive):p2(tp2), p3(tp3), p4(tp4), active(tactive){}
+};
+hMUX tMUX[] = {
+    hMUX(false, false, false, true, &dis4),//ch0
+    hMUX(false, false, true, true, &dis3),//ch1
+    hMUX(false, true, false, false),//ch2
+    hMUX(false, true, true, false),//ch3
+    hMUX(true, false, false, false),//ch4
+    hMUX(true, false, true, false),//ch5
+    hMUX(true, true, false, true, &dis1),//ch6
+    hMUX(true, true, true, true, &dis2)//ch7
+};
 ros::NodeHandle nh;
 geometry_msgs::PoseStamped pose;
 ros::Publisher pose_pub("/pose", &pose);
-
-sensor_msgs::Range rangeL;
-sensor_msgs::Range rangeR;
-
-ros::Publisher rangeL_pub("/rangeL", &rangeL);
-ros::Publisher rangeR_pub("/rangeR", &rangeR);
-
+sensor_msgs::Range rangeFL;
+sensor_msgs::Range rangeFR;
+sensor_msgs::Range rangeRL;
+sensor_msgs::Range rangeRR;
+ros::Publisher rangeFL_pub("/rangeFL", &rangeFL);
+ros::Publisher rangeFR_pub("/rangeFR", &rangeFR);
+ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
+ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
 uint16_t delay = 100; // milliseconds
 float delay_s = (float)delay / (float)1000;
 uint16_t enc_res = 1400; // encoder tics per wheel revolution
-
 int32_t enc_FL = 0; // encoder tics
 int32_t enc_RL = 0; // encoder tics
 int32_t enc_FR = 0; // encoder tics
 int32_t enc_RR = 0; // encoder tics
-
 int32_t enc_L = 0;           // encoder tics
 float wheel_L_ang_pos = 0; // radians
 float wheel_L_ang_vel = 0; // radians per second
-
 int32_t enc_R = 0;           // encoder tics
 float wheel_R_ang_pos = 0; // radians
 float wheel_R_ang_vel = 0; // radians per second
-
 float robot_angular_pos = 0; // radians
 float robot_angular_vel = 0; // radians per second
-
 float robot_x_pos = 0; // meters
 float robot_y_pos = 0; // meters
 float robot_x_vel = 0; // meters per second
 float robot_y_vel = 0; // meters per second
-
 float robot_width = 0.3;    // meters
 float robot_length = 0.105; //meters
 float wheel_radius = 0.04;  //meters
-
+void IRSensorReadout(){
+    sensMUX.pin1.enableADC();
+    sensMUX.pin2.setOut();
+    sensMUX.pin3.setOut();
+    sensMUX.pin4.setOut();
+    for(;;){
+        for(size_t i = 0; i<8; i++){
+            if(tMUX[i].active == true){
+                sensMUX.pin2.write(tMUX[i].p2);
+                sensMUX.pin3.write(tMUX[i].p3);
+                sensMUX.pin4.write(tMUX[i].p4);
+                sys.delay(MUXStepTime);
+                float temp = 20*(1/(sensMUX.pin1.analogReadRaw()*0.001220703));
+                if(temp > 30) temp = 30;
+                if(temp < 4) temp = 4;
+                *tMUX[i].dis = temp;
+            }
+        }
+    }
+}
 void twistCallback(const geometry_msgs::Twist &twist)
 {
     float lin = twist.linear.x;
@@ -824,14 +928,6 @@ void twistCallback(const geometry_msgs::Twist &twist)
     hMot3.setPower(motorL * (-700) * !batteryLow);
     hMot4.setPower(motorL * (-700) * !batteryLow);
 }
-
-float getDistance(hSensor& sens)
-{
-    float volts = sens.pin1.analogReadRaw()*0.001220703;
-    float dist = 20*(1/volts);
-    return(dist);
-}
-
 void batteryCheck()
 {
     int i = 0;
@@ -857,9 +953,7 @@ void batteryCheck()
         sys.delay(250);
     }
 }
-
 ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
-
 void hMain()
 {
     platform.begin(&RPi);
@@ -874,69 +968,74 @@ void hMain()
     hMot4.setEncoderPolarity(Polarity::Reversed);
     LED1.on();
     sys.taskCreate(batteryCheck);
-    
+    sys.taskCreate(IRSensorReadout);
     pose.header.frame_id = "robot";
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
     pose.pose.position.z = 0;
     pose.pose.orientation = tf::createQuaternionFromYaw(0);
-
     nh.advertise(pose_pub);
-
-    rangeL.header.frame_id = "left";
-    rangeL.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeL.field_of_view = 0.3; // rad
-    rangeL.min_range = 4;    // meters
-    rangeL.max_range = 30;        // meters
-
-    rangeR.header.frame_id = "right";
-    rangeR.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeR.field_of_view = 0.3; // rad
-    rangeR.min_range = 4;    // meters
-    rangeR.max_range = 30;        // meters
-
-    nh.advertise(rangeL_pub);
-    nh.advertise(rangeR_pub);
-
+    rangeFL.header.frame_id = "front_left";
+    rangeFL.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeFL.field_of_view = 0.3; // rad
+    rangeFL.min_range = 0.04;    // meters
+    rangeFL.max_range = 0.3;        // meters
+    rangeFR.header.frame_id = "front_right";
+    rangeFR.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeFR.field_of_view = 0.3; // rad
+    rangeFR.min_range = 0.04;    // meters
+    rangeFR.max_range = 0.3;        // meters
+    
+    rangeRL.header.frame_id = "rear_left";
+    rangeRL.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeRL.field_of_view = 0.3; // rad
+    rangeRL.min_range = 0.04;    // meters
+    rangeRL.max_range = 0.3;        // meters
+    
+    rangeRR.header.frame_id = "rear_right";
+    rangeRR.radiation_type = sensor_msgs::Range::ULTRASOUND;
+    rangeRR.field_of_view = 0.3; // rad
+    rangeRR.min_range = 0.04;    // meters
+    rangeRR.max_range = 0.3;        // meters
+    nh.advertise(rangeFL_pub);
+    nh.advertise(rangeFR_pub);
+    nh.advertise(rangeRL_pub);
+    nh.advertise(rangeRR_pub);
     while (true)
     {
         enc_FR = hMot1.getEncoderCnt();
         enc_RR = hMot2.getEncoderCnt();
         enc_RL = hMot3.getEncoderCnt();
         enc_FL = hMot4.getEncoderCnt();
-
         enc_L = (enc_FL + enc_RL) / 2;
         enc_R = (enc_FR + enc_RR) / 2;
-
         wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
         wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
-
         wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
         wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
-
         robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) -
                              robot_angular_pos) /
                             delay_s;
         robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
-
         robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
                       cos(robot_angular_pos);
         robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
                       sin(robot_angular_pos);
-
         robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
         robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
-
         pose.pose.position.x = robot_x_pos;
         pose.pose.position.y = robot_y_pos;
         pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
         pose_pub.publish(&pose);
-
-        rangeL.range = getDistance(sensL);
-        rangeR.range = getDistance(sensR);
-        rangeL_pub.publish(&rangeL);
-        rangeR_pub.publish(&rangeR);
-
+        rangeFL.range = dis1;
+        rangeFR.range = dis2;
+        rangeRL.range = dis3;
+        rangeRR.range = dis4;
+        
+        rangeFL_pub.publish(&rangeFL);
+        rangeFR_pub.publish(&rangeFR);
+        rangeRL_pub.publish(&rangeRL);
+        rangeRR_pub.publish(&rangeRR);
         nh.spinOnce();
         sys.delay(delay);
     }
@@ -956,22 +1055,22 @@ Add variables for measured object distance, average distance and desired
 distance to obstacle:
 
 ``` cpp
-    float distL = 0;
-    float distR = 0;
+    float distFL = 0;
+    float distFR = 0;
     float average_dist = 0;
-    float desired_dist = 0.3;
+    float desired_dist = 0.25;
 ``` 
 
 Callback functions for incoming sensor messages, their task is only to
 put values into appropriate variables:
 
 ``` cpp
-    void distL_callback(const sensor_msgs::Range &range) {
-       distL = range.range;
+    void distFL_callback(const sensor_msgs::Range &range) {
+       distFL = range.range;
     }
 
-    void distR_callback(const sensor_msgs::Range &range) {
-       distR = range.range;
+    void distFR_callback(const sensor_msgs::Range &range) {
+       distFR = range.range;
     }
 ``` 
 
@@ -980,8 +1079,8 @@ proportional to it only if both sensors found an obstacle, else set zero
 value for linear velocity:
 
 ``` cpp
-    if (distL > 0 && distR > 0) {
-        average_dist = (distL + distR) / 2;
+    if (distFL > 0 && distFR > 0) {
+        average_dist = (distFL + distFR) / 2;
         set_vel.linear.x = (average_dist - desired_dist) * 6;
     } else {
        set_vel.linear.x = 0;
@@ -991,8 +1090,8 @@ value for linear velocity:
 In main function, subscribe to sensor topics:
 
 ``` cpp
-    ros::Subscriber distL_sub = n.subscribe("/rangeL", 1, distL_callback);
-    ros::Subscriber distR_sub = n.subscribe("/rangeR", 1, distR_callback);
+    ros::Subscriber distFL_sub = n.subscribe("/rangeFL", 1, distFL_callback);
+    ros::Subscriber distFR_sub = n.subscribe("/rangeFR", 1, distFR_callback);
 ``` 
 
 Final file should look like this:
@@ -1016,17 +1115,17 @@ geometry_msgs::Twist set_vel;
 int camera_center = 320; // left 0, right 640
 float max_ang_vel = 6.0;
 
-float distL = 0;
-float distR = 0;
+float distFL = 0;
+float distFR = 0;
 float average_dist = 0;
-float desired_dist = 0.3;
+float desired_dist = 0.25;
 
-void distL_callback(const sensor_msgs::Range &range) {
-   distL = range.range;
+void distFL_callback(const sensor_msgs::Range &range) {
+   distFL = range.range;
 }
 
-void distR_callback(const sensor_msgs::Range &range) {
-   distR = range.range;
+void distFR_callback(const sensor_msgs::Range &range) {
+   distFR = range.range;
 }
 
 void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
@@ -1076,7 +1175,7 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
             set_vel.angular.z = -(x_pos - camera_center) / speed_coefficient;
 
             if (distL > 0 && distR > 0) {
-               average_dist = (distL + distR) / 2;
+               average_dist = (distFL + distFR) / 2;
                set_vel.linear.x = (average_dist - desired_dist) * 6;
             } else {
                set_vel.linear.x = 0;
@@ -1107,8 +1206,8 @@ int main(int argc, char **argv) {
    ros::NodeHandle n("~");
    ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
 
-   ros::Subscriber distL_sub = n.subscribe("/rangeL", 1, distL_callback);
-   ros::Subscriber distR_sub = n.subscribe("/rangeR", 1, distR_callback);
+   ros::Subscriber distL_sub = n.subscribe("/rangeFL", 1, distFL_callback);
+   ros::Subscriber distR_sub = n.subscribe("/rangeFR", 1, distFR_callback);
    ros::Rate loop_rate(50);
    action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
    set_vel.linear.x = 0;
