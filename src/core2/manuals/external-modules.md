@@ -8,10 +8,192 @@ page: 'Manuals'
 onepager: true
 ---
 
+*External modules*
+
+This section will show you how to connect and use different types of external hardware modules with CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. The following examples will help you connect not only the modules made by Husarion but also the third-party drivers, sensors etc.
 
 ***
 
-This section will show you how to connect and use different types of external hardware modules with CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. The following examples will help you connect not only the modules made by Husarion but also the third-party drivers, sensors etc.
+# CORE2block extension kit #
+
+Adapter which connects CORE2 or CORE2-ROS with Makeblock system. 
+
+<div class="thumb center h350">
+![](/assets/img/external-modules/core2block.png)
+</div>
+
+The main part are adapters for sensors and motors. Electrical interface of Makeblock sensors is similar to CORE2 hSensor, but some pin-swapping is needed. These adapters do the job.
+
+Set contains:
+
+ * 6 cables and adapters for connecting Makeblock sensors to the Husarion CORE2 controller (6x 15cm)
+ * 4 cables for connecting Makeblock DC motors (with encoder) to the Husarion CORE2 controller (4x 30cm)
+ * 2 cables for connecting Makeblock DC motors (without encoder) to the Husarion CORE2 controller (2x 30cm)
+ * hBatteryPack - a battery pack for 3x18650 Li-Ion batteries (batteries not included)
+ * 2 acrylic plates for CORE2 and battery pack that link them with Makeblocks mechanical parts
+ 
+## Sensor adapter ##
+
+The PCB contains 6 adapters that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
+
+<div class="thumb center h350">
+![](/assets/img/external-modules/core2block-schematic.png)
+</div>
+
+On the bottom side of PCB you can find jumpers for configuring the adapter connections. They are needed for interfacing CORE2 with different Makeblock sensors. The photo below shows the jumper position on PCB:
+
+<div class="thumb center h350">
+![](/assets/img/external-modules/jumpers.png)
+</div>
+
+And this table should be helpful for you:
+
+<table>
+    <tr>
+       <th>Makeblock sensor name</th>
+       <th>Main interface</th>
+	   <th>CORE2 hSens port no</th>
+       <th>JP1-JP3 position</th>
+    </tr>
+    <tr>
+        <td>Me Compass</td>
+        <td>I2C</td>
+        <td>1 or 2</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me Ultrasonic Sensor</td>
+        <td>digital/interrupt</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me 3-Axis Accelerometer and Gyro Sensor</td>
+        <td>I2C</td>
+        <td>1 or 2</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me 7-Segment Serial Display</td>
+        <td>2-wire serial</td>
+        <td>3-4</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>Me Bluetooth Module(Dual Mode)</td>
+        <td>UART</td>
+        <td>3 or 4</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>Me Flame Sensor</td>
+        <td>digital</td>
+        <td>1-6</td>
+        <td>A or B</td>
+    </tr>
+    <tr>
+        <td>Me Line Follower</td>
+        <td>digital</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me Light Sensor</td>
+        <td>analog</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me Infrared Receiver Decode</td>
+        <td>I2C</td>
+        <td>1-6</td>
+        <td>A or B</td>
+    </tr>
+    <tr>
+        <td>Me PM2.5 Sensor</td>
+        <td>UART</td>
+        <td>3 or 4</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>Me Potentiometer</td>
+        <td>analog</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>Me PIR Motion Sensor</td>
+        <td>digital/interrupt</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+	<tr>
+        <td>Me RGB LED</td>
+        <td>serial</td>
+        <td>3 or 4</td>
+        <td>A or B</td>
+    </tr>
+	<tr>
+        <td>Me-Shutter</td>
+        <td>digital</td>
+        <td>1-6</td>
+        <td>A or B</td>
+    </tr>
+    <tr>
+        <td>Me Slide Potentiometer</td>
+        <td>analog</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+	<tr>
+        <td>Me USB Host</td>
+        <td>serial</td>
+        <td>3 or 4</td>
+        <td>A</td>
+    </tr>
+	<tr>
+        <td>Me Touch Sensor</td>
+        <td>digital</td>
+        <td>1-6</td>
+        <td>A or B</td>
+    </tr>
+	<tr>
+        <td>Me Temperature and Humidity Sensor</td>
+        <td>digital</td>
+        <td>1-6</td>
+        <td>A or B</td>
+    </tr>
+	<tr>
+        <td>Me Sound Sensor</td>
+        <td>analog</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+	<tr>
+        <td>Me TFT LCD Screen – 2.2 Inch</td>
+        <td>UART</td>
+        <td>3 or 4</td>
+        <td>A</td>
+    </tr>
+	<tr>
+        <td>Me Line Follower Array</td>
+        <td>UART</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+	<tr>
+        <td>Me Sound Sensor</td>
+        <td>analog</td>
+        <td>1-6</td>
+        <td>B</td>
+    </tr>
+</table>
+
+## Motor adapter ##
+
+The motor adapter allows to use the following motors:
+ * DC Motor-25 9V/700RPM
+ 
 
 ***
 
@@ -26,7 +208,7 @@ Servo controller can deliver up to 3A average current to the servos.
 The picture below describes the pinout of the Servo driver.
 
 <div class="thumb center h350">
-![](/assets/img/core2-hardware/servo_driver.png)
+![](/assets/img/external-modules/servo_driver.png)
 </div>
 
 ## First run ##
@@ -64,7 +246,7 @@ Bellow schematic and source code shows you how to connect [Sharp GP2Y0A41SK0F](h
 
 <div class="thumb center h200">
 
-![](/assets/img/core2-hardware/sharp.svg)
+![](/assets/img/external-modules/sharp.svg)
 
 </div>
 
@@ -85,12 +267,14 @@ while (true) {
 
 ***
 
-# MPU9250 inertial mesurement unit #
+# MPU-9250 inertial mesurement unit #
 
-MPU9250 is a nine-axis (gyro, accelerometer, compass) inertial measuerement unit useful in a large variety of applications, e.g. drones. Below image and sample code will help you start using this awesome sensor!
+MPU-9250 is a nine-axis (gyro, accelerometer, compass) inertial measuerement unit useful in a large variety of applications, e.g. drones. Below image will help you start using this awesome sensor!
 
 <div class="thumb center h200">
 
-![](/assets/img/core2-hardware/mpu9250.svg)
+![](/assets/img/external-modules/mpu9250.svg)
 
 </div>
+
+The example firmware using MPU-9250 is available as a template from Husarion Cloud.
