@@ -8,7 +8,7 @@ page: 'Manuals'
 onepager: true
 ---
 
-*External modules*
+**External modules**
 
 This section will show you how to connect and use different types of external hardware modules with CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. The following examples will help you connect not only the modules made by Husarion but also the third-party drivers, sensors etc.
 
@@ -30,7 +30,7 @@ Set contains:
  * 4 cables for connecting Makeblock DC motors (with encoder) to the Husarion CORE2 controller (4x 30cm)
  * 2 cables for connecting Makeblock DC motors (without encoder) to the Husarion CORE2 controller (2x 30cm)
  * hBatteryPack - a battery pack for 3x18650 Li-Ion batteries (batteries not included)
- * 2 acrylic plates for CORE2 and battery pack that link them with Makeblocks mechanical parts
+ * 2 acrylic plates + set of screws, that link CORE2 and hBatteryPack with Makeblock mechanical parts
  
 ## Sensor adapter ##
 
@@ -38,9 +38,9 @@ Sensor adapters consist of:
  * 6 PCB's which connects to CORE2 from one side, and to the Makeblock sensors from the other side. 
  * 6 ribbon cables to connect CORE2 hSensors with adapter PCBs.
 
- The connectors used with CORE2 are shrouded box headers: 2×3-Pin, 0.1" (2.54 mm), male, mating with IDC 0.50" pitch ribbon cables. We use Amphenol T821106A1S100CEU or compatible. On the "Makeblock side" a 6P6C sockets are used to work with 6P6C crimped connectors, similar to the telephone jacks. In the Makeblock documentation they are called "RJ25". We use Molex 95501-2661 or compatible.
+The connectors used with CORE2 are shrouded box headers: 2×3-Pin, 0.1" (2.54 mm), male, mating with IDC 0.50" pitch ribbon cables. We use Amphenol T821106A1S100CEU or compatible. On the "Makeblock side" a 6P6C sockets are used to work with 6P6C crimped connectors, similar to the telephone jacks. In the Makeblock documentation they are called "RJ25". We use Molex 95501-2661 or compatible.
 
- Adapter PCBs that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
+Adapter PCBs that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
 
 <div class="thumb center h350">
 ![](/assets/img/external-modules/core2block-schematic.png)
@@ -51,7 +51,7 @@ Important: the Makeblock documentation shows a different, non-standard pin order
 On the bottom side of PCB you can find jumpers for configuring the adapter connections. They are needed for interfacing CORE2 with different Makeblock sensors. The photo below shows the jumper position on PCB:
 
 <div class="thumb center h350">
-![](/assets/img/external-modules/jumpers.png)
+![](/assets/img/external-modules/jumpers.jpg)
 </div>
 
 And this table should be helpful for you:
@@ -200,8 +200,19 @@ And this table should be helpful for you:
 ## Motor adapter ##
 
 A simple, 6-wire cable with different connectors on both sides:
- * On the CORE2 side, there is a black, 6-pin, female, wire-to-board connector with 2.54mm pitch.
- * On the Makeblock motor side, there is a similar connector, but white, with 2mm pitch and polarization keys.
+ * On the CORE2 side, there is a **black**, 6-pin, female, wire-to-board connector with 2.54mm pitch.
+ * On the Makeblock motor side, there is a similar connector, but **white**, with 2mm pitch and polarization keys.
+
+**Black** connectors:
+ * Harwin M20-1060600 housing with Harwin M20-1160046 crimp contacts
+ * Molex 50-57-9006 (70066-0005) housing with Molex 0016020xxx 70058 crimp contacts
+ * Amphenol (former FCI) 65039-031LF housing with 47649-000LF or 47565-002LF crimp contacts
+ * TE connectivity 104439-5 housing with 181270-1 crimp contacts
+And many other manufacturers. These connectors are commonly known as "Dupont".
+ 
+**White** connectors:
+ * JST PHR-6 housing with SPH-001T-P0.5S crimp contacts
+There are also other manufacturers.
  
 Caution! The cable doesn't have any polarization key on the 2.54 (black) connector. Please make sure that you connect it in correct orientation.
 
@@ -216,6 +227,18 @@ The motor adapter allows to use the following Makeblock motors:
  * Optical Encoder Motor-25 9V/185RPM
  * Optical Encoder Motor-25 9V/86RPM
 Of course, if you can deal with soldering custom connectors, you will be able to use other motors as well.
+
+## hBatteryPack ##
+
+The same which is used in Telepresence robot, ROSbot and CORE2brick kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/external-modules/#external-modules-hbatterypack "hBatteryPack")
+
+## Acrylic plates and screws ##
+
+There are 2 transparent, PMMA plates with holes. The hole spacing is 8mm to make them compatible with LEGO® Mindstorms and Makeblock mechanics. 
+
+The bigger board is prepared for assembling with CORE2, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach CORE2.
+
+The smaller board is prepared for assembling with hBatteryPack, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach hBatteryPack.
 
 ***
 
