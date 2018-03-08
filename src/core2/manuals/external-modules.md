@@ -34,11 +34,19 @@ Set contains:
  
 ## Sensor adapter ##
 
-The PCB contains 6 adapters that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
+Sensor adapters consist of:
+ * 6 PCB's which connects to CORE2 from one side, and to the Makeblock sensors from the other side. 
+ * 6 ribbon cables to connect CORE2 hSensors with adapter PCBs.
+
+ The connectors used with CORE2 are shrouded box headers: 2×3-Pin, 0.1" (2.54 mm), male, mating with IDC 0.50" pitch ribbon cables. We use Amphenol T821106A1S100CEU or compatible. On the "Makeblock side" a 6P6C sockets are used to work with 6P6C crimped connectors, similar to the telephone jacks. In the Makeblock documentation they are called "RJ25". We use Molex 95501-2661 or compatible.
+
+ Adapter PCBs that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
 
 <div class="thumb center h350">
 ![](/assets/img/external-modules/core2block-schematic.png)
 </div>
+
+Important: the Makeblock documentation shows a different, non-standard pin order for 6P6C (RJ25) connector. We follow the order used by Molex and FCI connector manufacturers, and also by LEGO® in their Mindstorms kits.
 
 On the bottom side of PCB you can find jumpers for configuring the adapter connections. They are needed for interfacing CORE2 with different Makeblock sensors. The photo below shows the jumper position on PCB:
 
@@ -191,9 +199,23 @@ And this table should be helpful for you:
 
 ## Motor adapter ##
 
-The motor adapter allows to use the following motors:
- * DC Motor-25 9V/700RPM
+A simple, 6-wire cable with different connectors on both sides:
+ * On the CORE2 side, there is a black, 6-pin, female, wire-to-board connector with 2.54mm pitch.
+ * On the Makeblock motor side, there is a similar connector, but white, with 2mm pitch and polarization keys.
  
+Caution! The cable doesn't have any polarization key on the 2.54 (black) connector. Please make sure that you connect it in correct orientation.
+
+The motor adapter allows to use the following Makeblock motors:
+ * DC Motor-25 9V/700RPM
+ * DC Motor-37 12V/200RPM
+ * DC Motor-37 12V/50RPM
+ * 36 DC Geared Motor 12V 240RPM
+ * Mini Metal Gear Motor – N20 DC 12V
+ * DC Encoder Motor – 25 6V/185RPM
+ * 180 Optical Encoder Motor
+ * Optical Encoder Motor-25 9V/185RPM
+ * Optical Encoder Motor-25 9V/86RPM
+Of course, if you can deal with soldering custom connectors, you will be able to use other motors as well.
 
 ***
 
