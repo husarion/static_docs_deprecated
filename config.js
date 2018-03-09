@@ -51,7 +51,15 @@ config.pages = {
             title: 'ROSbot manual'
         }
     },
-
+	
+	'core2/manuals/husarion-add-ons': {
+        pattern: 'core2/manuals/husarion-add-ons.md',
+        metadata: {
+            page: 'Manuals',
+            title: 'Husarion add-ons'
+        }
+    },
+	
 	'core2/manuals/external-modules': {
         pattern: 'core2/manuals/external-modules.md',
         metadata: {
