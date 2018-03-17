@@ -90,7 +90,7 @@ Now your device is ready to using Husarnet properly.
 
 ## Using Husarnet with the Cloud ##
 
-Now we will show you example of using Husarnet. We will create network with Virtual Machine (hostname ubuntu-vm), CORE2ROS(hostname-core2ros-1724) and smartphone(hostname smartphone). 
+Now we will show you example of using Husarnet. We will create network with Virtual Machine (hostname ubuntu-vm), CORE2ROS(hostname-core2ros) and smartphone(hostname smartphone). 
 After adding all three device to your Virtual Robot following to the above instructions, your network should look like this:
 
 ![image](/assets/img/husarnet/husarnet_5.png)
