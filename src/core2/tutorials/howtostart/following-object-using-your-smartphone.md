@@ -418,14 +418,17 @@ int main(int argc, char **argv) {
 ```
 
 Now change number "1" to your object number in line number 7:
-`
+
+```
 #define OBJECT 1
-` 
+```
 
 Go to your workspace directory one more time and build your new node:
 
-`cd ~/ros_workspace`
-`catkin_make`
+```
+cd ~/ros_workspace
+catkin_make
+```
 
 [obraz dla wyniku catkin_make z node object_follower]
 
