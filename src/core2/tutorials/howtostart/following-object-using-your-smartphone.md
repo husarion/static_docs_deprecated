@@ -22,8 +22,8 @@ Before you start using Husarnet you have to configure network settings of your d
 1. Install the application hNode straight from Google Play or from <a href="https://play.google.com/store/apps/details?id=com.husarion.node">link</a>.
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/node_1.png" width="40%" height="40%"/></center></div>
 2. Start the application and click on the icon in upper right corner. Then choose "Pair with cloud".
-![image](/assets/img/husarnet/node_2.png)
-![image](/assets/img/husarnet/node_3.png)
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/node_2.png" width="40%" height="40%"/></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/node_3.png" width="40%" height="40%"/></center></div>
 3. Now go to cloud.husarion.com and log in next click "Add new" button. Then enter device name and choose "Next".
 [Obraz z cloud nakierowany na "Add new"]
 4. Go back to mobile application, click on "SCAN QR CODE" and scan code from website.
