@@ -9,7 +9,20 @@ order: 9
 
 # Following object using your smartphone #
 
-Husarnet is a P2P, VPN network dedicated for robotics. Thanks to Husarnet you can connect your robots, server and laptop in a single network that is independent from any external infrastructure. All trafic goes directrly between your robots. A single Husarnet network is called "Virtual Robot". Virtual Robot can be combined of one, or a few robots, your laptop running user interface and a server processing navigation algorithm for all robots at once. You are no longer limited by processing power of your robot. You no longer need to care about how to create your robot swarm. Husarnet does it for you.
+In this tutorial you will learn how to use your smartphone sensors in your robotic design. Husarion created hNode Android app (https://play.google.com/store/apps/details?id=com.husarion.node) that provide smartphone sensors for the robotic system as ROS nodes. Typical smarthone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphone are currently so common, that in many cases it's cheaper to use a smartphone than buying dedicated sensors for your robot.
+
+As a simple example to show you how to use it, and let you kickstart with your own projec, we described a robot that autonomously follows any object. 
+
+## Architecture of the system ##
+
+The robotic system consists of:
+1.  a simple mobile robot platform using DC motors with quadrature encoders. We built it based on CORE2-ROS controller (https://husarion.com/core2/manuals/core2/) and LEGO Mindstorms mobile platform. But you can build any other mechanics, or buy ready to use like https://www.sparkfun.com/products/10336 .
+2. smartphone running hNode app (https://play.google.com/store/apps/details?id=com.husarion.node)
+3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine
+
+Robot, smarthone and laptop are connected using a Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different network, they always know address of each other, and communication between robotic components is very fast, without any external servers etc. You can threat a Virtual Robot as a single robot with internet disrtributed components.
+
+A CORE2-ROS computer has enough computing power to perform robot operation. Laptop is used only to show you that you are no limited to computing power inside your robot.
 
 ## Configuration of the network ##
 
