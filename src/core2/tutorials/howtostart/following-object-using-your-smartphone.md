@@ -220,13 +220,17 @@ void hMain()
 
 Now open terminal on your ROS_MASTER device and run:
 
-```roscore```
+```
+roscore
+```
 
 ![image](/assets/img/husarnet/console_1.png)
 
 In second one connect yourself with CORE2-ROS by ssh. Use
 
-```ssh yourCORE2ROShostname```
+```
+ssh yourCORE2ROShostname
+```
 
 then answer `yes` and type password. You will see Husarion graphic, it's mean that you are connected to CORE2-ROS terminal. Type:
 
