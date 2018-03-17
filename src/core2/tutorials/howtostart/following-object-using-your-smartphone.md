@@ -39,9 +39,9 @@ If you are using CORE2_ROS or Husarion VM image you can simple open console and 
 ```
 sudo husarnet websetup
 ```
-![image](/assets/img/husarnet/cosnole_6.png)
+![image](/assets/img/husarnet/console_6.png)
 and copy the URL to your browser. When the website will appear, type hostname for your device and chose which Virtual Robot should join.
-![image](/assets/img/husarnet/husarnet_2.png)
+![image](/assets/img/husarnet/husarnet_3.png)
 Otherwise you have to install and configure your device according to the instructions below:
 
 1. First upgrade your system:
@@ -109,7 +109,7 @@ to communicate with device.
 
 You must choose which device will be ROS_MASTER. You can do it by expanding the bar below the list of devices connected to the network and clicking set. In my network it will be laptop with Ubuntu image running on Virtual Machine. 
 
-![image](/assets/img/husarnet/husarnet_6.png)
+![image](/assets/img/husarnet/husarnet_7.png)
 
 On start we have to program our CORE2-ROS with this code using Husarion cloud or VS Code:
 
