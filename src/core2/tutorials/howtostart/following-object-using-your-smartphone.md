@@ -32,7 +32,7 @@ Before you start using Husarnet you have to configure network settings of your d
 5. The device should already appear in the cloud.
 ![image](/assets/img/husarnet/husarnet_9.png)
 
-### COnnection guide for any Linux device ###
+### Connection guide for any Linux device ###
 
 If you are using CORE2_ROS or Husarion VM image you can simple open console and run:
 
