@@ -39,9 +39,12 @@ If you are using CORE2_ROS or Husarion VM image you can simple open console and 
 ```
 sudo husarnet websetup
 ```
+
 ![image](/assets/img/husarnet/console_6.png)
+
 and copy the URL to your browser. When the website will appear, type hostname for your device and chose which Virtual Robot should join.
 ![image](/assets/img/husarnet/husarnet_3.png)
+
 Otherwise you have to install and configure your device according to the instructions below:
 
 1. First upgrade your system:
@@ -59,9 +62,11 @@ sudo apt-get install -y husarnet
 sudo systemctl start husarnet
 ```
 3. Link Husarnet to your account. Open console and run:
+
 ```
 sudo husarnet websetup
 ```
+
 and copy the URL to your browser. Then fallow the instructions from website as in the case of CORE2ROS and Husarion VM image described at the beginning of the chapter.
 
 4. Open file .bashrc in your favorite text editor for example:
@@ -239,7 +244,7 @@ then answer `yes` and type password. You will see Husarion graphic, it's mean th
 Next type:
 
 ```
-/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2`
+/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
 ```
  
 to start communication between CORE2 and linux SBC. You will see the list of publishers and subscribers. 
