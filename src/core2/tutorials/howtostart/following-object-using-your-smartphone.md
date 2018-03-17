@@ -28,6 +28,7 @@ Before you start using Husarnet you have to configure network settings of your d
 ![image](/assets/img/husarnet/husarnet_10.png)
 4. Go back to mobile application, click on "SCAN QR CODE" and scan code from website.
 ![image](/assets/img/husarnet/husarnet_8.png)
+![image](/assets/img/husarnet/husarnet_11.png)
 5. The device should already appear in the cloud.
 ![image](/assets/img/husarnet/husarnet_9.png)
 
