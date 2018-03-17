@@ -237,7 +237,7 @@ In second one connect yourself with CORE2-ROS by ssh. Use
 ssh yourCORE2ROShostname
 ```
 
-then answer `yes` and type password. You will see Husarion graphic, it's mean that you are connected to CORE2-ROS terminal. Type:
+then answer `yes` and type password. You will see Husarion graphic, it's mean that you are connected to CORE2-ROS terminal.
 
 ![image](/assets/img/husarnet/console_2.png)
 
