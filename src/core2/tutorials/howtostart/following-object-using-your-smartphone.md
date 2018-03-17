@@ -25,11 +25,11 @@ Before you start using Husarnet you have to configure network settings of your d
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/node_2.png" width="40%" height="40%"/></center></div>
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/node_3.png" width="40%" height="40%"/></center></div>
 3. Now go to cloud.husarion.com and log in next click "Add new" button. Then enter device name and choose "Next".
-[Obraz z cloud nakierowany na "Add new"]
+![image](/assets/img/husarnet/husarnet_10.png)
 4. Go back to mobile application, click on "SCAN QR CODE" and scan code from website.
-[Obraz z cloud z kodem QR]
+![image](/assets/img/husarnet/husarnet_8.png)
 5. The device should already appear in the cloud.
-[Obraz urz¹dzenia] 
+![image](/assets/img/husarnet/husarnet_9.png)
 
 ### COnnection guide for any Linux device ###
 
@@ -38,9 +38,9 @@ If you are using CORE2_ROS or Husarion VM image you can simple open console and 
 ```
 sudo husarnet websetup
 ```
-[Obraz z wyœwietlonym w konsoli linkiem do parowania]
+![image](/assets/img/husarnet/cosnole_6.png)
 and copy the URL to your browser. When the website will appear, type hostname for your device and chose which Virtual Robot should join.
-[obraz z okna pod³¹czania robota w cloud]
+![image](/assets/img/husarnet/husarnet_2.png)
 Otherwise you have to install and configure your device according to the instructions below:
 
 1. First upgrade your system:
