@@ -9,16 +9,16 @@ order: 9
 
 # Following object using your smartphone #
 
-In this tutorial you will learn how to use your smartphone sensors in your robotic design. Husarion created hNode Android app (https://play.google.com/store/apps/details?id=com.husarion.node) that provide smartphone sensors for the robotic system as ROS nodes. Typical smarthone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphone are currently so common, that in many cases it's cheaper to use a smartphone than buying dedicated sensors for your robot.
+In this tutorial you will learn how to use your smartphone sensors in your robotic design. Husarion created <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> that provide smartphone sensors for the robotic system as ROS nodes. Typical smarthone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphone are currently so common, that in many cases it's cheaper to use a smartphone than buying dedicated sensors for your robot.
 
 As a simple example to show you how to use it, and let you kickstart with your own projec, we described a robot that autonomously follows any object. 
 
 ## Architecture of the system ##
 
 The robotic system consists of:
-1.  a simple mobile robot platform using DC motors with quadrature encoders. We built it based on CORE2-ROS controller (https://husarion.com/core2/manuals/core2/) and LEGO Mindstorms mobile platform. But you can build any other mechanics, or buy ready to use like https://www.sparkfun.com/products/10336 .
-2. smartphone running hNode app (https://play.google.com/store/apps/details?id=com.husarion.node)
-3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine
+1.  a simple mobile robot platform using DC motors with quadrature encoders. We built it based on <a href="https://husarion.com/core2/manuals/core2/">CORE2-ROS controller</a> and LEGO Mindstorms mobile platform. But you can build any other mechanics, or buy ready to use like <a href="https://www.sparkfun.com/products/10336">this</a> .
+2. smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
+3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
 
 Robot, smarthone and laptop are connected using a Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different network, they always know address of each other, and communication between robotic components is very fast, without any external servers etc. You can threat a Virtual Robot as a single robot with internet disrtributed components.
 
