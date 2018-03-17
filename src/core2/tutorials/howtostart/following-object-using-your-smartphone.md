@@ -61,9 +61,7 @@ sudo systemctl start husarnet
 ```
 sudo husarnet websetup
 ```
-and copy the URL to your browser. Then fallow the instructions from website.
-
-[obrazek lub istrukcja na stronie]
+and copy the URL to your browser. Then fallow the instructions from website as in the case of CORE2ROS and Husarion VM image described at the beginning of the chapter.
 
 4. Open file .bashrc in your favorite text editor for example:
 ```
