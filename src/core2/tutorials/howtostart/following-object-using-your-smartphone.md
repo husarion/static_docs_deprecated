@@ -7,7 +7,7 @@ page: 'Tutorials'
 order: 9
 ---
 
-# Husarnet tutorial #
+# Following object using your smartphone #
 
 Husarnet is a P2P, VPN network dedicated for robotics. Thanks to Husarnet you can connect your robots, server and laptop in a single network that is independent from any external infrastructure. All trafic goes directrly between your robots. A single Husarnet network is called "Virtual Robot". Virtual Robot can be combined of one, or a few robots, your laptop running user interface and a server processing navigation algorithm for all robots at once. You are no longer limited by processing power of your robot. You no longer need to care about how to create your robot swarm. Husarnet does it for you.
 
@@ -20,7 +20,7 @@ Before you start using Husarnet you have to configure network settings of your d
 [Logo aplikacji]
 
 1. Install the application hNode straight from Google Play or from <a href="https://play.google.com/store/apps/details?id=com.husarion.node">link</a>.
-[widok g³ownego widoku aplikacji]
+[widok gÂ³ownego widoku aplikacji]
 2. Start the application and click on the icon in upper right corner. Then choose "Pair with cloud".
 [Zrzut z ekranu aplikacji, na okno wybierania metody parowania] 
 3. Now go to cloud.husarion.com and log in next click "Add new" button. Then enter device name and choose "Next".
@@ -28,7 +28,7 @@ Before you start using Husarnet you have to configure network settings of your d
 4. Go back to mobile application, click on "SCAN QR CODE" and scan code from website.
 [Obraz z cloud z kodem QR]
 5. The device should already appear in the cloud.
-[Obraz urz¹dzenia] 
+[Obraz urzÂ¹dzenia] 
 
 ### COnnection guide for any Linux device ###
 
@@ -37,9 +37,9 @@ If you are using CORE2_ROS or Husarion VM image you can simple open console and 
 ```
 sudo husarnet websetup
 ```
-[Obraz z wyœwietlonym w konsoli linkiem do parowania]
+[Obraz z wyÅ“wietlonym w konsoli linkiem do parowania]
 and copy the URL to your browser. When the website will appear, type hostname for your device and chose which Virtual Robot should join.
-[obraz z okna pod³¹czania robota w cloud]
+[obraz z okna podÂ³Â¹czania robota w cloud]
 Otherwise you have to install and configure your device according to the instructions below:
 
 1. First upgrade your system:
@@ -92,7 +92,7 @@ Now your device is ready to using Husarnet properly.
 Now we will show you example of using Husarnet. We will create network with Virtual Machine (hostname ubuntu-vm), CORE2ROS(hostname-core2ros-1724) and smartphone(hostname smartphone). 
 After adding all three device to your Virtual Robot following to the above instructions, your network should look like this:
 
-[Obraz gotowej do u¿ycia sieci]
+[Obraz gotowej do uÂ¿ycia sieci]
 
 TIP: Now you can use:
 
@@ -222,7 +222,7 @@ Now open terminal on your ROS_MASTER device and run:
 
 ```roscore```
 
-[Obraz wywo³ania `roscore` z terminala]
+[Obraz wywoÂ³ania `roscore` z terminala]
 
 In second one connect yourself with CORE2-ROS by ssh. Use
 
@@ -230,7 +230,7 @@ In second one connect yourself with CORE2-ROS by ssh. Use
 
 then answer `yes` and type password. You will see Husarion graphic, it's mean that you are connected to CORE2-ROS terminal. Type:
 
-[Obraz z ³¹czenia siê z CORE2ROS]
+[Obraz z Â³Â¹czenia siÃª z CORE2ROS]
 
 Next type:
 
@@ -240,7 +240,7 @@ Next type:
  
 to start communication between CORE2 and linux SBC. You will see the list of publishers and subscribers. 
 
-[obraz pokazuj¹cy wynik komendy /opt/...]
+[obraz pokazujÂ¹cy wynik komendy /opt/...]
 
 Now we will transport video stream to our local topic to make more conveniente to use it. Open new tab in your terminal and type:
 
@@ -461,7 +461,7 @@ cd ~/Desktop
 roslaunch find.launch
 ```
 
-[obraz z wywo³anym plikem .launch]
+[obraz z wywoÂ³anym plikem .launch]
 
 You will see find_object_2d GUI with your saved object.
 
