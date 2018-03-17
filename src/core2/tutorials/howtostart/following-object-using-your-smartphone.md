@@ -20,9 +20,10 @@ Before you start using Husarnet you have to configure network settings of your d
 [Logo aplikacji]
 
 1. Install the application hNode straight from Google Play or from <a href="https://play.google.com/store/apps/details?id=com.husarion.node">link</a>.
-[widok g³ownego widoku aplikacji]
+![image](/assets/img/husarnet/node_1)
 2. Start the application and click on the icon in upper right corner. Then choose "Pair with cloud".
-[Zrzut z ekranu aplikacji, na okno wybierania metody parowania] 
+![image](/assets/img/husarnet/node_2)
+![image](/assets/img/husarnet/node_3)
 3. Now go to cloud.husarion.com and log in next click "Add new" button. Then enter device name and choose "Next".
 [Obraz z cloud nakierowany na "Add new"]
 4. Go back to mobile application, click on "SCAN QR CODE" and scan code from website.
@@ -92,7 +93,7 @@ Now your device is ready to using Husarnet properly.
 Now we will show you example of using Husarnet. We will create network with Virtual Machine (hostname ubuntu-vm), CORE2ROS(hostname-core2ros-1724) and smartphone(hostname smartphone). 
 After adding all three device to your Virtual Robot following to the above instructions, your network should look like this:
 
-[Obraz gotowej do u¿ycia sieci]
+![image](/assets/img/husarnet/husarnet_5)
 
 TIP: Now you can use:
 
@@ -109,7 +110,7 @@ to communicate with device.
 
 You must choose which device will be ROS_MASTER. You can do it by expanding the bar below the list of devices connected to the network and clicking set. In my network it will be laptop with Ubuntu image running on Virtual Machine. 
 
-[obraz z rozwijania panelu ROS_Master]
+![image](/assets/img/husarnet/husarnet_6)
 
 On start we have to program our CORE2-ROS with this code using Husarion cloud or VS Code:
 
@@ -222,7 +223,7 @@ Now open terminal on your ROS_MASTER device and run:
 
 ```roscore```
 
-[Obraz wywo³ania `roscore` z terminala]
+![image](/assets/img/husarnet/console_1)
 
 In second one connect yourself with CORE2-ROS by ssh. Use
 
@@ -230,7 +231,7 @@ In second one connect yourself with CORE2-ROS by ssh. Use
 
 then answer `yes` and type password. You will see Husarion graphic, it's mean that you are connected to CORE2-ROS terminal. Type:
 
-[Obraz z ³¹czenia siê z CORE2ROS]
+![image](/assets/img/husarnet/console_2)
 
 Next type:
 
@@ -257,7 +258,7 @@ cd ~/ros_workspace/src
 catkin_init_workspace
 cd ~/ros_workspace
 catkin_make
-```~
+```
 Waite until finish. You should see:
 
 [obraz wyniku catkin_make]
