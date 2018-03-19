@@ -211,6 +211,7 @@ target_link_libraries(object_follower
   ${OpenCV_LIBRARIES}
 )
 ```
+Save changes in CMakeList.txt .
 
 ## Setting up object recognition ##
 
