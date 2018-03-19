@@ -299,22 +299,3 @@ You will see find_object_2d GUI with your saved object.
 Place saved object in the field of view of the smartphone camera and observe the behaviour of your robot.
 
 After robot has recognized the object, it will follow it, as you can see on video below:
-
-
-## Additional tips ##
-
-If you want to use camera image from your smartphone, just install compressed image transport:
-
-```apt-get install -y ros-kinetic-compressed-image-transport```
-
-To view image from the camera locally, use:
-
-```rosrun image_view image_view image:=/yourphonehostname/camera0/image _image_transport:=compressed```
-
-Make sure to accept the permission dialog on the device. Use camera1 instead of camera0 to access second camera, if you have one.
-
-If you have some node which can't process compressed image, launch the node that decompresses it locally (republisher):
-
-``` rosrun image_transport republish compressed in:=/yourphonehostname/camera0/image out:=/localimg ```
-
-After that, raw image will be available in `/localimg` channel.
