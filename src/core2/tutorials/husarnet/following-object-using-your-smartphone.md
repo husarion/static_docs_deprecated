@@ -42,18 +42,21 @@ Even tough CORE2-ROS computer has enough computing power to perform robot operat
 To make sure all packets are up to date run the following commands in the terminal inside virtual machine:
 
 ```
->sudo apt-get update
->sudo apt-get dist-upgrade
+sudo apt-get update
+```
+
+```
+sudo apt-get dist-upgrade
 ```
 
 2. Run the virutal machine, open a terminal inside of it, and type in the following command:
-`sudo husarnet websetup`
+```sudo husarnet websetup```
 3. Open a link which will appear in the web browser:
 
 <img src="/assets/img/husarnet/husarnet_websetup.PNG" alt="husarnet websetup" style="border:1px solid LightGray">
     
-4. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section "Join virtual robot" select "None" and click "Add device to your account" button.
-5. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine:
+4. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section **"Join virtual robot"** select **"None"** and click **"Add device to your account"** button.
+5. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine):
 
 <img src="/assets/img/husarnet/cloud_unasigned_vm.PNG" alt="cloud unasigned" style="border:1px solid LightGray">
 
