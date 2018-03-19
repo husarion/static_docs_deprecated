@@ -96,7 +96,7 @@ Open a terminal inside CORE2-ROS (host: core2-robot) or a virtual machine (host:
 
 On start we have to program the CORE2-ROS using the following code. Web IDE in cloud.husarion.com or Visual Studio Code with Husarion extension is recommended to do that.
 
-<script src="https://gist.github.com/DominikN/2d07b385c6f9ed20339dc924a4be5fe1.js"></script>
+<script src="https://gist.github.com/DominikN/2d07b385c6f9ed20339dc924a4be5fe1.js?file=gist.md"></script>
 
 ## Setup ROS workspace inside the virtual machine ##
 
