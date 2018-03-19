@@ -231,7 +231,7 @@ Open new tab in the terminal inside your virtual machine (ubuntu-vm) and type (i
 ```cd ~/Desktop```
 ```roslaunch find.launch```
 3. A new window with "Find-Object" program will appear. Click Edit -> Add object from scene... , place the object you want the robot to learn in front of your smartphones camera  and click "Take picture" button.
-4. Now select region representing the object and click "Next" button, and then "End" button
+4. Now select th area representing the object and click "Next" button, and then "End" button
 5. ID of your image is shown in the upper-left corner of the learned image (if you do it the first time, the ID should be "1")
 6. Click File -> Save objects ... and save it in the "/home/husarion/ros_workspace/object" folder
 7. Kill *find_object_2d* program using ```rosnode kill /find_object_2d```
