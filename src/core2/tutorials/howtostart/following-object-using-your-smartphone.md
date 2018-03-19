@@ -32,7 +32,7 @@ A CORE2-ROS computer has enough computing power to perform robot operation. Lapt
 2. Install <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> on your smartphone, open it, click "SCAN QR CODE" button, and scan QR code from your web browser
 3. On your Husarion cloud account you should see:
 
-<img src="/assets/img/husarnet/cloud_unasigned_phone.PNG" alt="unasigned phone" border="1">
+<img src="/assets/img/husarnet/cloud_unasigned_phone.PNG" alt="unasigned phone" style="border:1px solid LightGray">
 
 
 ### b. virtual machine running Linux ###
