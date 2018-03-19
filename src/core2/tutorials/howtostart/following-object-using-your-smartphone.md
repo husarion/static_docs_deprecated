@@ -76,19 +76,12 @@ If you would like to connect any Linux machine here is the manual: https://todo
 ## Create a Virtual Robot ##
 
 1. Click "Edit" button next to "ubuntu-vm" and select "Link to virtual robot". Select "Create new virtual robot" and choose a name, eg. "myVirtualRobot"
-
 <img src="/assets/img/husarnet/virtual_robot.PNG" alt="virtual robot 1" border="1">
-
 2. Click "Add" button and you will see:
-
 <img src="/assets/img/husarnet/virtual_robot2.PNG" alt="virtual robot 2" border="1">
-
 3. Now click "Add component" and add your smartphone and robot to a "myVirtualRobot". When work will be done you will see:
-
 <img src="/assets/img/husarnet/virtual_robot3.PNG" alt="virtual robot 3" border="1">
-
 4. Now select which of the virtual robot components will run "ROS master" node ('roscore' command). In this project "ubuntu-vm" runs ROS master:
-
 ![image](/assets/img/husarnet/husarnet_7.png)
 
 ## How to communicate between Virtual Robot elements ##
