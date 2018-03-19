@@ -94,8 +94,10 @@ If you would like to connect any Linux machine here is the manual: https://todo
 ## How to communicate between Virtual Robot elements ##
 
 Open a terminal inside CORE2-ROS (host: core2-robot) or a virtual machine (host: ubuntu-vm) and type:
-`ping6 hostname` - ping other device inside a virtual robot 
-`ssh hostname` - SSH other device inside a virtual robot
+
+* `ping6 hostname` - ping other device inside a virtual robot 
+
+* `ssh hostname` - SSH other device inside a virtual robot
 
 ## Program CORE2-ROS ##
 
