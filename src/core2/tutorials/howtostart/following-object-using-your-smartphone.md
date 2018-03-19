@@ -43,7 +43,7 @@ A CORE2-ROS computer has enough computing power to perform robot operation. Lapt
 2. Run that virutal machine, open a terminal inside, and type:
 `sudo husarnet websetup`
 3. open a link that will appear in the web browser:
-![Alt text](./husarnet_websetup.PNG)
+![Alt text](/assets/img/husarnet/husarnet_websetup.PNG)
 4. you will see a web panel. Then choose a name for your virtual machine, eg. "ubuntu-vm". In section "Join virtual robot" select "None" and click "Add device to your account" button.
 5. Now on you Husarion cloud account you should see two unasigned elements:
 ![Alt text](/assets/img/husarnet/cloud_unasigned_vm.PNG)
