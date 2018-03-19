@@ -10,7 +10,7 @@ config.pages = {
         }
     },
 	
-    'core2/tutorials/Husarnet': {
+    'core2/tutorials/husarnet': {
         pattern: 'core2/tutorials/husarnet/*.md',
         sortBy: 'order',
         metadata: {
