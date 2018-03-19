@@ -126,12 +126,6 @@ Next type:
  
 to start communication between CORE2 and linux SBC. You will see the list of publishers and subscribers. 
 
-[obraz pokazuj¹cy wynik komendy /opt/...]
-
-Now we will transport video stream to our local topic to make more conveniente to use it. Open new tab in your terminal and type:
-
-`rosrun image_transport republish compressed in:=/yourphonehostname/camera1/image out:=/localimg`
-
 You have to create your own ROS node. The full instruction of creating workspace and nodes and all explanations you can find <a href="https://husarion.com/core2/tutorials/ros-tutorials/2-creating-nodes/">here</a>. 
 
 Open console on device you want to create workspace and type:
@@ -213,7 +207,36 @@ target_link_libraries(object_follower
 )
 ```
 
-Now you have to add some object to detect. The manual how to save objects from scene you can find <a href="https://husarion.com/core2/tutorials/ros-tutorials/4-visual-object-recognition/">here</a>.
+## Setup object recognition ##
+
+### a. stream video to "/localimg" topic ###
+Open new tab in a terminal inside your virtual machine (ubuntu-vm) and type (if your host name for smarthpone is "myphone1"):
+
+`rosrun image_transport republish compressed in:=/myphone1/camera1/image out:=/localimg`
+
+### b. learn object that will be followed by the robot ###
+
+1. create a file "find.launch" on the Desktop at ubuntu-vm machine and paste the following code to it:
+```
+<launch>
+    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+        <remap from="image" to="/localimg"/>
+        <param name="gui" value="true"/>
+    </node>
+</launch>
+```
+2. open a new tab in the terminal at ubuntu-vm and run "find.launch" file:
+`cd ~/Desktop`
+`roslaunch find.launch`
+3. a new window with "Find-Object" program will appear. Click Edit -> Add object from scene... , place and object you want to recognise and click "Take picture" button.
+4. now select region representing the object and click "Next" button, and then "End" button
+5. ID of your image is shown in the left-upper corner of the learned image (if you do this the first tide ID should be "1")
+6. click File -> Save objects ... and save it in the `/home/husarion/ros_workspace/object` folder
+7. kill *find_object_2d* program by `rosnode kill /find_object_2d`
+8. If the above steps weren't clear enough, visit <a href="https://husarion.com/core2/tutorials/ros-tutorials/4-visual-object-recognition/">a tutorial showing in details how to learn new objects</a>.
+
+
+## Run a control code on ubuntu-vm ##
 
 Now create source file for your node:
 
@@ -239,8 +262,6 @@ cd ~/ros_workspace
 catkin_make
 ```
 
-[obraz dla wyniku catkin_make z node object_follower]
-
 Now we will create find.launch file. Type in console:
 
 ```
@@ -248,7 +269,7 @@ cd ~/Desktop
 touch find.launch
 ```
 
-Open file find.launch and paste:
+Modify "find.launch" that previously has been created on the desktop
 
 ```
 <launch>
@@ -258,11 +279,8 @@ Open file find.launch and paste:
         <param name="objects_path" value="/home/husarion/ros_workspace/object" />
     </node>
     
-    <node pkg="tutorial_pkg" type="object_follower" name="object_follower">
-    </node>
-
+    <node pkg="tutorial_pkg" type="object_follower" name="object_follower"></node>
 </launch>
-
 ```
 
 Open new tab in terminal, reach directory of your launch file and type 
@@ -272,19 +290,16 @@ cd ~/Desktop
 roslaunch find.launch
 ```
 
-[obraz z wywo³anym plikem .launch]
-
 You will see find_object_2d GUI with your saved object.
 
-[obraz z GUI ze znalezionym obiektem] 
+## Testing ##
 
-Now you can try put saved object in the field of view of the camera and observe the behaving of your robot.
+Put saved object in the field of view of the smartphone camera and observe the behaving of your robot.
 
-After robot has found the objects, it will follow them, as you can see on video below:
+After robot has found the object, it will follow it, as you can see on video below:
 
-[[[[[video]]]]]
 
-## Camera support ##
+## Additional tips ##
 
 If you want to use camera image from your smartphone, just install compressed image transport:
 
