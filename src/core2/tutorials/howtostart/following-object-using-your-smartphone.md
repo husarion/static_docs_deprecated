@@ -48,12 +48,12 @@ To make sure you have all packet up to date run the following commands in the te
 `sudo husarnet websetup`
 3. open a link that will appear in the web browser:
 
-<img src="/assets/img/husarnet/husarnet_websetup.PNG" alt="husarnet websetup" border="1">
+<img src="/assets/img/husarnet/husarnet_websetup.PNG" alt="husarnet websetup" style="border:1px solid LightGray">
     
 4. you will see a web panel. Then choose a name for your virtual machine, eg. "ubuntu-vm". In section "Join virtual robot" select "None" and click "Add device to your account" button.
 5. Now on your Husarion cloud account you should see two unasigned elements:
 
-<img src="/assets/img/husarnet/cloud_unasigned_vm.PNG" alt="cloud unasigned" border="1">
+<img src="/assets/img/husarnet/cloud_unasigned_vm.PNG" alt="cloud unasigned" style="border:1px solid LightGray">
 
 ```
 Ready to use virual machine is prepared for your convenience. 
@@ -70,17 +70,17 @@ If you would like to connect any Linux machine here is the manual: https://todo
 5. Connect your smartphone to a Wi-Fi network hosted by your CORE2-ROS (password: "husarion") and run hConfig. Wizard will guide you through a configuration process. On the last step you will scan a QR code displayed in the web browser (see step 3.)
 6. After the process you should see a "core2-robot" in your Husarion cloud account:
 
-<img src="/assets/img/husarnet/cloud_robot.PNG" alt="cloud robot" border="1">
+<img src="/assets/img/husarnet/cloud_robot.PNG" alt="cloud robot" style="border:1px solid LightGray">
 
 
 ## Create a Virtual Robot ##
 
 1. Click "Edit" button next to "ubuntu-vm" and select "Link to virtual robot". Select "Create new virtual robot" and choose a name, eg. "myVirtualRobot"
-<img src="/assets/img/husarnet/virtual_robot.PNG" alt="virtual robot 1" border="1">
+<img src="/assets/img/husarnet/virtual_robot.PNG" alt="virtual robot 1" style="border:1px solid LightGray">
 2. Click "Add" button and you will see:
-<img src="/assets/img/husarnet/virtual_robot2.PNG" alt="virtual robot 2" border="1">
+<img src="/assets/img/husarnet/virtual_robot2.PNG" alt="virtual robot 2" style="border:1px solid LightGray">
 3. Now click "Add component" and add your smartphone and robot to a "myVirtualRobot". When work will be done you will see:
-<img src="/assets/img/husarnet/virtual_robot3.PNG" alt="virtual robot 3" border="1">
+<img src="/assets/img/husarnet/virtual_robot3.PNG" alt="virtual robot 3" style="border:1px solid LightGray">
 4. Now select which of the virtual robot components will run "ROS master" node ('roscore' command). In this project "ubuntu-vm" runs ROS master:
 ![image](/assets/img/husarnet/husarnet_7.png)
 
