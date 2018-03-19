@@ -9,9 +9,9 @@ order: 9
 
 # Following object using your smartphone #
 
-In this tutorial you will learn how to use your smartphone sensors in your robotic design. Husarion created <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> that provide smartphone sensors for the robotic system as ROS nodes. Typical smarthone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphone are currently so common, that in many cases it's cheaper to use a smartphone than buying dedicated sensors for your robot.
+In this tutorial you will learn how to use smartphone sensors in your robotic design. Husarion created <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> that provides smartphone sensors for the robotic system based on ROS. Typical smartphone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphone are currently so common, that in many cases it's cheaper to use them, than buying dedicated sensors for a robot.
 
-As a simple example to show you how to use it, and let you kickstart with your own projec, we described a robot that autonomously follows any object. 
+As a simple example to show you how to use it, and let you kickstart with your own project, we will present a robot that autonomously follows any object. 
 
 ## Architecture of the system ##
 
@@ -31,7 +31,9 @@ A CORE2-ROS computer has enough computing power to perform robot operation. Lapt
 1. Log into <a href="https://cloud.husarion.com">Husarion cloud in the browser</a>, click "Add new", choose a name for your smartphone (eg. "myPhone1"), and click "Next". You will see a QR code.
 2. Install <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> on your smartphone, open it, click "SCAN QR CODE" button, and scan QR code from your web browser
 3. On your Husarion cloud account you should see:
-![Alt text](/assets/img/husarnet/cloud_unasigned_phone.PNG)
+<kbd>
+<img src="/assets/img/husarnet/cloud_unasigned_phone.PNG">
+</kbd>
 
 ### b. virtual machine running Linux ###
 
@@ -45,14 +47,18 @@ To make sure you have all packet up to date run the following commands in the te
 2. Run that virutal machine, open a terminal inside, and type:
 `sudo husarnet websetup`
 3. open a link that will appear in the web browser:
-![Alt text](/assets/img/husarnet/husarnet_websetup.PNG)
+<kbd>
+<img src="/assets/img/husarnet/husarnet_websetup.PNG">
+</kbd>    
 4. you will see a web panel. Then choose a name for your virtual machine, eg. "ubuntu-vm". In section "Join virtual robot" select "None" and click "Add device to your account" button.
-5. Now on you Husarion cloud account you should see two unasigned elements:
-![Alt text](/assets/img/husarnet/cloud_unasigned_vm.PNG)
-
+5. Now on your Husarion cloud account you should see two unasigned elements:
+<kbd>
+<img src="/assets/img/husarnet/cloud_unasigned_vm.PNG">
+</kbd>
 ```
 Ready to use virual machine is prepared for your convenience. 
-**If you would like to connect any Linux machine <a href="https://google.com">here is the manual</a> **
+
+If you would like to connect any Linux machine here is the manual: https://...(todo)...
 ```
 
 ### c. robot based on CORE2-ROS controller ###
@@ -63,17 +69,24 @@ Ready to use virual machine is prepared for your convenience.
 4. Install hConfig - Husarion config app for  <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Android</a> or  <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8">iOS</a> . 
 5. Connect your smartphone to a Wi-Fi network hosted by your CORE2-ROS (password: "husarion") and run hConfig. Wizard will guide you through a configuration process. On the last step you will scan a QR code displayed in the web browser (see step 3.)
 6. After the process you should see a "core2-robot" in your Husarion cloud account:
-![Alt text](/assets/img/husarnet/cloud_robot.PNG)
+<kbd>
+<img src="/assets/img/husarnet/cloud_robot.PNG">
+</kbd>
 
 ## Create a Virtual Robot ##
 
 1. Click "Edit" button next to "ubuntu-vm" and select "Link to virtual robot". Select "Create new virtual robot" and choose a name, eg. "myVirtualRobot"
-![Alt text](/assets/img/husarnet/virtual_robot.PNG)
+<kbd>
+<img src="/assets/img/husarnet/virtual_robot.PNG">
+</kbd>
 2. Click "Add" button and you will see:
-![Alt text](/assets/img/husarnet/virtual_robot2.PNG)
+<kbd>
+<img src="/assets/img/husarnet/virtual_robot2.PNG">
+</kbd>
 3. Now click "Add component" and add your smartphone and robot to a "myVirtualRobot". When work will be done you will see:
-![Alt text](/assets/img/husarnet/virtual_robot3.PNG)
-
+<kbd>
+<img src="/assets/img/husarnet/virtual_robot3.PNG">
+</kbd>
 
 ## Using Husarnet with the Cloud ##
 
