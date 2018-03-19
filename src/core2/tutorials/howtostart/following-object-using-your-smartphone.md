@@ -36,9 +36,11 @@ A CORE2-ROS computer has enough computing power to perform robot operation. Lapt
 ### b. virtual machine running Linux ###
 
 1. Using <a href="https://www.virtualbox.org/">VirtualBox</a> (or other virtual machine hypervisor) open a <a href="https://files.husarion.com/husarion-vm.vmdk.xz">ready to use machine provided by Husarion</a> 
->To make sure you have all packet up to date run the following commands in the terminal inside virtual machine:
-> >sudo apt-get update
-> >sudo apt-get dist-upgrade
+```
+To make sure you have all packet up to date run the following commands in the terminal inside virtual machine:
+>sudo apt-get update
+>sudo apt-get dist-upgrade
+```
 
 2. Run that virutal machine, open a terminal inside, and type:
 `sudo husarnet websetup`
@@ -48,8 +50,10 @@ A CORE2-ROS computer has enough computing power to perform robot operation. Lapt
 5. Now on you Husarion cloud account you should see two unasigned elements:
 ![Alt text](/assets/img/husarnet/cloud_unasigned_vm.PNG)
 
-> Ready to use virual machine is prepared for your convenience. 
-> **If you would like to connect any Linux machine <a href="https://google.com">here is the manual</a> **
+```
+Ready to use virual machine is prepared for your convenience. 
+**If you would like to connect any Linux machine <a href="https://google.com">here is the manual</a> **
+```
 
 ### c. robot based on CORE2-ROS controller ###
 
