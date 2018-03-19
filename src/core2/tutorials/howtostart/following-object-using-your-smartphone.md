@@ -87,32 +87,19 @@ If you would like to connect any Linux machine here is the manual: https://todo
 
 <img src="/assets/img/husarnet/virtual_robot3.PNG" alt="virtual robot 3" border="1">
 
-
-## Using Husarnet with the Cloud ##
-
-Now we will show you example of using Husarnet. We will create network with Virtual Machine (hostname ubuntu-vm), CORE2ROS (hostname-core2ros) and smartphone (hostname smartphone). 
-After adding all three device to your Virtual Robot following to the above instructions, your network should look like this:
-
-![image](/assets/img/husarnet/husarnet_5.png)
-
-TIP: Now you can use:
-
-```
-ping6 hostname
-```
-to ping device, and:
-
-```
-ssh hostname
-```
-to communicate with device.
-
-
-You must choose which device will be ROS_MASTER. You can do it by expanding the bar below the list of devices connected to the network and clicking set. In my network it will be laptop with Ubuntu image running on Virtual Machine. 
+4. Now select which of the virtual robot components will run "ROS master" node ('roscore' command). In this project "ubuntu-vm" runs ROS master:
 
 ![image](/assets/img/husarnet/husarnet_7.png)
 
-On start we have to program our CORE2-ROS with this code using Husarion cloud or VS Code:
+## How to communicate between Virtual Robot elements ##
+
+Open a terminal inside CORE2-ROS (host: core2-robot) or a virtual machine (host: ubuntu-vm) and type:
+`ping6 hostname` - ping other device inside a virtual robot 
+`ssh hostname` - SSH other device inside a virtual robot
+
+## Program CORE2-ROS ##
+
+On start we have to program the CORE2-ROS using the following code. Web IDE in cloud.husarion.com or Visual Studio Code with Husarion extension is recommended to do that.
 
 ```
 #include "hFramework.h"
@@ -218,6 +205,8 @@ void hMain()
 }
 
 ```
+
+## Setup ROS workspace inside the virtual machine ##
 
 Now open terminal on your ROS_MASTER device and run:
 
