@@ -82,7 +82,7 @@ If you would like to connect any Linux machine here is the manual: https://todo
 3. Now click "Add component" and add your smartphone and robot to a "myVirtualRobot". When work will be done you will see:
 <img src="/assets/img/husarnet/virtual_robot3.PNG" alt="virtual robot 3" style="border:1px solid LightGray">
 4. Now select which of the virtual robot components will run "ROS master" node ('roscore' command). In this project "ubuntu-vm" runs ROS master:
-![image](/assets/img/husarnet/husarnet_7.png)
+<img src="/assets/img/husarnet/select-ros-master.png" alt="select ROS master" style="border:1px solid LightGray">
 
 ## How to communicate between Virtual Robot elements ##
 
@@ -226,13 +226,13 @@ Open new tab in a terminal inside your virtual machine (ubuntu-vm) and type (if 
 </launch>
 ```
 2. open a new tab in the terminal at ubuntu-vm and run "find.launch" file:
-`cd ~/Desktop`
-`roslaunch find.launch`
+```cd ~/Desktop```
+```roslaunch find.launch```
 3. a new window with "Find-Object" program will appear. Click Edit -> Add object from scene... , place and object you want to recognise and click "Take picture" button.
 4. now select region representing the object and click "Next" button, and then "End" button
 5. ID of your image is shown in the left-upper corner of the learned image (if you do this the first tide ID should be "1")
-6. click File -> Save objects ... and save it in the `/home/husarion/ros_workspace/object` folder
-7. kill *find_object_2d* program by `rosnode kill /find_object_2d`
+6. click File -> Save objects ... and save it in the "/home/husarion/ros_workspace/object" folder
+7. kill *find_object_2d* program by ```rosnode kill /find_object_2d```
 8. If the above steps weren't clear enough, visit <a href="https://husarion.com/core2/tutorials/ros-tutorials/4-visual-object-recognition/">a tutorial showing in details how to learn new objects</a>.
 
 
