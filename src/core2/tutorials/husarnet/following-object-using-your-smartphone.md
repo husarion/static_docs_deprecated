@@ -148,8 +148,6 @@ catkin_make
 ```
 Wait until the process is finished. You should see the following:
 
-[obraz wyniku catkin_make]
-
 ```
 ####
 #### Running command: "make -j4 -l4" in "/home/pi/ros_workspace/build"
