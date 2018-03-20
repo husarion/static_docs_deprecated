@@ -312,5 +312,4 @@ You will see find_object_2d GUI with your saved object.
 
 Place saved object in the field of view of the smartphone camera and observe the behaviour of your robot.
 
-After robot has recognized the object, it will follow it, as you can see on video below:
 
