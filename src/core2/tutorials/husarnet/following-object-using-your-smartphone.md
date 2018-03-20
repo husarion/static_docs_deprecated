@@ -7,7 +7,7 @@ page: 'Tutorials'
 order: 1
 ---
 
-# Following object using your smartphone #
+# Following an object using your smartphone #
 
 In this tutorial you will learn how to use smartphone sensors in your robotic design. Husarion created <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode Android app</a> which allows using smartphone sensors in the robotic system based on ROS. Typical smartphone contains a camera, distance sensor, microphone, accelerometer, gyro and more. Smartphones are currently so common, that in many cases it's much cheaper to use them instead of buying dedicated sensors for a robot.
 
