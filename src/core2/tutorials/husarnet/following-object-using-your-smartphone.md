@@ -23,7 +23,7 @@ The robotic system consists of:
 2. smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
 3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
 
-Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between them is very fast, without the need of using any external servers etc. You can threat the "Virtual Robot" as a single robot with internet disrtributed components.
+Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between them is very fast, without the need of using any external servers etc. You can treat the "Virtual Robot" as a single robot with internet disrtributed components.
 
 Even tough CORE2-ROS computer has enough computing power to perform robot operation we are using Laptop to show you that you are not limited to the computing power inside the robot itself.
 
@@ -41,8 +41,9 @@ Even tough CORE2-ROS computer has enough computing power to perform robot operat
 ### b. virtual machine running Linux ###
 
 1. Using <a href="https://www.virtualbox.org/">VirtualBox</a> (or other virtual machine hypervisor) open a <a href="https://files.husarion.com/husarion-vm.vmdk.xz">ready to use machine provided by Husarion</a> 
+2. Run the virtual machine.
 
-To make sure all packets are up to date run the following commands in the terminal inside virtual machine:
+3. To make sure all packets are up to date run the following commands in the terminal inside virtual machine:
 
 ```
 sudo apt-get update
@@ -52,27 +53,21 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 ```
 
-2. Run the virutal machine, open a terminal inside of it, and type in the following command:
+4. Run the virutal machine, open a terminal inside of it, and type in the following command:
 ```sudo husarnet websetup```
-3. Open a link which will appear in the web browser:
+5. Open a link which will appear in the web browser:
 
 <img src="/assets/img/husarnet/husarnet_websetup.PNG" alt="husarnet websetup" style="border:1px solid LightGray">
     
-4. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section **"Join virtual robot"** select **"None"** and click **"Add device to your account"** button.
-5. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine):
+6. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section **"Join virtual robot"** select **"None"** and click **"Add device to your account"** button.
+7. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine):
 
 <img src="/assets/img/husarnet/cloud_unasigned_vm.PNG" alt="cloud unasigned" style="border:1px solid LightGray">
-
-```
-Ready to use virual machine is prepared for your convenience. 
-
-If you would like to connect any Linux machine here is the manual: https://todo
-```
 
 ### c. robot based on CORE2-ROS controller ###
 
 1. Install <a href="https://files.husarion.com/ros-image-stable.img.xz">the newest Linux image for CORE2-ROS</a>  on the micro SD card (<a href="https://etcher.io/">Etcher</a> is a great tool to do this). Then put that micro SD card back in your CORE2-ROS single board computer slot.
-2. Click hCfg button and turn CORE2-ROS on. Hold hCfg pressed until LR1 and LR2 will start blinking alternately
+2. Press and hold the hCfg button and turn CORE2-ROS on. Hold hCfg until LR1 and LR2 will start blinking alternately
 3. Log into <a href="https://cloud.husarion.com">Husarion cloud in the web browser</a>, click "Add new", choose a name for your robot (eg. "core2-robot"), and click "Next". You will see a QR code appear.
 4. Install hConfig - Husarion config app for  <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Android</a> or  <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8">iOS</a> . 
 5. Connect your smartphone to a Wi-Fi network hosted by your CORE2-ROS (password: "husarion") and run hConfig. Wizard will guide you through the configuration process. In the last step you will scan a QR code displayed in the web browser (see step 3.)
@@ -122,7 +117,7 @@ In the second terminal connect with CORE2-ROS via ssh. Use
 ssh yourCORE2ROShostname
 ```
 
-then answer `yes` and type password. You will see Husarion graphic appear- it means that you are connected to CORE2-ROS terminal.
+then answer `yes` and type password `husarion`. You will see Husarion graphic appear- it means that you are connected to CORE2-ROS terminal.
 
 ![image](/assets/img/husarnet/console_2.png)
 
@@ -217,7 +212,7 @@ Save changes in CMakeList.txt .
 ## Setting up object recognition ##
 
 ### a. stream video to "/localimg" topic ###
-Open new tab in the terminal inside your virtual machine (ubuntu-vm) and type (if your host name for smarthpone is "myphone1"):
+Open new tab in the terminal inside your virtual machine (ubuntu-vm) and type (if your host name for smarthpone is "**myphone1**"):
 
 `rosrun image_transport republish compressed in:=/myphone1/camera1/image out:=/localimg`
 
