@@ -23,7 +23,7 @@ The robotic system consists of:
 2. smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
 3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
 
-Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between them is very fast, without the need of using any external servers etc. You can treat the "Virtual Robot" as a single robot with internet disrtributed components.
+Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between the devices is very fast, without the need of using any external servers. You can treat the "Virtual Robot" as a single robot with components distributed over the internet.
 
 Even tough CORE2-ROS computer has enough computing power to perform robot operation we are using Laptop to show you that you are not limited to the computing power inside the robot itself.
 
@@ -97,7 +97,7 @@ Open a terminal inside CORE2-ROS (host: core2-robot) or the virtual machine (hos
 
 ## Programing CORE2-ROS ##
 
-First we have to program the CORE2-ROS using the following code. Web IDE at cloud.husarion.com or Visual Studio Code with Husarion extension are recommended for doing that.
+First we have to program the CORE2-ROS using the following code. Web IDE at [cloud.husarion.com](https://cloud.husarion.com) or Visual Studio Code with Husarion extension are recommended for doing that.
 
 <script src="https://gist.github.com/DominikN/2d07b385c6f9ed20339dc924a4be5fe1.js"></script>
 
@@ -117,11 +117,11 @@ In the second terminal connect with CORE2-ROS via ssh. Use
 ssh yourCORE2ROShostname
 ```
 
-then answer `yes` and type password `husarion`. You will see Husarion graphic appear- it means that you are connected to CORE2-ROS terminal.
+then answer `yes` and type password `husarion`. You will see Husarion logo in ASCII-art appear - it's a sign that you are connected to your CORE2-ROS device.
 
 ![image](/assets/img/husarnet/console_2.png)
 
-Next type in:
+Next type:
 
 ```
 /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
@@ -212,7 +212,7 @@ Save changes in CMakeList.txt .
 ## Setting up object recognition ##
 
 ### a. stream video to "/localimg" topic ###
-Open new tab in the terminal inside your virtual machine (ubuntu-vm) and type (if your host name for smarthpone is "**myphone1**"):
+Open a new tab in the terminal inside your virtual machine (ubuntu-vm) and type (if your host name for smarthpone is "**myphone1**"):
 
 `rosrun image_transport republish compressed in:=/myphone1/camera1/image out:=/localimg`
 
