@@ -276,3 +276,38 @@ Each command sent by CORE2 to servo controller contains an address from 0 to 3. 
 ## LED behavior ##
 
 In the current firmware, the LED is turned on if both power supplies (+5V and +Vin) are connected. LED is blinking when servo controller receives commands.
+
+***
+
+# hBatteryPack #
+
+A common part for:
+- CORE2brick
+- [CORE2block](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-core2block-extension-kit "CORE2block")
+- [ROSbot](https://husarion.com/core2/manuals/rosbot-manual/#rosbot-manual-overview "ROSbot")
+- [CORE2 Telepresence robot](https://husarion.com/core2/manuals/telepresence#telepresence-robot-kit-manual-overview "CORE2 Telepresence robot")
+
+Keeps your 18650 batteries together and delivers the sum of their voltage to your CORE2 or other device :)
+
+<div class="thumb center h350">
+![](/assets/img/external-modules/hBatteryPack-overview.jpg)
+</div>
+
+## Compatible batteries ##
+
+hBatteryPack is compatible with all 18650 Li-Ion cells but only the "protected" ones (with an internal protection circuits) can be used. There are two main reasons:
+ * Safety - a protection from a short-circuit condition is essential,
+ * Size - the batteries with protection circuit are a little longer than bare Li-Ion cells, therefore they fit better to the holders and the electrical contact is more reliable.
+
+## Balancer/charger connector ##
+
+The connector type used in hBatteryPack for charging is well-known in a community of RC model makers. It's a 4-pin JST XH connector. The pinout is typical.
+
+## Optional acrylic plate ##
+
+The optional perforated, acrylic board can be used to connect the battery pack to LEGO® bricks:
+
+ <div class="thumb center h350">
+![](/assets/img/external-modules/with_adapter_angle_small.jpg)
+![](/assets/img/external-modules/with_adapter_side_small.jpg)
+</div>
