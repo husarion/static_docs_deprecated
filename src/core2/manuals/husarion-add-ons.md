@@ -8,12 +8,20 @@ page: 'Manuals'
 onepager: true
 ---
 
+# CORE2brick extension kit #
+
+Adapter which connects CORE2 or CORE2-ROS with LEGO® Mindstorms system. 
+
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/core2brick_title.jpg)
+</div>
+
 # CORE2block extension kit #
 
 Adapter which connects CORE2 or CORE2-ROS with Makeblock system. 
 
-<div class="thumb center h350">
-![](/assets/img/external-modules/core2block.png)
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/core2block.png)
 </div>
 
 The main part are adapters for sensors and motors. Electrical interface of Makeblock sensors is similar to CORE2 hSensor, but some pin-swapping is needed. These adapters do the job.
@@ -36,16 +44,16 @@ The connectors used with CORE2 are shrouded box headers: 2×3-Pin, 0.1" (2.54 mm
 
 Adapter PCBs that can be separated by breaking them off, if you like. The connections on each adapter are explained on the circuit diagram below:
 
-<div class="thumb center h350">
-![](/assets/img/external-modules/core2block-schematic.png)
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/core2block-schematic.png)
 </div>
 
 Important: the Makeblock documentation shows a different, non-standard pin order for 6P6C (RJ25) connector. We follow the order used by Molex and FCI connector manufacturers, and also by LEGO® in their Mindstorms kits.
 
 On the bottom side of PCB you can find jumpers for configuring the adapter connections. They are needed for interfacing CORE2 with different Makeblock sensors. The photo below shows the jumper position on PCB:
 
-<div class="thumb center h350">
-![](/assets/img/external-modules/jumpers.jpg)
+<div class="image center h200">
+![](/assets/img/husarion-add-ons/jumpers.jpg)
 </div>
 
 And this table should be helpful for you:
@@ -224,7 +232,7 @@ Of course, if you can deal with soldering custom connectors, you will be able to
 
 ## hBatteryPack ##
 
-The same which is used in Telepresence robot, ROSbot and CORE2brick kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/external-modules/#external-modules-hbatterypack "hBatteryPack")
+The same which is used in Telepresence robot, ROSbot and CORE2brick kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/external-modules/#husarion-add-ons-hBatteryPack "hBatteryPack")
 
 ## Acrylic plates and screws ##
 
@@ -246,8 +254,8 @@ Servo controller can deliver up to 3A average current to the servos.
 
 The picture below describes the pinout of the Servo driver.
 
-<div class="thumb center h350">
-![](/assets/img/external-modules/servo_driver.png)
+<div class="thumb center h300">
+![](/assets/img/husarion-add-ons/servo_driver.png)
 </div>
 
 ## First run ##
@@ -282,15 +290,15 @@ In the current firmware, the LED is turned on if both power supplies (+5V and +V
 # hBatteryPack #
 
 A common part for:
-- CORE2brick
+- [CORE2brick](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-core2brick-extension-kit "CORE2brick")
 - [CORE2block](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-core2block-extension-kit "CORE2block")
 - [ROSbot](https://husarion.com/core2/manuals/rosbot-manual/#rosbot-manual-overview "ROSbot")
 - [CORE2 Telepresence robot](https://husarion.com/core2/manuals/telepresence#telepresence-robot-kit-manual-overview "CORE2 Telepresence robot")
 
 Keeps your 18650 batteries together and delivers the sum of their voltage to your CORE2 or other device :)
 
-<div class="thumb center h350">
-![](/assets/img/external-modules/hBatteryPack-overview.jpg)
+<div class="thumb center h300">
+![](/assets/img/husarion-add-ons/hBatteryPack-overview.jpg)
 </div>
 
 ## Compatible batteries ##
@@ -298,6 +306,18 @@ Keeps your 18650 batteries together and delivers the sum of their voltage to you
 hBatteryPack is compatible with all 18650 Li-Ion cells but only the "protected" ones (with an internal protection circuits) can be used. There are two main reasons:
  * Safety - a protection from a short-circuit condition is essential,
  * Size - the batteries with protection circuit are a little longer than bare Li-Ion cells, therefore they fit better to the holders and the electrical contact is more reliable.
+ 
+The image below shows four batteries. Counting from the top, there is:
+ * black - the battery with protection circuit; it's longer than others and have a protruding tip, like a popular AA batteries, that provides a good electrical contact in the battery holder,
+ * yellow - this cell one doesn't have a protection circuit and is short,
+ * blue - this one has a visible tip on the left; it's a cheap battery sold as the battery with protection, but it doesn't have one for sure,
+ * pink - again the cell without a protection circuit.
+ 
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/batteries2_small.jpg)
+</div>
+ 
+We strongly recommend using the first type with the protection circuit and the tip on the '+' side.
 
 ## Balancer/charger connector ##
 
@@ -305,9 +325,11 @@ The connector type used in hBatteryPack for charging is well-known in a communit
 
 ## Optional acrylic plate ##
 
-The optional perforated, acrylic board can be used to connect the battery pack to LEGO® bricks:
+The optional perforated, acrylic board can be used to connect the battery pack to LEGO® bricks or other mechanics:
 
- <div class="thumb center h350">
-![](/assets/img/external-modules/with_adapter_angle_small.jpg)
-![](/assets/img/external-modules/with_adapter_side_small.jpg)
+<div class="gallery h300">
+![](/assets/img/husarion-add-ons/with_adapter_angle_small.jpg)
+![](/assets/img/husarion-add-ons/with_adapter_side_small.jpg)
 </div>
+
+The acrylic plate should be attached to hBatteryPack with M3x6 or M3x8 stand-offs. Use M3x8 or M3x10 screws to attach standoffs to the acrylic board and M3x4 screws to attach standoffs to the hBatteryPack.

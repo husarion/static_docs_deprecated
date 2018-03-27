@@ -1,18 +1,16 @@
 ---
-title: 'External modules'
+title: 'Using third-party modules'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
-order: 5
-page: 'Manuals'
-onepager: true
+page: 'Tutorials'
+order: 7
 ---
 
-**External modules**
+# Using third-party modules #
 
-This section will show you how to connect and use different types of external hardware modules with CORE2. CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. The following examples will help you connect not only the modules made by Husarion but also the third-party drivers, sensors etc.
-
-***
+CORE2 has UART, I2C, SPI, CAN, ADC and external interrupt channels to connect and efficiently use a lot of market available external modules. 
+The following examples will help you connect the third-party drivers, sensors etc. to CORE2 or CORE2-ROS controller.
 
 # Sharp distance sensor #
 
