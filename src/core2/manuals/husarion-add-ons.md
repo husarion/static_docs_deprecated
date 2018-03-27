@@ -8,6 +8,14 @@ page: 'Manuals'
 onepager: true
 ---
 
+# CORE2brick extension kit #
+
+Adapter which connects CORE2 or CORE2-ROS with LEGO® Mindstorms system. 
+
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/core2brick_title.jpg)
+</div>
+
 # CORE2block extension kit #
 
 Adapter which connects CORE2 or CORE2-ROS with Makeblock system. 
@@ -282,7 +290,7 @@ In the current firmware, the LED is turned on if both power supplies (+5V and +V
 # hBatteryPack #
 
 A common part for:
-- CORE2brick
+- [CORE2brick](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-core2brick-extension-kit "CORE2brick")
 - [CORE2block](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-core2block-extension-kit "CORE2block")
 - [ROSbot](https://husarion.com/core2/manuals/rosbot-manual/#rosbot-manual-overview "ROSbot")
 - [CORE2 Telepresence robot](https://husarion.com/core2/manuals/telepresence#telepresence-robot-kit-manual-overview "CORE2 Telepresence robot")
