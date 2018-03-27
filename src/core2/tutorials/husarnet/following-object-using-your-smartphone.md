@@ -19,9 +19,9 @@ To get you started with the hNode app we prepared a quick example showing how to
 ## Architecture of the system ##
 
 The robotic system consists of:
-1.  a simple mobile robot platform using DC motors with quadrature encoders. We built it based on <a href="https://husarion.com/core2/manuals/core2/">CORE2-ROS controller</a> and LEGO Mindstorms mobile platform. Of course you can use any other mechanics, or buy a ready set such as <a href="https://www.sparkfun.com/products/10336">this one</a> .
-2. smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
-3. your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
+1. A simple mobile robot platform using DC motors with quadrature encoders. We built it based on <a href="https://husarion.com/core2/manuals/core2/">CORE2-ROS controller</a> and LEGO Mindstorms mobile platform. Of course you can use any other mechanics, or buy a ready set such as <a href="https://www.sparkfun.com/products/10336">this one</a> .
+2. Smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
+3. Your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
 
 Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between the devices is very fast, without the need of using any external servers. You can treat the "Virtual Robot" as a single robot with components distributed over the internet.
 
@@ -44,24 +44,18 @@ Even tough CORE2-ROS computer has enough computing power to perform robot operat
 2. Run the virtual machine.
 
 3. To make sure all packets are up to date run the following commands in the terminal inside virtual machine:
-
 ```
 sudo apt-get update
-```
-
-```
 sudo apt-get dist-upgrade
 ```
-
 4. Run the virutal machine, open a terminal inside of it, and type in the following command:
-```sudo husarnet websetup```
-5. Open a link which will appear in the web browser:
-
+```
+sudo husarnet websetup
+```
+5. Open a link which will appear in the web browser:</br>
 <img src="/assets/img/husarnet/husarnet_websetup.PNG" alt="husarnet websetup" style="border:1px solid LightGray">
-    
-6. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section **"Join virtual robot"** select **"None"** and click **"Add device to your account"** button.
-7. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine):
-
+6. You will see a web panel. Choose a name for your virtual machine, eg. "ubuntu-vm". In the section **"Join virtual robot"** select **"None"** and click **"Add device to your account"** button.</br>
+7. Now on your Husarion cloud account you should see two unasigned elements (your phone and your virtual machine):</br>
 <img src="/assets/img/husarnet/cloud_unasigned_vm.PNG" alt="cloud unasigned" style="border:1px solid LightGray">
 
 ### c. robot based on CORE2-ROS controller ###
