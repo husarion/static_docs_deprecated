@@ -16,11 +16,160 @@ Adapter which connects CORE2 or CORE2-ROS with LEGO® Mindstorms system.
 ![](/assets/img/husarion-add-ons/core2brick_title.jpg)
 </div>
 
+Set contains:
+
+ * A shield for CORE2 that converts on-board signals to be compatible with LEGO® Mindstorms electronic sensors (maximum 6) and motors (maximum 4).
+ * 10 cables (4x20 cm, 4x35 cm, 2x50 cm) to connect LEGO® sensors and motors
+ * hBatteryPack - a battery pack for 3x18650 Li-Ion batteries (batteries not included)
+ * 2 acrylic plates + set of screws, that link CORE2 and hBatteryPack with Mindstorms® mechanical parts
+ 
+## CORE2brick shield ##
+
+<div class="image center h300">
+![](/assets/img/husarion-add-ons/core2brick_shield.jpg)
+</div>
+ 
+### LEGO® Mindstorms connectors ###
+
+The LEGO® Mindstorms sets use non-standard, modular 6P6C connectors, also known as  "modular phone jack" or "RJ connector". They are very similar to the commonly used telephone jacks, but have 6 electrical contacts  and their latch is moved to the  right side of the plug.
+
+We decided to provide the shield with typical 6P6C receptacles (the crimping tool for them is widely available) and 10 cables, which are adapters in fact:
+
+<div class="image center h100">
+![](/assets/img/husarion-add-ons/cableRJ.png)
+</div>
+
+The pin numbering convention:
+
+<div class="image center h100">
+![](/assets/img/husarion-add-ons/6p6c.png)
+</div>
+
+### Motor interface ###
+
+The motor interface is straight - there is 1:1 connection between CORE2 hMotor outputs and CORE2brick interface to LEGO® motors. It is just an adapter.
+
+<table>
+    <tr>
+       <th>CORE2 hMotor pin</th>
+	   <th>CORE2 hMotor signal</th>
+       <th>6P6C connector pin</th>
+	   <th>LEGO® motor signal</th>
+    </tr>
+	<tr>
+        <td>1</td>
+        <td>H-bridge output A</td>
+        <td>1</td>
+        <td>Motor terminal A</td>
+    </tr>
+	<tr>
+        <td>2</td>
+        <td>H-bridge output B</td>
+        <td>2</td>
+        <td>Motor terminal B</td>
+    </tr>
+	<tr>
+        <td>3</td>
+        <td>GND</td>
+        <td>3</td>
+        <td>Neg. encoder supply</td>
+    </tr>
+	<tr>
+        <td>4</td>
+        <td>+5V</td>
+        <td>4</td>
+        <td>Pos. encoder supply</td>
+    </tr>
+	<tr>
+        <td>5</td>
+        <td>Encoder input A</td>
+        <td>5</td>
+        <td>Encoder output A</td>
+    </tr>
+	<tr>
+        <td>6</td>
+        <td>Encoder input B</td>
+        <td>6</td>
+        <td>Encoder output B</td>
+    </tr>
+</table>
+
+### Sensor interface ###
+
+The sensor interface needs an adaptation to another pinout and signal types. The schematic describes that in the best way:
+
+<div class="thumb center h300">
+![](/assets/img/husarion-add-ons/sensor.png)
+</div>
+
+The schematic shows a single sensor interface. Each sensor connector is connected with the corresponding hSens number on CORE2, eg. hSens1 <-> Sensor1 on the CORE2brick shield. The voltage regulators on the shield converts 5V supply from CORE2 to 3.3V and 9V, needed for LEGO® sensors. The switchable current source is necessary for some sensors.
+
+<table>
+    <tr>
+       <th>CORE2 hSensor pin</th>
+	   <th>CORE2 hSensor signal</th>
+       <th>6P6C connector pin</th>
+	   <th>LEGO® sensor signal</th>
+    </tr>
+	<tr>
+        <td>1</td>
+        <td>GPIO / ADC / interrupt</td>
+        <td>1</td>
+        <td>GPIO / ADC / current source</td>
+    </tr>
+	<tr>
+        <td>2</td>
+        <td>GPIO</td>
+        <td>-</td>
+        <td>switches the current source on pin 1, active with high level</td>
+    </tr>
+	<tr>
+        <td>3</td>
+        <td>GPIO/SCL/TX *</td>
+        <td>5</td>
+        <td>GPIO/SCL/RX *</td>
+    </tr>
+	<tr>
+        <td>4</td>
+        <td>GPIO/SDA/RX *</td>
+        <td>6</td>
+        <td>GPIO/SDA/TX *</td>
+    </tr>
+	<tr>
+        <td>5</td>
+        <td>+5V output</td>
+        <td>4</td>
+        <td>+5V input</td>
+    </tr>
+	<tr>
+        <td>6</td>
+        <td>GND</td>
+        <td>2,3</td>
+        <td>GND</td>
+    </tr>
+</table>
+
+*- see [hSensor description](https://husarion.com/core2/manuals/core2/#hardware-hsensor "hSensor description") for the specific functions availability
+
+## hBatteryPack ##
+
+The same which is used in Telepresence robot, ROSbot and CORE2block kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-hbatterypack-1 "hBatteryPack")
+
+## Acrylic plates and screws ##
+
+There are 2 transparent, PMMA plates with holes. The hole spacing is 8mm to make them compatible with LEGO® Mindstorms mechanics. 
+
+The bigger board is prepared for assembling with CORE2, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach CORE2 PCB.
+
+The smaller board is prepared for assembling with hBatteryPack, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach hBatteryPack PCB.
+
+***
+
 # CORE2block extension kit #
 
 Adapter which connects CORE2 or CORE2-ROS with Makeblock system. 
 
-<div class="image center h300">
+<div class="image center">
 ![](/assets/img/husarion-add-ons/core2block.png)
 </div>
 
@@ -232,15 +381,15 @@ Of course, if you can deal with soldering custom connectors, you will be able to
 
 ## hBatteryPack ##
 
-The same which is used in Telepresence robot, ROSbot and CORE2brick kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/external-modules/#husarion-add-ons-hBatteryPack "hBatteryPack")
+The same which is used in Telepresence robot, ROSbot and CORE2brick kit. Full description here: [hBatteryPack](https://husarion.com/core2/manuals/husarion-add-ons/#husarion-add-ons-hbatterypack-1 "hBatteryPack")
 
 ## Acrylic plates and screws ##
 
-There are 2 transparent, PMMA plates with holes. The hole spacing is 8mm to make them compatible with LEGO® Mindstorms and Makeblock mechanics. 
+There are 2 transparent, PMMA plates with holes. The hole spacing is 8mm to make them compatible with Makeblock mechanics. 
 
-The bigger board is prepared for assembling with CORE2, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach CORE2.
+The bigger board is prepared for assembling with CORE2, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach CORE2 PCB.
 
-The smaller board is prepared for assembling with hBatteryPack, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach hBatteryPack.
+The smaller board is prepared for assembling with hBatteryPack, using M3x6 standoffs, M3x10 screws to connect standoffs with PMMA board and M3x4 screws to attach hBatteryPack PCB.
 
 ***
 
@@ -332,4 +481,4 @@ The optional perforated, acrylic board can be used to connect the battery pack t
 ![](/assets/img/husarion-add-ons/with_adapter_side_small.jpg)
 </div>
 
-The acrylic plate should be attached to hBatteryPack with M3x6 or M3x8 stand-offs. Use M3x8 or M3x10 screws to attach standoffs to the acrylic board and M3x4 screws to attach standoffs to the hBatteryPack.
+The acrylic plate is prepared for assembling with hBatteryPack using M3x6 standoffs, M3x10 screws to connect standoffs with plate and M3x4 screws to attach hBatteryPack PCB.
