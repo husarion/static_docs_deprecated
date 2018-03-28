@@ -69,11 +69,11 @@ config.pages = {
         }
     },
 	
-    'core2/manuals/husarnet-beta': {
-        pattern: 'core2/manuals/husarnet-(beta).md',
+    'core2/manuals/husarnet': {
+        pattern: 'core2/manuals/husarnet.md',
         metadata: {
             page: 'Manuals',
-            title: 'Husarnet'
+            title: 'Husarnet (beta)'
         }
     }
 };
