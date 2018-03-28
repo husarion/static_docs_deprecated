@@ -1,5 +1,5 @@
 ---
-title: 'Husarnet (beta)'
+title: 'Husarnet'
 layout: layout.hbs
 order: 6
 page: 'Manuals'
