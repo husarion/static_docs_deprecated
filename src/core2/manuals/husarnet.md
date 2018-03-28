@@ -81,7 +81,6 @@ $ ssh mydevice1
 $ wget http://mydevice:8000
 ```
 2. You may check network status using: 
-
 ```
 $ sudo husarnet status
 Husarnet IP address: fc94:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
