@@ -1,5 +1,5 @@
 ---
-title: 'Husarnet'
+title: 'Husarnet (beta)'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
