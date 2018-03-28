@@ -85,7 +85,6 @@ $ wget http://mydevice:8000
 $ sudo husarnet status
 Husarnet IP address: fc94:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
 UDP connection to base: [::ffff:188.165.23.196]:5582
-
 Peer fc94:b57c:c306:595f:9933:320a:a77:bffa
   target=[::ffff:192.168.1.45]:5582
   secure connection established
