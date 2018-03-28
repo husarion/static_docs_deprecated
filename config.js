@@ -73,7 +73,7 @@ config.pages = {
         pattern: 'core2/manuals/husarnet.md',
         metadata: {
             page: 'Manuals',
-            title: 'Husarnet (beta)'
+            title: 'Husarnet'
         }
     }
 };
