@@ -44,19 +44,11 @@ Husarnet features:
 ## Install Husarnet ##
 
 Execute the following steps:
-1. Install Husarnet:
-`$ curl https://files.husarion.com/install/husarnet.sh | sudo bash`
-
-2. Restart Husarnet `$ systemctl restart husarnet`
-
-3. Link your device to Husarnet:
-
-`$ sudo husarnet websetup`
-
+1. Install Husarnet: `$ curl https://files.husarion.com/install/husarnet.sh | sudo bash`
+2. Restart Husarnet: `$ systemctl restart husarnet`
+3. Link your device to Husarnet: `$ sudo husarnet websetup`
 4. Click the link which will be shown by this command.
-
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/manual/husarnet_websetup.PNG" height="50%" width="50%"></center></div>
-
 5. Fill-in the "Add device to Husarnet" form. If this is you first device, you should select "Create new virtual robot" in "Join virtual robot". Otherwise, you may use one of your previous virtual robots.
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/husarnet/manual/connect_linux.png" height="50%" width="50%"></center></div>
@@ -65,28 +57,21 @@ Execute the following steps:
 
 (This section is based on http://wiki.ros.org/kinetic/Installation/Ubuntu )
 1. Execute the following commands to add ROS repository:
-
 - `$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116`
 - `$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros.list`
 - `$ sudo apt-get update`
-
 2. Install the packages you need, for example:
-
 - `$ sudo apt-get install -y ros-kinetic-find-object-2d`
-
 3. **Important:** Add this line to .bashrc (or .zshrc if you use zsh) of the user who will use ROS:
-
 - `export ROS_IPV6=on`
 - `export ROS_MASTER_URI=http://master:11311`
 
 
 # Using Husarnet #
 1. You may contact all other devices in your virtual robot just by using their hostnames, e.g.:
-
 - `ping6 mydevice1`
 - `ssh mydevice1`
 - `wget http://mydevice:8000`
-
 2. You may check network status using:
 - ```$ sudo husarnet status
 Husarnet IP address: fc94:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
@@ -98,9 +83,7 @@ Peer fc94:b57c:c306:595f:9933:320a:a77:bffa
 Peer fc94:a1e4:7b6b:3222:b1f0:90fa:e41f:9857
   tunneled
   secure connection established```
-
 - In this example, you are connected to the first peer directly (fc94:...:bffa) via local network (192.168.1.45). Direct connection to second peer could not be established (tunneled) - this probably means that network you are using blocks UDP traffic. Ensure the firewall allows outgoing UDP traffic, at least on port 5582.
-
 3. Just be aware that the servers and client you are using must support IPv6 (as Husarnet is an IPv6 overlay network) - for example, you have to listen on "::", not "0.0.0.0".
 
 
