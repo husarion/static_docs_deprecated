@@ -45,12 +45,9 @@ Husarnet features:
 
 Execute the following steps:
 1. Install Husarnet:
-
 `$ curl https://files.husarion.com/install/husarnet.sh | sudo bash`
 
-2. Restart Husarnet
-
-`$ systemctl restart husarnet`
+2. Restart Husarnet `$ systemctl restart husarnet`
 
 3. Link your device to Husarnet:
 
