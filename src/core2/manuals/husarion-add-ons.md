@@ -41,7 +41,7 @@ We decided to provide the shield with typical 6P6C receptacles (the crimping too
 
 The pin numbering convention:
 
-<div class="image center h100">
+<div class="image center h200">
 ![](/assets/img/husarion-add-ons/6p6c.png)
 </div>
 
@@ -102,7 +102,7 @@ The sensor interface needs an adaptation to another pinout and signal types. The
 ![](/assets/img/husarion-add-ons/sensor.png)
 </div>
 
-The schematic shows a single sensor interface. Each sensor connector is connected with the corresponding hSens number on CORE2, eg. hSens1 <-> Sensor1 on the CORE2brick shield. The voltage regulators on the shield converts 5V supply from CORE2 to 3.3V and 9V, needed for LEGO® sensors. The switchable current source is necessary for some sensors.
+The schematic shows a single sensor interface. Each sensor connector is connected with the corresponding hSens number on CORE2, eg. hSens1 is connected with Sensor1 on the CORE2brick shield. The voltage regulators on the shield converts 5V supply from CORE2 to 3.3V and 9V, needed for LEGO® sensors. The switchable current source is necessary for some sensors.
 
 <table>
     <tr>
@@ -125,15 +125,15 @@ The schematic shows a single sensor interface. Each sensor connector is connecte
     </tr>
 	<tr>
         <td>3</td>
-        <td>GPIO/SCL/TX *</td>
+        <td>GPIO/SCL/TX*</td>
         <td>5</td>
-        <td>GPIO/SCL/RX *</td>
+        <td>GPIO/SCL/RX*</td>
     </tr>
 	<tr>
         <td>4</td>
-        <td>GPIO/SDA/RX *</td>
+        <td>GPIO/SDA/RX*</td>
         <td>6</td>
-        <td>GPIO/SDA/TX *</td>
+        <td>GPIO/SDA/TX*</td>
     </tr>
 	<tr>
         <td>5</td>
@@ -365,7 +365,7 @@ And many other manufacturers. These connectors are commonly known as "Dupont".
  * JST PHR-6 housing with SPH-001T-P0.5S crimp contacts
 There are also other manufacturers.
  
-Caution! The cable doesn't have any polarization key on the 2.54 (black) connector. Please make sure that you connect it in correct orientation.
+Caution! The cable doesn't have any polarization key on the **black** connector. Please make sure that you connect it in correct orientation.
 
 The motor adapter allows to use the following Makeblock motors:
  * DC Motor-25 9V/700RPM
@@ -377,6 +377,7 @@ The motor adapter allows to use the following Makeblock motors:
  * 180 Optical Encoder Motor
  * Optical Encoder Motor-25 9V/185RPM
  * Optical Encoder Motor-25 9V/86RPM
+ 
 Of course, if you can deal with soldering custom connectors, you will be able to use other motors as well.
 
 ## hBatteryPack ##
@@ -410,8 +411,9 @@ The picture below describes the pinout of the Servo driver.
 ## First run ##
 
 Connect the Vin voltage (+6V...+16V) and servos that you need. Connect the UART interface to hSens3 or hSens4 on CORE2 using the flat IDC cable. 
-Build your program for CORE2 following the example available on https://husarion.com/core2/examples/
-Library for ServoDriver is available on GitHub:
+Build your program for CORE2 following the example available on [Docs -> Examples](https://husarion.com/core2/examples/#modules__ServoDriver_basic)
+
+A library for ServoDriver is available on GitHub:
 https://github.com/husarion/modules
 
 ## Specification ##
@@ -444,7 +446,7 @@ A common part for:
 - [ROSbot](https://husarion.com/core2/manuals/rosbot-manual/#rosbot-manual-overview "ROSbot")
 - [CORE2 Telepresence robot](https://husarion.com/core2/manuals/telepresence#telepresence-robot-kit-manual-overview "CORE2 Telepresence robot")
 
-Keeps your 18650 batteries together and delivers the sum of their voltage to your CORE2 or other device :)
+Keeps your 18650 cells together and delivers the sum of their voltage to your CORE2 or other device :)
 
 <div class="thumb center h300">
 ![](/assets/img/husarion-add-ons/hBatteryPack-overview.jpg)
