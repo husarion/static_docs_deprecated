@@ -81,6 +81,7 @@ $ ssh mydevice1
 $ wget http://mydevice:8000
 ```
 2. You may check network status using: 
+
 ```
 $ sudo husarnet status
 Husarnet IP address: fc94:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
@@ -93,6 +94,7 @@ Peer fc94:a1e4:7b6b:3222:b1f0:90fa:e41f:9857
   tunneled
   secure connection established
 ```
+
 In this example, you are connected to the first peer directly (fc94:...:bffa) via local network (192.168.1.45). Direct connection to second peer could not be established (tunneled) - this probably means that network you are using blocks UDP traffic. Ensure the firewall allows outgoing UDP traffic, at least on port 5582.
 3. Just be aware that the servers and client you are using must support IPv6 (as Husarnet is an IPv6 overlay network) - for example, you have to listen on "::", not "0.0.0.0".
 
