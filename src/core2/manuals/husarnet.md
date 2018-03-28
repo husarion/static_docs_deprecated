@@ -57,14 +57,14 @@ Execute the following steps:
 
 (This section is based on http://wiki.ros.org/kinetic/Installation/Ubuntu )
 1. Execute the following commands to add ROS repository:
-- `$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116`
-- `$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros.list`
-- `$ sudo apt-get update`
+* `$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116`
+* `$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros.list`
+* `$ sudo apt-get update`
 2. Install the packages you need, for example:
-- `$ sudo apt-get install -y ros-kinetic-find-object-2d`
+* `$ sudo apt-get install -y ros-kinetic-find-object-2d`
 3. **Important:** Add this line to .bashrc (or .zshrc if you use zsh) of the user who will use ROS:
-- `export ROS_IPV6=on`
-- `export ROS_MASTER_URI=http://master:11311`
+* `export ROS_IPV6=on`
+* `export ROS_MASTER_URI=http://master:11311`
 
 
 # Using Husarnet #
