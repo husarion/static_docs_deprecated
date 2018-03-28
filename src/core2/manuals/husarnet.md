@@ -92,7 +92,6 @@ Peer fc94:a1e4:7b6b:3222:b1f0:90fa:e41f:9857
   tunneled
   secure connection established
 ```
-
 In this example, you are connected to the first peer directly (fc94:...:bffa) via local network (192.168.1.45). Direct connection to second peer could not be established (tunneled) - this probably means that network you are using blocks UDP traffic. Ensure the firewall allows outgoing UDP traffic, at least on port 5582.
 3. Just be aware that the servers and client you are using must support IPv6 (as Husarnet is an IPv6 overlay network) - for example, you have to listen on "::", not "0.0.0.0".
 
@@ -106,18 +105,18 @@ If not the whitelist, you could reach any device connected to Husarnet without a
 
 Otherwise, whitelist has to contain IP addresses of the devices that are authorized to connect to your host. You can manage it using two commands:
 
-- `husarnet whitelist add [address]` - Add fc94 IP address to the whitelist.
-- `husarnet whitelist rm [address]` - Remove fc94 IP address from the whitelist.
+- `$ husarnet whitelist add [address]` - Add fc94 IP address to the whitelist.
+- `$ husarnet whitelist rm [address]` - Remove fc94 IP address from the whitelist.
 
 If you want A to communicate with B, make sure to add A to B whitelist and B to A whitelist.
 
 # How connections are established? ##
 
-- First, the Husarnet client connects to the base server (via TCP on port 443 and optionally UDP on port 5582) hosted by Husarion.
-- Initially the encrypted data is tunnelled via the base server.
-- The devices attempt to connect to local IP addresses (retrieved via the base server). This will succeed if they are in the same network or one of them has public IP address (and UDP is not blocked).
-- The devices attempt to perform NAT traversal assisted by the base server. This will succeed if NAT is not symmetric and UDP is not blocked on the firewall.
-- The devices send multicast discovery to the local network. This will succeed if the devices are on the same network (even if there is no internet connectivity or the base server can’t be reached).
+1. First, the Husarnet client connects to the base server (via TCP on port 443 and optionally UDP on port 5582) hosted by Husarion.
+2. Initially the encrypted data is tunnelled via the base server.
+3. The devices attempt to connect to local IP addresses (retrieved via the base server). This will succeed if they are in the same network or one of them has public IP address (and UDP is not blocked).
+4. The devices attempt to perform NAT traversal assisted by the base server. This will succeed if NAT is not symmetric and UDP is not blocked on the firewall.
+5. The devices send multicast discovery to the local network. This will succeed if the devices are on the same network (even if there is no internet connectivity or the base server can’t be reached).
 
 # Husarnet security #
 
