@@ -56,15 +56,15 @@ Execute the following steps:
 ## Install ROS on Ubuntu 16.04 ##
 
 (This section is based on http://wiki.ros.org/kinetic/Installation/Ubuntu )
-1. Execute the following commands to add ROS repository:
-* `$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116`
-* `$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros.list`
-* `$ sudo apt-get update`
-2. Install the packages you need, for example:
-* `$ sudo apt-get install -y ros-kinetic-find-object-2d`
-3. **Important:** Add this line to .bashrc (or .zshrc if you use zsh) of the user who will use ROS:
-* `export ROS_IPV6=on`
-* `export ROS_MASTER_URI=http://master:11311`
+* Execute the following commands to add ROS repository:
+** `$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116`
+** `$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros.list`
+** `$ sudo apt-get update`
+* Install the packages you need, for example:
+** `$ sudo apt-get install -y ros-kinetic-find-object-2d`
+* **Important:** Add this line to .bashrc (or .zshrc if you use zsh) of the user who will use ROS:
+** `export ROS_IPV6=on`
+** `export ROS_MASTER_URI=http://master:11311`
 
 
 # Using Husarnet #
@@ -72,8 +72,9 @@ Execute the following steps:
 - `ping6 mydevice1`
 - `ssh mydevice1`
 - `wget http://mydevice:8000`
-2. You may check network status using:
-- ```$ sudo husarnet status
+2. You may check network status using: 
+```
+$ sudo husarnet status
 Husarnet IP address: fc94:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
 UDP connection to base: [::ffff:188.165.23.196]:5582
 
@@ -82,7 +83,8 @@ Peer fc94:b57c:c306:595f:9933:320a:a77:bffa
   secure connection established
 Peer fc94:a1e4:7b6b:3222:b1f0:90fa:e41f:9857
   tunneled
-  secure connection established```
+  secure connection established
+```
 - In this example, you are connected to the first peer directly (fc94:...:bffa) via local network (192.168.1.45). Direct connection to second peer could not be established (tunneled) - this probably means that network you are using blocks UDP traffic. Ensure the firewall allows outgoing UDP traffic, at least on port 5582.
 3. Just be aware that the servers and client you are using must support IPv6 (as Husarnet is an IPv6 overlay network) - for example, you have to listen on "::", not "0.0.0.0".
 
