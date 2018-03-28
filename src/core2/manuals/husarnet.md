@@ -36,7 +36,7 @@ Husarnet features:
 - you can call hosts in a single Husarnet network using their hostname
 - Internet traffic goes directly between Virtual Robot elements, so latency is lower than in case of client-server architecture
 
-<div class="image center h300">![](/img/husarnet/manual/husarnet_diagram.jpeg)</div>
+<div class="image center h300">![](/assets/img/husarnet/manual/husarnet_diagram.jpeg)</div>
 
 # Quick start guide#
 
@@ -48,7 +48,7 @@ Execute the following steps:
 2. Restart Husarnet: `$ systemctl restart husarnet`
 3. Link your device to Husarnet: `$ sudo husarnet websetup`
 4. Click the link which will be shown by this command.
-<div class="image center h200">![](/assets/img/husarnet/manual/husarnet_websetup.PNG)</div>
+<div class="image center">![](/assets/img/husarnet/manual/husarnet_websetup.PNG)</div>
 5. Fill-in the "Add device to Husarnet" form. If this is you first device, you should select "Create new virtual robot" in "Join virtual robot". Otherwise, you may use one of your previous virtual robots.
 
 <div class="image center h300">![](/assets/img/husarnet/manual/connect_linux.png)</div>
