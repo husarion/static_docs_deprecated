@@ -1,5 +1,7 @@
 ---
 title: 'Husarnet'
+platform: 'CORE2'
+autotoc: true
 layout: layout.hbs
 order: 6
 page: 'Manuals'
