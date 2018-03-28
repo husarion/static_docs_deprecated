@@ -329,8 +329,8 @@
         height: 200px;
       }
 	  
-	  &.h300 img {
-        height: 300px;
+      &.h300 img {
+        max-height: 300px;
       }
     }
 
