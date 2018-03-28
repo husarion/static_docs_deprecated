@@ -36,7 +36,7 @@ Husarnet features:
 - you can call hosts in a single Husarnet network using their hostname
 - Internet traffic goes directly between Virtual Robot elements, so latency is lower than in case of client-server architecture
 
-<div class="image center h300">![](/assets/img/husarnet/manual/husarnet_diagram.jpeg)</div>
+<div class="image center">![](/assets/img/husarnet/manual/husarnet_diagram.jpeg)</div>
 
 # Quick start guide#
 
@@ -51,7 +51,7 @@ Execute the following steps:
 <div class="image center">![](/assets/img/husarnet/manual/husarnet_websetup.PNG)</div>
 5. Fill-in the "Add device to Husarnet" form. If this is you first device, you should select "Create new virtual robot" in "Join virtual robot". Otherwise, you may use one of your previous virtual robots.
 
-<div class="image center h300">![](/assets/img/husarnet/manual/connect_linux.png)</div>
+<div class="image center">![](/assets/img/husarnet/manual/connect_linux.png)</div>
 
 ## Install ROS on Ubuntu 16.04 ##
 
