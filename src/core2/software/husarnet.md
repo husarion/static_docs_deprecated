@@ -128,3 +128,8 @@ Runtime safety: Husarnet is written in C++ using modern memory-safe constructs. 
 
 If Husarnet instance is not connected to the Husarion Cloud, the whitelist and /etc/hosts can only be changed by local root user. Otherwise, the owner of the Husarion Cloud account can also influence the configuration by adding the device to virtual robots/networks.
 
+# Examples #
+
+Sample projects using Husarnet:
+1. <a href="https://husarion.com/tutorials/husarnet/following-object-using-your-smartphone/">tutorial</a> showing how to use smartphone sensors in the robotic system through Husarnet
+
