@@ -23,7 +23,7 @@ The robotic system consists of:
 2. Smartphone running <a href="https://play.google.com/store/apps/details?id=com.husarion.node">hNode app</a>
 3. Your laptop running Linux, ROS and Husarnet, natively or in a Virtual Machine. <a href="https://files.husarion.com/husarion-vm.vmdk.xz">Here is a ready to use Linux image</a>
 
-Robot, smarthone and laptop are connected using Husarnet - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between the devices is very fast, without the need of using any external servers. You can treat the "Virtual Robot" as a single robot with components distributed over the internet.
+Robot, smarthone and laptop are connected using <a href="https://husarion.com/software/husarnet/">Husarnet</a> - a VPN, P2P network by Husarion. They form a so called "Virtual Robot". So even if they work in different networks, they always know the addresses of each other, and the communication between the devices is very fast, without the need of using any external servers. You can treat the "Virtual Robot" as a single robot with components distributed over the internet.
 
 Even tough CORE2-ROS computer has enough computing power to perform robot operation we are using Laptop to show you that you are not limited to the computing power inside the robot itself.
 
@@ -38,8 +38,9 @@ Even tough CORE2-ROS computer has enough computing power to perform robot operat
 <img src="/assets/img/husarnet/cloud_unasigned_phone.PNG" alt="unasigned phone" style="border:1px solid LightGray">
 
 
-### b. virtual machine running Linux ###
+### b. a computer or virtual machine running Linux ###
 
+Instructions how to install Husarnet and ROS on your Linux machine is <a href="https://husarion.com/software/husarnet/#husarnet-beta-quick-start-guide">here</a>. If you preffer to use a virtual machine instead, follow these steps:
 1. Using <a href="https://www.virtualbox.org/">VirtualBox</a> (or other virtual machine hypervisor) open a <a href="https://files.husarion.com/husarion-vm.vmdk.xz">ready to use machine provided by Husarion</a> 
 2. Run the virtual machine.
 
