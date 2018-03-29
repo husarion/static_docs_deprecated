@@ -8,7 +8,7 @@ page: 'Software'
 onepager: true
 ---
 
-Husarnet is a P2P, VPN network dedicated for robotics. Thanks to Husarnet you can connect your robots, server and laptop to a single network that is independent from any external infrastructure. All traffic goes directly between your robots. 
+Husarnet is a P2P, VPN network dedicated for robots, drones and autonomous vehicles. Thanks to Husarnet you can connect your robots, server and laptop to a single network that is independent from any external infrastructure. All traffic goes directly between your robots. 
 
 A single Husarnet network is called "Virtual Robot". Virtual Robot can be combined of one, or a few robots, your laptop running user interface and a server processing navigation algorithm for all robots at once. You are no longer limited by processing power of your robot. You no longer need to care about how to create your robot swarm. Husarnet does it for you.
 
