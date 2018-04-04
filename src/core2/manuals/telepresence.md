@@ -169,3 +169,10 @@ All helpful documents and links in one place:
 
 * [Telepresence robot kit Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
 * [Telepresence robot kit Tutorial](https://husarion.com/core2/tutorials/howtostart/telepresence-robot-kit---quick-start/ "ROSbot Safety Instructions")
+
+
+
+
+
+
+
