@@ -22,7 +22,7 @@ Standard solution to connect devices over Internet uses client-server architectu
 - devices need internet access to function, LAN doesn't suffice
 - medium to large latency  in communication between elements connected to the system
 
-<div class="image center h300">![](/assets/img/husarnet/manual/cloud_bad.jpg)</div>
+<div class="image center h300">![](/assets/img/husarnet/manual/husarnet2.png)</div>
 
 ## Solution provided by Husarnet ##
 
@@ -36,7 +36,7 @@ Husarnet features:
 - you can call hosts in a single Husarnet network using their hostname
 - Internet traffic goes directly between Virtual Robot elements, so latency is lower than in case of client-server architecture
 
-<div class="image center">![](/assets/img/husarnet/manual/husarnet_diagram.jpeg)</div>
+<div class="image center">![](/assets/img/husarnet/manual/husarnet 1.png)</div>
 
 # Quick start guide#
 
