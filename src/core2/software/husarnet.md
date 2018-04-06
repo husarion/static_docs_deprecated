@@ -22,7 +22,7 @@ Standard solution to connect devices over Internet uses client-server architectu
 - devices need internet access to function, LAN doesn't suffice
 - medium to large latency  in communication between elements connected to the system
 
-<div class="image center h300">![](/assets/img/husarnet/manual/husarnet2.png)</div>
+<div class="image center">![](/assets/img/husarnet/manual/husarnet2.png)</div>
 
 ## Solution provided by Husarnet ##
 
