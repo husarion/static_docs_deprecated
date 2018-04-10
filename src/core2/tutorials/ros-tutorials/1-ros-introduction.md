@@ -70,7 +70,7 @@ Using the application looks as follows:
      $ rqt_graph
 ```
 ## Robot platform
-This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform) (DO ZMIANY). 
+This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform). 
 The platform contains:
 - 1 × Husarion CORE2-ROS version with ASUS Tinker Board
 - 1 × RPLIDAR A2 360°
@@ -275,7 +275,7 @@ camera resolution.
 As output you should get something like below:
 -->
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_2.png)
-(DO ZMIANY)
+
 **Task 1** 
 Use `rosnode` and `rostopic` tools to check if new nodes or
 topic appeared in the system. Next find some info regarding new node and
