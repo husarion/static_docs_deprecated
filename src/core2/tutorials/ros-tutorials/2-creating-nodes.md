@@ -556,14 +556,6 @@ Your final code should look like this:
 `rostopic` and `rqt_graph` tools to examine the system, then use
 `rostopic echo` tool to read brightness of the image from the camera.
 
-**TIP !**
-
-While working with `rqt_graph` you can mark checkbox **Leaf topics** in
-upper toolbar. This should make graph more clear:
-
-![image](/assets/img/ros/man_2_5.png)
-![image](/assets/img/ros/man_2_4.png)
-
 ### Calling the service ###
 
 You will modify node to call to a service with message type
