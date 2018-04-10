@@ -363,39 +363,6 @@ $ roslaunch astra_launch astra.launch
 
 As output you should get something like below:
 
-<--Now you will run node for handling USB camera device. For that task you will
-use node `usb_cam_node` from package `usb_cam`. To use this node you may
-need to set parameter `video_device` which defines which camera you want
-to use. You can find list of cameras available in your system by typing
-in the terminal:
-
-    $ ls /dev/video*
-
-Output should be similar to this:
-
-    husarion@core2-ros:~$ ls /dev/video*
-    /dev/video0  /dev/video1
-
-Each entry is for one camera. Above example means that we have two cameras in our system. 
-Number of cameras may vary depending on your configuration. This node also supports 
-Raspberry Pi camera, even though it is not an USB camera. In this example we will use 
-USB camera and its name is `/dev/video0`. 
-Having required information you can start node by typing into terminal:
-
-    $ rosrun usb_cam usb_cam_node _video_device:=/dev/video0 _image_height:=480 _image_width:=640 
-    _pixel_format:=yuyv _framerate:=10
-
-Remember that value of `video_device` and other parameters may vary
-depending on which camera you want to use. For a standard USB camera you
-can try with default values (just do not set `_image_height`,
-`_image_width` and `_pixel_format`) or try to run your camera with
-different values. For `_pixel_format`, possible values are `mjpeg`,
-`rgb24` and `uyvy`. For `_image_height` and `_image_width` use your
-camera resolution.
-
-As output you should get something like below:
--->
-
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_2.png)
 
 **Task 1** 
@@ -418,18 +385,6 @@ view node with remapping topic name type in the terminal:
 ```
 
 As the output you should get:
-
-<--Now you have camera node running, but can not see yet image from it. You
-will use node `image_view` from `image_view` package. This node by
-default subscribe to topic `image`. You need to remap this name to topic
-published by camera node. If you performed task 1, you should know that
-camera node is publishing to topic `/usb_cam/image_raw`. To run image
-view node with remapping topic name type in terminal:
-
-    $ rosrun image_view image_view image:=/usb_cam/image_raw
-
-As the output you should get:
--->
 
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_3.png)
 (DO PRZEROBIENIA)
