@@ -12,14 +12,14 @@ order: 3
 
 ## Forward kinematics task ##
 
-Task of forward kinematics in mobile robotics is to determine robot
+The purpose of forward kinematics in mobile robotics is to determine robot
 position and orientation based on wheel rotation measurement. In this
 tutorial we will use four wheeled robot with separate drive for each
-wheel. Robot scheme is presented below:
+wheel. Robot schematic is presented below:
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/robot_scheme.png" width="50%" height="50%"/></center></div>
 
-We will use following symbols and their meaning:
+We will use the following symbols:
 
 -   <div>R<sub>C</sub> - robot geometric centre</div>
 -   <div>x<sub>C</sub> - robot geometric centre x position</div>
@@ -42,10 +42,10 @@ We will use following symbols and their meaning:
 -   ω - wheel angular speed
 -   r - wheel radius
 
-To determine robot position we need robot kinematic model, it is much
+To determine robot position we need a robot kinematic model. It is much
 easier to calculate position for two wheeled robot with rotation centre
 between them. We can simplify our four wheeled robot to this model by
-adding two virtual wheels (marked as W<sub>L</sub> and W<sub>R</sub> on the scheme).
+adding two virtual wheels (marked as W<sub>L</sub> and W<sub>R</sub> on the schematic).
 Their speed and position will be average for front and left wheel:
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1.png" /></center></div>
@@ -74,15 +74,15 @@ We assume that wheels are connected to ports in following manner:
 
 ## Controlling the motor ##
 
-Most common way to send movement commands to robot is with use
+Most common way to send movement commands to the robot is with use of
 `geometry_msgs/Twist` message type. Then motor driver node should use
 data stored in them to control the motor.
 
 ### Publishing the motion command for robot ###
 
-You will use keyboard to control movement of your robot. For getting the
-key events and converting them to `geometry_msgs/Twist` messages can be
-used `teleop_twist_keyboard.py` node from package
+You will use keyboard to control the movement of your robot. For getting the
+key events and converting them to `geometry_msgs/Twist` messages you can
+use `teleop_twist_keyboard.py` node from package
 `teleop_twist_keyboard`.
 
 Alternatively you can use joystick to control your robot, then you will
@@ -91,7 +91,7 @@ need `universal_teleop` node from `universal_teleop` package and
 
 ### Converting motion command to motor drive signal ###
 
-In this section you will create node for interfacing motors. Your node
+In this section you will create a node for interfacing motors. Your node
 will subscribe to topic with `geometry_msgs/Twist` messages, drive the
 motors, read encoders and publish their state to appropriate topic. To
 create this node you will use Husarion Cloud. Create new project and
@@ -216,7 +216,7 @@ Function for checking battery voltage:
 	void batteryCheck()
 ``` 
 
-Read linear and angular target velocities, then calculate motor
+Reading linear and angular target velocities, then calculating motor
 velocities:
 
 ``` cpp
@@ -227,7 +227,7 @@ velocities:
     }
 ``` 
 
-Set target power for motors:
+Setting target power for motors:
 
 ``` cpp
 	hMot1.setPower(motorR*(-700)*!batteryLow);
@@ -236,7 +236,7 @@ Set target power for motors:
 	hMot4.setPower(motorL*(-700)*!batteryLow);
 ``` 
 
-Define subscriber for velocity topic:
+Defining subscriber for velocity topic:
 
 ``` cpp
     ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
@@ -252,13 +252,13 @@ Main function, tasks and node initialization:
 	sys.taskCreate(batteryCheck);
 ``` 
 
-Subscribe to topic:
+Subscribing to topic:
 
 ``` cpp
     nh.subscribe(sub);
 ``` 
 
-Define reversed polarity for left front and rear motors, this may vary,
+Defining reversed polarity for left front and rear motors, this may vary,
 depending on your machine configuration:
 
 ``` cpp
@@ -267,7 +267,7 @@ depending on your machine configuration:
     hMot4.setMotorPolarity(Polarity::Reversed);
     hMot4.setEncoderPolarity(Polarity::Reversed);
 ``` 
-Infinite loop, wait for incoming messages:
+Infinite loop, waiting for incoming messages:
 
 ``` cpp
 	while(true) {
@@ -317,7 +317,7 @@ You should get similar view in `rqt_graph`:
 
 ### Determining robot position ###
 
-Now we will perform forward kinematics task, we will use encoders that
+Now we will perform forward kinematics task- we will use encoders that
 are attached to every motor and process their measurements with
 equations shown in section 1.
 
@@ -633,7 +633,7 @@ void hMain()
 }
 ```
 
-Build your project and upload it to device.
+Build your project and upload it to the device.
 
 ### Running motor controller with forward kinematics task ###
 
@@ -654,7 +654,7 @@ You should get something like this on your screen:
 
 ## Robot visualization with Rviz ##
 
-Rviz is tool that allow visualization of robot position, travelled path,
+Rviz is tool which allows visualization of robot position, travelled path,
 planned trajectory, sensor state or obstacles surrounding robot.
 
 To run it type in terminal:
@@ -694,7 +694,7 @@ Find topic `/pose` and choose `Pose` and click **OK**.
 Then in visualized items list find position `Fixed Frame` and change it
 to `robot`.
 
-After this you should see an arrow representing position and orientation
+After this is done, you should see an arrow representing position and orientation
 of your robot. Move your robot and observe as arrow changes its
 position.
 
