@@ -7,8 +7,10 @@ order: 6
 page: 'Software'
 onepager: true
 ---
-<font size="12"><b>Husarnet</b></font>
-## Local network for your devices. Everywhere.
+<font size="12"><b>Husarnet (beta)</b></font><br>
+<font size="8">Local network for your devices. Everywhere.</font>
+
+# Introduction #
 
 Husarnet is a P2P, VPN network dedicated for robots, drones and autonomous vehicles. Thanks to Husarnet you can connect your robots, server and laptop to a single network that is independent from any external infrastructure. All traffic goes directly between your robots. 
 
