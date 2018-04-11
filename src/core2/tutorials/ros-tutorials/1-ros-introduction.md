@@ -233,10 +233,10 @@ Note that there is no underscore before the old name.
 
 ### Starting system step by step - Example
 
-In this section, we will set up ROS system that is equipped with a USB
+In this section, we will set up ROS system that is equipped with a Orbbec Astra 
 camera and show image from camera on display. We are going to work only
 on PC, so you do not need to plug CORE2, Raspberry Pi or any other device
-beside USB camera. If you are using laptop, integrated camera will be
+beside Astra camera. If you are using laptop, integrated or USB camera will be
 OK.
 
 #### Starting master
@@ -351,7 +351,7 @@ From that you can read, that via topic `/rosout_agg` only messages of type `rosg
 
 #### Starting camera node
 
-Now you will run few nodes for handling USB camera device. For this task you should
+Now you will run few nodes for handling Astra camera device. For this task you should
 use `astra.launch` from package `astra_launch` because this is the default camera installed in ROSbot. 
 We will explain how `launch` file works later. 
 
