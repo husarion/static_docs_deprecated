@@ -11,35 +11,35 @@ order: 4
 
 ## Introduction ##
 
-Objects can ce recognized by robot with use of vision system. It is
+Objects can ce recognized by a robot with use of a vision system. It is
 based on image characteristics like points, lines, edges colours and
 their relative positions.
 
-Process of object recognition consists of two steps. First of them is
-teaching and should be executed before main robot operation, at this
-step object is presented to vision system, image and extracted set of
-features are saved as a pattern. Many objects can be presented to
+Processing of object recognition consists of two steps. First is
+teaching and should be executed before main robot operation. During this
+step object is presented to the vision system, image and extracted set of
+features are saved as a pattern. Many objects can be presented to the
 system.
 
-Second step is actual recognition, this is executed constantly during
+Second step is actual recognition which is executed constantly during
 robot operation. Every frame of camera is processed, image features are
-extracted and compared to data set in memory. If enough features matches
-pattern, then object is recognized.
+extracted and compared to data set in the memory. If enough features matches
+the pattern, then the object is recognized.
 
 In this tutorial we will use `find_object_2d` node from `find_object_2d`
 package for both teaching and recognition.
 
-As an image source we will use `usb_cam` node as in tutorial 1.
+As an image source we will use nodes from `astra.launch` as in tutorial 1.
 
 ## Teaching objects ##
 
-Object to recognize could be anything, but remember, that the more edges
+Anything could be an object to recognize, but remember, that the more edges
 and contrast colours it has, the easier it will be recognized. A piece
-of paper with something draw on it would be enough for tutorial.
+of paper with something drawn on it would be enough for this tutorial.
 
-Now you should run `find_object_2d` and `usb_cam` node. Node
+First you should run `find_object_2d` and `astra.launch`. Node
 `find_object_2d` by default subscribe to `image` topic, you should remap
-it to topic published by `usb_cam` node. We will also decrease the
+it to topic `/camera/rgb/image_raw`. We will also decrease the
 camera framerate, as it is not necessary to check for objects so often
 and it will use less CPU making interface more responsive.
 
@@ -48,18 +48,12 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-	<node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-		<param name="video_device" value="/dev/video0"/>
-		<param name="image_width" value="640"/>
-		<param name="image_height" value="480"/>
-		<param name="pixel_format" value="yuyv"/>
-		<param name="framerate" value="2"/>
-	</node>
+    <include file="$(find astra_launch)/launch/astra.launch"/>
 
-	<node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-		<remap from="image" to="/usb_cam/image_raw"/>
-		<param name="gui" value="true"/>
-	</node>
+    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+        <remap from="image" to="/camera/rgb/image_raw"/>
+        <param name="gui" value="true"/>
+    </node>
 
 </launch>
 ```
@@ -70,7 +64,7 @@ topic, new window should appear:
 ![image](/assets/img/ros/man_4_1.png)
 
 On the left side of the window there are thumbnails of saved images
-(should be empty at first run). Application main window contain camera
+(should be empty at first run). Application main window contains camera
 view. Yellow circles on the image are marking extracted image features.
 
 To begin teaching process choose from the main toolbar **`Edit`**
@@ -79,7 +73,7 @@ To begin teaching process choose from the main toolbar **`Edit`**
 ![image](/assets/img/ros/man_4_2.png)
 
 Now move the object and camera in order to cover as many features of
-object as possible, also try not to catch object surrounding. When it’s
+the object as possible. While doing that try not to catch object surroundings. When it’s
 done, click **`Take picture`**.
 
 ![image](/assets/img/ros/man_4_3.png)
@@ -90,50 +84,44 @@ taken picture, that covers desired object and click **`Next`**.
 ![image](/assets/img/ros/man_4_4.png)
 
 You will get confirmation of features extracted from selected image
-region. If presented image is in accordance with what you selected,
+area. If presented image is in accordance with what you selected,
 click **`End`**
 
 ![image](/assets/img/ros/man_4_5.png)
 
-You should see new thumbnail in left panel. Notice the number outside of
-parentheses on the left of image, this is object ID.
+You should see new thumbnail in the left panel. Notice the number outside of
+parentheses on the left of the image, this is the object ID.
 
-Now you can add some more objects to recognize, remember their IDs, you
+Now you can add some more objects to be recognized. Remember their IDs, you
 will need them later:
 
 ![image](/assets/img/ros/man_4_6.png)
 
-When you have enough objects in database choose from the main toolbar
-**`File`** → **`Save objects...`** and choose folder to
+When you have enough objects in the database choose from the main toolbar
+**`File`** → **`Save objects...`** and choose a folder to
 store recognized objects. Close the window and stop all running nodes.
 
 ## Recognizing objects ##
 
-Objects are recognized by the same node as for teaching, but it will
-work in slightly different configuration. We will set two new parameters
-for node. For parameter `gui` we will set value `false`, this will run
+Objects will be recognized by the same node which was used for teaching but 
+it works in slightly different configuration. We will set two new parameters
+for the node. For parameter `gui` we will set value `false`, this will run
 node without window for learning objects as we no longer need it.
-Another parameter will be `objects_path`, this should be path to folder
-that you just chosen to store recognized objects.
+Another parameter will be `objects_path`, this should be a path to a folder
+that you have just chosen to store recognized objects.
 
 You can use below `launch` file:
 
 ``` launch
 <launch>
 
-	<node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-		<param name="video_device" value="/dev/video0"/>
-		<param name="image_width" value="640"/>
-		<param name="image_height" value="480"/>
-		<param name="pixel_format" value="yuyv"/>
-		<param name="framerate" value="2"/>
-	</node>
+    <include file="$(find astra_launch)/launch/astra.launch"/>
 
-	<node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-		<remap from="image" to="/usb_cam/image_raw"/>
-		<param name="gui" value="false"/>
-		<param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
-	</node>
+    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
+        <remap from="image" to="/camera/rgb/image_raw"/>
+        <param name="gui" value="false"/>
+        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
+    </node>
 
 </launch>
 ```
@@ -155,10 +143,10 @@ To watch messages published in the topic, you can use `rostopic` tool:
 
 To perform a robot action based on recognized object, we will make a new
 node. It’s task will be to subscribe `/objects` topic and publish
-message to `/cmd_vel` with speed and direction depending on object.
+message to `/cmd_vel` with speed and direction depending on the object.
 
 Create a new file, name it `action_controller.cpp` and place it in `src`
-folder under `tutorial_pkg`. Then open it in text editor and paste:
+folder under `tutorial_pkg`. Then open it in text editor and paste below code:
 
 ``` cpp
 #include <ros/ros.h>
@@ -181,14 +169,14 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
       switch (id) {
          case ARROW_LEFT:
             set_vel.linear.x = 0;
-            set_vel.angular.z = 4.5;
+            set_vel.angular.z = 1;
             break;
          case ARROW_UP:
-            set_vel.linear.x = 2;
+            set_vel.linear.x = 1;
             set_vel.angular.z = 0;
             break;
          case ARROW_DOWN:
-            set_vel.linear.x = -2;
+            set_vel.linear.x = -1;
             set_vel.angular.z = 0;
             break;
          default: // other object
@@ -224,9 +212,9 @@ int main(int argc, char **argv) {
 }   
 ```
 
-Below is explanation for code line by line.
+Below is an explanation of the code line by line.
 
-Include required headers:
+Including required headers:
 
 ``` cpp
     #include <ros/ros.h>
@@ -234,7 +222,7 @@ Include required headers:
     #include <geometry_msgs/Twist.h>
 ``` 
 
-Define constants for recognized objects, adjust values to IDs of objects
+Defining constants for recognized objects, adjusting values to IDs of objects
 recognized by your system:
 
 ``` cpp
@@ -269,7 +257,7 @@ data:
     void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
 ``` 
 
-Check if size of `data` field is non zero, if it is, then object is
+Checking if size of `data` field is non zero, if it is, then object is
 recognized. When `data` field size is zero, then no object was
 recognized.
 
@@ -277,13 +265,13 @@ recognized.
     if (object->data.size() > 0) {
 ``` 
 
-Read id of recognized object:
+Reading id of recognized object:
 
 ``` cpp
     id = object->data[0];
 ``` 
 
-Depending on recognized object, set appropriate speed values:
+Depending on recognized object, setting appropriate speed values:
 
 ``` cpp
     switch (id) {
@@ -305,13 +293,13 @@ Depending on recognized object, set appropriate speed values:
           }
 ``` 
 
-Publish velocity command message:
+Publishing velocity command message:
 
 ``` cpp
     action_pub.publish(set_vel);
 ``` 
 
-Stop all motors when no object was detected:
+Stopping all motors when no object was detected:
 
 ``` cpp
     } else {
@@ -322,7 +310,7 @@ Stop all motors when no object was detected:
        }
 ``` 
 
-Main function, node initialization and set main loop interval:
+Main function, node initialization and setting main loop interval:
 
 ``` cpp
     int main(int argc, char **argv) {
@@ -331,19 +319,19 @@ Main function, node initialization and set main loop interval:
        ros::Rate loop_rate(50);
 ``` 
 
-Subscribe to `/objects` topic:
+Subscribing to `/objects` topic:
 
 ``` cpp
     ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
 ``` 
 
-Prepare publisher for velocity commands:
+Preparing publisher for velocity commands:
 
 ``` cpp
     action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 ``` 
 
-Set zeros for initial speed values:
+Setting zeros for initial speed values:
 
 ``` cpp
     set_vel.linear.x = 0;
@@ -354,7 +342,7 @@ Set zeros for initial speed values:
        set_vel.angular.z = 0;
 ``` 
 
-Main loop, wait trigger messages:
+Main loop, waiting for trigger messages:
 
 ``` cpp
     while (ros::ok()) {
@@ -363,11 +351,11 @@ Main loop, wait trigger messages:
        }
 ``` 
 
-Last thing to do is edit the `CMakeLists.txt` file. Find line:
+Last thing to do is editting the `CMakeLists.txt` file. Find line:
 
     add_executable(tutorial_pkg_node src/tutorial_pkg_node.cpp)
 
-and add after it:
+and add below code after it:
 
     add_executable(action_controller_node src/action_controller.cpp)
 
@@ -377,7 +365,7 @@ Find also:
       ${catkin_LIBRARIES}
     )
 
-and add after it:
+and add below code after it:
 
     target_link_libraries(action_controller_node
       ${catkin_LIBRARIES}
@@ -385,26 +373,20 @@ and add after it:
 
 Now you can build your node and test it.
 
-**Task 1** Run your node along with `find_object_2d` and `usb_cam`
-nodes. Then use `rosnode`, `rostopic` and `rqt_graph` tools to examine
-system. Place different objects in front of your robot by turns. Observe
-how it drives and turns depending on objects.
+**Task 1** Run your node along with `find_object_2d` and `astra.launch`.
+Then use `rosnode`, `rostopic` and `rqt_graph` tools to examine the
+system. Place different objects in front of your robot one by one. Observe
+how it drives and turns depending on differnt objects.
 
 You can use below `launch` file:
 
 ``` launch
 <launch>
 
-    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-        <param name="video_device" value="/dev/video0"/>
-        <param name="image_width" value="640"/>
-        <param name="image_height" value="480"/>
-        <param name="pixel_format" value="yuyv"/>
-        <param name="framerate" value="2"/>
-    </node>
+    <include file="$(find astra_launch)/launch/astra.launch"/>
 
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-        <remap from="image" to="/usb_cam/image_raw"/>
+        <remap from="image" to="/camera/rgb/image_raw"/>
         <param name="gui" value="false"/>
         <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
     </node>
@@ -417,15 +399,17 @@ You can use below `launch` file:
 
 ## Getting position of recognized object ##
 
-Beside the ID of recognized object, `find_object_2d` node is also
-publishing a homography matrix of recognized object. in computer vision
-homography is used to define position of object relative to camera. We
-will use it to obtain horizontal position of object. Homography matrix
-is published in the same topic as ID, but in the next cells of array,
+Besides the ID of recognized object, `find_object_2d` node is also
+publishing a homography matrix of recognized object. In computer vision
+homography is used to define position of object relative to the camera. We
+will use it to obtain horizontal position of the object. Homography matrix
+is published in the same topic as the ID, but in the next cells of array,
 they are formatted as
+
 `[objectId1, objectWidth, objectHeight, h11, h12, h13, h21, h22, h23, h31, h32, h33, object2]`.
 
-We will modify node to rotate robot to direction of recognized object.
+We will modify node to rotate robot to the direction of recognized object.
+
 Open `action_controller.cpp` file in text editor.
 
 Begin with including of required header file:
@@ -434,17 +418,19 @@ Begin with including of required header file:
     #include <opencv2/opencv.hpp>
 ``` 
 
-Variable for storing camera centre, this should be half of your camera
+Variable for storing camera centre- this should be half of your camera
 horizontal resolution:
 
 ``` cpp
     int camera_center = 320; // left 0, right 640
 ``` 
 
-Variable for defining maximum rotation speed:
+Variables for defining rotation speed:
 
 ``` cpp
-    float max_ang_vel = 6.0;
+    float max_ang_vel = 0.6;
+    float min_ang_vel = 0.4;
+    float ang_vel = 0;
 ``` 
 
 Variable for object width and height:
@@ -464,7 +450,7 @@ Variable defining how much rotation speed should increase with every
 pixel of object displacement:
 
 ``` cpp
-    float speed_coefficient = (float) camera_center / max_ang_vel;
+    float speed_coefficient = (float) camera_center / max_ang_vel /4;
 ``` 
 
 Object for homography matrix:
@@ -479,13 +465,13 @@ Vectors for storing input and output planes:
     std::vector<cv::Point2f> inPts, outPts;
 ```
 
-Add new case in `switch` statement:
+Adding new case in `switch` statement:
 
 ``` cpp
     case SMILE:
 ``` 
 
-Extract coefficients homography matrix:
+Extracting coefficients homography matrix:
 
 ``` cpp
     cvHomography.at<float>(0, 0) = object->data[3];
@@ -499,7 +485,7 @@ Extract coefficients homography matrix:
     cvHomography.at<float>(2, 2) = object->data[11];
 ``` 
 
-Define corners of input plane:
+Defining corners of input plane:
 
 ``` cpp
     inPts.push_back(cv::Point2f(0, 0));
@@ -508,23 +494,36 @@ Define corners of input plane:
     inPts.push_back(cv::Point2f(objectWidth, objectHeight));
 ``` 
 
-Calculate perspective transformation:
+Calculating perspective transformation:
 
 ``` cpp
     cv::perspectiveTransform(inPts, outPts, cvHomography);
 ``` 
 
-Calculate centre of object from its corners:
+Calculating centre of object from its corners:
 
 ``` cpp
     x_pos = (int) (outPts.at(0).x + outPts.at(1).x + outPts.at(2).x + outPts.at(3).x) / 4;
 ``` 
 
-Calculate angular speed value proportional to position of object and put
+Calculating angular speed value proportional to position of object and putting
 it into velocity message:
 
 ``` cpp
-    set_vel.angular.z = -(x_pos - camera_center) / speed_coefficient; 
+                ang_vel = -(x_pos - camera_center) / speed_coefficient;
+            
+            if (ang_vel >= -min_ang_vel && ang_vel <= min_ang_vel){
+		set_vel.angular.z = 0;
+	    }
+	    else if (ang_vel >=max_ang_vel){
+		set_vel.angular.z = max_ang_vel;
+	    }
+	    else if (ang_vel <=-max_ang_vel){
+		set_vel.angular.z = -max_ang_vel;
+	    }
+	    else {
+		set_vel.angular.z = ang_vel;
+	    }
 ``` 
 
 Your final file should look like this:
@@ -544,7 +543,9 @@ int id = 0;
 ros::Publisher action_pub;
 geometry_msgs::Twist set_vel;
 int camera_center = 320; // left 0, right 640
-float max_ang_vel = 6.0;
+float max_ang_vel = 0.6;
+float min_ang_vel = 0.4;
+float ang_vel = 0;
 
 void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
    if (object->data.size() > 0) {
@@ -553,7 +554,7 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
       float objectWidth = object->data[1];
       float objectHeight = object->data[2];
       float x_pos;
-      float speed_coefficient = (float) camera_center / max_ang_vel;
+      float speed_coefficient = (float) camera_center / max_ang_vel /4;
 
       // Find corners OpenCV
       cv::Mat cvHomography(3, 3, CV_32F);
@@ -561,7 +562,7 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
       switch (id) {
          case ARROW_LEFT:
             set_vel.linear.x = 0;
-            set_vel.angular.z = 4.5;
+            set_vel.angular.z = 1.0;
             break;
          case ARROW_UP:
             set_vel.linear.x = 2;
@@ -590,7 +591,20 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
 
             x_pos = (int) (outPts.at(0).x + outPts.at(1).x + outPts.at(2).x + 
 	    	outPts.at(3).x) / 4;
-            set_vel.angular.z = -(x_pos - camera_center) / speed_coefficient;
+            ang_vel = -(x_pos - camera_center) / speed_coefficient;
+            
+            if (ang_vel >= -min_ang_vel && ang_vel <= min_ang_vel){
+		set_vel.angular.z = 0;
+	    }
+	    else if (ang_vel >=max_ang_vel){
+		set_vel.angular.z = max_ang_vel;
+	    }
+	    else if (ang_vel <=-max_ang_vel){
+		set_vel.angular.z = -max_ang_vel;
+	    }
+	    else {
+		set_vel.angular.z = ang_vel;
+	    }
             
             break;
          default: // other object
@@ -631,11 +645,11 @@ int main(int argc, char **argv) {
 }
 ```
 
-Last thing to do is edit the `CMakeLists.txt` file. Find line:
+Last thing to do is to edit the `CMakeLists.txt` file. Find line:
 
     find_package(catkin REQUIRED COMPONENTS roscpp )
 
-and add after it:
+and add below code after it:
 
     find_package( OpenCV REQUIRED )
 
@@ -667,14 +681,14 @@ and change it to:
 
 Now you can build your node and test it.
 
-**Task 2** Run your node along with `find_object_2d` and `usb_cam`
-nodes. Place object with ID bonded to new case in switch statement in
-front of your robot. Observe how it turns towards object.
+**Task 2** Run your node along with `find_object_2d` and `astra.launch`. 
+Place the object with ID bonded to new case in switch statement in
+front of your robot. Observe how it turns towards the object.
 
 ## Following the object ##
 
 In this section you will modify your robot to turn and also drive
-towards object while keeping distance to it. For keeping the distance we
+towards the object while keeping distance to it. For keeping the distance we
 will use proximity sensors. Connect multiplexer to
 `hSens3` port of `CORE2` and sensors to proper chanel like below:
 
@@ -684,7 +698,7 @@ ch6 - FL sensor
 ch7 - FR sensor
 
 Log in to Husarion Cloud and open project that you created in previous
-manual, you will edit it a little.
+manual. You will need to edit it a little.
 
 Include required header files:
 
@@ -716,7 +730,7 @@ ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
 ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
 ``` 
 
-Strukture and mutex to use sensor data:
+Structure and mutex to use sensor data:
 
 ``` 
 struct hMUX{
@@ -794,7 +808,7 @@ In main function, put initial values for measurement messages:
     rangeRR.max_range = 0.3;        // meters
 ``` 
 
-Run publishers:
+Running publishers:
 
 ``` cpp
     nh.advertise(rangeFL_pub);
@@ -817,7 +831,7 @@ Assigning values to variables and put them into messages:
         rangeRR_pub.publish(&rangeRR);
 ``` 
 
-Publish messages:
+Publishing messages:
 
 ``` cpp
         rangeFL_pub.publish(&rangeFL);
@@ -1044,10 +1058,10 @@ void hMain()
 }
 ```
 
-Build project and upload it to device. Then open `action_controller.cpp`
+Build the project and upload it to your device. Then open `action_controller.cpp`
 file in text editor.
 
-Begin with including of required header file:
+Begin with including required header file:
 
 ``` cpp
     #include <sensor_msgs/Range.h>
@@ -1227,17 +1241,17 @@ int main(int argc, char **argv) {
 
 Now you can build your node and test it.
 
-**Task 3** Run your node along with `find_object_2d` and `usb_cam`
-nodes. Place in front of your robot the same object as in Task 2.
-Observe how it turns and drives towards object.
+**Task 3** Run your node along with `find_object_2d` and `astra.launhc`. 
+Place the same object as in Task 2 in front of your robot.
+Observe how it turns and drives towards the object.
 
 ## Summary ##
 
 After completing this tutorial you should be able to configure your
 CORE2 device with vision system to recognize objects. You should also be
-able to determine position of recognized object relative to camera and
-make node that perform specific action related to recognized objects.
-You also know how to handle proximity sensors with `sensor_msgs/Range`
+able to determine the position of recognized object relative to camera and
+create a node that perform specific action related to recognized objects.
+You should also know how to handle proximity sensors with `sensor_msgs/Range`
 message type.
 
 ---------
