@@ -16,66 +16,48 @@ computers.You will use this configuration to set up system consisting of
 two robots, which perform task of searching an object.
 
 In this manual you will need two robots based on CORE2 with the same
-equipment as in previous manual.
+equipment as in the previous manual.
 
 ## Network setup ##
 
 To run ROS on multiple machines, all of them must be in the same local
-network, if necessary, use `hConfig` app to connect all devices to one
+network- if necessary, use `hConfig` app to connect all devices to one
 network. You will need IP address of every device.
 
-While working on multiple machines, you need only one `roscore` running,
-choose one device for it, we will call it `master`.
+While working on multiple machines, you need only one `roscore` running.
+Choose one device for it- we will call it `master`.
 
-Now you will set two environmental variables for each device. On
-`master` set:
+To connect our devices in one network we will use Husarnet. Full instructions 
+for the use of Husarnet are described in the [husanet tutorial](https://husarion.com/tutorials/husarnet/following-object-using-your-smartphone).
 
--   **`ROS_MASTER_URI`** with value `http://xxx.xxx.xxx.xxx:11311`
+If you already connected both your robots to Husarion cloud you can go to the next step, if not, do it before proceeding.
 
--   **`ROS_IP`** with value `xxx.xxx.xxx.xxx`
+Now log in to the husarion cloud and look at the bottom of the page. You should see heading `Unassigned device` and at least two device.
 
-Value `xxx.xxx.xxx.xxx` should be IP address of `master`.
+Create Husarnet network by clicking `Link to virtual robot` and chossing `Crteate new virtual robot` and tape in name for your robot, this will create new Husarion network.
+Next enter your virtual robot and click add `Add component`, then chose correct device from the drop down list and click `Add device`. 
 
-On second device (and any further if you want use more machines) set:
+Now you just have to choose which one will be your ROS master. With above configuration, nodes running on different machines will be able to communicate.
 
--   **`ROS_MASTER_URI`** with value `http://xxx.xxx.xxx.xxx:11311`
-
--   **`ROS_IP`** with value `yyy.yyy.yyy.yyy`
-
-Value `yyy.yyy.yyy.yyy` should be IP address of device.
-
-Note that **`ROS_MASTER_URI`** has the same value for all machines while
-**`ROS_IP`** changes value for each device.
-
-You can set that variables with command `export`:
-
-    $ export ROS_MASTER_URI=http://xxx.xxx.xxx.xxx:11311
-
-    $ export ROS_IP=yyy.yyy.yyy.yyy
-
-Remember that you need to set these variables in each terminal window or
-you can use `.bashrc` file to automate it.
-
-With above configuration, nodes running on different machines should be
-able to communicate.
+TIP! Remember that `roscore` must be running on the device indicated as ROS master!!!
 
 **Task 1**
 
-Set configuration for working on multiple machines at two devices. On
-one device run only `roscore`, on second run `usb_cam_node` and
+Set configuration for working on multiple machines on two devices. On
+the first device run only `roscore`, on the second run `astra.launch` and
 `image_view` nodes. Now run `rqt_graph` on both of them, you should see
 the same graph.
 
-Next run `image_view` node on machine with `roscore`, you should see
-there image from camera mounted on device with `usb_cam_node` running.
-Again use `rqt_graph` examine what changed in the system.
+Next run `image_view` node on machine with `roscore`. You should see
+the image from camera mounted on the device with `astra.launch` running.
+Again use `rqt_graph` to examine what changed in the system.
 
 ## Performing a task with multiple machines ##
 
-In this section we will program two robots for searching objects one
-after another. For this we will need one node that manages the search
-process, this will run only on one machine. We will also need node that
-searches for object, this will run on each device. For recognizing
+In this section we will program two robots to search objects one
+after another. To do that we will need one node which manages the search
+process- it will run only on one machine. We will also need a node that
+searches for the object- it will run on both devices. For recognizing
 objects we will use `find_object_2d` node. If you have saved objects
 from previous tutorials you can use them, in other case you will need to
 teach at least four objects. Remember that both robots need to have the
@@ -84,10 +66,10 @@ another.
 
 ### `mission_controller` node ###
 
-In package `tutorial_pkg` in `src` folder create file
-`mission_controller.cpp` and open it with text editor.
+In `tutorial_pkg` package in `src` folder create file
+`mission_controller.cpp` and open it with a text editor.
 
-Begin with headers:
+Begin with the headers:
 
 ``` cpp
     #include <ros/ros.h>
@@ -136,7 +118,7 @@ Service callback function for reporting found objects:
     }
 ``` 
 
-In `main` function, define sequence of searched objects:
+In `main` function, definining sequence of searched objects:
 
 ``` cpp
     objects.push_back(OBJECT_1_ID);
@@ -153,20 +135,20 @@ Node initialization:
     ros::Rate loop_rate(50);
 ``` 
 
-Register service, here will be reported objects that are found:
+Registering the service- objects that are found will be reported here:
 
 ``` cpp
     ros::ServiceServer service = n.advertiseService("/object_found", object_found);
 ``` 
 
-Publish topic with ID of currently searched object:
+Publishing topic with ID of currently searched object:
 
 ``` cpp
     task_pub = n.advertise<std_msgs::Char>("/task", 1);
 ``` 
 
-In infinite while loop, trigger incoming messages, check ID of currently
-searched object and publish it:
+In infinite while loop- triggering incoming messages, checking ID of currently
+searched object and publishing it:
 
 ``` cpp
     ros::spinOnce();
@@ -232,7 +214,7 @@ int main(int argc, char **argv) {
 In the same package create another file named `search_controller.cpp`
 and open it with text editor.
 
-Begin with header files:
+Begin with the header files:
 
 ``` cpp
     #include <ros/ros.h>
@@ -293,7 +275,7 @@ Callbacks for updating distances and object ID:
 ```
 
 Callback for handling recognized objects, if ID is in accordance with
-searched object, report it to service:
+searched object, reporting it to service:
 
 ``` cpp
     void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
@@ -314,7 +296,7 @@ In main function, node initialization:
     ros::NodeHandle n("~");
 ``` 
 
-Subscribe to topics:
+Subscribing to topics:
 
 ``` cpp
     ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
@@ -323,7 +305,7 @@ Subscribe to topics:
     ros::Subscriber task_sub = n.subscribe("/task", 1, task_callback);
 ``` 
 
-Get `objectID` and `homeID` params, robot will search only for objects
+Getting `objectID` and `homeID` params, robot will search only for objects
 with these IDs:
 
 ``` cpp
@@ -331,25 +313,25 @@ with these IDs:
     n.param<int>("homeID", homeID, 0);
 ``` 
 
-Instantiate client for service:
+Initiating client for the service:
 
 ``` cpp
     client = n.serviceClient<std_srvs::Empty>("/object_found");
 ``` 
 
-Set loop rate:
+Setting loop rate:
 
 ``` cpp
     ros::Rate loop_rate(10);
 ``` 
 
-Instantiate velocity publisher:
+Initiating velocity publisher:
 
 ``` cpp
     action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
 ``` 
 
-Set default values for velocity:
+Setting default values for velocity:
 
 ``` cpp
     set_vel.linear.x = 0;
@@ -360,14 +342,14 @@ Set default values for velocity:
     set_vel.angular.z = 0;
 ``` 
 
-In infinite while loop, trigger incoming messages:
+In infinite while loop, triggering incoming messages:
 
 ``` cpp
     ros::spinOnce();
     loop_rate.sleep();
 ``` 
 
-If searched object ID comply with this node’s ID, set desired robot
+If searched object ID complies with this node’s ID, setting desired robot
 velocity based on sensor measurements:
 
 ``` cpp
@@ -535,15 +517,10 @@ will be running on one robot:
 ``` launch
 <launch>
 
-    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-        <param name="video_device" value="/dev/video0"/>
-        <param name="image_width" value="640"/>
-        <param name="image_height" value="480"/>
-        <param name="pixel_format" value="yuyv"/>
-    </node>
+    <include file="$(find astra_launch)/launch/astra.launch"/>
 
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-        <remap from="image" to="/usb_cam/image_raw"/>
+        <remap from="image" to="/camera/rgb/image_raw"/>
         <param name="gui" value="false"/>
         <param name="objects_path" value="/home/pi/ros_workspace/find_obj"/>
     </node>
@@ -559,26 +536,23 @@ will be running on one robot:
 </launch>
 ```
 
-Here you run `usb_cam_node` and `find_object_2d` nodes as in previous
-tutorials, you also add nodes that you just created,
+Here you are runing `astra.launch` and `find_object_2d` nodes as in previous
+tutorials. You are also adding nodes that you just created,
 `mission_controller_node` without any parameters and
 `search_controller_node` with `objectID` and `homeID` parameters that
-identify objects which will be searched by robot.
+identify objects which will be searched for by robot.
 
 Second `launch` file will be running on another robot:
 
 ``` launch
 <launch>
 
-    <node pkg="usb_cam" type="usb_cam_node" name="usb_cam_2">
-        <param name="video_device" value="/dev/video0"/>
-        <param name="image_width" value="640"/>
-        <param name="image_height" value="480"/>
-        <param name="pixel_format" value="yuyv"/>
-    </node>
+    <include file="$(find astra_launch)/launch/astra.launch">
+        <arg name="camera" value="camera_2" />
+    </include>
 
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d_2">
-        <remap from="image" to="/usb_cam_2/image_raw"/>
+        <remap from="image" to="/camera/rgb/image_raw_2"/>
         <param name="gui" value="false"/>
         <remap from="objects" to="objects_2"/>
         <param name="objects_path" value="/home/pi/ros_workspace/find_obj"/>
@@ -596,16 +570,16 @@ Second `launch` file will be running on another robot:
 </launch>
 ```
 
-Here you also run `usb_cam_node` and `find_object_2d` nodes, but all
+Here you are also running `astra.launch` and `find_object_2d` nodes, but all
 names are remapped with suffix `_2` to distinguish them between both
-robots. For `search_controller_node` you will also remap all names and
+robots. For `search_controller_node` you will also be remapping all names and
 additionally you should change values of `objectID` and `homeID`
 parameters to match different objects from image database.
 
-Remember that for `CORE2` bridge node on second robot you also need to
+Remember that for `CORE2` bridge node on the second robot you also need to
 remap all topic names.
 
-**Task 2** On device that you have chosen for `master` run `roscore`.
+**Task 2** On the device that you have chosen for `master` run `roscore`.
 Then on one of the robots run first `launch` file with `CORE2` bridge
 node:
 
@@ -616,8 +590,8 @@ On another robot run second `launch` file with `CORE2` bridge node:
     $ /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2 __name:=serial_node_2 
     cmd_vel:=cmd_vel_2 rangeL:=rangeL_2 rangeR:=rangeR_2 pose:=pose_2
 
-Observe as one of your robots move avoiding obstacles, when it finds
-object, second robot start to search, they should move sequentially
+Observe as one of your robots moves avoiding obstacles. When it finds an
+object, second robot starts seearching. They should move sequentially
 until all objects are recognized.
 
 ## Summary ##
