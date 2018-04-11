@@ -377,7 +377,7 @@ Your final code should look like this:
      }
 ``` 
 
-**Task 2** Build your node and run it with `usb_cam` node. Use
+**Task 2** Build your node and run it with `astra.launch`. Use
 `rosnode`, `rostopic` and `rqt_graph` tools to examine system and check
 how data is passed between nodes.
 
@@ -552,7 +552,7 @@ Your final code should look like this:
      }
 ``` 
 
-**Task 4** Compile your node and run it with `usb_cam`. Use `rosnode`,
+**Task 4** Compile your node and run it with `astra.launch`. Use `rosnode`,
 `rostopic` and `rqt_graph` tools to examine the system, then use
 `rostopic echo` tool to read brightness of the image from the camera.
 
@@ -665,8 +665,8 @@ Your final code should look like this:
      }
 ```
 
-**Task 5** Build your node and run it with `usb_cam` and `image_saver`
-nodes. Use `rosnode`, `rostopic` and `rqt_graph` tools to examine the system
+**Task 5** Build your node and run it with `astra.launch` and `image_saver`. 
+Use `rosnode`, `rostopic` and `rqt_graph` tools to examine the system
 and check how data is passed between nodes. Let the nodes work for a
 certain time. Observe as new frames are being saved to your workspace
 directory.
