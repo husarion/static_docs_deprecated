@@ -510,10 +510,10 @@ Calculating angular speed value proportional to position of object and putting
 it into velocity message:
 
 ``` cpp
-                ang_vel = -(x_pos - camera_center) / speed_coefficient;
+            ang_vel = -(x_pos - camera_center) / speed_coefficient;
             
-            if (ang_vel >= -min_ang_vel && ang_vel <= min_ang_vel){
-		set_vel.angular.z = 0;
+            if (ang_vel >= -(min_ang_vel/2) && ang_vel <= (min_ang_vel/2)){
+                set_vel.angular.z = 0;
 	    }
 	    else if (ang_vel >=max_ang_vel){
 		set_vel.angular.z = max_ang_vel;
@@ -593,8 +593,8 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
 	    	outPts.at(3).x) / 4;
             ang_vel = -(x_pos - camera_center) / speed_coefficient;
             
-            if (ang_vel >= -min_ang_vel && ang_vel <= min_ang_vel){
-		set_vel.angular.z = 0;
+            if (ang_vel >= -(min_ang_vel/2) && ang_vel <= (min_ang_vel/2)){
+                set_vel.angular.z = 0;
 	    }
 	    else if (ang_vel >=max_ang_vel){
 		set_vel.angular.z = max_ang_vel;
@@ -1074,7 +1074,7 @@ distance to obstacle:
     float distFL = 0;
     float distFR = 0;
     float average_dist = 0;
-    float desired_dist = 0.25;
+    float desired_dist = 20;
 ``` 
 
 Callback functions for incoming sensor messages, their task is only to
@@ -1097,10 +1097,11 @@ value for linear velocity:
 ``` cpp
     if (distFL > 0 && distFR > 0) {
         average_dist = (distFL + distFR) / 2;
-        set_vel.linear.x = (average_dist - desired_dist) * 6;
-    } else {
-       set_vel.linear.x = 0;
-    } 
+        set_vel.linear.x = (average_dist - desired_dist) /40;
+    }
+    else {
+        set_vel.linear.x = 0;
+    }
 ``` 
 
 In main function, subscribe to sensor topics:
@@ -1129,12 +1130,14 @@ int id = 0;
 ros::Publisher action_pub;
 geometry_msgs::Twist set_vel;
 int camera_center = 320; // left 0, right 640
-float max_ang_vel = 6.0;
+float max_ang_vel = 0.6;
+float min_ang_vel = 0.4;
+float ang_vel = 0;
 
 float distFL = 0;
 float distFR = 0;
 float average_dist = 0;
-float desired_dist = 0.25;
+float desired_dist = 20;
 
 void distFL_callback(const sensor_msgs::Range &range) {
    distFL = range.range;
@@ -1188,14 +1191,28 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
 
             x_pos = (int) (outPts.at(0).x + outPts.at(1).x + outPts.at(2).x +
 	    	outPts.at(3).x) / 4;
-            set_vel.angular.z = -(x_pos - camera_center) / speed_coefficient;
+            ang_vel = -(x_pos - camera_center) / speed_coefficient;
+            
+            if (ang_vel >= -(min_ang_vel/2) && ang_vel <= (min_ang_vel/2)){
+                set_vel.angular.z = 0;
+                    if (distFL > 0 && distFR > 0) {
+                        average_dist = (distFL + distFR) / 2;
+                        set_vel.linear.x = (average_dist - desired_dist) /40;
+                    }
+                    else {
+                        set_vel.linear.x = 0;
+                    }
+	    }
+	    else if (ang_vel >=max_ang_vel){
+		set_vel.angular.z = max_ang_vel;
+	    }
+	    else if (ang_vel <=-max_ang_vel){
+		set_vel.angular.z = -max_ang_vel;
+	    }
+	    else {
+		set_vel.angular.z = ang_vel;
+	    }
 
-            if (distL > 0 && distR > 0) {
-               average_dist = (distFL + distFR) / 2;
-               set_vel.linear.x = (average_dist - desired_dist) * 6;
-            } else {
-               set_vel.linear.x = 0;
-            }
             break;
          default: // other object
             set_vel.linear.x = 0;
