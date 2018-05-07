@@ -263,7 +263,7 @@ Software for ROSbot can be divided into 2 parts:
 
 ## Connection to Husarion Cloud ##
 
-* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on Google Play and appStore), any PC computer to work with ROSbot, the Wi-Fi network.
+* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Google Play</a> and <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?app=itunes&platform=iphone&preserveScrollPosition=true">appStore</a>), any PC computer to work with ROSbot, the Wi-Fi network.
 * Login or register on cloud.husarion.com.
 * Register your ROSbot on your cloud account by clicking “Add new device”.
 * Launch the hConfig application and follow the instructions.
