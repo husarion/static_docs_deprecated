@@ -275,6 +275,54 @@ Note: The app will ask you to hold hCfg button on CORE2 and to watch LR1, LR2 LE
 ROS (Robot Operating System) provides libraries and tools to help software developers create robot applications. It provides hardware abstraction, device drivers, libraries, visualizers, message-passing, package management, and more. It's very powerful and 
 functional tool dedicated to design robots. We created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with these frameworks. 
 
+## Configuring ROSbot to work with 5GHz WiFi. ##
+
+By default ROSbot supports WiFi in 2.4GHz band, this is sufficent for most cases.
+If you encounter problems with data transfers e.g. due to processing large amounts of data or noise from other networks you can try to use connection in 5GHz band.
+
+To do this, you will need a USB 5GHz WiFi card (any device based on rtl8812au should be fine, tested models are TP-Link Archer T4U and D-Link DWA-172)
+
+If you have recent image version you can skip update and kernel instal, otherwise do:
+
+```  
+sudo apt-get update
+```
+
+This will update packages list.
+
+Then do:
+```
+sudo apt-get install tinkerboard-kernel
+```
+
+This will install the newest available kernel version, that supports 5GHz WiFi.
+
+
+Load kernel module:
+
+```
+modprobe rtl8812au
+```
+
+Type `ifconfig` to list network interfaces.
+You should see now new interface named `wlan1`
+
+Now, You can list all available newtworks:
+
+```
+sudo iwlist wlan1 scanning | grep ESSID
+```
+
+You can connect to your WiFi with:
+
+```
+nmcli d wifi connect <ESSID> password <pass> iface wlan1
+```
+
+Remember to replace `ESSID` and `pass` with name and passowrd of chosen network.
+
+ROSbot will try to connect to this network each time it boots.
+
 # Docs and links #
 All helpful documents and links in one place:
 
