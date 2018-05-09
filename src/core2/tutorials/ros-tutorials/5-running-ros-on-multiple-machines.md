@@ -34,8 +34,8 @@ If you already connected both your robots to Husarion cloud you can go to the ne
 
 Now log in to the husarion cloud and look at the bottom of the page. You should see heading `Unassigned device` and at least two device.
 
-Create Husarnet network by clicking `Link to virtual robot` and chossing `Crteate new virtual robot` and tape in name for your robot, this will create new Husarion network.
-Next enter your virtual robot and click add `Add component`, then chose correct device from the drop down list and click `Add device`. 
+Create Husarnet network by clicking `Link to virtual robot` and choosing `Create new virtual robot` and type in a name for your robot. This will create a new Husarnet network.
+Next enter your virtual robot and click `Add component`, then choose correct device from the drop down list and click `Add device`. 
 
 Now you just have to choose which one will be your ROS master. With above configuration, nodes running on different machines will be able to communicate.
 
