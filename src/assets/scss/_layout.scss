@@ -255,13 +255,13 @@
         margin-right: 15px;
       }
       &.h100 img {
-        height: 100px;
+        max-height: 100px;
       }
       &.h200 img {
-        height: 200px;
+        max-height: 200px;
       }
       &.h300 img {
-        height: 300px;
+        max-height: 300px;
       }
 
       &.w190 img {
@@ -322,11 +322,15 @@
       }
 
       &.h100 img {
-        height: 100px;
+        max-height: 100px;
       }
 
       &.h200 img {
-        height: 200px;
+        max-height: 200px;
+      }
+	  
+      &.h300 img {
+        max-height: 300px;
       }
     }
 

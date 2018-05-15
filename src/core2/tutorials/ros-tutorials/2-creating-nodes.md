@@ -11,12 +11,12 @@ order: 2
 
 ## Workspace setup ##
 
-To begin with developing your own nodes, you need to do some workspace
-configuration. Workspace is the place where all your source files,
+To begin developing your own nodes, you need to do some workspace
+configuration first. Workspace is the place where all your source files,
 libraries and compiled nodes will be stored.
 
 First you need to create a folder, where your workspace will be located.
-You can do this by typing
+You can do this by typing in:
 
      $ mkdir ~/ros_workspace
 
@@ -25,7 +25,7 @@ folder in `ros_workspace`:
 
     $ mkdir ~/ros_workspace/src
 
-Here will be stored source files of your nodes.
+All of the source files for your nodes will be stored in this folder.
 
 Then you can initialize your workspace with command
 `catkin_init_workspace` executed in `src` folder:
@@ -51,7 +51,7 @@ And it should end with:
     #### Running command: "make -j4 -l4" in "/home/pi/ros_workspace/build"
     ####
 
-After this operation you should have two new folders in workspace:
+After this operation you should have two new folders in your workspace:
 `build` for storing files that are used during compilation and `devel`
 for storing output files.
 
@@ -59,8 +59,8 @@ Now your workspace is set up and ready for creating new nodes.
 
 ## Creating new package ##
 
-As you should already know, in ROS nodes are distributed in packages, so
-in order to create a node you need to create package. Packages are
+As you should already know, in ROS, nodes are distributed in packages, so
+in order to create a node you need to create a package. Packages are
 created with command `catkin_create_pkg` and it must be executed in
 `src` folder in your workspace.
 
@@ -69,22 +69,22 @@ Syntax of `catkin_create_pkg` is:
     catkin_create_pkg package_name [required packages]
 
 where `package_name` is desired package name and argument
-`required packages` is optional and contain names of packages that used
-by newly created package.
+`required packages` is optional and contain names of packages that are used
+by newly created packages.
 
 For our tutorial we will create package named `tutorial_pkg` which
-depend on package `roscpp`. Package `roscpp` is a basic ROS library for
+depends on package `roscpp`. Package `roscpp` is a basic ROS library for
 C++.
 
     $ cd ~/ros_workspace/src
     $ catkin_create_pkg tutorial_pkg roscpp
 
-After this command you should get output like this:
+After typing in this command you should get output like this:
 
 ![image](/assets/img/ros/man_2_2.png)
 
 This will create folder named `tutorial_pkg` and some files in it. Your
-workspace file structure should look like this now:
+workspace file structure should now look like like below:
 
 ![image](/assets/img/ros/man_2_1a.png)
 
@@ -163,7 +163,7 @@ Define rate for repeatable operations.
 ``` 
 
 Check if ROS is working. E.g. if ROS master is stopped or there was sent
-signal to stop system, `ros::ok()` will return false.
+signal to stop the system, `ros::ok()` will return false.
 
 ``` cpp
     ros::spinOnce();
@@ -181,7 +181,7 @@ You can save the C++ file.
 
 ### Building your node ###
 
-Before you build node, you need to edit `CMakeLists.txt` from
+Before you build the node, you need to edit `CMakeLists.txt` from
 `tutorial_pkg` directory. Open it in your favourite text editor.
 
 Find line:
@@ -193,7 +193,7 @@ You should also find line:
 
     # add_executable(${PROJECT_NAME}_node src/tutorial_pkg_node.cpp)
     
-And add after this another line:
+And add another line after it:
 
     add_executable(tutorial_pkg_node src/tutorial_pkg_node.cpp)
 
@@ -205,7 +205,7 @@ will be your node. Also you need to find lines:
     #   ${catkin_LIBRARIES}
     # )
 
-and add after this:
+and add below code after it:
 
     target_link_libraries(tutorial_pkg_node
       ${catkin_LIBRARIES}
@@ -233,7 +233,13 @@ need to load some environment variables:
 
 These environment variables allow you to run node regardless of
 directory you are working in. You have to load it every time you open
-new terminal or you can add it to your `.bashrc` file.
+new terminal or you can add line:
+
+```
+. ~/ros_workspace/devel/setup.sh
+```
+
+to your `.bashrc` file.
 
 To run your node you can use command line or `.launch` file as with any
 other node. Remember that package is `tutorial_pkg` and node is
@@ -243,18 +249,18 @@ other node. Remember that package is `tutorial_pkg` and node is
 `rosnode` and `rqt_graph` tools to examine system and check if your node
 is visible in the system.
 
-To remind, you can start ROS by typing name of node, you can do this
-with command:
+To remind, you can start ROS by typing in the name of thee node, you can do this
+with the following command:
 
     $ rosrun package_name node_type [options]
 
 ### Subscribing to topic ###
 
 
-You will modify your node to subscribe to topic published by
-`usb_cam_node` and calculate average brightness of image.
+You will modify your node to subscribe to topic
+`/camera/rgb/image_raw` and calculate average brightness of image.
 
-To process message received from camera you need header file with
+To process message received from the camera you need a header file with
 message type definition. You can include it with:
 
     #include <sensor_msgs/Image.h>
@@ -275,7 +281,7 @@ Image message is an object consisting of following fields:
 
 -   `std::vector<uint8_t> data` - actual image data
 
-Then you need function for processing received message:
+Then you need a function for processing received message:
 
 ``` cpp
     void imageCallback(const sensor_msgs::ImageConstPtr &image) {
@@ -330,13 +336,13 @@ Print brightness value to screen.
 Last thing to do is defining topic to subscribe:
 
 ``` cpp
-    ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+    ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
 ``` 
 
 Here we use method `subscribe` of `NodeHandle` object. Arguments of
 method are:
 
--   `/usb_cam/image_raw` - name of topic to subscribe.
+-   `/camera/rgb/image_raw` - name of topic to subscribe.
 
 -   `10` - message queue size. Messages are processed in order they come
     in. In the case that node receives, in short time, more messages
@@ -362,7 +368,7 @@ Your final code should look like this:
      int main(int argc, char **argv) {
         ros::init(argc, argv, "example_node");
         ros::NodeHandle n("~");
-        ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+        ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
         ros::Rate loop_rate(50);
         while (ros::ok()) {
            ros::spinOnce();
@@ -371,7 +377,7 @@ Your final code should look like this:
      }
 ``` 
 
-**Task 2** Build your node and run it with `usb_cam` node. Use
+**Task 2** Build your node and run it with `astra.launch`. Use
 `rosnode`, `rostopic` and `rqt_graph` tools to examine system and check
 how data is passed between nodes.
 
@@ -380,13 +386,7 @@ You can use below `.launch` file:
 ``` launch
      <launch>
 
-         <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-               <param name="video_device" value="/dev/video0"/>
-               <param name="image_width" value="640"/>
-               <param name="image_height" value="480"/>
-               <param name="pixel_format" value="yuyv"/>
-               <param name="framerate" value="10"/>
-         </node>
+         <include file="$(find astra_launch)/launch/astra.launch"/>
 
          <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
          </node>
@@ -400,10 +400,10 @@ Your node can receive parameters, they are used to customize behaviour
 of node e.g. subscribed topic name, device name or transmission speed
 for serial port.
 
-You will modify node to receive boolean parameter that defines if node
+You will modify a node to receive boolean parameter which defines if node
 should print image brightness to screen.
 
-To receive parameter you need variable to store its value, in this
+To receive the parameter you need a variable to store its value, in this
 example variable should have a global scope:
 
 ``` cpp
@@ -455,7 +455,7 @@ Your final code should look like this:
      int main(int argc, char **argv) {
         ros::init(argc, argv, "example_node");
         ros::NodeHandle n("~");
-        ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+        ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
         n.param<bool>("print_brightness", print_b, false);
         ros::Rate loop_rate(50);
         while (ros::ok()) {
@@ -486,7 +486,7 @@ Next define publisher object with global scope:
     ros::Publisher brightness_pub;
 ``` 
 
-Then register in system to publish to a specific topic:
+Then register in the system to publish to a specific topic:
 
 ``` cpp
     brightness_pub = n.advertise<std_msgs::UInt8>("brightness" , 1);
@@ -499,7 +499,7 @@ method are:
 
 -   `1` - message queue size.
 
-You also need to declare type of message that will be published, in this
+You also need to declare type of message which will be published, in this
 case it is `std_msgs::UInt8`.
 
 Last thing is to put some data into message and send it to topic with
@@ -541,7 +541,7 @@ Your final code should look like this:
      int main(int argc, char **argv) {
         ros::init(argc, argv, "example_node");
         ros::NodeHandle n("~");
-        ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+        ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
         n.param<bool>("print_brightness", print_b, false);
         brightness_pub = n.advertise<std_msgs::UInt8>("brightness" , 1);
         ros::Rate loop_rate(50);
@@ -552,17 +552,9 @@ Your final code should look like this:
      }
 ``` 
 
-**Task 4** Compile your node and run it with `usb_cam`. Use `rosnode`,
-`rostopic` and `rqt_graph` tools to examine system, then use
-`rostopic echo` tool to read brightness of image from camera.
-
-**TIP !**
-
-While working with `rqt_graph` you can mark checkbox **Leaf topics** in
-upper toolbar. This should make graph more clear:
-
-![image](/assets/img/ros/man_2_5.png)
-![image](/assets/img/ros/man_2_4.png)
+**Task 4** Compile your node and run it with `astra.launch`. Use `rosnode`,
+`rostopic` and `rqt_graph` tools to examine the system, then use
+`rostopic echo` tool to read brightness of the image from the camera.
 
 ### Calling the service ###
 
@@ -656,7 +648,7 @@ Your final code should look like this:
      int main(int argc, char **argv) {
         ros::init(argc, argv, "example_node");
         ros::NodeHandle n("~");
-        ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+        ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
         n.param<bool>("print_brightness", print_b, false);
         brightness_pub = n.advertise<std_msgs::UInt8>("brightness" , 1);
         ros::ServiceClient client = n.serviceClient<std_srvs::Empty>("/image_saver/save");
@@ -673,10 +665,10 @@ Your final code should look like this:
      }
 ```
 
-**Task 5** Build your node and run it with `usb_cam` and `image_saver`
-nodes. Use `rosnode`, `rostopic` and `rqt_graph` tools to examine system
-and check how data is passed between nodes. Let the nodes to work for a
-certain time, observe as new frames are being saved to your workspace
+**Task 5** Build your node and run it with `astra.launch` and `image_saver`. 
+Use `rosnode`, `rostopic` and `rqt_graph` tools to examine the system
+and check how data is passed between nodes. Let the nodes work for a
+certain time. Observe as new frames are being saved to your workspace
 directory.
 
 You can use below `.launch` file:
@@ -684,18 +676,13 @@ You can use below `.launch` file:
 ``` launch
      <launch>
 
-         <node pkg="usb_cam" type="usb_cam_node" name="usb_cam">
-               <param name="video_device" value="/dev/video0"/>
-               <param name="image_width" value="640"/>
-               <param name="image_height" value="480"/>
-               <param name="pixel_format" value="yuyv"/>
-               <param name="framerate" value="10"/>
-         </node>
+         <include file="$(find astra_launch)/launch/astra.launch"/>
+
 
          <node pkg="image_view" type="image_saver" name="image_saver">
                <param name="save_all_image" value="false" />
                <param name="filename_format" value="/home/husarion/ros_workspace/left%04d.%s"/>
-               <remap from="/image" to="/usb_cam/image_raw"/>
+               <remap from="/image" to="/camera/rgb/image_raw"/>
          </node>
 
          <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
@@ -828,7 +815,7 @@ Your final code should look like this:
      int main(int argc, char **argv) {
         ros::init(argc, argv, "example_node");
         ros::NodeHandle n("~");
-        ros::Subscriber sub = n.subscribe("/usb_cam/image_raw", 10, imageCallback);
+        ros::Subscriber sub = n.subscribe("/camera/rgb/image_raw", 10, imageCallback);
         n.param<bool>("print_brightness", print_b, false);
         brightness_pub = n.advertise<std_msgs::UInt8>("brightness", 1);
         ros::ServiceClient client = n.serviceClient<std_srvs::Empty>("/image_saver/save");
@@ -848,7 +835,7 @@ Your final code should look like this:
 ``` 
 
 **Task 6** Build your node and run it as in previous task. Use
-`rosnode`, `rostopic` and `rqt_graph` tools to examine system.
+`rosnode`, `rostopic` and `rqt_graph` tools to examine the system.
 
 Use `rosservice call` tool to call service provided by your node. Usage
 of `rosservice` is analogical to `rostopic`. To call service type:
@@ -862,7 +849,7 @@ As a response you should get something like this:
 ## Message types ##
 
 
-In ROS there are defined many message types, they are grouped in
+In ROS there are many message types defined, they are grouped in
 packages accordingly to their application:
 
 -   [`std_msgs`](http://docs.ros.org/kinetic/api/std_msgs/html/index-msg.html)

@@ -3,7 +3,7 @@ title: 'ROSbot manual'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
-order: 2
+order: 3
 page: 'Manuals'
 onepager: true
 ---
@@ -20,11 +20,12 @@ onepager: true
 
 <div align="center">
 <iframe width="800" height="388" src="https://www.youtube.com/embed/aqJC23XcnyI" frameborder="0" gesture="media" allowfullscreen></iframe>
+	<div> * Video shows previous version of Husarion ROSbot. </div>	
 </div>
 
 ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
 - 4-wheels mobile platform containing DC motors with encoders and an alluminium frame
-- Digital camera
+- Orbbec Astra RGBD camera
 - RPLIDAR A2 laser scanner
 - MPU 9250 inertial sensor (accelerometer + gyro)
 - rear panel providing interfaces for additional modules
@@ -46,11 +47,15 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     </tr>
     <tr>
         <td>Dimensions with camera and LiDAR</td>
-        <td>285 x 235 x 147mm / 11.2 x 9.25 x 5.79in [L x W x H]</td>
+        <td>200 x 235 x 220mm / 7.87 x 9.25 x 8.66in [L x W x H]</td>
+    </tr>
+    <tr>
+        <td>Dimensions without LiDAR</td>
+        <td>200 x 235 x 146mm / 7.87 x 9.25 x 5.74in [L x W x H]</td>
     </tr>
     <tr>
         <td>Dimensions without camera and LiDAR</td>
-        <td>240 x 235 x 106mm / 9.45 x 9.25 x 4.17in [L x W x H]</td>
+        <td>200 x 235 x 106mm / 7.87 x 9.25 x 4.17in [L x W x H]</td>
     </tr>
     <tr>
         <td>Weight</td>
@@ -65,8 +70,12 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
         <td>Powder-coated aluminum plate, 1.5mm thick</td>
     </tr>
     <tr>
-        <td>Maximum speed</td>
-        <td>0.7 m/s</td>
+        <td>Maximum translational velocity</td>
+        <td>1.25 m/s</td>
+    </tr>
+    <tr>
+        <td>Maximum rotational velocity</td>
+        <td>420 deg/s (7.33 rad/s)</td>
     </tr>
     <tr>
         <td>Maximum load capacity</td>
@@ -74,7 +83,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     </tr>
     <tr>
         <td>Battery life</td>
-        <td>1.5h - 3h</td>
+        <td>1.5h - 5h</td>
     </tr>
 </table>
 
@@ -82,11 +91,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 
-![Scheme back](/assets/img/ROSbot_manual/scheme_back.png "Scheme back")
-
-### Internal connections diagram ###
-
-![Scheme connection](/assets/img/ROSbot_manual/scheme_connection.png "Scheme connection")
+![Back](/assets/img/ROSbot_manual/colour_back.jpg "Scheme back")
 
 ### Components description ###
 
@@ -109,7 +114,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>Infrared distance sensor</td>
         <td>4</td>
-        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/hardware/#hardware-sharp-distance-sensor"> more details</a>.</td>
+        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor"> more details</a>.</td>
     </tr>
     <tr>
         <td>DC motor</td>
@@ -125,12 +130,12 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
     <tr>
         <td>IMU sensor</td>
         <td>1</td>
-        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/hardware/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/core2/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
     </tr>
     <tr>
-        <td>Digital camera</td>
+        <td>RGBD camera</td>
         <td>1</td>
-        <td>1.0 megapixel RGB camera with CMOS OV9712 H.264</td>
+        <td>Orbbec Astra with RGB image size 1280x960 and depth image size 640x480.</td> 
     </tr>
     <tr>
         <td>Batteries</td>
@@ -147,7 +152,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 ## Rear panel description ##
 
-![Rear panel](/assets/img/ROSbot_manual/rear_panel.png "Rear panel")
+![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel.png "Rear panel description")
 
 <table>
     <tr>
@@ -156,54 +161,78 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
        <th>Description</th>
     </tr>
     <tr>
+        <td>Antenna connector</td>
+        <td>1</td>
+        <td>Wi-Fi antenna RP-SMA socket. Required for Wi-Fi connectivity.</td>
+    </tr>
+    <tr>
+        <td>USB</td>
+        <td>2</td>
+        <td>USB 2.0 host ports from SBC.</td>
+    </tr>
+    <tr>
         <td>HDMI</td>
         <td>1</td>
-        <td>From SBC</td>
+        <td>HDMI output from SBC.</td>
     </tr>
     <tr>
-        <td>USB 2.0</td>
-        <td>2</td>
-        <td>From SBC</td>
-    </tr>
-    <tr>
-        <td>Micro USB</td>
+        <td>Power switch</td>
         <td>1</td>
-        <td>Serial USB from CORE2</td>
+        <td>Turns ROSbot completely ON or OFF.</td>
     </tr>
     <tr>
-        <td>Charging connector</td>
+        <td>LEDs</td>
+        <td>6</td>
+        <td>LR1(yellow), LR2(blue), L1(red), L2(green), L3(green), PWR(red), more details <a href="https://husarion.com/core2/manuals/core2/#hardware-leds">here</a>.</td>
+    </tr>
+    <tr>
+        <td>reset button</td>
         <td>1</td>
-        <td>Standard 4-pin connector for charging 3 Li-Ion batteries</td>
+        <td>Button used for reset CORE2.</td>
     </tr>
     <tr>
         <td>hCfg button</td>
         <td>1</td>
-        <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/). Please use non-metallic object to press this button.</td>
+        <td>Button used for connecting ROSbot to [Husarion Cloud](https://cloud.husarion.com/).</td>
     </tr>
+    <tr>
+        <td>hBtn</td>
+        <td>2</td>
+        <td>hBtn1, hBtn2 - programable buttons.</td>
+    </tr>	
     <tr>
         <td>Power switch</td>
         <td>1</td>
         <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
     </tr>
     <tr>
-        <td>LED</td>
-        <td>3</td>
-        <td>LR1(yellow), LR2(blue), L1(red), more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-leds">here</a>.</td>
-    </tr>
-    <tr>
         <td>Outputs for servo</td>
         <td>6</td>
-        <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hservo">here</a>.</td>
+        <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hservo">here</a>.</td>
     </tr>
-	    <tr>
+    <tr>
+        <td>USB serial</td>
+        <td>1</td>
+        <td>USB serial port used for debugging the firmware on CORE2-ROS controller.</td>
+    </tr>
+    <tr>
+        <td>Charging connector</td>
+        <td>1</td>
+        <td>6-pin connector for charging internal Li-Ion batteries.</td>
+    </tr>
+    <tr>
+        <td>IR distance sensor</td>
+        <td>2</td>
+        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor">here</a>.</td>
+    <tr>
         <td>hExt</td>
         <td>1</td>
-        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hext">here</a>.</td>
+        <td>12xGPIO, 7x ADC, SPI, I2C, UART, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hext">here</a>.     </td>
     </tr>
     <tr>
         <td>hSens</td>
         <td>1</td>
-        <td>4 xGPIO, ADC, UART, more details <a href="https://husarion.com/core2/manuals/hardware/#hardware-hsensor">here</a>.</td>
+        <td>4 xGPIO, ADC, UART, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hsensor">here</a>.</td>
     </tr>
 </table>
 
@@ -228,13 +257,13 @@ Software for ROSbot can be divided into 2 parts:
  - in case of accidential damage of the system,
  - to update the OS (it can be udpated remotely, but flashing the microSD card can be easier sometimes),
  - to clear all user changes and restore factory settings.
- To do that, you have to disassembly the top cover, unscrew the 4 screws on the CORE2 corners and carefully carry up CORE2 with SBC. Then you can change the microSD card and flash the OS. You can find the image and flash manual [here](https://husarion.com/core2/manuals/hardware/#hardware-os-image-for-raspberrypi-tinkerboard). If you want to replace the included card, remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. 
+ To do that, you have to disassembly the top cover, unscrew the 4 screws on the CORE2 corners and carefully carry up CORE2 with SBC. Then you can change the microSD card and flash the OS. You can find the image and flash manual [here](https://husarion.com/core2/manuals/core2/#hardware-os-image-for-raspberrypi-tinkerboard). If you want to replace the included card, remember that you need to use at least 16 GB capacity and 10 speed class micro SD card. 
 
 # First steps #
 
 ## Connection to Husarion Cloud ##
 
-* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on Google Play and appStore), any PC computer to work with ROSbot, the Wi-Fi network.
+* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Google Play</a> and <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?app=itunes&platform=iphone&preserveScrollPosition=true">appStore</a>), any PC computer to work with ROSbot, the Wi-Fi network.
 * Login or register on cloud.husarion.com.
 * Register your ROSbot on your cloud account by clicking “Add new device”.
 * Launch the hConfig application and follow the instructions.
@@ -245,6 +274,54 @@ Note: The app will ask you to hold hCfg button on CORE2 and to watch LR1, LR2 LE
 
 ROS (Robot Operating System) provides libraries and tools to help software developers create robot applications. It provides hardware abstraction, device drivers, libraries, visualizers, message-passing, package management, and more. It's very powerful and 
 functional tool dedicated to design robots. We created the set of [ROS tutorials dedicated for this platform](https://husarion.com/core2/tutorials/ros-tutorials/1-ros-introduction/ "ROS tutorials dedicated for this platform") to make it easier to familiarize yourself with these frameworks. 
+
+## Configuring ROSbot to work with 5GHz WiFi. ##
+
+By default ROSbot supports WiFi in 2.4GHz band, this is sufficent for most cases.
+If you encounter problems with data transfers e.g. due to processing large amounts of data or noise from other networks you can try to use connection in 5GHz band.
+
+To do this, you will need a USB 5GHz WiFi card (any device based on rtl8812au should be fine, tested models are TP-Link Archer T4U and D-Link DWA-172)
+
+If you have recent image version you can skip update and kernel instal, otherwise do:
+
+```  
+sudo apt-get update
+```
+
+This will update packages list.
+
+Then do:
+```
+sudo apt-get install tinkerboard-kernel
+```
+
+This will install the newest available kernel version, that supports 5GHz WiFi.
+
+
+Load kernel module:
+
+```
+modprobe rtl8812au
+```
+
+Type `ifconfig` to list network interfaces.
+You should see now new interface named `wlan1`
+
+Now, You can list all available newtworks:
+
+```
+sudo iwlist wlan1 scanning | grep ESSID
+```
+
+You can connect to your WiFi with:
+
+```
+nmcli d wifi connect <ESSID> password <pass> iface wlan1
+```
+
+Remember to replace `ESSID` and `pass` with name and passowrd of chosen network.
+
+ROSbot will try to connect to this network each time it boots.
 
 # Docs and links #
 All helpful documents and links in one place:
