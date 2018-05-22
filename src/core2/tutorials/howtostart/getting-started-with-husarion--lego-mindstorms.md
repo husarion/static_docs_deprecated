@@ -4,7 +4,7 @@ platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
-order: 5
+order: 3
 ---
 
 # Getting started with Husarion + LEGO Mindstorms #

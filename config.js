@@ -9,7 +9,7 @@ config.pages = {
             title: 'How to start'
         }
     },
-	
+
     'core2/tutorials/husarnet': {
         pattern: 'core2/tutorials/husarnet/*.md',
         sortBy: 'order',
@@ -28,6 +28,14 @@ config.pages = {
         }
     },
 
+    'core2/tutorials/other-tutorials': {
+        pattern: 'core2/tutorials/other-tutorials/*.md',
+        sortBy: 'order',
+        metadata: {
+            page: 'Tutorials',
+            title: 'ROS Tutorials'
+        }
+    },
 
     'core2/manuals/core2': {
         pattern: 'core2/manuals/core2.md',
