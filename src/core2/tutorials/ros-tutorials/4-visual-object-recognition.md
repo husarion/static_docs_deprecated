@@ -1255,6 +1255,9 @@ int main(int argc, char **argv) {
    }
 }
 ```
+test
+
+<div class="cpp_code"><object type="text/html" data="https://rawcdn.githack.com/husarion/hFramework/master/examples/GPIO_adc.cpp" width="100%" height="380px" border="1px"></object></div>
 
 Now you can build your node and test it.
 
