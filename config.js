@@ -33,7 +33,7 @@ config.pages = {
         sortBy: 'order',
         metadata: {
             page: 'Tutorials',
-            title: 'ROS Tutorials'
+            title: 'Other tutorials'
         }
     },
 
