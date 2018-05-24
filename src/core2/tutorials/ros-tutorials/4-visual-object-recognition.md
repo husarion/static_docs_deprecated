@@ -1258,6 +1258,8 @@ int main(int argc, char **argv) {
 <iframe name="I1" src="https://raw.githubusercontent.com/husarion/hFramework/master/examples/GPIO_adc.cpp">
 </iframe>
 
+test
+
 Now you can build your node and test it.
 
 **Task 3** Run your node along with `find_object_2d` and `astra.launhc`. 
