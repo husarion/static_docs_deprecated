@@ -30,4 +30,4 @@ The easiest way to experience hFramework is to use Husarion WebIDE or install Hu
 
 If you need to change code of hFramework you have to follow the instructions from <a href="https://husarion.com/tutorials/other-tutorials/hframework-library-development/">manual</a>. 
 
-# Examples #
+
