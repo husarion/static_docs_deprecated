@@ -33,7 +33,7 @@ config.pages = {
         sortBy: 'order',
         metadata: {
             page: 'Tutorials',
-            title: 'ROS Tutorials'
+            title: 'Other tutorials'
         }
     },
 
@@ -76,12 +76,20 @@ config.pages = {
             title: 'Husarion add-ons'
         }
     },
-	
+    
     'core2/software/husarnet': {
         pattern: 'core2/software/husarnet.md',
         metadata: {
             page: 'Software',
             title: 'Husarnet (beta)'
+        }
+    },
+
+    'core2/software/framework': {
+        pattern: 'core2/software/framework.md',
+        metadata: {
+            page: 'Software',
+            title: 'hFramework'
         }
     }
 };

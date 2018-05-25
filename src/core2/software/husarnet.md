@@ -3,7 +3,7 @@ title: 'Husarnet (beta)'
 platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
-order: 6
+order: 1
 page: 'Software'
 onepager: true
 ---
