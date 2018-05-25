@@ -86,7 +86,7 @@ config.pages = {
     },
 
     'core2/software/framework': {
-        pattern: 'core2/software/framework.md',
+        pattern: 'core2/software/hframework.md',
         metadata: {
             page: 'Software',
             title: 'hFramework'
