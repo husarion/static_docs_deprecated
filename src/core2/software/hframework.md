@@ -32,6 +32,12 @@ If you need to change code of hFramework you have to follow the instructions fro
 
 # Examples #
 
+In this chapter you can find few examples of code for CORE2. You can check other examples on GitHub:
+
+https://github.com/husarion/hFramework/tree/master/examples
+https://github.com/husarion/hSensors/tree/master/examples
+https://github.com/husarion/modules/tree/master/examples
+
 ## Basics ##
 
 <script src="https://gist.github.com/Hubert424/e33f11805eeaf66474bd517af6713654.js"></script>
@@ -46,34 +52,30 @@ If you need to change code of hFramework you have to follow the instructions fro
 
 <script src="https://gist.github.com/Hubert424/16698beee46bba524a57ddd2298ca03a.js"></script>
 
-### gpio inout###
+### gpio inout ###
 
 <script src="https://gist.github.com/Hubert424/a25dbb5de8513af9fb43d06de930be04.js"></script>
 
-## Interfaces ##
-
 ## LED ##
+
+### LED ###
+
+<script src="https://gist.github.com/Hubert424/6f8461c9c3b83806295208a6945911a9.js"></script>
 
 ## Motors ##
 
-## SPI ##
+### motor angle ###
+
+<script src="https://gist.github.com/Hubert424/e9bd6bbc3ebed8aee69e2ff246969a86.js"></script>
 
 ## Serial I/O ##
 
-## Storage ##
+### serial basic ###
 
-## System ##
-
-## Local RPI serial ##
-
-## Other ##
-
-## DistanceSensor ##
-
-## MPU9250 ##
-
-## MatrixButtons ##
-
-## ServoDriver ##
+<script src="https://gist.github.com/Hubert424/f8a6f4fb5c956eb5777c88b5c656f056.js"></script>
 
 ## Sensors ##
+
+### lego touch ###
+
+<script src="https://gist.github.com/Hubert424/aa4e4116e8ca2714677c046f5f346c6d.js"></script>
