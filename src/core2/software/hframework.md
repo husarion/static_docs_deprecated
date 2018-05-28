@@ -38,6 +38,18 @@ If you need to change code of hFramework you have to follow the instructions fro
 
 ## GPIO ##
 
+### adc ###
+
+<script src="https://gist.github.com/Hubert424/7d91a1cb9ca6b5ec051ae6b30a91ad85.js"></script>
+
+### gpio ###
+
+<script src="https://gist.github.com/Hubert424/16698beee46bba524a57ddd2298ca03a.js"></script>
+
+### gpio inout###
+
+<script src="https://gist.github.com/Hubert424/a25dbb5de8513af9fb43d06de930be04.js"></script>
+
 ## Interfaces ##
 
 ## LED ##
