@@ -30,4 +30,38 @@ The easiest way to experience hFramework is to use Husarion WebIDE or install Hu
 
 If you need to change code of hFramework you have to follow the instructions from <a href="https://husarion.com/tutorials/other-tutorials/hframework-library-development/">manual</a>. 
 
+# Examples #
 
+## Basics ##
+
+<script src="https://gist.github.com/Hubert424/e33f11805eeaf66474bd517af6713654.js"></script>
+
+## GPIO ##
+
+## Interfaces ##
+
+## LED ##
+
+## Motors ##
+
+## SPI ##
+
+## Serial I/O ##
+
+## Storage ##
+
+## System ##
+
+## Local RPI serial ##
+
+## Other ##
+
+## DistanceSensor ##
+
+## MPU9250 ##
+
+## MatrixButtons ##
+
+## ServoDriver ##
+
+## Sensors ##
