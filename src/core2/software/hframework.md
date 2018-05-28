@@ -34,9 +34,9 @@ If you need to change code of hFramework you have to follow the instructions fro
 
 In this chapter you can find few examples of code for CORE2. You can check other examples on GitHub:
 
-https://github.com/husarion/hFramework/tree/master/examples
-https://github.com/husarion/hSensors/tree/master/examples
-https://github.com/husarion/modules/tree/master/examples
+<a href="https://github.com/husarion/hFramework/tree/master/examples">hFramework examples</a>. 
+<a href="https://github.com/husarion/hSensors/tree/master/examples">hSensors examples</a>. 
+<a href="https://github.com/husarion/modules/tree/master/examples">Modules examples</a>. 
 
 ## Basics ##
 
