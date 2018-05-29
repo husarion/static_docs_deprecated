@@ -20,7 +20,7 @@ It has the following ports:
 
 # API reference #
 
-hFramework API documentation is available at https://husarion.com/core2/api_reference/ . API it is a set of clearly defined methods of communication between various software components our API makes it easier to develop a program by providing all the building blocks. Mainly use by advanced users. 
+hFramework API documentation is available at https://husarion.com/core2/api_reference/classes.html . API it is a set of clearly defined methods of communication between various software components our API makes it easier to develop a program by providing all the building blocks. Mainly use by advanced users. 
 
 # Using hFramework #
 
