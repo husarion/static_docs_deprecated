@@ -62,17 +62,43 @@ In this chapter you can find few examples of code for CORE2. You can check other
 
 <script src="https://gist.github.com/Hubert424/6f8461c9c3b83806295208a6945911a9.js"></script>
 
+## Interfaces ##
+
+### buttons simple ###
+
+<script src="https://gist.github.com/Hubert424/efd53bf39493cead6193fcb29ffcd49d.js"></script>
+
 ## Motors ##
 
 ### motor angle ###
 
 <script src="https://gist.github.com/Hubert424/e9bd6bbc3ebed8aee69e2ff246969a86.js"></script>
 
+## SPI ##
+
+### spi ###
+
+<script src="https://gist.github.com/Hubert424/cafe66affe9cbf890de04bc7f8023780.js"></script>
+
 ## Serial I/O ##
 
 ### serial basic ###
 
 <script src="https://gist.github.com/Hubert424/f8a6f4fb5c956eb5777c88b5c656f056.js"></script>
+
+## System ##
+
+### sys_mutex ###
+
+<script src="https://gist.github.com/Hubert424/140428a98ffaf6eff2a1ba23516e1320.js"></script>
+
+### sys_queue ###
+
+<script src="https://gist.github.com/Hubert424/d3c00cf86ec91c7ea5b1b84215c79fac.js"></script>
+
+### sys_task ###
+
+<script src="https://gist.github.com/Hubert424/0750f233bc614e11d002a08fe5891d4e.js"></script>
 
 ## Sensors ##
 
