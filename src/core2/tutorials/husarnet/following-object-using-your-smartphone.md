@@ -88,7 +88,7 @@ Open a terminal inside CORE2-ROS (host: core2-robot) or the virtual machine (hos
 
 * `ping6 hostname` - ping other device inside a virtual robot 
 
-* `ssh hostname` - SSH other device inside a virtual robot
+* `ssh user@hostname` - SSH other device inside a virtual robot
 
 ## Programing CORE2-ROS ##
 
@@ -109,7 +109,7 @@ roscore
 In the second terminal connect with CORE2-ROS via ssh. Use
 
 ```
-ssh yourCORE2ROShostname
+ssh husarion@yourCORE2ROShostname
 ```
 
 then answer `yes` and type password `husarion`. You will see Husarion logo in ASCII-art appear - it's a sign that you are connected to your CORE2-ROS device.
