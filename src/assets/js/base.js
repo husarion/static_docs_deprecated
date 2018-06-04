@@ -194,6 +194,10 @@ $(document).ready(function() {
    $("#main-menu .dropdown-content a").on('click', (function() {
        $("#main-menu .product-dropdown-menu").css("display", "none");
    }));
+   $("#main-menu .services-dropdown-toggle").on('mouseenter', (function() {
+       $("#main-menu .product-dropdown-menu").css("display", "none");
+       $("#main-menu .docs-dropdown-menu").css("display", "none");
+   }));
    $("#main-menu .product-dropdown-toggle").on('mouseenter', (function() {
        $("#main-menu .product-dropdown-menu").css("display", "block");
        $("#main-menu .docs-dropdown-menu").css("display", "none");
