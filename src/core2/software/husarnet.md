@@ -81,7 +81,10 @@ export ROS_MASTER_URI=http://master:11311
 1. You may contact all other devices in your virtual robot just by using their hostnames, e.g.:
 ```
 $ ping6 mydevice1
-$ ssh mydevice1
+
+$ ssh user@mydevice1
+(eg. ssh husarion@core2ros)
+
 $ wget http://mydevice:8000
 ```
 2. You may check network status using: 
