@@ -19,7 +19,7 @@ onepager: true
 # Overview #
 
 <div align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QHJFNMX4Us8" frameborder="0" gesture="media" allowfullscreen></iframe>
+<iframe width="784" height="441" src="https://www.youtube.com/embed/QHJFNMX4Us8" frameborder="0" gesture="media" allowfullscreen></iframe>
 </div>
 
 ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
