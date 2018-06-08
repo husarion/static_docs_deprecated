@@ -9,7 +9,7 @@ config.pages = {
             title: 'How to start'
         }
     },
-	
+
     'core2/tutorials/husarnet': {
         pattern: 'core2/tutorials/husarnet/*.md',
         sortBy: 'order',
@@ -28,6 +28,14 @@ config.pages = {
         }
     },
 
+    'core2/tutorials/other-tutorials': {
+        pattern: 'core2/tutorials/other-tutorials/*.md',
+        sortBy: 'order',
+        metadata: {
+            page: 'Tutorials',
+            title: 'Other tutorials'
+        }
+    },
 
     'core2/manuals/core2': {
         pattern: 'core2/manuals/core2.md',
@@ -68,12 +76,20 @@ config.pages = {
             title: 'Husarion add-ons'
         }
     },
-	
+    
     'core2/software/husarnet': {
         pattern: 'core2/software/husarnet.md',
         metadata: {
             page: 'Software',
             title: 'Husarnet (beta)'
+        }
+    },
+
+    'core2/software/hframework': {
+        pattern: 'core2/software/hframework.md',
+        metadata: {
+            page: 'Software',
+            title: 'hFramework'
         }
     }
 };

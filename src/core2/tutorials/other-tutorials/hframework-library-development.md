@@ -4,7 +4,7 @@ platform: 'CORE2'
 autotoc: true
 layout: layout.hbs
 page: 'Tutorials'
-order: 3
+order: 1
 ---
 
 # hFramework library development #

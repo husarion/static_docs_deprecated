@@ -203,6 +203,7 @@ You can use below `launch` file:
 		<param name="xmin" value="-2.5"/>
 		<param name="ymin" value="-2.5"/>
 		<param name="xmax" value="2.5"/>
+		<param name="ymax" value="2.5"/>
 		<param name="maxUrange" value="5"/>	
 	</node>
 
