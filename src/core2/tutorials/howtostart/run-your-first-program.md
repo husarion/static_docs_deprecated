@@ -26,9 +26,8 @@ Set the power switch to "ON" position and now your device is ready to use!
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
 * [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
-hConfig application is used only to setup the Wi-Fi connection with your local network.
 
-If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
+hConfig application is used only to setup the Wi-Fi connection with your local network. If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
 
 You also need to register your own account on [Husarion Cloud](https://cloud.husarion.com).
 
