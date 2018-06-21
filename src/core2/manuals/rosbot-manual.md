@@ -326,8 +326,8 @@ ROSbot will try to connect to this network each time it boots.
 All helpful documents and links in one place:
 
 * [ROSbot Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
+* [ROSbot on ROS webpage](https://robots.ros.org/rosbot-2.0/)
+* [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot-2.0)
+* [URDF model of ROSbot - for Gazebo integrated with ROS](https://github.com/husarion/ROSbot_description)
 * [ROSbot project on hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform "ROSbot project on hackaday.io")
 * [ROSbot project on instructables.com](http://www.instructables.com/id/ROSbot-Autonomous-Robot-With-LiDAR/ "ROSbot project on instructables.com")
-* [ROSbot assembly instruction](https://cdn.hackaday.io/files/21885936327840/ROSbot_assembly_instruction.pdf "ROSbot assembly instruction")
-* [ROSbot on ROS webpage](http://robots.ros.org/rosbot/)
-* [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot/)
