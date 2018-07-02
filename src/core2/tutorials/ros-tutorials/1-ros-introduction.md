@@ -126,6 +126,8 @@ And this is how it looks like:
 
 You can also use our urdf model of ROSbot to carry out the tutorial instructions. You can find it on our <a href="https://github.com/husarion/ROSbot_description">GitHub</a>.
 
+![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+
 ## ROS and CORE2 Work flow
 
 Before you start working with ROS on CORE2 platform, you need to connect

@@ -37,6 +37,8 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 You can also check the model of the ROSbot in a gazebo environment, you can find it on our <a href="https://github.com/husarion/ROSbot_description">GitHub</a>.
 
+![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+
 # Hardware guide #
 
 ## Specification ##
