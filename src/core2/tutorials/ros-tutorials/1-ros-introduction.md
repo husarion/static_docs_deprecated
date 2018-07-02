@@ -124,7 +124,7 @@ And this is how it looks like:
 <center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
 </div>
 
-You can also use our urdf model of ROSbot to carry out the tutorial instructions. You can find it on our <a href="https://github.com/husarion/ROSbot_description">GitHub</a>.
+You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/ROSbot_description">GitHub page</a>.
 
 ![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
