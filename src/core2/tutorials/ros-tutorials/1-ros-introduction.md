@@ -105,7 +105,7 @@ Using the application looks as follows:
 
 ## Robot platform
 
-This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform). 
+This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [ROSbot manual](https://husarion.com/manuals/rosbot-manual/). 
 
 The platform contains:
 - 1 × Husarion CORE2-ROS version with ASUS Tinker Board
@@ -123,6 +123,8 @@ And this is how it looks like:
 <div>
 <center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
 </div>
+
+You can also use our urdf model of ROSbot to carry out the tutorial instructions. You can find it on our <a href="https://github.com/husarion/ROSbot_description">GitHub</a>.
 
 ## ROS and CORE2 Work flow
 

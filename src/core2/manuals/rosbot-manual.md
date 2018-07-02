@@ -35,6 +35,8 @@ You can use your ROSbot offline however we recommend connecting to Husarion Clou
 
 If you do not own ROSbot yet, you can purchase it <a href="https://store.husarion.com/">here</a>.
 
+You can also check the model of the ROSbot in a gazebo environment, you can find it on our <a href="https://github.com/husarion/ROSbot_description">GitHub</a>.
+
 # Hardware guide #
 
 ## Specification ##
