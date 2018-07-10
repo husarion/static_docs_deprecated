@@ -241,14 +241,60 @@ You can also test the performance of ROSbot using our simulation model in Gazebo
 
 ## Power supply ##
 
-ROSbot is supplied from an internal, rechargeable Li-Ion battery pack (3x protected 18650 cells). ROSbot shall be charged using a dedicated Li-Ion or Li-Poly charger with 4-pin JST XH connector. 
+ROSbot is powered from an internal, rechargeable Li-Ion battery pack that contains 3 Li-Ion cells, connected in series. This type of connection is called “3S”. The schematic below explains how the cells are wired together and with the charging connector (on ROSbot side).
+
+<div class="image center h300">
+![Battery connections](/assets/img/ROSbot_manual/batt_connection.png "Battery connections")
+</div>
+
+The BAT+ and BAT- are the power connections and the “bal Bxx” wires are used to monitor the voltage on each cell. It is strongly recommended to keep equal voltages on each cell during the charging process. The charger included with ROSbot can charge batteries in the described way and, thanks to that, the long life of the battery set is possible.
+
+The nominal voltage of each cell is 3.7V but the useful range is 3.2V to 4.2V.
+
+**Important - discharge indicator**
 If only the right firmware is preloaded to the internal controller (CORE2), the LED1 is programmed to indicate the power status:
 - the LED1 is on when the robot is turned on
 - the LED1 is blinking when battery is low – please charge immediately!
 
-Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may decrease their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low please charge batteries as soon as possible.
+Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may decrease their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low, turn ROSbot off and charge batteries as soon as possible.
 
-If you are going to use ROSbot stationary for a long time, please leave the charger connected all the time. It will increase the batteries lifetime. In case you need to replace batteries, use only 18650 Li-Ion batteries, with the capacity in a range of 1800...3500mAh and with a protection circuit! Using unprotected batteries may result in serious injuries or fire.
+## Charging ROSbot ##
+
+<div class="image center">
+![Charging kit](/assets/img/ROSbot_manual/charger+cables+PSU.jpg "Charging kit")
+</div>
+
+The ROSbot 2.0 kit contains the Redox Beta charger. It is an universal charger, suitable for charging NiCd, NiMH, Li-Po, Li-Fe, Li-Ion and Pb (AGM, VRLA) batteries. ROSbot shall be charged using an included charger and cable.
+
+Charger kit includes:
+- Redox Beta charger
+- AC/DC power adapter 100...240V to 12V 5A with 5.5/2.5mm plug on the 12V side
+- a cable to connect charger with ROSbot charging port
+
+**Quick charging guide:**
+1. Connect the power adapter to the charger and the output cable between charger and ROSbot (2 connectors on charger side, 1 black connector to ROSbot charging port).
+2. Use red and blue buttons to select “LiPo BATT” mode and press [Start].
+3. Use arrows to select “LiPo CHARGE” mode.
+4. Press [Start] - the current value should start blinking. Use arrows to set the current to 1.5A. 
+5. Press [Start] again - the voltage value should start blinking. Select “11.1V(3S)” using arrows. The picture below shows the desired result.
+6. Press and hold [Start] for 2 seconds. The charger should now ask for confirmation. Press [Start] again. The charging process should begin now.
+7. When the charging will be finished (after about 3 hours), the charger will generate a loud “beep” sound and will finish charging at the same time.
+
+<div class="image center h100">
+![Charge config](/assets/img/ROSbot_manual/charge-config.png "Charge config")
+</div>
+
+If you need more information about charging, please read the [Charging manual for ROSbot 2.0]() in PDF format.
+
+**Notes** 
+- You can change charging current to maximum 3.5A. Please note that a regular charging with the maximum current can shorten the battery life.
+- If you are going to use ROSbot stationary for a long time, you can use ROSbot with charger connected (and charging) all the time. It will increase the batteries lifetime. Align the charging current to keep the voltage at about 11.1V-12V.
+- In case you need to replace batteries, use only 18650 Li-Ion batteries, with the capacity in a range of 1800...3500mAh and with a protection circuit! Using unprotected batteries may result in serious injuries or fire.
+- Unplug charging connectors carefully. You shall not unplug the charger connectors holding the wires. The balancer connection on ROSbot side has a latching tab (see photo below) that must be pressed before unplugging. On the charger side there is no latching tab but you should also unplug this connector holding the white plug.
+
+<div class="image center h200">
+![Latched connector](/assets/img/ROSbot_manual/charger-connector.jpg "Latched connector")
+</div>
 
 ## Software ##
 
@@ -266,7 +312,7 @@ Software for ROSbot can be divided into 2 parts:
 
 ## Connection to Husarion Cloud ##
 
-* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Google Play</a> and <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?app=itunes&platform=iphone&preserveScrollPosition=true">appStore</a>), any PC computer to work with ROSbot, the Wi-Fi network.
+* Things you need: the ROSbot, any Android device with Wi-Fi connectivity and with hConfig app installed (available on <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">Google Play</a> and <a href="https://itunes.apple.com/us/app/hconfig/id1283536270?app=itunes&platform=iphone&preserveScrollPosition=true">App Store</a>), any PC computer to work with ROSbot, the Wi-Fi network.
 * Login or register on cloud.husarion.com.
 * Register your ROSbot on your cloud account by clicking “Add new device”.
 * Launch the hConfig application and follow the instructions.
