@@ -62,25 +62,42 @@ Next you will proceed to ROS part of software:
 * Click "edit" next to your device name and sellect "More".
 * Choose "SSH terminal"
 * In terminal issue following commands:
-```sudo apt update```  
-```sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server```  
-```cd /home/husarion/ros_workspace/src```  
-```git clone https://github.com/husarion/ROSbot_webui.git```  
-```cd /home/husarion/ros_workspace```  
-```catkin_make```  
-```source devel/setup.sh```  
-```sudo apt install nginx```  
+
+`sudo apt update`
+
+`sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server`
+
+`cd /home/husarion/ros_workspace/src`
+
+`git clone https://github.com/husarion/ROSbot_webui.git`
+
+`cd /home/husarion/ros_workspace`
+
+`catkin_make`
+
+`source devel/setup.sh`
+
+`sudo apt install nginx`
+
 
 * Staying in terminal issue command:  
-```sudo nano /etc/nginx/sites-enabled/default```  
+
+`sudo nano /etc/nginx/sites-enabled/default`
+
 This will open text editor with configuration file, find line:  
-```root /var/www/html;```  
+
+`root /var/www/html;`
+
 and change it to:  
-```root /home/husarion/ros_workspace/src/ROSbot_webui/deploy;```  
+
+`root /home/husarion/ros_workspace/src/ROSbot_webui/deploy;`
+
 
 * To exit text editor press: "Ctrl + x", "y", "Enter"
 * Again in terminal issue command:  
-```sudo systemctl restart nginx```  
+
+`sudo systemctl restart nginx`
+
 
 ## Usage
 
@@ -90,8 +107,9 @@ Programming procedure needs to be done only once, on further uses, you can start
 * Click "edit" next to your device name and sellect "More".
 * Choose "SSH terminal"
 * Note the address next to "Local IP", you will need it in a while.
-* In terminal issue following command:  
-```roslaunch exploration_demo demo.launch```
+* In terminal issue following command:
+
+`roslaunch exploration_demo demo.launch`
 
 * Connect your laptop or mobile device to the same network as ROSbot.
 * Launch web browser and type the local IP of your ROSbot (the one you noted before)
