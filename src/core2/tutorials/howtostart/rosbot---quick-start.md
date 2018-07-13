@@ -15,6 +15,7 @@ If you don't have one, you can purchase it <a href="https://store.husarion.com/"
 ## Unboxing ##
 
 What's in the box:
+
 * carrying case
 * ROSbot 2.0 (with optional 3D camera and LiDAR already assembled)
 * Wi-Fi 2.4GHz antenna
@@ -27,7 +28,8 @@ What's in the box:
 
 Your ROSbot is assembled, but to get it ready to work, you need to provide a power supply and attach the antenna. 
 
-To mount batteries: 
+To mount batteries:
+
 * turn ROSbot upside down
 * unscrew battery cover mounted with two screws
 * remove the battery cover
@@ -48,6 +50,7 @@ To attach the antenna, screw it to the antenna connector on the ROSbot rear pane
 ## Programming ##
 
 First you will program the Core2 part:
+
 * Turn on your ROSbot.
 * Click "edit" next to your device name and sellect "IDE".
 * Create a new project using Core2 as your board and 'ROSbot default firmwre' as a template.
@@ -55,28 +58,29 @@ First you will program the Core2 part:
 * Go back to cloud panel
 
 Next you will proceed to ROS part of software:
+
 * Click "edit" next to your device name and sellect "More".
 * Choose "SSH terminal"
 * In terminal issue following commands:
-`sudo apt update`
-`sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server`
-`cd /home/husarion/ros_workspace/src`
-`git clone https://github.com/husarion/ROSbot_webui.git`
-`cd /home/husarion/ros_workspace`
-`catkin_make`
-`source devel/setup.sh`
-`sudo apt install nginx`
+```sudo apt update```  
+```sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server```  
+```cd /home/husarion/ros_workspace/src```  
+```git clone https://github.com/husarion/ROSbot_webui.git```  
+```cd /home/husarion/ros_workspace```  
+```catkin_make```  
+```source devel/setup.sh```  
+```sudo apt install nginx```  
 
-* Staying in terminal issue command:
-`sudo nano /etc/nginx/sites-enabled/default`
-This will open text editor with configuration file, find line:
-`root /var/www/html;`
-and change it to:
-`root /home/husarion/ros_workspace/src/ROSbot_webui/deploy;`
+* Staying in terminal issue command:  
+```sudo nano /etc/nginx/sites-enabled/default```  
+This will open text editor with configuration file, find line:  
+```root /var/www/html;```  
+and change it to:  
+```root /home/husarion/ros_workspace/src/ROSbot_webui/deploy;```  
 
 * To exit text editor press: "Ctrl + x", "y", "Enter"
-* Again in terminal issue command: 
-`sudo systemctl restart nginx`
+* Again in terminal issue command:  
+```sudo systemctl restart nginx```  
 
 ## Usage
 
@@ -86,9 +90,12 @@ Programming procedure needs to be done only once, on further uses, you can start
 * Click "edit" next to your device name and sellect "More".
 * Choose "SSH terminal"
 * Note the address next to "Local IP", you will need it in a while.
-* In terminal issue following command:
-`roslaunch exploration_demo demo.launch`
+* In terminal issue following command:  
+```roslaunch exploration_demo demo.launch```
 
 * Connect your laptop or mobile device to the same network as ROSbot.
 * Launch web browser and type the local IP of your ROSbot (the one you noted before)
-* You can control and test your ROSbot now.
+* You should see interface as below, use it to test and control your ROSbot.
+
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/ROSbot_UI.png"
+/></center></div>
