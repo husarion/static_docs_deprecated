@@ -36,7 +36,7 @@ To mount batteries:
 * place batteries accordingly to the symbols, keeping the black strip under the batteries
 * place batery cover and mount it with screws
 
-To charge the batteries, follow this <a href="https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf">guide</a>
+To charge the batteries, follow this <a href="https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf">guide</a>.
 
 To attach the antenna, screw it to the antenna connector on the ROSbot rear panel.
 
@@ -67,11 +67,15 @@ Next you will proceed to ROS part of software:
 
 `sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server`
 
-`cd /home/husarion/ros_workspace/src`
+`mkdir ~/ros_workspace`
 
-`git clone https://github.com/husarion/ROSbot_webui.git`
+`mkdir ~/ros_workspace/src`
 
-`cd /home/husarion/ros_workspace`
+`cd ~/ros_workspace/src`
+
+`git clone https://github.com/husarion/rosbot_webui.git`
+
+`cd ~/ros_workspace`
 
 `catkin_make`
 
@@ -90,7 +94,7 @@ This will open text editor with configuration file, find line:
 
 and change it to:  
 
-`root /home/husarion/ros_workspace/src/ROSbot_webui/deploy;`
+`root /home/husarion/ros_workspace/src/rosbot_webui/deploy;`
 
 
 * To exit text editor press: "Ctrl + x", "y", "Enter"
@@ -109,7 +113,7 @@ Programming procedure needs to be done only once, on further uses, you can start
 * Note the address next to "Local IP", you will need it in a while.
 * In terminal issue following command:
 
-`roslaunch exploration_demo demo.launch`
+`roslaunch rosbot_webui demo.launch`
 
 * Connect your laptop or mobile device to the same network as ROSbot.
 * Launch web browser and type the local IP of your ROSbot (the one you noted before)
