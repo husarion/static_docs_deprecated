@@ -66,9 +66,15 @@ Next you will proceed to ROS part of software:
 * Choose "SSH terminal"
 * In terminal issue following commands:
 
+Updates the package lists for upgrades for packages:
+
 `sudo apt update`
 
-`sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server`
+Install the required packages:
+
+`sudo apt install python-tornado python-pip ros-kinetic-rosbridge-suite ros-kinetic-web-video-server nginx`
+
+Create new work space and change directory:
 
 `mkdir ~/ros_workspace`
 
@@ -76,16 +82,19 @@ Next you will proceed to ROS part of software:
 
 `cd ~/ros_workspace/src`
 
+Clone repository containing rosbot webui:
+
 `git clone https://github.com/husarion/rosbot_webui.git`
+
+Change directory and build code using catkin_make: 
 
 `cd ~/ros_workspace`
 
 `catkin_make`
 
+Add environment variable from following file:
+
 `source devel/setup.sh`
-
-`sudo apt install nginx`
-
 
 * Staying in terminal issue command:  
 
