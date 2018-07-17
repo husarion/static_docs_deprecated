@@ -92,7 +92,7 @@ Change directory and build code using catkin_make:
 
 `catkin_make`
 
-Add environment variable from following file:
+Add environment variables from following file:
 
 `source devel/setup.sh`
 
