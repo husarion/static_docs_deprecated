@@ -23,6 +23,7 @@ What's in the box:
 * universal charger with power adapter
 * charging cable
 * microSD card with the software for ROSbot
+* USB to Ethernet adapter
 
 ## Assembly ##
 
