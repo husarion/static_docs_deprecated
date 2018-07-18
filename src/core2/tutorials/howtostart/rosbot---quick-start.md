@@ -96,13 +96,13 @@ Add environmental variables from the following file:
 
 `source devel/setup.sh`
 
-* Note that you have to do it every time you want to use ROSbot webui. You can also set it up permanently. Open .bashrc file in text editor: *
+_ Note that you have to do it every time you want to use ROSbot webui. You can also set it up permanently. Open .bashrc file in text editor: _
 
-* `nano ~/.bashrc` *
+_ `nano ~/.bashrc` _
 
-* Go to the end of file and add line: *
+_ Go to the end of file and add line: _
 
-* `. /home/husarion/ros_workspace/devel/setup.sh` *
+_ `. /home/husarion/ros_workspace/devel/setup.sh` _
 
 * Staying in terminal issue command:  
 
