@@ -46,7 +46,7 @@ Connect the peripherals:
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="50%" width="50%"></center></div>
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/telepresence_robot_kit/ralph_alu_back_hd.jpg"></center></div>
 <div style="text-align: left"><i>Properly assembled CORE2 telepresence robot</i></div>
 
 ## Connecting to the cloud ##
@@ -58,7 +58,7 @@ Connect the peripherals:
 * Install (<a href="https://play.google.com/store/apps/details?id=com.husarion.video2">hVideo app</a>) on your tablet/smartphone.
 * Open hVideo app, and click "Add camera" next to your robot name at <a href="https://cloud.husarion.com">cloud.husarion.com</a>.
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/add_camera_ralph.png"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/telepresence_robot_kit/add_camera_ralph.png"
 /></center></div>
 
 * Scan QR Code - your device is now paired with your robot.
@@ -69,7 +69,7 @@ Connect the peripherals:
 * Place your robot with CORE2 facing up and turn it on.
 * Open WebIDE (cloud.husarion.com) and create a new project using template 'self-balancing telepresence' and upload it to your CORE2.
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/telepresence_robot_kit/create_new_project_ralph.png"
 /></center></div>
 * When robot is programmed, open its user interface and click 'Turn off motors'.
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
