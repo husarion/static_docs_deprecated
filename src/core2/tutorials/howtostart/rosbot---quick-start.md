@@ -104,7 +104,7 @@ _ Go to the end of file and add line: _
 
 _ `. /home/husarion/ros_workspace/devel/setup.sh` _
 
-* Staying in terminal issue command:  
+* Staying in terminal issue command:  a
 
 `sudo nano /etc/nginx/sites-enabled/default`
 
