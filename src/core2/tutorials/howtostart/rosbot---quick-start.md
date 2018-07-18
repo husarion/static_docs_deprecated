@@ -96,15 +96,18 @@ Add environmental variables from the following file:
 
 `source devel/setup.sh`
 
-_ Note that you have to do it every time you want to use ROSbot webui. You can also set it up permanently. Open .bashrc file in text editor: _
 
-_ `nano ~/.bashrc` _
+```
+Note that you have to do it every time you want to use ROSbot webui. You can also set it up permanently. Open .bashrc file in text editor:
 
-_ Go to the end of file and add line: _
+nano ~/.bashrc
 
-_ `. /home/husarion/ros_workspace/devel/setup.sh` _
+Go to the end of file and add line:
 
-* Staying in terminal issue command:  a
+. /home/husarion/ros_workspace/devel/setup.sh 
+```
+
+* Staying in terminal issue command: 
 
 `sudo nano /etc/nginx/sites-enabled/default`
 
