@@ -92,11 +92,11 @@ Change directory and build code using catkin_make:
 
 `catkin_make`
 
-Add environment variables from following file:
+Add environmental variables from the following file:
 
 `source devel/setup.sh`
 
-Note that you have to do it every time you want to use ROSbot webui. You can also do it permanently. Open .bashrc file in text editor:
+Note that you have to do it every time you want to use ROSbot webui. You can also set it up permanently. Open .bashrc file in text editor:
 
 `nano ~/.bashrc`
 
