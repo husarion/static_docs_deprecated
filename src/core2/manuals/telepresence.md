@@ -134,7 +134,7 @@ Connect the peripherals:
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="50%" width="50%"></center></div>
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/telepresence_robot_kit/ralph_alu_back_hd.jpg"></center></div>
 <div style="text-align: center"><i>Properly assembled CORE2 telepresence robot</i></div>
 
 ## Charging ##
@@ -155,7 +155,7 @@ Telepresence robot gets power from 3 Li-Ion cells. As with all reachargeable bat
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
 /></center></div>
 * When robot is programmed, open its user interface and click 'Turn off motors'.
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence_robot_kit/interface.png"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/telepresence_robot_kit/interface.jpg"
 /></center></div>
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
 * When you find proper position (when you are using the less force to hold it stable) click on 'Calibrate' button in Web UI.
