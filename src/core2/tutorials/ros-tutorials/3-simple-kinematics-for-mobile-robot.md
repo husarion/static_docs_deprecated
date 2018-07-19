@@ -56,7 +56,7 @@ We can determine robot orientation with:
 
 And angular speed:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2.1.png" width="15%" height="15%" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2.1.png" width="10%" height="10%" /></center></div>
 
 
 Then robot x and y speed component:
