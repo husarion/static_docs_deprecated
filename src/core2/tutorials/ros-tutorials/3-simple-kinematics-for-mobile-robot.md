@@ -28,7 +28,7 @@ We will use the following symbols:
 -   <div>y<sub>C</sub> - robot geometric centre y speed</div>
 -   <div>x<sub>r</sub> - robot x axis, points front of robot</div>
 -   α - robot angular position
--   α̇ - robot angular speed
+-   α̇′- robot angular speed
 -   <div>W<sub>FL</sub> - front left wheel</div>
 -   <div>W<sub>FR</sub> - front right wheel</div>
 -   <div>W<sub>RL</sub> - rear left wheel</div>
@@ -50,12 +50,9 @@ Their speed and position will be average for front and left wheel:
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1.png" /></center></div>
 
-We can determine robot orientation with:
+We can determine robot angular position and speed with:
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2.png" /></center></div>
-
-And angular speed:
-
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2.1.png" width="11%" height="11%" /></center></div>
 
 
