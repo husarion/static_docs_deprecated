@@ -28,7 +28,7 @@ We will use the following symbols:
 -   <div>y<sub>C</sub> - robot geometric centre y speed</div>
 -   <div>x<sub>r</sub> - robot x axis, points front of robot</div>
 -   α - robot angular position
--   ̇α - robot angular speed
+-   α̇ - robot angular speed
 -   <div>W<sub>FL</sub> - front left wheel</div>
 -   <div>W<sub>FR</sub> - front right wheel</div>
 -   <div>W<sub>RL</sub> - rear left wheel</div>
@@ -38,7 +38,7 @@ We will use the following symbols:
 -   <div>l<sub>1</sub> - distance between robot centre and front/rear wheels</div>
 -   <div>l<sub>2</sub> - distance between robot left and right wheels</div>
 -   v - linear speed
--   φ - wheel angular position
+-   Φ - wheel angular position
 -   ω - wheel angular speed
 -   r - wheel radius
 
