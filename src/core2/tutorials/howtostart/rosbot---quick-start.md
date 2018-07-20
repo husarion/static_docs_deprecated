@@ -117,7 +117,7 @@ This will open text editor with configuration file, find line:
 
 and change it to:  
 
-`root /home/husarion/ros_workspace/src/rosbot_webui/deploy;`
+`root /home/husarion/ros_workspace/src/rosbot_webui/edit;`
 
 
 * To exit text editor press: "Ctrl + x", "y", "Enter"
