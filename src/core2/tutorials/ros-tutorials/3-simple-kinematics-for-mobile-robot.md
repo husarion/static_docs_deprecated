@@ -102,74 +102,89 @@ paste following:
 ```cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
-#include <stdio.h>
-#include <iostream>
-#include <ros.h>
-#include "std_msgs/String.h"
+#include "ros.h"
 #include "geometry_msgs/Twist.h"
+#include "sensor_msgs/BatteryState.h"
+#include "std_msgs/Bool.h"
+#include "ROSbot.h"
 
 using namespace hFramework;
 
-bool batteryLow = false;
+// Uncomment one of these lines, accordingly to range sensor type of your ROSbot
+// If you have version with infared sensor:
+// static const SensorType sensor_type = SENSOR_INFRARED;
+// If you have version with laser sensor:
+static const SensorType sensor_type = SENSOR_LASER;
+// If you want to use your own sensor:
+// static const SensorType sensor_type = NO_DISTANCE_SENSOR;
+
+// Uncomment one of these lines, accordingly to IMU sensor type of your device
+// If you have version with MPU9250:
+static const ImuType imu_type = MPU9250;
+// If you want to use your own sensor:
+// static const ImuType imu_type = NO_IMU;
 
 ros::NodeHandle nh;
+sensor_msgs::BatteryState battery;
+ros::Publisher *battery_pub;
+
+int publish_counter = 0;
 
 void twistCallback(const geometry_msgs::Twist &twist)
 {
-	float lin = twist.linear.x;
-	float ang = twist.angular.z;
-	float motorL = lin - ang * 0.5;
-	float motorR = lin + ang * 0.5;
-	hMot1.setPower(motorR * (-700) * !batteryLow);
-	hMot2.setPower(motorR * (-700) * !batteryLow);
-	hMot3.setPower(motorL * (-700) * !batteryLow);
-	hMot4.setPower(motorL * (-700) * !batteryLow);
+	rosbot.setSpeed(twist.linear.x, twist.angular.z);
 }
 
-void batteryCheck()
+void initCmdVelSubscriber()
 {
-	int i = 0;
-	for (;;) {
-		if (sys.getSupplyVoltage() > 11.1) {
-			i--;
-		} else {
-			i++;
-		}
-		if (i > 50) {
-			batteryLow = true;
-			i = 50;
-		}
-		if (i < -50) {
-			batteryLow = false;
-			i = -50;
-		}
-		if (batteryLow == true) {
-			LED1.toggle();
-		} else {
-		    LED1.on();
-		}
-		sys.delay(250);
+	ros::Subscriber<geometry_msgs::Twist> *cmd_sub = new ros::Subscriber<geometry_msgs::Twist>("/cmd_vel", &twistCallback);
+	nh.subscribe(*cmd_sub);
+}
+
+void resetCallback(const std_msgs::Bool &msg)
+{
+	if (msg.data == true)
+	{
+		rosbot.reset_odometry();
 	}
 }
 
-ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+void initResetOdomSubscriber()
+{
+	ros::Subscriber<std_msgs::Bool> *odom_reset_sub = new ros::Subscriber<std_msgs::Bool>("/reset_odom", &resetCallback);
+	nh.subscribe(*odom_reset_sub);
+}
+
+void initBatteryPublisher()
+{
+	battery_pub = new ros::Publisher("/battery", &battery);
+	nh.advertise(*battery_pub);
+}
 
 void hMain()
 {
+	rosbot.initROSbot(sensor_type, imu_type);
 	platform.begin(&RPi);
 	nh.getHardware()->initWithDevice(&platform.LocalSerial);
 	nh.initNode();
-	nh.subscribe(sub);
-	hMot3.setMotorPolarity(Polarity::Reversed);
-	hMot3.setEncoderPolarity(Polarity::Reversed);
-	hMot4.setMotorPolarity(Polarity::Reversed);
-	hMot4.setEncoderPolarity(Polarity::Reversed);
-	LED1.on();
-	sys.taskCreate(batteryCheck);
+
+	initBatteryPublisher();
+	initCmdVelSubscriber();
+	initResetOdomSubscriber();
+
 	while (true)
 	{
 		nh.spinOnce();
-		sys.delay(100);
+		publish_counter++;
+		if (publish_counter > 10)
+		{
+			// get battery voltage
+			battery.voltage = rosbot.getBatteryLevel();
+			// publish battery voltage
+			battery_pub->publish(&battery);
+			publish_counter = 0;
+		}
+		sys.delay(10);
 	}
 }
 ```
@@ -179,13 +194,13 @@ Below is explanation for code line by line.
 Include required headers:
 
 ``` cpp
-    #include "hFramework.h"
-    #include "hCloudClient.h"
-    #include <stdio.h>
-    #include <iostream>
-    #include <ros.h>
-    #include "std_msgs/String.h"
-    #include "geometry_msgs/Twist.h"
+#include "hFramework.h"
+#include "hCloudClient.h"
+#include "ros.h"
+#include "geometry_msgs/Twist.h"
+#include "sensor_msgs/BatteryState.h"
+#include "std_msgs/Bool.h"
+#include "ROSbot.h"
 ``` 
 
 Load namespace for Husarion functions:
@@ -194,87 +209,122 @@ Load namespace for Husarion functions:
     using namespace hFramework;
 ``` 
 
-Defining variable for a batteryCheck function:
+Define which type of distance sensor you are using in your robot:
 
-``` cpp
-    bool batteryLow = false;
-``` 
+```cpp
+// Uncomment one of these lines, accordingly to range sensor type of your ROSbot
+// If you have version with infared sensor:
+// static const SensorType sensor_type = SENSOR_INFRARED;
+// If you have version with laser sensor:
+static const SensorType sensor_type = SENSOR_LASER;
+// If you want to use your own sensor:
+// static const SensorType sensor_type = NO_DISTANCE_SENSOR;
+```
 
-Handle for node:
+Define which type of IMU you are using in your robot:
+
+```cpp
+// Uncomment one of these lines, accordingly to IMU sensor type of your device
+// If you have version with MPU9250:
+static const ImuType imu_type = MPU9250;
+// If you want to use your own sensor:
+// static const ImuType imu_type = NO_IMU;
+```
+
+Create handle for node:
 
 ``` cpp
     ros::NodeHandle nh;
 ``` 
 
+Define type of message and publisher for a battery:
+
+``` cpp
+    sensor_msgs::BatteryState battery;
+	ros::Publisher *battery_pub;
+``` 
+
 Function for handling incoming messages:
 
 ``` cpp
-    void twistCallback(const geometry_msgs::Twist &twist) 
+	void twistCallback(const geometry_msgs::Twist &twist)
+	{
+		rosbot.setSpeed(twist.linear.x, twist.angular.z);
+	}
 ``` 
 
-Function for checking battery voltage:
+Function for initialization of velocity command subscriber:
 
 ``` cpp
-	void batteryCheck()
+	void initCmdVelSubscriber()
+	{
+		ros::Subscriber<geometry_msgs::Twist> *cmd_sub = new ros::Subscriber<geometry_msgs::Twist>("/cmd_vel", &twistCallback);
+		nh.subscribe(*cmd_sub);
+	}
 ``` 
 
-Reading linear and angular target velocities, then calculating motor
-velocities:
+Function for initialization of battery state publisher:
 
 ``` cpp
-    float lin = twist.linear.x;
-        float ang = twist.angular.z;
-        float motorL = lin - ang * 0.5;
-        float motorR = lin + ang * 0.5;
-    }
+	void initBatteryPublisher()
+	{
+		battery_pub = new ros::Publisher("/battery", &battery);
+		nh.advertise(*battery_pub);
+	}
 ``` 
 
-Setting target power for motors:
+Function for handling incoming requests of robot odometry reset:
 
 ``` cpp
-	hMot1.setPower(motorR*(-700)*!batteryLow);
-	hMot2.setPower(motorR*(-700)*!batteryLow);
-	hMot3.setPower(motorL*(-700)*!batteryLow);
-	hMot4.setPower(motorL*(-700)*!batteryLow);
+	void resetCallback(const std_msgs::Bool &msg)
+	{
+		if (msg.data == true)
+		{
+			rosbot.reset_odometry();
+		}
+	}
 ``` 
 
-Defining subscriber for velocity topic:
+Function for initialization of odometry reset requests subscriber:
 
-``` cpp
-    ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+```cpp
+void initResetOdomSubscriber()
+{
+	ros::Subscriber<std_msgs::Bool> *odom_reset_sub = new ros::Subscriber<std_msgs::Bool>("/reset_odom", &resetCallback);
+	nh.subscribe(*odom_reset_sub);
+}
 ``` 
 
-Main function, tasks and node initialization:
+Main function, device and messages initialization:
 
 ``` cpp
     void hMain() {
-        platform.begin(&RPi);
-        nh.getHardware()->initWithDevice(&platform.LocalSerial);
-        nh.initNode();
-	sys.taskCreate(batteryCheck);
+	rosbot.initROSbot(sensor_type, imu_type);
+	platform.begin(&RPi);
+	nh.getHardware()->initWithDevice(&platform.LocalSerial);
+	nh.initNode();
+
+	initBatteryPublisher();
+	initCmdVelSubscriber();
+	initResetOdomSubscriber();
 ``` 
-
-Subscribing to topic:
-
-``` cpp
-    nh.subscribe(sub);
-``` 
-
-Defining reversed polarity for left front and rear motors, this may vary,
-depending on your machine configuration:
-
-``` cpp
-    hMot3.setMotorPolarity(Polarity::Reversed);
-    hMot3.setEncoderPolarity(Polarity::Reversed);
-    hMot4.setMotorPolarity(Polarity::Reversed);
-    hMot4.setEncoderPolarity(Polarity::Reversed);
-``` 
+ 
 Infinite loop, waiting for incoming messages:
 
 ``` cpp
-	while(true) {
+	while (true)
+	{
 		nh.spinOnce();
-		sys.delay(100);
+		publish_counter++;
+		if (publish_counter > 10)
+		{
+			// get battery voltage
+			battery.voltage = rosbot.getBatteryLevel();
+			// publish battery voltage
+			battery_pub->publish(&battery);
+			publish_counter = 0;
+		}
+		sys.delay(10);
 	}
 ``` 
 
@@ -289,12 +339,16 @@ keyboard. You will need `teleop_twist_keyboard` node from
 Log in to your CORE2 device through remote desktop and run terminal. In
 first terminal window run `$ roscore`, in second run:
 
+```
     $ /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
+```
 
 This program is responsible for bridging your CORE2 to ROS network. In
 third terminal window run:
 
+```
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
 
 Now you can control your robot with keyboard with following functions
 for buttons:
@@ -329,163 +383,48 @@ Add header file:
 
 ``` cpp
     #include "geometry_msgs/PoseStamped.h"
+	#include "tf/tf.h"
 ``` 
 
-Define message type for robot position:
+Define message type and publisher for robot position:
 
 ``` cpp
     geometry_msgs::PoseStamped pose;
-``` 
+	ros::Publisher *pose_pub;
+```
 
-Define publisher for robot pose:
+Create a data structure:
 
-``` cpp
-    ros::Publisher pose_pub("/pose", &pose);
-``` 
+```cpp
+std::vector<float> rosbot_pose;
+```
 
-Variables for storing cycle time:
+Function for publishing robot position:
 
-``` cpp
-    uint16_t delay = 10; // milliseconds
-    float delay_s = (float)delay/(float)1000; //seconds
-``` 
+```cpp
+void initPosePublisher()
+{
+	pose.header.frame_id = "base_link";
+	pose.pose.orientation = tf::createQuaternionFromYaw(0);
+	pose_pub = new ros::Publisher("/pose", &pose);
+	nh.advertise(*pose_pub);
+}
+```
 
-Variable for storing encoder resolution, adjust this value to parameter
-of your robot:
+In main function for initialization of PosePublisher:
 
-``` cpp
-    uint16_t enc_res = 1400; // encoder tics per wheel revolution
-``` 
+	initPosePublisher();
 
-Variables for storing encoder values:
-
-``` cpp
-    int32_t enc_FL = 0; // encoder tics
-    int32_t enc_RL = 0; // encoder tics
-    int32_t enc_FR = 0; // encoder tics
-    int32_t enc_RR = 0; // encoder tics
-``` 
-
-Variables for storing left and right wheel position:
+Put values to message and publish them:
 
 ``` cpp
-    int32_t enc_L = 0; // encoder tics
-    float wheel_L_ang_pos = 0; // radians
-    float wheel_L_ang_vel = 0; // radians per second
-
-    int32_t enc_R = 0; // encoder tics
-    float wheel_R_ang_pos = 0; // radians
-    float wheel_R_ang_vel = 0; // radians per second
-``` 
-
-Variables for storing robot position:
-
-``` cpp
-    float robot_angular_pos = 0; // radians
-    float robot_angular_vel = 0; // radians per second
-
-    float robot_x_pos = 0; // meters
-    float robot_y_pos = 0; // meters
-    float robot_x_vel = 0; // meters per second
-    float robot_y_vel = 0; // meters per second
-``` 
-
-Variables for storing robot parameters, adjust these values to your
-robot:
-
-``` cpp
-    float robot_width = 0.3; // meters
-    float robot_length = 0.105; //meters
-    float wheel_radius = 0.04; //meters
-``` 
-
-In main function, set start values for robot position:
-
-``` cpp
-    pose.header.frame_id="robot";
-    pose.pose.position.x = 0;
-    pose.pose.position.y = 0;
-    pose.pose.position.z = 0;
-    pose.pose.orientation = tf::createQuaternionFromYaw(0);
-``` 
-
-Run publisher:
-
-``` cpp
-    nh.advertise(pose_pub);
-``` 
-
-In infinite while loop, read encoder values:
-
-``` cpp
-    enc_FR = hMot1.getEncoderCnt();
-    enc_RR = hMot2.getEncoderCnt();
-    enc_RL = hMot3.getEncoderCnt();
-    enc_FL = hMot4.getEncoderCnt();
-``` 
-
-Calculate virtual left and right encoder values:
-
-``` cpp
-    enc_L = (enc_FL+enc_RL)/2;
-    enc_R = (enc_FR+enc_RR)/2;
-``` 
-
-Calculate angular velocity for wheels:
-
-``` cpp
-    wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
-    wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
-``` 
-
-Calculate angular position for wheels:
-
-``` cpp
-    wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
-    wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
-``` 
-
-Calculate angular velocity for robot:
-
-``` cpp
-    robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) - 
-    	robot_angular_pos)/delay_s;
-``` 
-
-Calculate angular position for robot:
-
-``` cpp
-    robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
-``` 
-
-Calculate linear velocities for robot:
-
-``` cpp
-    robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-    	cos(robot_angular_pos);
-    robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) * 
-    	sin(robot_angular_pos);
-``` 
-
-Calculate linear positions for robot:
-
-``` cpp
-    robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
-    robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
-``` 
-
-Put calculated values to message:
-
-``` cpp
-    pose.pose.position.x = robot_x_pos;
-    pose.pose.position.y = robot_y_pos;
-    pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-``` 
-
-Publish message:
-
-``` cpp
-    pose_pub.publish(&pose);
+	// get ROSbot pose
+	rosbot_pose = rosbot.getPose();
+	pose.pose.position.x = rosbot_pose[0];
+	pose.pose.position.y = rosbot_pose[1];
+	pose.pose.orientation = tf::createQuaternionFromYaw(rosbot_pose[2]);
+	// publish pose
+	pose_pub->publish(&pose);
 ``` 
 
 Your final code should look like this:
@@ -493,144 +432,112 @@ Your final code should look like this:
 ``` cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
-#include <ros.h>
-#include "tf/tf.h"
+#include "ros.h"
 #include "geometry_msgs/Twist.h"
+#include "sensor_msgs/BatteryState.h"
+#include "std_msgs/Bool.h"
 #include "geometry_msgs/PoseStamped.h"
+#include "tf/tf.h"
+#include "ROSbot.h"
 
 using namespace hFramework;
 
-bool batteryLow = false;
+// Uncomment one of these lines, accordingly to range sensor type of your ROSbot
+// If you have version with infared sensor:
+// static const SensorType sensor_type = SENSOR_INFRARED;
+// If you have version with laser sensor:
+static const SensorType sensor_type = SENSOR_LASER;
+// If you want to use your own sensor:
+// static const SensorType sensor_type = NO_DISTANCE_SENSOR;
+
+// Uncomment one of these lines, accordingly to IMU sensor type of your device
+// If you have version with MPU9250:
+static const ImuType imu_type = MPU9250;
+// If you want to use your own sensor:
+// static const ImuType imu_type = NO_IMU;
 
 ros::NodeHandle nh;
+sensor_msgs::BatteryState battery;
+ros::Publisher *battery_pub;
 geometry_msgs::PoseStamped pose;
-ros::Publisher pose_pub("/pose", &pose);
+ros::Publisher *pose_pub;
 
-uint16_t delay = 10; // milliseconds
-float delay_s = (float)delay / (float)1000;
-uint16_t enc_res = 1400; // encoder tics per wheel revolution
+std::vector<float> rosbot_pose;
 
-int32_t enc_FL = 0; // encoder tics
-int32_t enc_RL = 0; // encoder tics
-int32_t enc_FR = 0; // encoder tics
-int32_t enc_RR = 0; // encoder tics
-
-int32_t enc_L = 0;		   // encoder tics
-float wheel_L_ang_pos = 0; // radians
-float wheel_L_ang_vel = 0; // radians per second
-
-int32_t enc_R = 0;		   // encoder tics
-float wheel_R_ang_pos = 0; // radians
-float wheel_R_ang_vel = 0; // radians per second
-
-float robot_angular_pos = 0; // radians
-float robot_angular_vel = 0; // radians per second
-
-float robot_x_pos = 0; // meters
-float robot_y_pos = 0; // meters
-float robot_x_vel = 0; // meters per second
-float robot_y_vel = 0; // meters per second
-
-float robot_width = 0.3;	// meters
-float robot_length = 0.105; //meters
-float wheel_radius = 0.04;  //meters
+int publish_counter = 0;
 
 void twistCallback(const geometry_msgs::Twist &twist)
 {
-	float lin = twist.linear.x;
-	float ang = twist.angular.z;
-	float motorL = lin - ang * 0.5;
-	float motorR = lin + ang * 0.5;
-	hMot1.setPower(motorR * (-700) * !batteryLow);
-	hMot2.setPower(motorR * (-700) * !batteryLow);
-	hMot3.setPower(motorL * (-700) * !batteryLow);
-	hMot4.setPower(motorL * (-700) * !batteryLow);
+	rosbot.setSpeed(twist.linear.x, twist.angular.z);
 }
 
-void batteryCheck()
+void initCmdVelSubscriber()
 {
-	int i = 0;
-	for (;;) {
-		if (sys.getSupplyVoltage() > 11.1) {
-			i--;
-		} else {
-			i++;
-		}
-		if (i > 50) {
-			batteryLow = true;
-			i = 50;
-		}
-		if (i < -50) {
-			batteryLow = false;
-			i = -50;
-		}
-		if (batteryLow == true) {
-			LED1.toggle();
-		} else {
-		    LED1.on();
-		}
-		sys.delay(250);
+	ros::Subscriber<geometry_msgs::Twist> *cmd_sub = new ros::Subscriber<geometry_msgs::Twist>("/cmd_vel", &twistCallback);
+	nh.subscribe(*cmd_sub);
+}
+
+void resetCallback(const std_msgs::Bool &msg)
+{
+	if (msg.data == true)
+	{
+		rosbot.reset_odometry();
 	}
 }
 
-ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+void initResetOdomSubscriber()
+{
+	ros::Subscriber<std_msgs::Bool> *odom_reset_sub = new ros::Subscriber<std_msgs::Bool>("/reset_odom", &resetCallback);
+	nh.subscribe(*odom_reset_sub);
+}
+
+void initBatteryPublisher()
+{
+	battery_pub = new ros::Publisher("/battery", &battery);
+	nh.advertise(*battery_pub);
+}
+
+void initPosePublisher()
+{
+	pose.header.frame_id = "base_link";
+	pose.pose.orientation = tf::createQuaternionFromYaw(0);
+	pose_pub = new ros::Publisher("/pose", &pose);
+	nh.advertise(*pose_pub);
+}
 
 void hMain()
 {
+	rosbot.initROSbot(sensor_type);
 	platform.begin(&RPi);
 	nh.getHardware()->initWithDevice(&platform.LocalSerial);
 	nh.initNode();
-	nh.subscribe(sub);
-	hMot3.setMotorPolarity(Polarity::Reversed);
-	hMot3.setEncoderPolarity(Polarity::Reversed);
-	hMot4.setMotorPolarity(Polarity::Reversed);
-	hMot4.setEncoderPolarity(Polarity::Reversed);
-	LED1.on();
-	sys.taskCreate(batteryCheck);
 
-	pose.header.frame_id = "robot";
-	pose.pose.position.x = 0;
-	pose.pose.position.y = 0;
-	pose.pose.position.z = 0;
-	pose.pose.orientation = tf::createQuaternionFromYaw(0);
-
-	nh.advertise(pose_pub);
+	initBatteryPublisher();
+	initCmdVelSubscriber();
+	initResetOdomSubscriber();
+	initPosePublisher();
 
 	while (true)
 	{
-		enc_FR = hMot1.getEncoderCnt();
-		enc_RR = hMot2.getEncoderCnt();
-		enc_RL = hMot3.getEncoderCnt();
-		enc_FL = hMot4.getEncoderCnt();
-
-		enc_L = (enc_FL + enc_RL) / 2;
-		enc_R = (enc_FR + enc_RR) / 2;
-
-		wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
-		wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
-
-		wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
-		wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
-
-		robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) -
-							 robot_angular_pos) / delay_s;
-		robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
-
-		robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
-					  cos(robot_angular_pos);
-		robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
-					  sin(robot_angular_pos);
-
-		robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
-		robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
-
-		pose.pose.position.x = robot_x_pos;
-		pose.pose.position.y = robot_y_pos;
-		pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-		pose_pub.publish(&pose);
-
 		nh.spinOnce();
-		sys.delay(delay);
+		publish_counter++;
+		if (publish_counter > 10)
+		{	
+			// get ROSbot pose
+			rosbot_pose = rosbot.getPose();
+			pose.pose.position.x = rosbot_pose[0];
+			pose.pose.position.y = rosbot_pose[1];
+			pose.pose.orientation = tf::createQuaternionFromYaw(rosbot_pose[2]);
+			// publish pose
+			pose_pub->publish(&pose);	
+			
+			// get battery voltage
+			battery.voltage = rosbot.getBatteryLevel();
+			// publish battery voltage
+			battery_pub->publish(&battery);
+			publish_counter = 0;
+		}
+		sys.delay(10);
 	}
 }
 ```
