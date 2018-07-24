@@ -48,26 +48,26 @@ between them. We can simplify our four wheeled robot to this model by
 adding two virtual wheels (marked as W<sub>L</sub> and W<sub>R</sub> on the schematic).
 Their speed and position will be average for front and left wheel:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_1.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_2.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_3.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_4.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_1.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_2.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_3.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_1_4.jpg" /></center></div>
 
 We can determine robot angular position and speed with:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2_1.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2_2.png"/></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2_1.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_2_2.jpg"/></center></div>
 
 
 Then robot x and y speed component:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_3_1.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_3_2.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_3_1.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_3_2.jpg" /></center></div>
 
 To get position:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_4_1.png" /></center></div>
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_4_2.png" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_4_1.jpg" /></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_formula_4_2.jpg" /></center></div>
 
 Using above equations you can perform forward kinematics task for mobile
 robot.
