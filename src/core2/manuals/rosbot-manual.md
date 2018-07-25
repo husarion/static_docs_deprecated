@@ -35,7 +35,7 @@ You can use your ROSbot offline however we recommend connecting to Husarion Clou
 
 If you do not own ROSbot yet, you can purchase it <a href="https://store.husarion.com/">here</a>.
 
-You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/ROSbot_description">GitHub page</a>.
+You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/rosbot_description">GitHub page</a>.
 
 ![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
@@ -379,6 +379,6 @@ All helpful documents and links in one place:
 * [Charging manual for ROSbot 2.0](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf)
 * [ROSbot on ROS webpage](https://robots.ros.org/rosbot-2.0/)
 * [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot-2.0)
-* [URDF model of ROSbot - for Gazebo integrated with ROS](https://github.com/husarion/ROSbot_description)
+* [URDF model of ROSbot - for Gazebo integrated with ROS](https://github.com/husarion/rosbot_description)
 * [ROSbot project on hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform "ROSbot project on hackaday.io")
 * [ROSbot project on instructables.com](http://www.instructables.com/id/ROSbot-Autonomous-Robot-With-LiDAR/ "ROSbot project on instructables.com")
