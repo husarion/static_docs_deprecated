@@ -27,11 +27,13 @@ Before you perform the next steps, install the hConfig mobile application on you
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
 * [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
 
-If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
+hConfig application is used only to setup the Wi-Fi connection with your local network. If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
 
 You also need to register your own account on [Husarion Cloud](https://cloud.husarion.com).
 
 Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+
+<b>For Android users: turn off mobile internet on your smartphone while using hConfig app </b>
 
 hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in.
 

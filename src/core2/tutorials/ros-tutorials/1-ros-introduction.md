@@ -105,14 +105,14 @@ Using the application looks as follows:
 
 ## Robot platform
 
-This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [Hackaday.io](https://hackaday.io/project/21885-rosbot-autonomous-robot-platform). 
+This tutorial is created for ROSbot, open-source robot platform. You can read more about it here: [ROSbot manual](https://husarion.com/manuals/rosbot-manual/). 
 
 The platform contains:
 - 1 × Husarion CORE2-ROS version with ASUS Tinker Board
 - 1 × RPLIDAR A2 360°
 - 1 x RGBD camera Orbbec Astra
 - 1 × MPU9250
-- 4 × SHARP GP2Y0A41SK0F
+- 4 × VL53L0X Time-of-Flight Distance Sensor
 
 And this is how it looks like:
 
@@ -123,6 +123,10 @@ And this is how it looks like:
 <div>
 <center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
 </div>
+
+You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/rosbot_description">GitHub page</a>.
+
+![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
 ## ROS and CORE2 Work flow
 
@@ -387,7 +391,6 @@ view node with remapping topic name type in the terminal:
 As the output you should get:
 
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_3.png)
-(DO PRZEROBIENIA)
 
 **Task 2** 
 
@@ -519,7 +522,6 @@ terminal and type in:
 You should get output like this:
 
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_5.png)
-(DO PRZEROBIENIA)
 
 Notice that you do not need to run `roscore` before using `roslaunch`,
 if `roscore` is not running already, `roslaunch` will run it before

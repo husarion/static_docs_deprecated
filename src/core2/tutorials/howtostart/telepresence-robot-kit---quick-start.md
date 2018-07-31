@@ -46,7 +46,7 @@ Connect the peripherals:
 ***<font color="red">very important: DC motors with encoders and servo should be connected to proper ports like this:</font>***
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/cables_ralph.png" height="50%" width="50%"></center></div>
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/ralph_alu_back_hd.jpg"></center></div>
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/telepresence_robot_kit/ralph_alu_back_hd.jpg"></center></div>
 <div style="text-align: left"><i>Properly assembled CORE2 telepresence robot</i></div>
 
 ## Connecting to the cloud ##

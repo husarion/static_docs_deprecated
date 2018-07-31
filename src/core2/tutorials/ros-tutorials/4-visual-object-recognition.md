@@ -61,7 +61,7 @@ You can use below `launch` file:
 After launching the `find_object_2d` node with properly adjusted image
 topic, new window should appear:
 
-![image](/assets/img/ros/man_4_1.png)
+![image](/assets/img/ros/man_4_1.jpg)
 
 On the left side of the window there are thumbnails of saved images
 (should be empty at first run). Application main window contains camera
@@ -70,24 +70,24 @@ view. Yellow circles on the image are marking extracted image features.
 To begin teaching process choose from the main toolbar **`Edit`**
 → **`Add object from scene...`.** New window will appear:
 
-![image](/assets/img/ros/man_4_2.png)
+![image](/assets/img/ros/man_4_2.jpg)
 
 Now move the object and camera in order to cover as many features of
 the object as possible. While doing that try not to catch object surroundings. When it’s
 done, click **`Take picture`**.
 
-![image](/assets/img/ros/man_4_3.png)
+![image](/assets/img/ros/man_4_3.jpg)
 
 In next view click **`Select region`** and select only that part of
 taken picture, that covers desired object and click **`Next`**.
 
-![image](/assets/img/ros/man_4_4.png)
+![image](/assets/img/ros/man_4_4.jpg)
 
 You will get confirmation of features extracted from selected image
 area. If presented image is in accordance with what you selected,
 click **`End`**
 
-![image](/assets/img/ros/man_4_5.png)
+![image](/assets/img/ros/man_4_5.jpg)
 
 You should see new thumbnail in the left panel. Notice the number outside of
 parentheses on the left of the image, this is the object ID.
@@ -95,7 +95,9 @@ parentheses on the left of the image, this is the object ID.
 Now you can add some more objects to be recognized. Remember their IDs, you
 will need them later:
 
-![image](/assets/img/ros/man_4_6.png)
+![image](/assets/img/ros/man_4_6.jpg)
+
+![image](/assets/img/ros/man_4_7.jpg)
 
 When you have enough objects in the database choose from the main toolbar
 **`File`** → **`Save objects...`** and choose a folder to
@@ -689,13 +691,7 @@ front of your robot. Observe how it turns towards the object.
 
 In this section you will modify your robot to turn and also drive
 towards the object while keeping distance to it. For keeping the distance we
-will use proximity sensors. Connect multiplexer to
-`hSens3` port of `CORE2` and sensors to proper chanel like below:
-
-ch0 - RR sensor
-ch1 - RL sensor
-ch6 - FL sensor
-ch7 - FR sensor
+will use one of two different types of sensors. 
 
 Log in to Husarion Cloud and open project that you created in previous
 manual. You will need to edit it a little.
@@ -704,12 +700,7 @@ Include required header files:
 
 ``` cpp
     #include "sensor_msgs/Range.h"
-``` 
-
-Instantiate sensor objects:
-
-``` cpp
-    hSensor& sensMUX(hSens3);
+    #include "tf/tf.h"
 ``` 
 
 Message objects for all sensor measurement:
@@ -724,120 +715,99 @@ sensor_msgs::Range rangeRR;
 Publishers for measurement messages:
 
 ``` cpp
-ros::Publisher rangeFL_pub("/rangeFL", &rangeFL);
-ros::Publisher rangeFR_pub("/rangeFR", &rangeFR);
-ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
-ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
+ros::Publisher *range_pub_fl;
+ros::Publisher *range_pub_fr;
+ros::Publisher *range_pub_rl;
+ros::Publisher *range_pub_rr;
 ``` 
 
-Structure and mutex to use sensor data:
-
-``` 
-struct hMUX{
-    bool p2;
-    bool p3;
-    bool p4;
-    bool active;
-    float* dis;
-    hMUX(bool tp2, bool tp3, bool tp4, bool tactive, float* tdis):p2(tp2), p3(tp3), p4(tp4), active(tactive), dis(tdis){}
-    hMUX(bool tp2, bool tp3, bool tp4, bool tactive):p2(tp2), p3(tp3), p4(tp4), active(tactive){}
-};
-
-hMUX tMUX[] = {
-    hMUX(false, false, false, true, &dis4),//ch0
-    hMUX(false, false, true, true, &dis3),//ch1
-    hMUX(false, true, false, false),//ch2
-    hMUX(false, true, true, false),//ch3
-    hMUX(true, false, false, false),//ch4
-    hMUX(true, false, true, false),//ch5
-    hMUX(true, true, false, true, &dis1),//ch6
-    hMUX(true, true, true, true, &dis2)//ch7
-};
-``` 
-
-Function to read sensors data:
+Function for initialization of publishers and messages with sensor parameters:
 
 ``` cpp
-void IRSensorReadout(){
-    sensMUX.pin1.enableADC();
-    sensMUX.pin2.setOut();
-    sensMUX.pin3.setOut();
-    sensMUX.pin4.setOut();
-    for(;;){
-        for(size_t i = 0; i<8; i++){
-            if(tMUX[i].active == true){
-                sensMUX.pin2.write(tMUX[i].p2);
-                sensMUX.pin3.write(tMUX[i].p3);
-                sensMUX.pin4.write(tMUX[i].p4);
-                sys.delay(MUXStepTime);
-                float temp = 20*(1/(sensMUX.pin1.analogReadRaw()*0.001220703));
-                if(temp > 30) temp = 30;
-                if(temp < 4) temp = 4;
-                *tMUX[i].dis = temp;
-            }
-        }
-    }
+void initDistanceSensorsPublisher()
+{
+	range_fl.header.frame_id = "range_fl";
+	range_fr.header.frame_id = "range_fr";
+	range_rl.header.frame_id = "range_rl";
+	range_rr.header.frame_id = "range_rr";
+
+	switch (sensor_type)
+	{
+	case SENSOR_LASER:
+		range_fl.field_of_view = 0.26;
+		range_fl.min_range = 0.03;
+		range_fl.max_range = 0.90;
+
+		range_fr.field_of_view = 0.26;
+		range_fr.min_range = 0.03;
+		range_fr.max_range = 0.90;
+
+		range_rl.field_of_view = 0.26;
+		range_rl.min_range = 0.03;
+		range_rl.max_range = 0.90;
+
+		range_rr.field_of_view = 0.26;
+		range_rr.min_range = 0.03;
+		range_rr.max_range = 0.90;
+		break;
+	case SENSOR_INFRARED:
+		range_fl.radiation_type = sensor_msgs::Range::INFRARED;
+		range_fl.field_of_view = 0.26;
+		range_fl.min_range = 0.05;
+		range_fl.max_range = 0.299;
+
+		range_fr.radiation_type = sensor_msgs::Range::INFRARED;
+		range_fr.field_of_view = 0.26;
+		range_fr.min_range = 0.05;
+		range_fr.max_range = 0.299;
+
+		range_rl.radiation_type = sensor_msgs::Range::INFRARED;
+		range_rl.field_of_view = 0.26;
+		range_rl.min_range = 0.05;
+		range_rl.max_range = 0.299;
+
+		range_rr.radiation_type = sensor_msgs::Range::INFRARED;
+		range_rr.field_of_view = 0.26;
+		range_rr.min_range = 0.05;
+		range_rr.max_range = 0.299;
+		break;
+	case NO_DISTANCE_SENSOR:
+		// Do your own implementation
+		break;
+	}
+
+	if (sensor_type != SensorType::NO_DISTANCE_SENSOR)
+	{
+		range_pub_fl = new ros::Publisher("/range/fl", &range_fl);
+		range_pub_fr = new ros::Publisher("/range/fr", &range_fr);
+		range_pub_rl = new ros::Publisher("/range/rl", &range_rl);
+		range_pub_rr = new ros::Publisher("/range/rr", &range_rr);
+		nh.advertise(*range_pub_fl);
+		nh.advertise(*range_pub_fr);
+		nh.advertise(*range_pub_rl);
+		nh.advertise(*range_pub_rr);
+	}
 }
 ``` 
 
-In main function, put initial values for measurement messages:
+Assign values to variables, put into messages and publish them:
 
 ``` cpp
-    rangeFL.header.frame_id = "front_left";
-    rangeFL.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeFL.field_of_view = 0.3; // rad
-    rangeFL.min_range = 0.04;    // meters
-    rangeFL.max_range = 0.3;        // meters
-    
-    rangeFR.header.frame_id = "front_right";
-    rangeFR.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeFR.field_of_view = 0.3; // rad
-    rangeFR.min_range = 0.04;    // meters
-    rangeFR.max_range = 0.3;        // meters
-    
-    rangeRL.header.frame_id = "rear_left";
-    rangeRL.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeRL.field_of_view = 0.3; // rad
-    rangeRL.min_range = 0.04;    // meters
-    rangeRL.max_range = 0.3;        // meters
-    
-    rangeRR.header.frame_id = "rear_right";
-    rangeRR.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeRR.field_of_view = 0.3; // rad
-    rangeRR.min_range = 0.04;    // meters
-    rangeRR.max_range = 0.3;        // meters
-``` 
-
-Running publishers:
-
-``` cpp
-    nh.advertise(rangeFL_pub);
-    nh.advertise(rangeFR_pub);
-    nh.advertise(rangeRL_pub);
-    nh.advertise(rangeRR_pub);
-``` 
-
-Assigning values to variables and put them into messages:
-
-``` cpp
-        rangeFL.range = dis1;
-        rangeFR.range = dis2;
-        rangeRL.range = dis3;
-        rangeRR.range = dis4;
-        
-        rangeFL_pub.publish(&rangeFL);
-        rangeFR_pub.publish(&rangeFR);
-        rangeRL_pub.publish(&rangeRL);
-        rangeRR_pub.publish(&rangeRR);
-``` 
-
-Publishing messages:
-
-``` cpp
-        rangeFL_pub.publish(&rangeFL);
-        rangeFR_pub.publish(&rangeFR);
-        rangeRL_pub.publish(&rangeRL);
-        rangeRR_pub.publish(&rangeRR);
+if (sensor_type != SensorType::NO_DISTANCE_SENSOR)
+{
+	// get ranges from distance sensors
+	ranges = rosbot.getRanges(sensor_type);
+	range_fl.range = ranges[0];
+	range_fr.range = ranges[1];
+	range_rl.range = ranges[2];
+	range_rr.range = ranges[3];
+	Serial.printf("Ranges %f %f %f %f\n", ranges[0], ranges[1], ranges[2], ranges[3]);
+	// publish ranges
+	range_pub_fl->publish(&range_fl);
+	range_pub_fr->publish(&range_fr);
+	range_pub_rl->publish(&range_rl);
+	range_pub_rr->publish(&range_rr);
+}
 ``` 
 
 Whole file should look like this:
@@ -845,216 +815,210 @@ Whole file should look like this:
 ``` cpp
 #include "hFramework.h"
 #include "hCloudClient.h"
-#include <ros.h>
-#include "tf/tf.h"
+#include "ros.h"
 #include "geometry_msgs/Twist.h"
 #include "geometry_msgs/PoseStamped.h"
+#include "sensor_msgs/BatteryState.h"
+#include "std_msgs/Bool.h"
 #include "sensor_msgs/Range.h"
-#include <stddef.h>
-#include <stdio.h>
+#include "tf/tf.h"
+#include "ROSbot.h"
+
 using namespace hFramework;
-hSensor& sensMUX(hSens3);
-float MUXStepTime = 50; //200ms for scan
-float dis1 = 0; //Sharp LF
-float dis2 = 0; //Sharp RF
-float dis3 = 0; //Sharp LR
-float dis4 = 0; //Sharp RR
-bool batteryLow = false;
-struct hMUX{
-    bool p2;
-    bool p3;
-    bool p4;
-    bool active;
-    float* dis;
-    hMUX(bool tp2, bool tp3, bool tp4, bool tactive, float* tdis):p2(tp2), p3(tp3), p4(tp4), active(tactive), dis(tdis){}
-    hMUX(bool tp2, bool tp3, bool tp4, bool tactive):p2(tp2), p3(tp3), p4(tp4), active(tactive){}
-};
-hMUX tMUX[] = {
-    hMUX(false, false, false, true, &dis4),//ch0
-    hMUX(false, false, true, true, &dis3),//ch1
-    hMUX(false, true, false, false),//ch2
-    hMUX(false, true, true, false),//ch3
-    hMUX(true, false, false, false),//ch4
-    hMUX(true, false, true, false),//ch5
-    hMUX(true, true, false, true, &dis1),//ch6
-    hMUX(true, true, true, true, &dis2)//ch7
-};
+
+// Uncomment one of these lines, accordingly to range sensor type of your ROSbot
+// If you have version with infared sensor:
+// static const SensorType sensor_type = SENSOR_INFRARED;
+// If you have version with laser sensor:
+static const SensorType sensor_type = SENSOR_LASER;
+// If you want to use your own sensor:
+// static const SensorType sensor_type = NO_DISTANCE_SENSOR;
+
+// Uncomment one of these lines, accordingly to IMU sensor type of your device
+// If you have version with MPU9250:
+static const ImuType imu_type = MPU9250;
+// If you want to use your own sensor:
+// static const ImuType imu_type = NO_IMU;
+
 ros::NodeHandle nh;
+sensor_msgs::BatteryState battery;
+ros::Publisher *battery_pub;
 geometry_msgs::PoseStamped pose;
-ros::Publisher pose_pub("/pose", &pose);
-sensor_msgs::Range rangeFL;
-sensor_msgs::Range rangeFR;
-sensor_msgs::Range rangeRL;
-sensor_msgs::Range rangeRR;
-ros::Publisher rangeFL_pub("/rangeFL", &rangeFL);
-ros::Publisher rangeFR_pub("/rangeFR", &rangeFR);
-ros::Publisher rangeRL_pub("/rangeRL", &rangeRL);
-ros::Publisher rangeRR_pub("/rangeRR", &rangeRR);
-uint16_t delay = 100; // milliseconds
-float delay_s = (float)delay / (float)1000;
-uint16_t enc_res = 1400; // encoder tics per wheel revolution
-int32_t enc_FL = 0; // encoder tics
-int32_t enc_RL = 0; // encoder tics
-int32_t enc_FR = 0; // encoder tics
-int32_t enc_RR = 0; // encoder tics
-int32_t enc_L = 0;           // encoder tics
-float wheel_L_ang_pos = 0; // radians
-float wheel_L_ang_vel = 0; // radians per second
-int32_t enc_R = 0;           // encoder tics
-float wheel_R_ang_pos = 0; // radians
-float wheel_R_ang_vel = 0; // radians per second
-float robot_angular_pos = 0; // radians
-float robot_angular_vel = 0; // radians per second
-float robot_x_pos = 0; // meters
-float robot_y_pos = 0; // meters
-float robot_x_vel = 0; // meters per second
-float robot_y_vel = 0; // meters per second
-float robot_width = 0.3;    // meters
-float robot_length = 0.105; //meters
-float wheel_radius = 0.04;  //meters
-void IRSensorReadout(){
-    sensMUX.pin1.enableADC();
-    sensMUX.pin2.setOut();
-    sensMUX.pin3.setOut();
-    sensMUX.pin4.setOut();
-    for(;;){
-        for(size_t i = 0; i<8; i++){
-            if(tMUX[i].active == true){
-                sensMUX.pin2.write(tMUX[i].p2);
-                sensMUX.pin3.write(tMUX[i].p3);
-                sensMUX.pin4.write(tMUX[i].p4);
-                sys.delay(MUXStepTime);
-                float temp = 20*(1/(sensMUX.pin1.analogReadRaw()*0.001220703));
-                if(temp > 30) temp = 30;
-                if(temp < 4) temp = 4;
-                *tMUX[i].dis = temp;
-            }
-        }
-    }
-}
+ros::Publisher *pose_pub;
+
+sensor_msgs::Range range_fl;
+sensor_msgs::Range range_fr;
+sensor_msgs::Range range_rl;
+sensor_msgs::Range range_rr;
+
+ros::Publisher *range_pub_fl;
+ros::Publisher *range_pub_fr;
+ros::Publisher *range_pub_rl;
+ros::Publisher *range_pub_rr;
+
+std::vector<float> rosbot_pose;
+std::vector<float> rpy;
+std::vector<float> ranges;
+
+int publish_counter = 0;
+
 void twistCallback(const geometry_msgs::Twist &twist)
 {
-    float lin = twist.linear.x;
-    float ang = twist.angular.z;
-    float motorL = lin - ang * 0.5;
-    float motorR = lin + ang * 0.5;
-    hMot1.setPower(motorR * (-700) * !batteryLow);
-    hMot2.setPower(motorR * (-700) * !batteryLow);
-    hMot3.setPower(motorL * (-700) * !batteryLow);
-    hMot4.setPower(motorL * (-700) * !batteryLow);
+	rosbot.setSpeed(twist.linear.x, twist.angular.z);
 }
-void batteryCheck()
+
+void initCmdVelSubscriber()
 {
-    int i = 0;
-    for (;;) {
-        if (sys.getSupplyVoltage() > 11.1) {
-            i--;
-        } else {
-            i++;
-        }
-        if (i > 50) {
-            batteryLow = true;
-            i = 50;
-        }
-        if (i < -50) {
-            batteryLow = false;
-            i = -50;
-        }
-        if (batteryLow == true) {
-            LED1.toggle();
-        } else {
-            LED1.on();
-        }
-        sys.delay(250);
-    }
+	ros::Subscriber<geometry_msgs::Twist> *cmd_sub = new ros::Subscriber<geometry_msgs::Twist>("/cmd_vel", &twistCallback);
+	nh.subscribe(*cmd_sub);
 }
-ros::Subscriber<geometry_msgs::Twist> sub("/cmd_vel", &twistCallback);
+
+void resetCallback(const std_msgs::Bool &msg)
+{
+	if (msg.data == true)
+	{
+		rosbot.reset_odometry();
+	}
+}
+
+void initResetOdomSubscriber()
+{
+	ros::Subscriber<std_msgs::Bool> *odom_reset_sub = new ros::Subscriber<std_msgs::Bool>("/reset_odom", &resetCallback);
+	nh.subscribe(*odom_reset_sub);
+}
+
+void initDistanceSensorsPublisher()
+{
+	range_fl.header.frame_id = "range_fl";
+	range_fr.header.frame_id = "range_fr";
+	range_rl.header.frame_id = "range_rl";
+	range_rr.header.frame_id = "range_rr";
+
+	switch (sensor_type)
+	{
+	case SENSOR_LASER:
+		range_fl.field_of_view = 0.26;
+		range_fl.min_range = 0.03;
+		range_fl.max_range = 0.90;
+
+		range_fr.field_of_view = 0.26;
+		range_fr.min_range = 0.03;
+		range_fr.max_range = 0.90;
+
+		range_rl.field_of_view = 0.26;
+		range_rl.min_range = 0.03;
+		range_rl.max_range = 0.90;
+
+		range_rr.field_of_view = 0.26;
+		range_rr.min_range = 0.03;
+		range_rr.max_range = 0.90;
+		break;
+	case SENSOR_INFRARED:
+		range_fl.radiation_type = sensor_msgs::Range::INFRARED;
+		range_fl.field_of_view = 0.26;
+		range_fl.min_range = 0.05;
+		range_fl.max_range = 0.299;
+
+		range_fr.radiation_type = sensor_msgs::Range::INFRARED;
+		range_fr.field_of_view = 0.26;
+		range_fr.min_range = 0.05;
+		range_fr.max_range = 0.299;
+
+		range_rl.radiation_type = sensor_msgs::Range::INFRARED;
+		range_rl.field_of_view = 0.26;
+		range_rl.min_range = 0.05;
+		range_rl.max_range = 0.299;
+
+		range_rr.radiation_type = sensor_msgs::Range::INFRARED;
+		range_rr.field_of_view = 0.26;
+		range_rr.min_range = 0.05;
+		range_rr.max_range = 0.299;
+		break;
+	case NO_DISTANCE_SENSOR:
+		// Do your own implementation
+		break;
+	}
+
+	if (sensor_type != SensorType::NO_DISTANCE_SENSOR)
+	{
+		range_pub_fl = new ros::Publisher("/range/fl", &range_fl);
+		range_pub_fr = new ros::Publisher("/range/fr", &range_fr);
+		range_pub_rl = new ros::Publisher("/range/rl", &range_rl);
+		range_pub_rr = new ros::Publisher("/range/rr", &range_rr);
+		nh.advertise(*range_pub_fl);
+		nh.advertise(*range_pub_fr);
+		nh.advertise(*range_pub_rl);
+		nh.advertise(*range_pub_rr);
+	}
+}
+
+void initBatteryPublisher()
+{
+	battery_pub = new ros::Publisher("/battery", &battery);
+	nh.advertise(*battery_pub);
+}
+
+void initPosePublisher()
+{
+	pose.header.frame_id = "base_link";
+	pose.pose.orientation = tf::createQuaternionFromYaw(0);
+	pose_pub = new ros::Publisher("/pose", &pose);
+	nh.advertise(*pose_pub);
+}
+
 void hMain()
 {
-    platform.begin(&RPi);
-    nh.getHardware()->initWithDevice(&platform.LocalSerial);
-    nh.initNode();
-    nh.subscribe(sub);
-    hSens6.pin1.enableADC();  
-    hSens2.pin1.enableADC();
-    hMot3.setMotorPolarity(Polarity::Reversed);
-    hMot3.setEncoderPolarity(Polarity::Reversed);
-    hMot4.setMotorPolarity(Polarity::Reversed);
-    hMot4.setEncoderPolarity(Polarity::Reversed);
-    LED1.on();
-    sys.taskCreate(batteryCheck);
-    sys.taskCreate(IRSensorReadout);
-    pose.header.frame_id = "robot";
-    pose.pose.position.x = 0;
-    pose.pose.position.y = 0;
-    pose.pose.position.z = 0;
-    pose.pose.orientation = tf::createQuaternionFromYaw(0);
-    nh.advertise(pose_pub);
-    rangeFL.header.frame_id = "front_left";
-    rangeFL.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeFL.field_of_view = 0.3; // rad
-    rangeFL.min_range = 0.04;    // meters
-    rangeFL.max_range = 0.3;        // meters
-    
-    rangeFR.header.frame_id = "front_right";
-    rangeFR.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeFR.field_of_view = 0.3; // rad
-    rangeFR.min_range = 0.04;    // meters
-    rangeFR.max_range = 0.3;        // meters
-    
-    rangeRL.header.frame_id = "rear_left";
-    rangeRL.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeRL.field_of_view = 0.3; // rad
-    rangeRL.min_range = 0.04;    // meters
-    rangeRL.max_range = 0.3;        // meters
-    
-    rangeRR.header.frame_id = "rear_right";
-    rangeRR.radiation_type = sensor_msgs::Range::ULTRASOUND;
-    rangeRR.field_of_view = 0.3; // rad
-    rangeRR.min_range = 0.04;    // meters
-    rangeRR.max_range = 0.3;        // meters
-    nh.advertise(rangeFL_pub);
-    nh.advertise(rangeFR_pub);
-    nh.advertise(rangeRL_pub);
-    nh.advertise(rangeRR_pub);
-    while (true)
-    {
-        enc_FR = hMot1.getEncoderCnt();
-        enc_RR = hMot2.getEncoderCnt();
-        enc_RL = hMot3.getEncoderCnt();
-        enc_FL = hMot4.getEncoderCnt();
-        enc_L = (enc_FL + enc_RL) / 2;
-        enc_R = (enc_FR + enc_RR) / 2;
-        wheel_L_ang_vel = ((2 * 3.14 * enc_L / enc_res) - wheel_L_ang_pos) / delay_s;
-        wheel_R_ang_vel = ((2 * 3.14 * enc_R / enc_res) - wheel_R_ang_pos) / delay_s;
-        wheel_L_ang_pos = 2 * 3.14 * enc_L / enc_res;
-        wheel_R_ang_pos = 2 * 3.14 * enc_R / enc_res;
-        robot_angular_vel = (((wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width) -
-                             robot_angular_pos) /
-                            delay_s;
-        robot_angular_pos = (wheel_R_ang_pos - wheel_L_ang_pos) * wheel_radius / robot_width;
-        robot_x_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
-                      cos(robot_angular_pos);
-        robot_y_vel = (wheel_L_ang_vel * wheel_radius + robot_angular_vel * robot_width / 2) *
-                      sin(robot_angular_pos);
-        robot_x_pos = robot_x_pos + robot_x_vel * delay_s;
-        robot_y_pos = robot_y_pos + robot_y_vel * delay_s;
-        pose.pose.position.x = robot_x_pos;
-        pose.pose.position.y = robot_y_pos;
-        pose.pose.orientation = tf::createQuaternionFromYaw(robot_angular_pos);
-        pose_pub.publish(&pose);
-        rangeFL.range = dis1;
-        rangeFR.range = dis2;
-        rangeRL.range = dis3;
-        rangeRR.range = dis4;
-        
-        rangeFL_pub.publish(&rangeFL);
-        rangeFR_pub.publish(&rangeFR);
-        rangeRL_pub.publish(&rangeRL);
-        rangeRR_pub.publish(&rangeRR);
-        nh.spinOnce();
-        sys.delay(delay);
-    }
+	Serial.printf("init ROSbot\n");
+	rosbot.initROSbot(sensor_type);
+	Serial.printf("init with dvice\n");
+	platform.begin(&RPi);
+	nh.getHardware()->initWithDevice(&platform.LocalSerial);
+	nh.initNode();
+
+	initBatteryPublisher();
+	initPosePublisher();
+	initDistanceSensorsPublisher();
+	initCmdVelSubscriber();
+	initResetOdomSubscriber();
+
+	while (true)
+	{
+		nh.spinOnce();
+		publish_counter++;
+		if (publish_counter > 10)
+		{
+			// get ROSbot pose
+			rosbot_pose = rosbot.getPose();
+			pose.pose.position.x = rosbot_pose[0];
+			pose.pose.position.y = rosbot_pose[1];
+			pose.pose.orientation = tf::createQuaternionFromYaw(rosbot_pose[2]);
+			// publish pose
+			pose_pub->publish(&pose);
+
+			if (sensor_type != SensorType::NO_DISTANCE_SENSOR)
+			{
+				// get ranges from distance sensors
+				ranges = rosbot.getRanges(sensor_type);
+				range_fl.range = ranges[0];
+				range_fr.range = ranges[1];
+				range_rl.range = ranges[2];
+				range_rr.range = ranges[3];
+				Serial.printf("Ranges %f %f %f %f\n", ranges[0], ranges[1], ranges[2], ranges[3]);
+				// publish ranges
+				range_pub_fl->publish(&range_fl);
+				range_pub_fr->publish(&range_fr);
+				range_pub_rl->publish(&range_rl);
+				range_pub_rr->publish(&range_rr);
+			}
+
+			// get battery voltage
+			battery.voltage = rosbot.getBatteryLevel();
+			// publish battery voltage
+			battery_pub->publish(&battery);
+			publish_counter = 0;
+		}
+		sys.delay(10);
+	}
 }
 ```
 
