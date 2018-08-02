@@ -374,7 +374,7 @@ ROSbot will try to connect to this network each time it boots.
 
 <div id='product-component-1533219105289'></div>
     <script type="text/javascript">
-    /*<![CDATA[*/
+    <![CDATA[
       (function () {
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         if (window.ShopifyBuy) {
@@ -409,7 +409,7 @@ ROSbot will try to connect to this network each time it boots.
         });
       }
     })();
-    /*]]>*/
+    ]]>
     </script>
 
 # Docs and links #
