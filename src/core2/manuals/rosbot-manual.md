@@ -371,10 +371,10 @@ nmcli d wifi connect <ESSID> password <pass> iface wlan1
 Remember to replace `ESSID` and `pass` with name and passowrd of chosen network.
 
 ROSbot will try to connect to this network each time it boots.
-
+<div>
 <div id='product-component-1533219105289'></div>
     <script type="text/javascript">
-    <![CDATA[
+    /*<![CDATA[*/
       (function () {
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         if (window.ShopifyBuy) {
@@ -409,8 +409,9 @@ ROSbot will try to connect to this network each time it boots.
         });
       }
     })();
-    ]]>
+    /*]]>*/
     </script>
+</div>
 
 # Docs and links #
 All helpful documents and links in one place:
