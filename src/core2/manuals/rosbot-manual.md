@@ -371,9 +371,9 @@ nmcli d wifi connect <ESSID> password <pass> iface wlan1
 Remember to replace `ESSID` and `pass` with name and passowrd of chosen network.
 
 ROSbot will try to connect to this network each time it boots.
-<div>
-<div id='product-component-1533219105289'></div>
-    <script type="text/javascript">
+
+<div id='product-component-1533220753590'></div>
+    <script type="text/javascript"\>
     /*<![CDATA[*/
       (function () {
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
@@ -386,6 +386,7 @@ ROSbot will try to connect to this network each time it boots.
         } else {
           loadScript();
         }
+
       function loadScript() {
         var script = document.createElement('script');
         script.async = true;
@@ -393,25 +394,26 @@ ROSbot will try to connect to this network each time it boots.
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
         script.onload = ShopifyBuyInit;
       }
+
       function ShopifyBuyInit() {
         var client = ShopifyBuy.buildClient({
           domain: 'husarion-store.myshopify.com',
           apiKey: 'dfb27803b7994d94059356ae754aa63c',
           appId: '6',
         });
+
         ShopifyBuy.UI.onReady(client).then(function (ui) {
           ui.createComponent('product', {
             id: [385591836710],
-            node: document.getElementById('product-component-1533219105289'),
+            node: document.getElementById('product-component-1533220753590'),
             moneyFormat: '${{amount}}',
-            options: {"product":{"layout":"horizontal","variantId":"5135235285030","width":"100%","contents":{"img":false,"imgWithCarousel":true,"variantTitle":false,"options":false,"description":true,"buttonWithQuantity":false,"quantity":false},"text":{"button":"BUY NOW"},"styles":{"product":{"text-align":"left","@media (min-width: 601px)":{"max-width":"100%","margin-left":"0","margin-bottom":"50px"}},"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"title":{"font-size":"26px"},"price":{"font-size":"18px"},"compareAt":{"font-size":"15px"}}},"cart":{"contents":{"button":true},"styles":{"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"footer":{"background-color":"#ffffff"}}},"modalProduct":{"contents":{"img":false,"imgWithCarousel":true,"variantTitle":false,"buttonWithQuantity":true,"button":false,"quantity":false},"styles":{"product":{"@media (min-width: 601px)":{"max-width":"100%","margin-left":"0px","margin-bottom":"0px"}},"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}}}},"toggle":{"styles":{"toggle":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"count":{"font-size":"16px"}}},"productSet":{"styles":{"products":{"@media (min-width: 601px)":{"margin-left":"-20px"}}}}},
+            options: {"product":{"variantId":"5135235285030","width":"240px","contents":{"imgWithCarousel":false,"variantTitle":false,"options":false,"description":false,"buttonWithQuantity":false,"quantity":false},"text":{"button":"BUY NOW"},"styles":{"product":{"@media (min-width: 601px)":{"max-width":"100%","margin-left":"20px","margin-bottom":"50px"}},"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"compareAt":{"font-size":"12px"}}},"cart":{"contents":{"button":true},"styles":{"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"footer":{"background-color":"#ffffff"}}},"modalProduct":{"contents":{"img":false,"imgWithCarousel":true,"variantTitle":false,"buttonWithQuantity":true,"button":false,"quantity":false},"styles":{"product":{"@media (min-width: 601px)":{"max-width":"100%","margin-left":"0px","margin-bottom":"0px"}},"button":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}}}},"toggle":{"styles":{"toggle":{"background-color":"#eb1b1d",":hover":{"background-color":"#d4181a"},":focus":{"background-color":"#d4181a"}},"count":{"font-size":"16px"}}},"productSet":{"styles":{"products":{"@media (min-width: 601px)":{"margin-left":"-20px"}}}}},
           });
         });
       }
     })();
     /*]]>*/
-    </script>
-</div>
+    </script\>
 
 # Docs and links #
 All helpful documents and links in one place:
