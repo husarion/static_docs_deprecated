@@ -126,9 +126,19 @@ And this is how it looks like:
 
 You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/rosbot_description">GitHub page</a>.
 
+You can use simulation model on a ready to go virtual machine, which you can download from <a href="https://files.husarion.com/husarion-vm.vmdk.xz">our file server</a>. Virtual machine is already configured with all required packages and you can use it with minimal setup effort.
+
+Another option is to use ROS native installation, this requires Ubuntu 16.04 operating system and you will have to install ROS with Gazebo according to this <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">guide</a>. Native installation requires a bit of experience with linux and command line, but will offer much better performance camparing to virtual machine.
+
+You can also try online simulator at <a href="http://www.theconstructsim.com/">www.theconstructsim.com</a>, it comes with all required packages installed and offer great computing power for a reasonable price.
+
 ![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
 ## ROS and CORE2 Work flow
+
+According to the method of your choice, proceed to section **Connecting to ROSbot** or **Starting Gazebo**.
+
+#### Connecting to ROSbot
 
 Before you start working with ROS on CORE2 platform, you need to connect
 your device first. You can establish connection in two ways: using `ssh` or via
@@ -186,6 +196,27 @@ To start the master process you can use command:
 ``` bash
     $ roscore
 ``` 
+
+#### Starting Gazebo
+
+To start using Gazebo with ROSbot model you need to download our package with model and configuration files to ROS workspace directory. Meaning and structure of workspace will be discussed later, now you will just create it with:
+
+```bash
+    $ mkdir ~/ros_workspace
+    $ mkdir ~/ros_workspace/src
+    $ cd ~/ros_workspace/src
+    $ catkin_init_workspace
+    $ git clone https://github.com/husarion/rosbot_description.git
+    $ cd ~/ros_workspace
+    $ catkin_make
+    $ source devel.setup.sh
+```
+
+From now your system is ready to run Gazebo with ROSbot. To start simulator use command:
+
+```bash
+    $ roslaunch rosbot_gazebo rosbot_world.launch
+```
 
 ### Starting system step by step
 
@@ -355,8 +386,9 @@ From that you can read, that via topic `/rosout_agg` only messages of type `rosg
 
 #### Starting camera node
 
-Now you will run few nodes for handling Astra camera device. For this task you should
-use `astra.launch` from package `astra_launch` because this is the default camera installed in ROSbot. 
+If you are using simulator, you can skip this section, as the driver for camera will not be necessary.
+
+Now you will run few nodes for handling Astra camera device. For this task you should use `astra.launch` from package `astra_launch` because this is the default camera installed in ROSbot. 
 We will explain how `launch` file works later. 
 
 You can start camera nodes by typing in the terminal:
@@ -377,12 +409,7 @@ topics.
 
 #### Starting image view node
 
-Now you have camera node running, but can not see image from it yet. You
-will use node `image_view` from `image_view` package. This node by
-default subscribes to topic `image`. You need to remap this name to topic
-published by the camera node. If you performed task 1, you should know that
-astra nodes are publishing to many topics. To run image
-view node with remapping topic name type in the terminal:
+Now you have camera node running, but can not see image from it yet. You will use node `image_view` from `image_view` package. This node by default subscribes to topic `image`. You need to remap this name to topic published by the camera node. If you performed task 1, you should know that astra nodes are publishing to many topics. To run image view node with remapping topic name type in the terminal:
 
 ```
     $ rosrun image_view image_view image:=/camera/rgb/image_raw
@@ -391,6 +418,8 @@ view node with remapping topic name type in the terminal:
 As the output you should get:
 
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_3.png)
+
+**Note for simulator**: Simulated environment consist of simple objects (plains, boxes etc.), due to this, image from camera will consist of simple shapes like triangles or rectangles.
 
 **Task 2** 
 
@@ -502,23 +531,32 @@ At first you will need a `.launch` file.
 
 ``` launch
 <launch>
-	
-     <include file="$(find astra_launch)/launch/astra.launch"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-     <node pkg="image_view" type="image_view" name="image_view">
-          <remap from="/image" to="/camera/rgb/image_raw"/>
-     </node>
+    <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
+
+    <node pkg="image_view" type="image_view" name="image_view">
+        <remap from="/image" to="/camera/rgb/image_raw"/>
+    </node>
 
 </launch>
 ``` 
 
-Copy the above code to text editor (and other parameters if needed) and save it to file `tutorial.launch` in your home directory.
+Copy the above code to text editor (and other parameters if needed) and save it to file `tutorial_1.launch` in your home directory.
 
 Next, close all consoles and nodes that are already running, go to new
-terminal and type in:
+terminal and, if working on ROSbot, type in:
 
-    $ roslaunch tutorial.launch
+```bash
+    $ roslaunch tutorial_1.launch
+```
 
+In case of working with Gazebo:
+```bash
+    $ roslaunch tutorial_1.launch use_rosbot:=false use_gazebo:=true
+```
 You should get output like this:
 
 ![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_5.png)
