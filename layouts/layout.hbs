@@ -71,6 +71,25 @@
   </div>
 </div>
 <script src="{{base_url}}assets/js/base.js"></script>
+<script>
+$.ajax({
+    url: 'https://files.husarion.com/.geocheck?',
+    success: function(a, b,c) {
+        var pop = c.getResponseHeader('x-cdn-pop');
+        if (pop == 'sbg' || pop == 'rbx' || pop == 'waw' || pop == 'gra' || pop == 'ams') {
+            console.log("EU customer - skip");
+            return; // do not send the script to EU customers
+        }
 
+        (function (a, l, b, c, r, s) {
+            _nQc = c, r = a.createElement(l), s = a.getElementsByTagName(l)[0];
+            r.async = 1;
+            r.src = l.src = ("https:" == a.location.protocol ? "https://" : "http://") + b;
+            s.parentNode.insertBefore(r, s);
+        })
+        (document, "script", "serve.albacross.com/track.js", "89003530");
+    }
+})
+</script>
 </body>
 </html>
