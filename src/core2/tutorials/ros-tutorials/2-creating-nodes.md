@@ -377,21 +377,25 @@ Your final code should look like this:
      }
 ``` 
 
-**Task 2** Build your node and run it with `astra.launch`. Use
+**Task 2** Build your node and run it along with camera driver. Use
 `rosnode`, `rostopic` and `rqt_graph` tools to examine system and check
 how data is passed between nodes.
 
 You can use below `.launch` file:
 
 ``` launch
-     <launch>
+<launch>
 
-         <include file="$(find astra_launch)/launch/astra.launch"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-         <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
-         </node>
+    <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
 
-     </launch>
+    <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
+    </node>
+
+</launch>
 ``` 
 
 ### Receiving parameters ###
@@ -674,22 +678,25 @@ directory.
 You can use below `.launch` file:
 
 ``` launch
-     <launch>
+<launch>
 
-         <include file="$(find astra_launch)/launch/astra.launch"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
+    <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
 
-         <node pkg="image_view" type="image_saver" name="image_saver">
-               <param name="save_all_image" value="false" />
-               <param name="filename_format" value="/home/husarion/ros_workspace/left%04d.%s"/>
-               <remap from="/image" to="/camera/rgb/image_raw"/>
-         </node>
+    <node pkg="image_view" type="image_saver" name="image_saver">
+        <param name="save_all_image" value="false" />
+        <param name="filename_format" value="$(env HOME)/ros_workspace/image%04d.%s"/>
+        <remap from="/image" to="/camera/rgb/image_raw"/>
+    </node>
 
-         <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
-               <param name="print_brightness" value="false"/>
-         </node>
+    <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
+        <param name="print_brightness" value="false"/>
+    </node>
 
-     </launch>
+</launch>
 ``` 
 
 ### Providing a service ###
