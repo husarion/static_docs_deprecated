@@ -348,8 +348,8 @@ first terminal window run `$ roscore`, in second run:
     $ /opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2
 ```
 
-This program is responsible for bridging your CORE2 to ROS network. In
-third terminal window run:
+This program is responsible for bridging your CORE2 to ROS network. When you are working with simulator, then above bridge is not necessary. Gazebo will subscribe appropriate topics automatically.
+In third terminal window run:
 
 ```
     $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
@@ -378,11 +378,12 @@ You should get similar view in `rqt_graph`:
 
 ### Determining robot position ###
 
+This section is required only for ROSbot. Gazebo has already implemented it's own plugin to publish robot position.
 Now we will perform forward kinematics task- we will use encoders that
 are attached to every motor and process their measurements with
-equations shown in section 1.
+equations shown in section **Forward kinematics task**.
 
-Open Husarion WebIDE and open project that you created in section 2.2.
+Open Husarion WebIDE and open project that you created in section **Converting motion command to motor drive signal**.
 
 Add header file:
 
@@ -551,16 +552,26 @@ Build your project and upload it to the device.
 
 ### Running motor controller with forward kinematics task ###
 
-In this section you will control your robot with keyboard and observe as
-it publishes its own position.
+In this section you will control your robot with keyboard and observe as it publishes its own position.
 
-Log in to your CORE2 device through remote desktop and run terminal and
-start your robot as previously. In another terminal window run:
+If you are working with ROSbot:
+Log in to your CORE2 device through remote desktop, run terminal and start your robot as previously. In another terminal window run:
 
+```bash
     $ rostopic echo /pose
+```
 
-Remember, that you need to have active window with
-`teleop_twist_keyboard` to control robot movement.
+If you are working with Gazebo:
+Start Gazebo as prevoiusly. In another terminal window run:
+
+```bash
+    $ rostopic echo /odom
+```
+
+
+Above difference comes from the fact, that Gazebo and ROSbot are publishing its position in different ways.
+
+Remember, that you need to have active window with `teleop_twist_keyboard` to control robot movement.
 
 You should get something like this on your screen:
 
@@ -573,7 +584,9 @@ planned trajectory, sensor state or obstacles surrounding robot.
 
 To run it type in terminal:
 
+```bash
     $ rviz
+```
 
 New window will appear:
 
@@ -603,10 +616,14 @@ click **Add** and choose tab **By topic**.
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_3_4.png" /></center></div>
 
+If you are working with ROSbot:
 Find topic `/pose` and choose `Pose` and click **OK**.
 
+If you are working with Gazebo:
+Find topic `/odom` and choose `Odometry` and click **OK**.
+
 Then in visualized items list find position `Fixed Frame` and change it
-to `robot`.
+to `odom`.
 
 After this is done, you should see an arrow representing position and orientation
 of your robot. Move your robot and observe as arrow changes its
