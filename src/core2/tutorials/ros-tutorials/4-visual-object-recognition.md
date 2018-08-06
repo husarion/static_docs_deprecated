@@ -11,7 +11,7 @@ order: 4
 
 ## Introduction ##
 
-Objects can ce recognized by a robot with use of a vision system. It is
+Objects can be recognized by a robot with use of a vision system. It is
 based on image characteristics like points, lines, edges colours and
 their relative positions.
 
