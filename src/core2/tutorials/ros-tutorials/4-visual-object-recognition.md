@@ -48,15 +48,42 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-    <include file="$(find astra_launch)/launch/astra.launch"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
+
+    <arg name="teach" default="true"/>
+    <arg name="recognize" default="false"/>
+
+    <arg if="$(arg teach)" name="chosen_world" value="rosbot_world_teaching"/>
+    <arg if="$(arg recognize)" name="chosen_world" value="rosbot_world_recognition"/>
+
+    <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/$(arg chosen_world).launch"/>
+
+    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
         <remap from="image" to="/camera/rgb/image_raw"/>
-        <param name="gui" value="true"/>
+        <param name="gui" value="$(arg teach)"/>
+        <param if="$(arg recognize)" name="objects_path" value="$(find tutorial_pkg)/image_rec/"/>
     </node>
 
 </launch>
 ```
+
+To start teaching objects on ROSbot:
+
+```bash
+roslaunch tutorial_pkg tutorial_4.launch use_rosbot:=true use_gazebo:=false teach:=true recognize:=false
+```
+
+To start teaching objects in Gazebo:
+
+```bash
+roslaunch tutorial_pkg tutorial_4.launch use_rosbot:=false use_gazebo:=true teach:=true recognize:=false
+```
+
+To place objects in front of camera using Gazebo, you can use buttons **Translation mode** and **Rotation mode** in top left corner and drag objects to desired position. Another option is to drive ROSbot to look at the selected object.
 
 After launching the `find_object_2d` node with properly adjusted image
 topic, new window should appear:
@@ -112,20 +139,18 @@ node without window for learning objects as we no longer need it.
 Another parameter will be `objects_path`, this should be a path to a folder
 that you have just chosen to store recognized objects.
 
-You can use below `launch` file:
+You can use the same launch file as for teaching, but with different parameter values.
 
-``` launch
-<launch>
+On ROSbot:
 
-    <include file="$(find astra_launch)/launch/astra.launch"/>
+```bash
+roslaunch tutorial_pkg tutorial_4.launch use_rosbot:=true use_gazebo:=false teach:=false recognize:=true
+```
 
-    <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
-        <remap from="image" to="/camera/rgb/image_raw"/>
-        <param name="gui" value="false"/>
-        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
-    </node>
+In Gazebo:
 
-</launch>
+```bash
+roslaunch tutorial_pkg tutorial_4.launch use_rosbot:=false use_gazebo:=true teach:=false recognize:=true
 ```
 
 Node is publishing to `/objects` topic with message type
@@ -375,7 +400,7 @@ and add below code after it:
 
 Now you can build your node and test it.
 
-**Task 1** Run your node along with `find_object_2d` and `astra.launch`.
+**Task 1** Run your node along with `find_object_2d` and `astra.launch` or **Gazebo** simulator.
 Then use `rosnode`, `rostopic` and `rqt_graph` tools to examine the
 system. Place different objects in front of your robot one by one. Observe
 how it drives and turns depending on differnt objects.
@@ -385,16 +410,27 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-    <include file="$(find astra_launch)/launch/astra.launch"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
+
+    <arg name="teach" default="true"/>
+    <arg name="recognize" default="false"/>
+
+    <arg if="$(arg teach)" name="chosen_world" value="rosbot_world_teaching"/>
+    <arg if="$(arg recognize)" name="chosen_world" value="rosbot_world_recognition"/>
+
+    <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/$(arg chosen_world).launch"/>
+
+    <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
     <node pkg="find_object_2d" type="find_object_2d" name="find_object_2d">
         <remap from="image" to="/camera/rgb/image_raw"/>
-        <param name="gui" value="false"/>
-        <param name="objects_path" value="/home/husarion/ros_workspace/find_obj"/>
+        <param name="gui" value="$(arg teach)"/>
+        <param if="$(arg recognize)" name="objects_path" value="$(find tutorial_pkg)/image_rec/"/>
     </node>
 
-    <node pkg="tutorial_pkg" type="action_controller_node" name="action_controller" 
-    	output="screen"/>
+    <node pkg="tutorial_pkg" type="action_controller_node" name="action_controller" output="screen"/>
 
 </launch>
 ```
@@ -683,9 +719,8 @@ and change it to:
 
 Now you can build your node and test it.
 
-**Task 2** Run your node along with `find_object_2d` and `astra.launch`. 
-Place the object with ID bonded to new case in switch statement in
-front of your robot. Observe how it turns towards the object.
+**Task 2** Run your node along with `find_object_2d` and `astra.launch` or **Gazebo** simulator. 
+Place the object with ID bonded to new case in switch statement in front of your robot. Observe how it turns towards the object.
 
 ## Following the object ##
 
@@ -1038,7 +1073,7 @@ distance to obstacle:
     float distFL = 0;
     float distFR = 0;
     float average_dist = 0;
-    float desired_dist = 20;
+    float desired_dist = 0.2;
 ``` 
 
 Callback functions for incoming sensor messages, their task is only to
@@ -1061,7 +1096,7 @@ value for linear velocity:
 ``` cpp
     if (distFL > 0 && distFR > 0) {
         average_dist = (distFL + distFR) / 2;
-        set_vel.linear.x = (average_dist - desired_dist) /40;
+        set_vel.linear.x = (average_dist - desired_dist) /4;
     }
     else {
         set_vel.linear.x = 0;
@@ -1071,8 +1106,8 @@ value for linear velocity:
 In main function, subscribe to sensor topics:
 
 ``` cpp
-    ros::Subscriber distFL_sub = n.subscribe("/rangeFL", 1, distFL_callback);
-    ros::Subscriber distFR_sub = n.subscribe("/rangeFR", 1, distFR_callback);
+    ros::Subscriber distFL_sub = n.subscribe("/range/fl", 1, distFL_callback);
+    ros::Subscriber distFR_sub = n.subscribe("/range/fr", 1, distFR_callback);
 ``` 
 
 Final file should look like this:
@@ -1101,7 +1136,7 @@ float ang_vel = 0;
 float distFL = 0;
 float distFR = 0;
 float average_dist = 0;
-float desired_dist = 20;
+float desired_dist = 0.2;
 
 void distFL_callback(const sensor_msgs::Range &range) {
    distFL = range.range;
@@ -1161,7 +1196,7 @@ void objectCallback(const std_msgs::Float32MultiArrayPtr &object) {
                 set_vel.angular.z = 0;
                     if (distFL > 0 && distFR > 0) {
                         average_dist = (distFL + distFR) / 2;
-                        set_vel.linear.x = (average_dist - desired_dist) /40;
+                        set_vel.linear.x = (average_dist - desired_dist) /4;
                     }
                     else {
                         set_vel.linear.x = 0;
@@ -1203,8 +1238,8 @@ int main(int argc, char **argv) {
    ros::NodeHandle n("~");
    ros::Subscriber sub = n.subscribe("/objects", 1, objectCallback);
 
-   ros::Subscriber distL_sub = n.subscribe("/rangeFL", 1, distFL_callback);
-   ros::Subscriber distR_sub = n.subscribe("/rangeFR", 1, distFR_callback);
+   ros::Subscriber distL_sub = n.subscribe("/range/fl", 1, distFL_callback);
+   ros::Subscriber distR_sub = n.subscribe("/range/fr", 1, distFR_callback);
    ros::Rate loop_rate(50);
    action_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
    set_vel.linear.x = 0;
@@ -1222,7 +1257,7 @@ int main(int argc, char **argv) {
 
 Now you can build your node and test it.
 
-**Task 3** Run your node along with `find_object_2d` and `astra.launhc`. 
+**Task 3** Run your node along with `find_object_2d` and `astra.launch` or **Gazebo** simulator.
 Place the same object as in Task 2 in front of your robot.
 Observe how it turns and drives towards the object.
 
