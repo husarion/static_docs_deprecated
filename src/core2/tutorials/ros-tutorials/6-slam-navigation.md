@@ -91,7 +91,7 @@ to any other topic, we will write `tf` publisher in the example.
 
 We will make a node that subscribe to `/pose` topic with message type
 `geometry_msgs/PoseStamped` and publish transformation between objects
-mentioned in `/pose`.
+mentioned in `/pose`. This node is required only on ROSbot, Gazebo is publishing necessary `tf` frames itself.
 
 Begin with headers:
 
@@ -134,8 +134,7 @@ structure into transform message, publish transform:
        transform.setOrigin( tf::Vector3(pose->pose.position.x, pose->pose.position.y, 0.0) );
        transform.setRotation(q);
 
-       br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", 
-       		"robot_base"));
+       br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "base_link"));
     }
 ``` 
 
@@ -146,9 +145,9 @@ parameter is `StampedTransform` object. This object parameters are:
 
 -   `ros::Time::now()` - timestamp for current transformation
 
--   `world` - transformation parent frame - the one that is static
+-   `odom` - transformation parent frame - the one that is static
 
--   `robot_base` - transformation child frame - the one that is
+-   `base_link` - transformation child frame - the one that is
     transformed
 
 In main function just initialize node and subscribe to `/pose` topic:
@@ -173,32 +172,35 @@ Your final file should look like this:
 #include <geometry_msgs/PoseStamped.h>
 #include <tf/transform_broadcaster.h>
 
+static tf::TransformBroadcaster br;
+
 tf::Transform transform;
 tf::Quaternion q;
 
-void pose_callback(const geometry_msgs::PoseStampedPtr &pose) {
-   static tf::TransformBroadcaster br;
-   q.setX(pose->pose.orientation.x);
-   q.setY(pose->pose.orientation.y);
-   q.setZ(pose->pose.orientation.z);
-   q.setW(pose->pose.orientation.w);
+void pose_callback(const geometry_msgs::PoseStampedPtr &pose)
+{
+    q.setX(pose->pose.orientation.x);
+    q.setY(pose->pose.orientation.y);
+    q.setZ(pose->pose.orientation.z);
+    q.setW(pose->pose.orientation.w);
 
-   transform.setOrigin( tf::Vector3(pose->pose.position.x, pose->pose.position.y, 0.0) );
-   transform.setRotation(q);
+    transform.setOrigin(tf::Vector3(pose->pose.position.x, pose->pose.position.y, 0.0));
+    transform.setRotation(q);
 
-   br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", 
-   	"robot_base"));
+    br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "base_link"));
 }
 
-int main(int argc, char **argv) {
-   ros::init(argc, argv, "drive_controller");
-   ros::NodeHandle n("~");
-   ros::Subscriber pose_sub = n.subscribe("/pose", 1, pose_callback);
-   ros::Rate loop_rate(100);
-   while (ros::ok()) {
-      ros::spinOnce();
-      loop_rate.sleep();
-   }
+int main(int argc, char **argv)
+{
+    ros::init(argc, argv, "drive_controller");
+    ros::NodeHandle n("~");
+    ros::Subscriber pose_sub = n.subscribe("/pose", 1, pose_callback);
+    ros::Rate loop_rate(100);
+    while (ros::ok())
+    {
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
 }
 ```
 
@@ -234,7 +236,7 @@ for publishing relation between robot base and laser scanner.
 
 We can run it from command line:
 
-    $ rosrun tf static_transform_publisher 0 0 0 3.14 0 0 robot_base laser_frame 100
+    $ rosrun tf static_transform_publisher 0 0 0 3.14 0 0 base_link laser_frame 100
 
 Arguments are consecutively:
 
@@ -242,7 +244,7 @@ Arguments are consecutively:
 
 -   `3.14 0 0 ` - z y x axes of rotation, values are in radians
 
--   `robot_base` - transformation parent frame - the one that is static
+-   `base_link` - transformation parent frame - the one that is static
 
 -   `laser_frame` - transformation child frame - the one that is
     transformed
@@ -256,11 +258,11 @@ scanner base should face the same direction as robot front. Most
 probably your laser scanner will be attached above robot base. To set
 scanner 10 centimeters above robot you should use:
 
-    $ rosrun tf static_transform_publisher 0 0 0.1 0 0 0 robot_base laser_frame 100
+    $ rosrun tf static_transform_publisher 0 0 0.1 0 0 0 base_link laser_frame 100
 
-And if your scanner is also rotated by 45º it should be:
+And if your scanner is also rotated by 180º around z-axis it should be:
 
-    $ rosrun tf static_transform_publisher 0 0 0.1 0.785 0 0 robot_base laser_frame 100
+    $ rosrun tf static_transform_publisher 0 0 0.1 3.14 0 0 base_link laser_frame 100
 
 Remember that if you have improperly mounted scanner or its position is
 not set correctly, your map will be generated with errors or it will be
@@ -274,11 +276,18 @@ To test it run:
 -   `CORE2` bridge node -
     `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2 `
 
--   `teleop_twist_keyboard` - keyboard controller
-
 -   `drive_controller_node` - publisher that you just created
 
+Or instead ot these two start `Gazebo`:
+
+- `roslaunch rosbot_gazebo maze_world.launch`
+
+You will also need `rviz` and keyboard controller:
+
+-   `teleop_twist_keyboard` - keyboard controller
+
 -   `rviz` - visualization tool
+
 
 You may also add some `static_transform_publisher` nodes.
 
@@ -307,7 +316,11 @@ not need more configuration for it now.
 
 To test it you can run only this one node:
 
+```bash
     $ rosrun rplidar_ros rplidarNode
+```
+
+For **Gazebo** you do not need any additional nodes, just start simulator and laser scans will be already published to appropriate topic.
 
 You should have `/scan` topic in your system. You can examine it with
 `rostopic info` but better do not try to echo it, it is possible but you
@@ -327,12 +340,19 @@ Shut down `rplidarNode` and run it again, but with some other nodes:
 -   `CORE2` bridge node -
     `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2 `
 
+-   `drive_controller_node` - publisher that you just created
+
+Or instead ot these two start `Gazebo`:
+
+- `roslaunch rosbot_gazebo maze_world.launch`
+
+You will also need:
+
 -   `static_transform_publisher` - `tf` publisher for transformation of
     laser scanner relative to robot
 
 -   `teleop_twist_keyboard` - keyboard controller
 
--   `drive_controller_node` - publisher that you just created
 
 -   `rviz` - visualization tool
 
@@ -341,22 +361,25 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" 
-		name="teleop_twist_keyboard" output="screen"/>
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-	<node pkg="rviz" type="rviz" name="rviz"/>
+    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
-	<node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>	
+    <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+
+    <node pkg="rviz" type="rviz" name="rviz"/>
 
 </launch>
 ```
 
-In `rviz` add `Tf` and `/scan`. This time set `Fixed Frame` to `world`.
+In `rviz` add `Tf` and `/scan`. This time set `Fixed Frame` to `odom`.
 
 Try to move around your robot, you should see as laser scans change its
 shape accordingly to obstacles passed by robot.
@@ -377,10 +400,10 @@ the actual map data.
 We need to set few parameters:
 
 -   `base_frame` - name of frame related with robot, in our case it will
-    be `robot_base`
+    be `base_link`
 
 -   `odom_frame` - name of frame related with starting point, in our
-    case it will be `world`
+    case it will be `odom`
 
 -   `delta` - map resolution expressed as size of every pixel in meters
 
@@ -389,23 +412,26 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-	<node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" 
-		name="teleop_twist_keyboard" output="screen"/>
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-	<node pkg="rviz" type="rviz" name="rviz"/>
+    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
-	<node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>	
+    <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
 
-	<node pkg="gmapping" type="slam_gmapping" name="gmapping">
-		<param name="base_frame" value="robot_base"/>
-		<param name="odom_frame" value="world" />
-		<param name="delta" value="0.1" />
-	</node>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <param name="base_frame" value="base_link"/>
+        <param name="odom_frame" value="odom" />
+        <param name="delta" value="0.1" />
+    </node>
 
 </launch>
 ```
