@@ -348,17 +348,16 @@ To sum up, you will need to run following nodes:
 -   `drive_controller_node` - `tf` publisher for transformation of robot
     relative to starting point
 
-Or instead ot these two, `Gazebo`:
+-   `rplidarNode` - driver for rpLidar laser scanner
+
+Or instead ot these three, `Gazebo`:
 
 -   `roslaunch rosbot_gazebo maze_world.launch`
-
 
 And: 
 
 -   `static_transform_publisher` - `tf` publisher for transformation of
     laser scanner relative to robot
-
--   `rplidarNode` - driver for rpLidar laser scanner
 
 -   `slam_gmapping` - map building node
 
@@ -410,7 +409,7 @@ You can use below `launch` file:
 
     <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
     <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
 
