@@ -60,15 +60,12 @@ frequency, map coordinate frame name, robot coordinate frame name,
 resolution and define if map should follow position of robot, these
 parameters have the same meaning as for trajectory planning:
 
-    footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
+    footprint: [[0.12, 0.14], [0.12, -0.14], [-0.12, -0.14], [-0.12, 0.14]]
     transform_tolerance: 5
-    update_frequency: 1
-    publish_frequency: 1
+    update_frequency: 5
+    publish_frequency: 5
     global_frame: map
-    robot_base_frame: robot_base
-    resolution: 0.1
-    rolling_window: false
-    track_unknown_space: true
+    robot_base_frame: base_link
 
 Define what kind of map layers to use:
 
@@ -106,20 +103,17 @@ Parameters meaning:
 Parameters for obstacles inflation layer, define inflation radius:
 
     inflation:
-        inflation_radius: 0.35
+        inflation_radius: 0.5
 
 Your final file should look like below:
 
 ```
-footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
+footprint: [[0.12, 0.14], [0.12, -0.14], [-0.12, -0.14], [-0.12, 0.14]]
 transform_tolerance: 5
-update_frequency: 1
-publish_frequency: 1
+update_frequency: 5
+publish_frequency: 5
 global_frame: map
-robot_base_frame: robot_base
-resolution: 0.1
-rolling_window: false
-track_unknown_space: true
+robot_base_frame: base_link
 
 plugins: 
     - {name: static,           type: "costmap_2d::StaticLayer"}
@@ -131,10 +125,10 @@ static:
     subscribe_to_updates: true
 explore_boundary:
     resize_to_boundary: false
-    frontier_travel_point: middle
+    frontier_travel_point: "middle" 
     explore_clear_space: false
 inflation:
-    inflation_radius: 0.35
+    inflation_radius: 0.5
 ```
 
 Save it as `exploration.yaml` in `tutorial_pkg` directory.
@@ -149,13 +143,19 @@ To remind, you will need to run following nodes:
 -   `CORE2` bridge node -
     `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2 `
 
+-   `rplidarNode` - driver for rpLidar laser scanner
+
 -   `drive_controller_node` - `tf` publisher for transformation of robot
     relative to starting point
 
+Or instead ot these three, `Gazebo`:
+
+-   `roslaunch rosbot_gazebo maze_world.launch`
+
+And: 
+
 -   `static_transform_publisher` - `tf` publisher for transformation of
     laser scanner relative to robot
-
--   `rplidarNode` - driver for rpLidar laser scanner
 
 -   `slam_gmapping` - map building node
 
@@ -171,12 +171,10 @@ For the `explore_server` node you will need to specify some parameters
 and paths for `.yaml` configuration files:
 
 ``` launch
-    <node pkg="frontier_exploration" type="explore_server" name="explore_server" 
-    	output="screen" >
+    <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
         <param name="frequency" type="double" value="1.0"/>
         <param name="goal_aliasing" type="double" value="0.5"/>
-        <rosparam ns="explore_costmap" subst_value="true" 
-		file="$(find tutorial_pkg)/exploration.yaml" command="load" />
+        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/conf/exploration.yaml" command="load" />
     </node>
 ```
 
@@ -189,45 +187,43 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-	<node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/> 
+    <param if="$(arg use_gazebo)" name="use_sim_time" value="true"/>
 
-	<node pkg="gmapping" type="slam_gmapping" name="gmapping">
-		<param name="base_frame" value="robot_base"/>
-		<param name="odom_frame" value="world" />
-		<param name="delta" value="0.1"/>
-		<param name="xmin" value="-2.5"/>
-		<param name="ymin" value="-2.5"/>
-		<param name="xmax" value="2.5"/>
-		<param name="ymax" value="2.5"/>
-		<param name="maxUrange" value="5"/>	
-	</node>
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-	<node pkg="move_base" type="move_base" name="move_base" output="screen">
-		<param name="controller_frequency" value="10.0"/>
-		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-			command="load" ns="global_costmap" />
-		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" 
-			command="load" ns="local_costmap" />
-		<rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
-		<rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
-		<rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
-	</node>
+    <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
-	<node pkg="frontier_exploration" type="explore_client" 
-		name="explore_client" output="screen"/>
+    <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
 
-	<node pkg="frontier_exploration" type="explore_server" 
-		name="explore_server" output="screen" >
-		<param name="frequency" type="double" value="1.0"/>
-		<param name="goal_aliasing" type="double" value="0.5"/>
-		<rosparam ns="explore_costmap" subst_value="true" 
-			file="$(find tutorial_pkg)/exploration.yaml" command="load" />
-	</node>
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <param name="base_frame" value="base_link"/>
+        <param name="odom_frame" value="odom" />
+        <param name="delta" value="0.1" />
+    </node>
+
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <param name="controller_frequency" value="10.0"/>
+        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find tutorial_pkg)/conf/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/conf/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/conf/trajectory_planner.yaml" command="load" />
+    </node>
+
+    <node pkg="frontier_exploration" type="explore_client" name="explore_client" output="screen"/>
+
+    <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
+        <param name="frequency" type="double" value="1.0"/>
+        <param name="goal_aliasing" type="double" value="0.5"/>
+        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/conf/exploration.yaml" command="load" />
+    </node>
 
 </launch>
 ```
