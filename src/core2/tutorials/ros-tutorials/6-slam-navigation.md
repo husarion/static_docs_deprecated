@@ -340,9 +340,11 @@ Shut down `rplidarNode` and run it again, but with some other nodes:
 -   `CORE2` bridge node -
     `/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyCORE2 `
 
+-   `rplidarNode` - driver for rpLidar laser scanner
+
 -   `drive_controller_node` - publisher that you just created
 
-Or instead ot these two start `Gazebo`:
+Or instead of these three, start `Gazebo`:
 
 - `roslaunch rosbot_gazebo maze_world.launch`
 
@@ -368,7 +370,7 @@ You can use below `launch` file:
 
     <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
     <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
 
