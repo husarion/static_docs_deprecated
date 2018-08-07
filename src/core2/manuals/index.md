@@ -8,7 +8,7 @@ page: 'Manuals'
 
 # Manuals #
 
-## Hardware ##
+## CORE2 manual ##
 
 A description of all hardware functionalities of CORE2 development board: specifications, connectivity, electrical parameters etc.
 
