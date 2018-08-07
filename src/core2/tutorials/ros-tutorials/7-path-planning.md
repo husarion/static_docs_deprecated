@@ -86,26 +86,20 @@ need to be defined, they are stored in `.yaml` files.
 Common parameters are used both by local and global cost map. We will
 define following parameters:
 
-    obstacle_range: 2.5
+    obstacle_range: 1.0
 
 In this range obstacles will be considered during path planning.
 
-    raytrace_range: 3.0
+    raytrace_range: 1.5
 
 This parameter defines range in which area could be considered as free.
 
-    footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
+    footprint: [[0.12, 0.14], [0.12, -0.14], [-0.12, -0.14], [-0.12, 0.14]]
 
 This parameter defines coordinates of robot outline, this will
 considered during collision detecting.
 
-    inflation_radius: 0.15
-
-This parameter defines distance to obstacle where cost should be
-considered, any further from obstacle than this value will be treated as
-no cost.
-
-    map_topic: map
+    map_topic: /map
 
 This parameter defines topic where occupancy grid is published.
 
@@ -139,27 +133,26 @@ This parameter define properties of used sensor, these are:
 
 This parameter defines coordinate frame tied to occupancy grid map.
 
-    robot_base_frame: robot_base
+    robot_base_frame: base_link
 
 This parameter defines coordinate frame tied to robot.
 
 Your final file should look like below:
 
 ``` 
-	obstacle_range: 2.5
-	raytrace_range: 3.0
-	footprint: [[0.1, 0.1], [0.1, -0.1], [-0.1, -0.1], [-0.1, 0.1]]
-	inflation_radius: 0.15
-	map_topic: map
-	subscribe_to_updates: true
-	observation_sources: laser_scan_sensor
-	laser_scan_sensor: {sensor_frame: laser_frame, data_type: LaserScan, 
-		topic: scan, marking: true, clearing: true}
-	global_frame: map
-	robot_base_frame: robot_base
+obstacle_range: 1.0
+raytrace_range: 1.5
+footprint: [[0.12, 0.14], [0.12, -0.14], [-0.12, -0.14], [-0.12, 0.14]]
+map_topic: /map
+subscribe_to_updates: true
+observation_sources: laser_scan_sensor
+laser_scan_sensor: {sensor_frame: laser_frame, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+global_frame: map
+robot_base_frame: base_link
+always_send_full_costmap: false
 ``` 
 
-Save it as `costmap_common_params.yaml` in `tutorial_pkg` directory.
+Save it as `costmap_common_params.yaml` in `tutorial_pkg/conf` directory.
 
 ### Parameters for local cost map ###
 
@@ -171,11 +164,11 @@ following parameters:
 This parameter groups following parameters to be considered only by
 local planner.
 
-    update_frequency: 10.0
+    update_frequency: 5
 
 This parameter defines how often cost should be recalculated.
 
-    publish_frequency: 10.0
+    publish_frequency: 5
 
 This parameter defines how often cost map should be published to topic.
 
@@ -193,13 +186,13 @@ change.
 
 This parameter defines if map should follow position of robot.
 
-    width: 1
-    height: 1
+    width: 3
+    height: 3
 
 These parameters define size of map (in meters).
 
-    origin_x: -0.5
-    origin_y: -0.5
+    origin_x: -1.5
+    origin_y: -1.5
 
 These parameters define position of left bottom map corner (in meters).
 If these values are half of map size, and `rolling_window` is set to
@@ -209,19 +202,26 @@ If these values are half of map size, and `rolling_window` is set to
 
 This parameter define size of single map cell (in meters).
 
+    inflation_radius: 1.0
+
+This parameter defines distance to obstacle where cost should be
+considered, any further from obstacle than this value will be treated as
+no cost.
+
 Your final file should look like below:
 
 ```
 local_costmap:
-  update_frequency: 10.0
-  publish_frequency: 10.0
+  update_frequency: 5
+  publish_frequency: 5
   transform_tolerance: 5
+  width: 3
+  height: 3
+  origin_x: -1.5
+  origin_y: -1.5
   static_map: false
   rolling_window: true
-  width: 1
-  height: 1
-  origin_x: -0.5
-  origin_y: -0.5
+  inflation_radius: 1.0
   resolution: 0.1
 ```
 
@@ -236,14 +236,16 @@ Your file for global cost map should look like below:
 
 ```
 global_costmap:
-  update_frequency: 2.5
+  update_frequency: 1
+  publish_frequency: 1
   transform_tolerance: 5
-  width: 5
-  height: 5
-  origin_x: -2.5
-  origin_y: -2.5
+  width: 15
+  height: 15
+  origin_x: -7.5
+  origin_y: -7.5
   static_map: false
   rolling_window: true
+  inflation_radius: 1.0
   resolution: 0.1
 ```
 
@@ -259,7 +261,7 @@ following parameters:
 This parameter groups following parameters to be considered only by
 trajectory planner.
 
-    max_vel_x: 0.5
+    max_vel_x: 0.2
 
 This parameter defines maximum linear velocity that will be set by
 trajectory planner.
@@ -270,7 +272,8 @@ This parameter defines minimum linear velocity that will be set by
 trajectory planner. This should be adjusted to overcome rolling
 resistance and other forces that may suppress robot from moving.
 
-    max_vel_theta: 0.25
+    max_vel_theta: 0.35
+    min_vel_theta: -0.35
 
 This parameter defines maximum angular velocity that will be set by
 trajectory planner.
@@ -297,8 +300,8 @@ This parameter defines if robot is holonomic.
 This parameter defines if cost function arguments are expressed in map
 cells or meters (if true, meters are considered).
 
-    xy_goal_tolerance: 0.1
-    yaw_goal_tolerance: 0.15
+    xy_goal_tolerance: 0.15
+    yaw_goal_tolerance: 0.25
 
 These parameters define how far from destination it can be considered as
 reached. Linear tolerance is in meters, angular tolerance is in radians.
@@ -307,10 +310,11 @@ Your final file should look like below:
 
 ```
 TrajectoryPlannerROS:
-  max_vel_x: 0.5
+  max_vel_x: 0.2
   min_vel_x: 0.1
-  max_vel_theta: 0.25
-  min_in_place_vel_theta: 0.4
+  max_vel_theta: 0.35
+  min_vel_theta: -0.35
+  min_in_place_vel_theta: 0.25
 
   acc_lim_theta: 0.25
   acc_lim_x: 2.5
@@ -320,8 +324,8 @@ TrajectoryPlannerROS:
 
   meter_scoring: true
 
-  xy_goal_tolerance: 0.1
-  yaw_goal_tolerance: 0.15
+  xy_goal_tolerance: 0.15
+  yaw_goal_tolerance: 0.25
 ```
 
 Save it as `trajectory_planner.yaml` in `tutorial_pkg` directory.
@@ -344,6 +348,13 @@ To sum up, you will need to run following nodes:
 -   `drive_controller_node` - `tf` publisher for transformation of robot
     relative to starting point
 
+Or instead ot these two, `Gazebo`:
+
+-   `roslaunch rosbot_gazebo maze_world.launch`
+
+
+And: 
+
 -   `static_transform_publisher` - `tf` publisher for transformation of
     laser scanner relative to robot
 
@@ -364,27 +375,27 @@ Set frequency for trajectory generation:
 
 Load common parameters for global cost map:
 
-    <rosparam file="/home/pi/ros_workspace/src/tutorial_pkg/costmap_common_params.yaml" 
+    <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" 
     	command="load" ns="global_costmap" />
 
 Load common parameters for local cost map:
 
-    <rosparam file="/home/pi/ros_workspace/src/tutorial_pkg/costmap_common_params.yaml" 
+    <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" 
     	command="load" ns="local_costmap" />
 
 Load only local cost map parameters:
 
-    <rosparam file="/home/pi/ros_workspace/src/tutorial_pkg/local_costmap_params.yaml" 
+    <rosparam file="$(find tutorial_pkg)/conf/local_costmap_params.yaml" 
     	command="load" />
 
 Load only global cost map parameters:
 
-    <rosparam file="/home/pi/ros_workspace/src/tutorial_pkg/global_costmap_params.yaml" 
+    <rosparam file="$(find tutorial_pkg)/conf/global_costmap_params.yaml" 
     	command="load" />
 
 Load trajectory planner parameters:
 
-    <rosparam file="/home/pi/ros_workspace/src/tutorial_pkg/trajectory_planner.yaml" 
+    <rosparam file="$(find tutorial_pkg)/conf/trajectory_planner.yaml" 
     	command="load" />
 
 You can use below `launch` file:
@@ -392,33 +403,35 @@ You can use below `launch` file:
 ``` launch
 <launch>
 
-	<node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
+    <arg name="use_rosbot" default="true"/>
+    <arg name="use_gazebo" default="false"/>
 
-	<node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" 
-		args="0 0 0 3.14 0 0 robot_base laser_frame 100" />
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-	<node pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>	
-	
-	<node pkg="gmapping" type="slam_gmapping" name="gmapping">
-		<param name="base_frame" value="robot_base"/>
-		<param name="odom_frame" value="world" />
-		<param name="delta" value="0.1"/>
-		<param name="xmin" value="-2.5"/>
-		<param name="ymin" value="-2.5"/>
-		<param name="xmax" value="2.5"/>
-		<param name="ymax" value="2.5"/>		
-	</node>
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
 
-	<node pkg="move_base" type="move_base" name="move_base" output="screen">
-		<param name="controller_frequency" value="10.0"/>
-		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" command="load" ns="global_costmap" />
-		<rosparam file="$(find tutorial_pkg)/costmap_common_params.yaml" command="load" ns="local_costmap" />
-		<rosparam file="$(find tutorial_pkg)/local_costmap_params.yaml" command="load" />
-		<rosparam file="$(find tutorial_pkg)/global_costmap_params.yaml" command="load" />
-		<rosparam file="$(find tutorial_pkg)/trajectory_planner.yaml" command="load" />
-	</node>
+    <node pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
-	<node pkg="rviz" type="rviz" name="rviz"/>
+    <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen"/>
+
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+        <param name="base_frame" value="base_link"/>
+        <param name="odom_frame" value="odom" />
+        <param name="delta" value="0.1" />
+    </node>
+
+    <node pkg="move_base" type="move_base" name="move_base" output="screen">
+        <param name="controller_frequency" value="10.0"/>
+        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find tutorial_pkg)/conf/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/conf/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/conf/trajectory_planner.yaml" command="load" />
+    </node>
 
 </launch>
 ```
