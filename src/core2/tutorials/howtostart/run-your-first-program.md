@@ -62,7 +62,7 @@ If you have CORE2-ROS, you can also connect to the cloud via the command line. T
  * Open https://cloud.husarion.com in your browser, sign in and click "Add new device". 
  * Enter a name for you device.
  * Copy the text code, located below the QR code.
- * Run `husarion-register` on your CORE2-ROS device. When asked, paste the previously copied code.
+ * Run `sudo husarion-register` on your CORE2-ROS device. When asked, paste the previously copied code.
 
 ## Writing your first program ##
 
