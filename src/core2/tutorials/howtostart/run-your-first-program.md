@@ -62,12 +62,12 @@ Well done! You just added your first device to the cloud!
 
 ### Connecting using only browser ###
 
-1. Open https://cloud.husarion.com in your browser and sign in.
+#### 1. Open https://cloud.husarion.com in your browser and sign in.
 
 <div><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/configuration_1.png"
 /></div>
 
-2. Click "Add new device".
+#### 2. Click "Add new device".
 
 ![image](/assets/img/howToStart/configuration_2.png)
 
