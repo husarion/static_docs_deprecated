@@ -17,7 +17,7 @@ Connect your CORE2 to a DC power supply. The power connector is a standard DC 5.
 * AA alkaline batteries (4-10 pieces)
 
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/core2_power_supply.png"
+<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/core2_power_supply.png"
 /></center></div>
 
 Set the power switch to "ON" position and now your device is ready to use!
@@ -62,11 +62,12 @@ Well done! You just added your first device to the cloud!
 
 ### Connecting using only browser ###
 
-1 Open https://cloud.husarion.com in your browser and sign in.
+1. Open https://cloud.husarion.com in your browser and sign in.
 
-![image](/assets/img/howToStart/configuration_1.png)
+<div><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/configuration_1.png"
+/></div>
 
-2 Click "Add new device".
+2. Click "Add new device".
 
 ![image](/assets/img/howToStart/configuration_2.png)
 
