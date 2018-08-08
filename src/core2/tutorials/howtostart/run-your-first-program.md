@@ -24,7 +24,7 @@ Set the power switch to "ON" position and now your device is ready to use!
 
 ## Connecting to the Cloud ##
 
-There are a few methods to connect your to husarion cloud. First one is universal for all of our devices and the other two apply only to CORE2-ROS controllers. For all of them you will need to register your own account on [Husarion Cloud](https://cloud.husarion.com). We will describe all three in great detail. 
+There are a few methods to connect your controller to [Husarion Cloud](https://cloud.husarion.com). First one is universal for all of our devices and the other two apply only to CORE2-ROS controllers. For all of them you will need to register your own account on [Husarion Cloud](https://cloud.husarion.com). We will describe all three in great detail. 
 
 ### Connecring using mobile device and browser ###
 
@@ -58,7 +58,7 @@ Before you perform the next steps, install the hConfig mobile application on you
 
 ### Connecting using only browser ###
 
-1\. Open https://cloud.husarion.com in your browser and sign in.
+1\. Open [Husarion Cloud](https://cloud.husarion.com) in your browser and sign in.
 
 ![image](/assets/img/howToStart/configuration_1.png)
 
@@ -74,7 +74,7 @@ Before you perform the next steps, install the hConfig mobile application on you
 
 ![image](/assets/img/howToStart/configuration_4.png)
 
-5\. Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hCfg button for more then 2 sec. Controller will be in configuration mode after that. Now connect to Wi-Fi:
+5\. Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hCfg button for more than 2 sec. Controller will be in configuration mode after that. Now connect to Wi-Fi:
 
 name: HusarionConfigXXXX
 password: husarion
@@ -83,7 +83,7 @@ password: husarion
 
 ![image](/assets/img/howToStart/configuration_5.png)
 
-7\. Chose option "Connect to Wi-Fi network" (unles you alredy to WiFi) and pick up one of wirless from list. Type the password an click "Continue".
+7\. Chose option "Connect to Wi-Fi network" (unless you already to Wi-Fi) and pick up one of wireless from list. Type the password and click "Continue".
 
 ![image](/assets/img/howToStart/configuration_6.png)
 
@@ -91,15 +91,15 @@ password: husarion
 
 ![image](/assets/img/howToStart/configuration_7.png)
 
-9\. Past previesly copy code adn click "Save".
+9\. Paste previously copy code and click "Save".
 
 ![image](/assets/img/howToStart/configuration_8.png)
 
-10\. You will recive communicate "You might now close this page."
+10\. You will receive communicate "You might now close this page."
 
 ![image](/assets/img/howToStart/configuration_9.png)
 
-11\. After that your device should be visible as "Online" in yuor cloud.
+11\. Now your device should be visible as "Online" in your cloud.
 
 ![image](/assets/img/howToStart/configuration_10.png)
 
