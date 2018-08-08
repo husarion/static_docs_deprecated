@@ -32,31 +32,29 @@ Before you perform the next steps, install the hConfig mobile application on you
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
 * [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
 
-hConfig application is used only to setup the Wi-Fi connection with your local network. If you have CORE2-ROS, you can also connect to the cloud via command line - see below.
-
 You also need to register your own account on [Husarion Cloud](https://cloud.husarion.com).
 
-Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+1\. Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
 
 <b>For Android users: turn off mobile internet on your smartphone while using hConfig app </b>
 
-hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in.
+2\. hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in.
 
 ![image](/assets/img/howToStart/1_signin.png)
 
-Click "Add new device".
+3\. Click "Add new device".
 
 ![image](/assets/img/howToStart/2_addNewDevice.png)
 
-Enter a name for your CORE2 powered device.
+4\. Enter a name for your CORE2 powered device.
 
 ![image](/assets/img/howToStart/3_enterName.png)
 
-Scan QR code using the hConfig app.
+5\. Scan QR code using the hConfig app.
 
 ![image](/assets/img/howToStart/4_scanQr.png)
 
-Well done! You just added your first device to the cloud!
+6\. Well done! You just added your first device to the cloud!
 
 ![image](/assets/img/howToStart/5_devAdded.png)
 
@@ -64,8 +62,7 @@ Well done! You just added your first device to the cloud!
 
 1\. Open https://cloud.husarion.com in your browser and sign in.
 
-<div><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/configuration_1.png"
-/></div>
+![image](/assets/img/howToStart/configuration_1.png)
 
 2\. Click "Add new device".
 
