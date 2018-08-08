@@ -62,49 +62,49 @@ Well done! You just added your first device to the cloud!
 
 ### Connecting using only browser ###
 
-1.``.`` Open https://cloud.husarion.com in your browser and sign in.
+1\. Open https://cloud.husarion.com in your browser and sign in.
 
 <div><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/howToStart/configuration_1.png"
 /></div>
 
-2``.`` Click "Add new device".
+2\. Click "Add new device".
 
 ![image](/assets/img/howToStart/configuration_2.png)
 
-3``.`` Enter a name for your CORE2 powered device.
+3\. Enter a name for your CORE2 powered device.
 
 ![image](/assets/img/howToStart/configuration_3.png)
 
-4``.`` Next copy the text code, located below the QR code. It should look similar to this: "prod|7gx9KNhfZhnnmowmDxxxxx"
+4\. Next copy the text code, located below the QR code. It should look similar to this: "prod|7gx9KNhfZhnnmowmDxxxxx"
 
 ![image](/assets/img/howToStart/configuration_4.png)
 
-5``.`` Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hCfg button for more then 2 sec. Controller will be in configuration mode after that. Now connect to Wi-Fi:
+5\. Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hCfg button for more then 2 sec. Controller will be in configuration mode after that. Now connect to Wi-Fi:
 
 name: HusarionConfigXXXX
 password: husarion
 
-6``.`` Then open new tab in your browser and type adress: http://192.168.50.1:8600 
+6\. Then open new tab in your browser and type adress: http://192.168.50.1:8600 
 
 ![image](/assets/img/howToStart/configuration_5.png)
 
-7``.`` Chose option "Connect to Wi-Fi network" (unles you alredy to WiFi) and pick up one of wirless from list. Type the password an click "Continue".
+7\. Chose option "Connect to Wi-Fi network" (unles you alredy to WiFi) and pick up one of wirless from list. Type the password an click "Continue".
 
 ![image](/assets/img/howToStart/configuration_6.png)
 
-8``.`` Now chose "Connect device to cloud.husarion.com account".
+8\. Now chose "Connect device to cloud.husarion.com account".
 
 ![image](/assets/img/howToStart/configuration_7.png)
 
-9``.`` Past previesly copy code adn click "Save".
+9\. Past previesly copy code adn click "Save".
 
 ![image](/assets/img/howToStart/configuration_8.png)
 
-10``.`` You will recive communicate "You might now close this page."
+10\. You will recive communicate "You might now close this page."
 
 ![image](/assets/img/howToStart/configuration_9.png)
 
-11``.`` After that your device should be visible as "Online" in yuor cloud.
+11\. After that your device should be visible as "Online" in yuor cloud.
 
 ![image](/assets/img/howToStart/configuration_10.png)
 
