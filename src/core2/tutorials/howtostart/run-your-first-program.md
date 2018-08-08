@@ -83,11 +83,11 @@ Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hC
 name: HusarionConfigXXXX
 password: husarion
 
-Then open new tab in your browser and tap adress: http://192.168.50.1:8600 
+Then open new tab in your browser and type adress: http://192.168.50.1:8600 
 
 ![image](/assets/img/howToStart/configuration_5.png)
 
-Chose option "Connect to Wi-Fi network" (unles you alredy to WiFi) and pick up one of wirless from list. Tap the password an click "Continue".
+Chose option "Connect to Wi-Fi network" (unles you alredy to WiFi) and pick up one of wirless from list. Type the password an click "Continue".
 
 ![image](/assets/img/howToStart/configuration_6.png)
 
@@ -95,7 +95,7 @@ Now chose "Connect device to cloud.husarion.com account"
 
 ![image](/assets/img/howToStart/configuration_7.png)
 
-Past previesly copy code adn click "Save"
+Past previesly copy code adn click "Save".
 
 ![image](/assets/img/howToStart/configuration_8.png)
 
