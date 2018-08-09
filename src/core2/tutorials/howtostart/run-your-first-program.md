@@ -83,7 +83,7 @@ password: husarion
 
 ![image](/assets/img/howToStart/configuration_5.png)
 
-7\. Chose option "Connect to Wi-Fi network" (unless you already to Wi-Fi) and pick up one of wireless from list. Type the password and click "Continue".
+7\. Chose option "Connect to Wi-Fi network" (unless you are already connected to Wi-Fi) and pick up one of wireless from list. Type the password and click "Continue".
 
 ![image](/assets/img/howToStart/configuration_6.png)
 
@@ -91,11 +91,11 @@ password: husarion
 
 ![image](/assets/img/howToStart/configuration_7.png)
 
-9\. Paste previously copy code and click "Save".
+9\. Paste previously copied code and click "Save".
 
 ![image](/assets/img/howToStart/configuration_8.png)
 
-10\. You will receive communicate "You might now close this page."
+10\. You will receive message "You might now close this page."
 
 ![image](/assets/img/howToStart/configuration_9.png)
 
