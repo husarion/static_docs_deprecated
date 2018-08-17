@@ -12,6 +12,11 @@ order: 2
 Husarion Cloud supports streaming a video from a camera attached to your robot to the Web User Interface.
 
 ## Setting up the hardware ##
+
+<dev><em><b>
+<font color="red">Hint:</font> Remember that you can use USB camera <font color="red">OR</font> smartphone camera but not both at the same time.
+</b></em></dev>
+
 ### CORE2 + smartphone/tablet ###
 Your robot with CORE2 can use a camera that is built into a smartphone or a tablet. The video from camera can be viewed in the robot's user interface. Currently this feature is available only for Android devices.
 
