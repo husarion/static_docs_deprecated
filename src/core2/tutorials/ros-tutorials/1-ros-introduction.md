@@ -217,7 +217,7 @@ To start using Gazebo with ROSbot model you need to download our package with mo
     $ git clone https://github.com/husarion/rosbot_description.git
     $ cd ~/ros_workspace
     $ catkin_make
-    $ source devel.setup.sh
+    $ source devel/setup.sh
 ```
 
 From now your system is ready to run Gazebo with ROSbot. To start simulator use command:

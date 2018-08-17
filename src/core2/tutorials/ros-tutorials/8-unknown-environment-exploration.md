@@ -85,7 +85,7 @@ Parameters for exploration boundaries layer:
 
     explore_boundary:
         resize_to_boundary: false
-        frontier_travel_point: middle
+        frontier_travel_point: "middle"
         explore_clear_space: false
 
 Parameters meaning:
@@ -131,7 +131,7 @@ inflation:
     inflation_radius: 0.5
 ```
 
-Save it as `exploration.yaml` in `tutorial_pkg` directory.
+Save it as `exploration.yaml` in `tutorial_pkg/config` directory.
 
 ### Launching exploration task ###
 
@@ -174,7 +174,7 @@ and paths for `.yaml` configuration files:
     <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
         <param name="frequency" type="double" value="1.0"/>
         <param name="goal_aliasing" type="double" value="0.5"/>
-        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/conf/exploration.yaml" command="load" />
+        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/config/exploration.yaml" command="load" />
     </node>
 ```
 
@@ -210,11 +210,11 @@ You can use below `launch` file:
 
     <node pkg="move_base" type="move_base" name="move_base" output="screen">
         <param name="controller_frequency" value="10.0"/>
-        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find tutorial_pkg)/conf/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find tutorial_pkg)/conf/local_costmap_params.yaml" command="load" />
-        <rosparam file="$(find tutorial_pkg)/conf/global_costmap_params.yaml" command="load" />
-        <rosparam file="$(find tutorial_pkg)/conf/trajectory_planner.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find tutorial_pkg)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find tutorial_pkg)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find tutorial_pkg)/config/trajectory_planner.yaml" command="load" />
     </node>
 
     <node pkg="frontier_exploration" type="explore_client" name="explore_client" output="screen"/>
@@ -222,7 +222,7 @@ You can use below `launch` file:
     <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen">
         <param name="frequency" type="double" value="1.0"/>
         <param name="goal_aliasing" type="double" value="0.5"/>
-        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/conf/exploration.yaml" command="load" />
+        <rosparam ns="explore_costmap" subst_value="true" file="$(find tutorial_pkg)/config/exploration.yaml" command="load" />
     </node>
 
 </launch>
