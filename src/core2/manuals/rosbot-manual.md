@@ -39,7 +39,7 @@ You can also test the performance of ROSbot using our simulation model in Gazebo
 
 ![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
-You can find free ROS tutorials dedicated for ROSbot under this <a href="https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/">link</a>. They will guide you through different aspects of programming autonomous vehicles in ROS
+You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/">link</a>. They will guide you through different aspects of programming autonomous vehicles in ROS
 
 # Hardware guide #
 
