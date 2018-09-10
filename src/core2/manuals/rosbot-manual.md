@@ -39,6 +39,8 @@ You can also test the performance of ROSbot using our simulation model in Gazebo
 
 ![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
+You can find free ROS tutorials dedicated for ROSbot under this <a href="https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/">link</a>. They will guide you through different aspects of programming autonomous vehicles in ROS
+
 # Hardware guide #
 
 ## Specification ##
@@ -377,6 +379,7 @@ All helpful documents and links in one place:
 
 * [ROSbot Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
 * [Charging manual for ROSbot 2.0](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf)
+* [ROS tutorials for ROSbot](https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/)
 * [ROSbot on ROS webpage](https://robots.ros.org/rosbot-2.0/)
 * [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot-2.0)
 * [URDF model of ROSbot - for Gazebo integrated with ROS](https://github.com/husarion/rosbot_description)
