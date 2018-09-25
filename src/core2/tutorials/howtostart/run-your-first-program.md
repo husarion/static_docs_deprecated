@@ -32,7 +32,9 @@ Before you perform the next steps, install the hConfig mobile application on you
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
 * [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
 
-1\. Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+1\. Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. The phone is required only once for configuration and connecting CORE2 with cloud, later you will not be using it. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+
+The WiFi bradcasted by CORE2 can be used only for configuration, it does not allow to connect to the internet. Your phone may show warning regarding no internet connection while connected to this WiFi. You can ignore these warnings, as this will not interrupt the process.
 
 <b>For Android users: turn off mobile internet on your smartphone while using hConfig app </b>
 
