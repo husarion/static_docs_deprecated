@@ -11,13 +11,13 @@ order: 10
 
 ## Introduction ##
 
-Localization can be performed with use of many methods. In prevoius tutorials we used SLAM based on laser scanner. This methd performs best in indoor areas with lots of distinguishable landmarks. For outdoors uses large indoor areas with few landmarks this can be faulty. One solution could be to use GPS, but its accuracy is usually not enough for robotics.
+Localization can be performed with use of many methods. In prevoius tutorials we used SLAM based on laser scanner. This methd performs best in indoor areas with lots of distinguishable landmarks. For outdoors uses or large indoor areas with few landmarks this can be faulty. One solution could be to use GPS, but its accuracy is usually not enough for robotics.
  
 Appropriate solution for precise navigation in outdoor conditions could be Ultra Wideband (UWB) technology. It allow for precise navigation with use of fixed-position markers (anchors) and receiver (tag) mounted to mobile base. This solution require a map to be known in advance and position of all anchors realative to this map.
 
 ## UWB localization in ROS ##
 
-In this tutorail we will use UWB anchors and tag from [Pozyx Labs](https://www.pozyx.io/). There is a Python library which allow to use system with Linux, there are also some simple [examples](https://github.com/pozyxLabs/pozyx_ros) of using the library in ROS. We will prepare a little more sophisticated node for our use.
+In this tutorail we will use UWB anchors and tag from [Pozyx Labs](https://www.pozyx.io/). It comes with Arduino and Python libraries. We will use Python version which allow tag to communicate with Linux, there are also some simple [examples](https://github.com/pozyxLabs/pozyx_ros) of using the library in ROS. We will prepare a bit more sophisticated node for our use.
 
 
 ### Requirements regarding robot ###
