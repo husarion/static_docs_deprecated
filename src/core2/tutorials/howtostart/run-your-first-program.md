@@ -26,7 +26,7 @@ Set the power switch to "ON" position and now your device is ready to use!
 
 There are a few methods to connect your controller to [Husarion Cloud](https://cloud.husarion.com). First one is universal for all of our devices and the other two apply only to CORE2-ROS controllers. For all of them you will need to register your own account on [Husarion Cloud](https://cloud.husarion.com). We will describe all three in great detail. 
 
-### Connecring using mobile device and browser ###
+### Connecting using mobile device and browser ###
 
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
