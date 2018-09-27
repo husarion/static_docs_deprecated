@@ -9,7 +9,7 @@ onepager: true
 ---
 # Overview #
 
-ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller available in two version: 2.0 and PRO. 
+ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller available in two version: 2.0 and 2.0 PRO. 
 
 <div align="center">
 <iframe width="784" height="441" src="https://www.youtube.com/embed/QHJFNMX4Us8" frameborder="0" gesture="media" allowfullscreen></iframe>
@@ -22,7 +22,7 @@ ROSbot is an affordable robot platform for rapid development of autonomous robot
 - MPU 9250 inertial sensor (accelerometer + gyro)
 - rear panel providing interfaces for additional modules
 
-Additional in ROSbot 2.0:
+In ROSbot 2.0:
 - CORE2-ROS controller with <a href="https://www.asus.com/pl/Single-Board-Computer/Tinker-Board/">Asus Tinker Board</a>
 - RPLIDAR A2 laser scanner
 
@@ -34,7 +34,7 @@ Additional in ROSbot 2.0:
 
 </div>
 
-Additional in ROSbot PRO:
+In ROSbot 2.0 PRO:
 - CORE2-ROS controller with <a href="http://www.up-board.org/up/">UpBoard UP</a> 
 - RPLIDAR A3 laser scanner
 
@@ -125,7 +125,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>Infrared distance sensor</td>
         <td>4</td>
-        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, <a href="https://www.pololu.com/product/2490"> more details</a>.</td>
+        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, <a href="https://www.pololu.com/file/0J1187/VL53L0X.pdf"> more details</a>.</td>
     </tr>
     <tr>
         <td>DC motor</td>
@@ -161,7 +161,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     </tr>	
 </table>
 
-Additiona in ROSbot 2.0:
+In ROSbot 2.0:
 
 <table>
     <tr>
@@ -181,7 +181,7 @@ Additiona in ROSbot 2.0:
     </tr>
 </table>
 
-Additiona in ROSbot PRO:
+In ROSbot 2.0 PRO:
 
 <table>
     <tr>
@@ -274,7 +274,7 @@ Additiona in ROSbot PRO:
     <tr>
         <td>Time-of-Flight distance sensor</td>
         <td>2</td>
-        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, more details <a href="https://www.pololu.com/product/2490">here</a>.</td>.
+        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, more details <a href="https://www.pololu.com/file/0J1187/VL53L0X.pdf">here</a>.</td>.
     <tr>
         <td>hExt</td>
         <td>1</td>
