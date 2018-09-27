@@ -26,13 +26,15 @@ Set the power switch to "ON" position and now your device is ready to use!
 
 There are a few methods to connect your controller to [Husarion Cloud](https://cloud.husarion.com). First one is universal for all of our devices and the other two apply only to CORE2-ROS controllers. For all of them you will need to register your own account on [Husarion Cloud](https://cloud.husarion.com). We will describe all three in great detail. 
 
-### Connecring using mobile device and browser ###
+### Connecting using mobile device and browser ###
 
 Before you perform the next steps, install the hConfig mobile application on your smartphone or tablet:
 * [Google Play](https://play.google.com/store/apps/details?id=com.husarion.configtool2&hl=en)
 * [AppStore](https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8)
 
-1\. Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+1\. Open the hConfig app on your smartphone and follow the wizard that will show you how to connect CORE2 to your Wi-Fi network and your Husarion cloud account. The phone is required only once for configuration and connecting CORE2 with cloud, later you will not be using it. After you select the Wi-Fi network for your CORE2 in the hConfig app, you can proceed to the next steps.
+
+The WiFi bradcasted by CORE2 can be used only for configuration, it does not allow to connect to the internet. Your phone may show warning regarding no internet connection while connected to this WiFi. You can ignore these warnings, as this will not interrupt the process.
 
 <b>For Android users: turn off mobile internet on your smartphone while using hConfig app </b>
 
