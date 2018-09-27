@@ -141,7 +141,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>IMU sensor</td>
         <td>1</td>
-        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/core2/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf"> more details</a>.</td>
     </tr>
     <tr>
         <td>RGBD camera</td>
@@ -172,7 +172,7 @@ In ROSbot 2.0:
     <tr>
         <td>CORE2-ROS</td>
         <td>1</td>
-        <td>Advanced version of CORE2 with an ASUS Tinker board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS. <a href="https://husarion.com/core2/">More details here</a>.</td>
+        <td>Advanced version of CORE2 with an ASUS Tinker board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS, <a href="https://husarion.com/core2/">more details</a>.</td>
     </tr>
     <tr>
         <td>LIDAR</td>
@@ -192,7 +192,7 @@ In ROSbot 2.0 PRO:
     <tr>
         <td>CORE2-ROS</td>
         <td>1</td>
-        <td>Advanced version of CORE2 with an Up Board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS. <a href="https://husarion.com/core2/">More details here</a>.</td>
+        <td>Advanced version of CORE2 with an Up Board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS, <a href="https://husarion.com/core2/">more details</a>.</td>
     </tr>
     <tr>
         <td>LIDAR</td>
