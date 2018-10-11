@@ -167,8 +167,8 @@ To steer your robot use WSAD keys or arrows. Use G key to switch leg position an
 # Docs and links #
 All helpful documents and links in one place:
 
-* [Telepresence robot kit Tutorial](https://husarion.com/core2/tutorials/howtostart/telepresence-robot-kit---quick-start/ "ROSbot Safety Instructions")
-* [Telepresence robot kit Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
+* [Telepresence robot kit Tutorial](https://husarion.com/core2/tutorials/howtostart/telepresence-robot-kit---quick-start/ "Telepresence robot kit Tutorial")
+* [Telepresence robot kit Safety Instructions](https://files.husarion.com/docs2/CORE2_telepresence_safety_instructions_1.0.pdf "Telepresence robot kit Safety Instructions") - important!
 * [Buy telepresence robot kit](https://store.husarion.com/products/telepresence-robot-kit) in Husarion store
 
 
