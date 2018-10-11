@@ -151,7 +151,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>Batteries</td>
         <td>3</td>
-        <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
+        <td>Li-Ion 18650 protected, rechargeable batteries, 3500mAh capacity, 3.7V nominal voltage <br>
 		Note: Device may be shipped interchangeably with similar batteries.</td>
     </tr>
     <tr>
