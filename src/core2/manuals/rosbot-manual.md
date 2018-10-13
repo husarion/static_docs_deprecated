@@ -252,11 +252,6 @@ In ROSbot 2.0 PRO:
         <td>hBtn1, hBtn2 - programmable buttons.</td>
     </tr>	
     <tr>
-        <td>Power switch</td>
-        <td>1</td>
-        <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
-    </tr>
-    <tr>
         <td>Outputs for servo</td>
         <td>6</td>
         <td>Servo output with PWM, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-hservo">here</a>.</td>
@@ -274,7 +269,7 @@ In ROSbot 2.0 PRO:
     <tr>
         <td>DC power input</td>
         <td>1</td>
-        <td>DC power input for working with a robot without batteries.</td>
+        <td>DC for working with external 12V power supply. Use the power supply included with charger or any 12V, min. 5A power supply with 5.5/2.5mm plug (center-positive).</td>
     </tr>
     <tr>
         <td>Time-of-Flight distance sensor</td>
