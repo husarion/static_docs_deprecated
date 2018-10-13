@@ -203,7 +203,7 @@ In ROSbot 2.0 PRO:
 
 ## Rear panel description ##
 
-![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel.png "Rear panel description")
+![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel_v1.1.png "Rear panel description")
 
 <table>
     <tr>
