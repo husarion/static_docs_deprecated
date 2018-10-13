@@ -272,6 +272,11 @@ In ROSbot 2.0 PRO:
         <td>6-pin connector for charging internal Li-Ion batteries.</td>
     </tr>
     <tr>
+        <td>DC power input</td>
+        <td>1</td>
+        <td>DC power input for working with a robot without batteries.</td>
+    </tr>
+    <tr>
         <td>Time-of-Flight distance sensor</td>
         <td>2</td>
         <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, more details <a href="https://www.pololu.com/file/0J1187/VL53L0X.pdf">here</a>.</td>.
