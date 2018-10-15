@@ -228,7 +228,7 @@ From now your system is ready to run Gazebo with ROSbot. To start simulator use 
 
 ### Starting system step by step
 
-You can start ROS by typing each name of each node manually.
+You can start ROS nodes by typing name of each node manually.
 
 To do it you can use the following command:
 
@@ -237,7 +237,7 @@ To do it you can use the following command:
 ``` 
 
 Package\_name and node\_type are names of package and node that you want
-to run.
+to run. `rosrun` executes node in the terminal and outputs text logs to the screen. To start multiple nodes simultaneously use `roslaunch`. You will learn about this tool soon.
 
 #### Defining node name
 
@@ -248,7 +248,7 @@ command, add:
     __name:=new_node_name
 ``` 
 
-Note that there are two underscores before the name.
+Note that there are two underscores before the name. If you want to learn more about naming convention used by ROS see [this](http://wiki.ros.org/ROS/Concepts#Names.Names) docs.
 
 #### Setting parameter
 
@@ -277,10 +277,7 @@ Note that there is no underscore before the old name.
 ### Starting system step by step - Example
 
 In this section, we will set up ROS system that is equipped with a Orbbec Astra 
-camera and show image from camera on display. We are going to work only
-on PC, so you do not need to plug CORE2, Raspberry Pi or any other device
-beside Astra camera. If you are using laptop, integrated or USB camera will be
-OK.
+camera and show image from camera on display. Use remote desktop client of your choice to connect to your ROSbot or Core2ROS. In case of latter remember to plug in Orbbec Astra camera to your SBC. You can also follow the tutorial in simulation mode using Gazebo and Husarion VM.
 
 #### Starting master
 
@@ -442,15 +439,18 @@ the system. In new terminal type in:
 
     $ rqt_graph
 
-There will be no response in the terminal, but new window will appear:
+There will be no response in the terminal, but new window will appear. In upper left corner change "Nodes only" option to "Nodes/Topics (active)". You will see:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_4.png)
+<!-- change byq77 to husarion -->
+![image](https://raw.githubusercontent.com/byq77/static_docs/master/src/assets/img/ros/man_1_4.png)
 
 Interpretation of the graph is as follows:
 
 -   Ovals represent nodes
 
 -   Rectangles represent topics
+
+-   Big rectangles conntaining other elements represent namespace (shared part of the name)
 
 -   Arrows pointing from node to topic represent publication to this
     topic
@@ -477,10 +477,10 @@ file is located or point the path to it.
 
 #### Structure of .launch file 
 
-Structure of `.launch` file is defined in a markup language, similar to
-HTML. Every `.launch` file must begin with starting marker: `<launch>`
-and end with closing one: `<\launch>`. Markers defining nodes should be placed between them. 
-You can define node by `node` marker- it’s structure is as follows:
+Structure of `.launch` file is defined in a markup language, derived from XML similarly to
+HTML. Every `.launch` file must begin with opening tag: `<launch>`
+and end with closing one: `<\launch>`. Elements that define nodes should be placed between them. 
+You can define node by `node` tag - it’s structure is as follows:
 
 ``` launch
     <node pkg="package_name" type="node" name="id" required="true" output="screen">
