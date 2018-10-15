@@ -140,7 +140,7 @@ Another option is to use ROS native installation, this requires Ubuntu 16.04 ope
 
 You can also try online simulator at <a href="http://www.theconstructsim.com/">www.theconstructsim.com</a>, it comes with all required packages installed and offer great computing power for a reasonable price.
 
-![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+![ROSbot gazebo](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
 ## ROS and CORE2 Work flow
 
@@ -477,10 +477,9 @@ file is located or point the path to it.
 
 #### Structure of .launch file 
 
-Structure of `.launch` file is defined in a markup language, derived from XML similarly to
-HTML. Every `.launch` file must begin with opening tag: `<launch>`
-and end with closing one: `<\launch>`. Elements that define nodes should be placed between them. 
-You can define node by `node` tag - it’s structure is as follows:
+Structure of `.launch` file is defined in a markup language derived from XML and it's similar to
+HTML. Content of the `.launch` file is inserted between the start and end tags: `<launch>...</launch>` (root element). Other elements including those that define nodes should be placed between them. 
+You can define node using `node` element:
 
 ``` launch
     <node pkg="package_name" type="node" name="id" required="true" output="screen">
@@ -506,7 +505,7 @@ Meaning of each field:
 
 For each node parameters can be set or topics can be remapped.
 
-For setting parameters use marker `param`:
+For setting parameters use element `param`:
 
 ``` launch
     <param name="name" value="value"/>
@@ -518,7 +517,7 @@ Meaning of the fields:
 
 -   `value` - desired value of the parameter
 
-For remapping the topic names use marker `remap`:
+For remapping the topic names use element `remap`:
 
 ``` launch
     <remap from="/old" to="/new"/>
