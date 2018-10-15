@@ -441,8 +441,8 @@ the system. In new terminal type in:
 
 There will be no response in the terminal, but new window will appear. In upper left corner change "Nodes only" option to "Nodes/Topics (active)". You will see:
 
-<!-- change byq77 to husarion -->
-![image](https://raw.githubusercontent.com/byq77/static_docs/master/src/assets/img/ros/man_1_4.png)
+<!-- change byq77/static_docs/szymon-dev to husarion/static_docs/master -->
+![image](https://raw.githubusercontent.com/byq77/static_docs/szymon-dev/src/assets/img/ros/man_1_4.png)
 
 Interpretation of the graph is as follows:
 
@@ -450,7 +450,7 @@ Interpretation of the graph is as follows:
 
 -   Rectangles represent topics
 
--   Big rectangles conntaining other elements represent namespace (shared part of the name)
+-   Big rectangles containing other elements represent namespace (shared part of the name)
 
 -   Arrows pointing from node to topic represent publication to this
     topic
