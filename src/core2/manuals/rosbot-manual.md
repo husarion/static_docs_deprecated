@@ -7,6 +7,24 @@ order: 3
 page: 'Manuals'
 onepager: true
 ---
+# Overview #
+
+ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller available in two version: 2.0 and 2.0 PRO. 
+
+<div align="center">
+<iframe width="784" height="441" src="https://www.youtube.com/embed/QHJFNMX4Us8" frameborder="0" gesture="media" allowfullscreen></iframe>
+</div>
+
+ROSbot is an affordable robot platform for rapid development of autonomous robots. It can be a base for custom service robots, inspection robots and robots working in swarms. Both version integrates:
+
+- 4-wheels mobile platform containing DC motors with encoders and an aluminum frame
+- Orbbec Astra RGBD camera
+- MPU 9250 inertial sensor (accelerometer + gyro)
+- rear panel providing interfaces for additional modules
+
+In ROSbot 2.0:
+- CORE2-ROS controller with <a href="https://www.asus.com/pl/Single-Board-Computer/Tinker-Board/">Asus Tinker Board</a>
+- RPLIDAR A2 laser scanner
 
 <div class="gallery h300">
 
@@ -16,20 +34,17 @@ onepager: true
 
 </div>
 
-# Overview #
+In ROSbot 2.0 PRO:
+- CORE2-ROS controller with <a href="http://www.up-board.org/up/">UpBoard UP</a> 
+- RPLIDAR A3 laser scanner
 
-<div align="center">
-<iframe width="784" height="441" src="https://www.youtube.com/embed/QHJFNMX4Us8" frameborder="0" gesture="media" allowfullscreen></iframe>
+<div class="gallery h300">
+
+![Front](/assets/img/ROSbot_manual/pro_colour_front.jpg "Front")
+![Back](/assets/img/ROSbot_manual/pro_colour_back.jpg "Back")
+![Perspective](/assets/img/ROSbot_manual/pro_colour_perspective.jpg "Perspective")
+
 </div>
-
-ROSbot is an autonomous robot platform based on Husarion CORE2-ROS robot controller. It integrates:
-- 4-wheels mobile platform containing DC motors with encoders and an alluminium frame
-- Orbbec Astra RGBD camera
-- RPLIDAR A2 laser scanner
-- MPU 9250 inertial sensor (accelerometer + gyro)
-- rear panel providing interfaces for additional modules
-
-ROSbot is an affordable robot platform for rapid development of autonomous robots. It can be a base for custom service robots, inspection robots and robots working in swarms. 
 
 You can use your ROSbot offline however we recommend connecting to Husarion Cloud as it gives you access to a lot of additional functionalities like remote management and firmware updates.
 
@@ -107,19 +122,10 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
        <th>Description</th>
     </tr>
     <tr>
-        <td>CORE2-ROS</td>
-        <td>1</td>
-        <td>Advanced version of CORE2 with an ASUS Tinker board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS. <a href="https://husarion.com/core2/">More details here</a>.</td>
-    </tr>
-    <tr>
-        <td>LIDAR</td>
-        <td>1</td>
-        <td>RpLidar A2, 360 degree and up to 8m range, <a href="https://www.slamtec.com/en/Lidar"> more details</a>.</td>
-    </tr>
     <tr>
         <td>Infrared distance sensor</td>
         <td>4</td>
-        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor"> more details</a>.</td>
+        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, <a href="https://www.pololu.com/file/0J1187/VL53L0X.pdf"> more details</a>.</td>
     </tr>
     <tr>
         <td>DC motor</td>
@@ -135,7 +141,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>IMU sensor</td>
         <td>1</td>
-        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://husarion.com/core2/manuals/core2/#hardware-mpu9250-inertial-mesurement-unit"> more details</a>.</td>
+        <td>Powerful 9-Axis Accel/Gyro/Magnetometer sensor with MPU-9250, <a href="https://www.invensense.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf"> more details</a>.</td>
     </tr>
     <tr>
         <td>RGBD camera</td>
@@ -145,7 +151,7 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>Batteries</td>
         <td>3</td>
-        <td>Li-Ion 18650 protected, rechargeable batteries, 2600mAh capacity, 3.7V nominal voltage <br>
+        <td>Li-Ion 18650 protected, rechargeable batteries, 3500mAh capacity, 3.7V nominal voltage <br>
 		Note: Device may be shipped interchangeably with similar batteries.</td>
     </tr>
     <tr>
@@ -155,9 +161,49 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     </tr>	
 </table>
 
+In ROSbot 2.0:
+
+<table>
+    <tr>
+       <th>Component</th>
+       <th>Quantity</th>
+       <th>Description</th>
+    </tr>
+    <tr>
+        <td>CORE2-ROS</td>
+        <td>1</td>
+        <td>Advanced version of CORE2 with an ASUS Tinker board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS, <a href="https://husarion.com/core2/">more details</a>.</td>
+    </tr>
+    <tr>
+        <td>LIDAR</td>
+        <td>1</td>
+        <td>RpLidar A2, 360 degree and up to 8m range, <a href="https://www.slamtec.com/en/Lidar/A2"> more details</a>.</td>
+    </tr>
+</table>
+
+In ROSbot 2.0 PRO:
+
+<table>
+    <tr>
+       <th>Component</th>
+       <th>Quantity</th>
+       <th>Description</th>
+    </tr>
+    <tr>
+        <td>CORE2-ROS</td>
+        <td>1</td>
+        <td>Advanced version of CORE2 with an Up Board computer. CORE2 real-time controller is based on STM32F407 microcontroller. The SBC runs on Ubuntu-based OS, customized to use ROS, <a href="https://husarion.com/core2/">more details</a>.</td>
+    </tr>
+    <tr>
+        <td>LIDAR</td>
+        <td>1</td>
+        <td>RpLidar A3, 360 degree and up to 25m range, <a href="https://www.slamtec.com/en/Lidar/A3"> more details</a>.</td>
+    </tr>
+</table>
+
 ## Rear panel description ##
 
-![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel.png "Rear panel description")
+![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel_v1.1.png "Rear panel description")
 
 <table>
     <tr>
@@ -203,13 +249,8 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
     <tr>
         <td>hBtn</td>
         <td>2</td>
-        <td>hBtn1, hBtn2 - programable buttons.</td>
+        <td>hBtn1, hBtn2 - programmable buttons.</td>
     </tr>	
-    <tr>
-        <td>Power switch</td>
-        <td>1</td>
-        <td>Switch to turn on and off the robot. It completely disconnectc all components of ROSbot from its power source.</td>
-    </tr>
     <tr>
         <td>Outputs for servo</td>
         <td>6</td>
@@ -226,9 +267,14 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
         <td>6-pin connector for charging internal Li-Ion batteries.</td>
     </tr>
     <tr>
-        <td>IR distance sensor</td>
+        <td>DC power input</td>
+        <td>1</td>
+        <td>DC for working with external 12V power supply. Use the power supply included with charger or any 12V, min. 5A power supply with 5.5/2.5mm plug (center-positive).</td>
+    </tr>
+    <tr>
+        <td>Time-of-Flight distance sensor</td>
         <td>2</td>
-        <td>SHARP GP2Y0A41SK0F with 4 to 30 cm range, more details <a href="https://husarion.com/core2/manuals/core2/#hardware-sharp-distance-sensor">here</a>.</td>
+        <td>VL53L0X Time-of-Flight distance sensor with up to 200 cm range, more details <a href="https://www.pololu.com/file/0J1187/VL53L0X.pdf">here</a>.</td>.
     <tr>
         <td>hExt</td>
         <td>1</td>
@@ -258,7 +304,7 @@ If only the right firmware is preloaded to the internal controller (CORE2), the 
 - the LED1 is on when the robot is turned on
 - the LED1 is blinking when battery is low – please charge immediately!
 
-Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may decrease their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the overdischarge protection. If the voltage is too low, turn ROSbot off and charge batteries as soon as possible.
+Please make sure that the user firmware always contains the function that monitors the supply voltage level. Deep discharging of batteries may decrease their lifecycle. Discharging to the voltage lower than 3.0V/cell can also trigger the over discharge protection. If the voltage is too low, turn ROSbot off and charge batteries as soon as possible.
 
 ## Charging ROSbot ##
 
@@ -266,7 +312,7 @@ Please make sure that the user firmware always contains the function that monito
 ![Charging kit](/assets/img/ROSbot_manual/charger+cables+PSU.jpg "Charging kit")
 </div>
 
-The ROSbot 2.0 kit contains the Redox Beta charger. It is an universal charger, suitable for charging NiCd, NiMH, Li-Po, Li-Fe, Li-Ion and Pb (AGM, VRLA) batteries. ROSbot shall be charged using an included charger and cable.
+The ROSbot kit contains the Redox Beta charger. It is an universal charger, suitable for charging NiCd, NiMH, Li-Po, Li-Fe, Li-Ion and Pb (AGM, VRLA) batteries. ROSbot shall be charged using an included charger and cable.
 
 Charger kit includes:
 - Redox Beta charger
@@ -286,7 +332,7 @@ Charger kit includes:
 ![Charge config](/assets/img/ROSbot_manual/charge-config.png "Charge config")
 </div>
 
-If you need more information about charging, please read the [Charging manual for ROSbot 2.0](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf) in PDF format.
+If you need more information about charging, please read the [Charging manual for ROSbot](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf) in PDF format.
 
 **Notes** 
 - You can change charging current to maximum 3A. Please note that a regular charging with the maximum current can shorten the battery life.
@@ -378,7 +424,7 @@ ROSbot will try to connect to this network each time it boots.
 All helpful documents and links in one place:
 
 * [ROSbot Safety Instructions](https://files.husarion.com/docs2/ROSbot_safety_instructions_1.0.pdf "ROSbot Safety Instructions") - important!
-* [Charging manual for ROSbot 2.0](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf)
+* [Charging manual for ROSbot](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf)
 * [ROS tutorials for ROSbot](https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/)
 * [ROSbot on ROS webpage](https://robots.ros.org/rosbot-2.0/)
 * [ROSbot on ROS Wiki](http://wiki.ros.org/Robots/ROSbot-2.0)

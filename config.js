@@ -10,15 +10,6 @@ config.pages = {
         }
     },
 
-    'core2/tutorials/husarnet': {
-        pattern: 'core2/tutorials/husarnet/*.md',
-        sortBy: 'order',
-        metadata: {
-            page: 'Tutorials',
-            title: 'Husarnet'
-        }
-    },
-
     'core2/tutorials/ros-tutorials': {
         pattern: 'core2/tutorials/ros-tutorials/*.md',
         sortBy: 'order',
@@ -77,14 +68,6 @@ config.pages = {
         }
     },
     
-    'core2/software/husarnet': {
-        pattern: 'core2/software/husarnet.md',
-        metadata: {
-            page: 'Software',
-            title: 'Husarnet (beta)'
-        }
-    },
-
     'core2/software/hframework': {
         pattern: 'core2/software/hframework.md',
         metadata: {
