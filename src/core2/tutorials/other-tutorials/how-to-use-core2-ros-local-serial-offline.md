@@ -46,9 +46,9 @@ rostopic list
 
 For start you have to open a console and disable Husarion service:
 ```
-systemctl disable husarion-shield
+systemctl disable husarnet-configurator
 ```
-and reboot device (you can reenable it later with `systemctl enable husarion-shield`).
+and reboot device (you can reenable it later with `systemctl enable husarnet-configurator`).
 
 We also have to change few lines in CORE2 code:
 
