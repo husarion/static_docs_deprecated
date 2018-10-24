@@ -26,8 +26,7 @@ All of the source files for your nodes will be stored in folder `src`.
 Then you can initialize your workspace with command
 `catkin_init_workspace` executed in `src` folder:
 
-    $ cd ~/ros_workspace/src
-    $ catkin_init_workspace
+    $ cd ~/ros_workspace/src && catkin_init_workspace
 
 Now you can move to your workspace main directory:
 
@@ -39,7 +38,7 @@ and compile it:
 
 After this command you should get output like this:
 
-![image](/assets/img/ros/man_2_1.png)
+![image](/src/assets/img/ros/man_2_1.png)
 
 And it should end with:
 
@@ -76,12 +75,12 @@ C++.
 
 After typing in this command you should get output like this:
 
-![image](//assets//img//ros//man_2_2.png)
+![image](/src/assets/img/ros/man_2_2.png)
 
 This will create folder named `tutorial_pkg` and some files in it. Your
 workspace file structure should now look like like below:
 
-![image](/assets/img/ros/man_2_1a.png)
+![image](/src/assets/img/ros/man_2_1a.png)
 
 Created files are:
 
@@ -184,27 +183,21 @@ Find line:
     # add_compile_options(-std=c++11)
 
 and uncomment it (remove `#` sign). This will allow to use C++11 standard of C++. 
-You should also find line:
+
+You should also find and uncomment line:
 
     # add_executable(${PROJECT_NAME}_node src/tutorial_pkg_node.cpp)
     
-And add another line after it:
-
-    add_executable(tutorial_pkg_node src/tutorial_pkg_node.cpp)
-
 This will let the compiler know that it should create executable 
 file from defined source. Created executable
-will be your node. Also you need to find lines:
+will be your node. Variable `PROJECT_NAME` is defined by line `project(tutorial_pkg)`.
+This results in `tutorial_pkg_node` as the name of the executable. You can adjust it to your needs.
+
+After that find and uncomment lines:
 
     # target_link_libraries(${PROJECT_NAME}_node
     #   ${catkin_LIBRARIES}
     # )
-
-and add below code after it:
-
-    target_link_libraries(tutorial_pkg_node
-      ${catkin_LIBRARIES}
-    )
 
 This will cause compiler to link libraries required by your node. Save
 the changes and close editor.
@@ -212,12 +205,11 @@ the changes and close editor.
 Open terminal, move to workspace main directory and build your project
 with command `catkin_make`:
 
-    $ cd ~/ros_workspace
-    $ catkin_make
-
+    $ cd ~/ros_workspace && catkin_make
+ 
 You should get output like this:
 
-![image](/assets/img/ros/man_2_3.png)
+![image](/src/assets/img/ros/man_2_3.png)
 
 ### Running your node ###
 
@@ -244,10 +236,18 @@ other node. Remember that package is `tutorial_pkg` and node is
 `rosnode` and `rqt_graph` tools to examine system and check if your node
 is visible in the system.
 
-To remind, you can start ROS by typing in the name of thee node, you can do this
+To remind, you can start ROS by typing in the name of the node, you can do this
 with the following command:
 
     $ rosrun package_name node_type [options]
+
+If you want to use `.launch` files associated with your custom package you will have to create `launch` directory:
+
+    $ mkdir ~/ros_workspace/src/tutorial_pkg/launch
+
+Place your `.launch` files there. This way you can start them by typing:
+
+    $ roslaunch tutorial_pkg your_launch_file.launch
 
 ### Subscribing to topic ###
 
