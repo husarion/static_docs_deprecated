@@ -1330,7 +1330,7 @@ To remind, you will need to run following nodes:
 
 -    `republish` nodes for managing image streaming
 
-Or instead ot these four, `Gazebo`:
+Or instead ot these nodes, `Gazebo`:
 
 -   `roslaunch rosbot_gazebo maze_world.launch`
 
