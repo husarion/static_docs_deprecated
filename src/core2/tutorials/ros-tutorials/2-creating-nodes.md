@@ -18,14 +18,10 @@ libraries and compiled nodes will be stored.
 First you need to create a folder, where your workspace will be located.
 You can do this by typing in:
 
-     $ mkdir ~/ros_workspace
+     $ mkdir -p ~/ros_workspace/src
 
-This will create folder named `ros_workspace`. Next, create a `src`
-folder in `ros_workspace`:
-
-    $ mkdir ~/ros_workspace/src
-
-All of the source files for your nodes will be stored in this folder.
+This will create folder named `ros_workspace` and folder `src` inside it. 
+All of the source files for your nodes will be stored in folder `src`.
 
 Then you can initialize your workspace with command
 `catkin_init_workspace` executed in `src` folder:
@@ -76,12 +72,11 @@ For our tutorial we will create package named `tutorial_pkg` which
 depends on package `roscpp`. Package `roscpp` is a basic ROS library for
 C++.
 
-    $ cd ~/ros_workspace/src
-    $ catkin_create_pkg tutorial_pkg roscpp
+    $ cd ~/ros_workspace/src && catkin_create_pkg tutorial_pkg roscpp
 
 After typing in this command you should get output like this:
 
-![image](/assets/img/ros/man_2_2.png)
+![image](//assets//img//ros//man_2_2.png)
 
 This will create folder named `tutorial_pkg` and some files in it. Your
 workspace file structure should now look like like below:

@@ -193,7 +193,7 @@ Type in your device IP address and click `connect`. If you are working on
 Mac, you can use **Microsoft Remote Desktop** available at **AppStore**.
 If you are working on Ubuntu, you can use **Remmina**.
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_0.png)
+![image](/src/assets/img/ros/man_1_0.png)
 
 The first step in working with ROS is to run master process called roscore.
 This node handles registration of other nodes, topics and services. After
@@ -210,13 +210,12 @@ To start the master process you can use command:
 To start using Gazebo with ROSbot model you need to download our package with model and configuration files to ROS workspace directory. Meaning and structure of workspace will be discussed later, now you will just create it with:
 
 ```bash
-    $ mkdir ~/ros_workspace
-    $ mkdir ~/ros_workspace/src
-    $ cd ~/ros_workspace/src
-    $ catkin_init_workspace
+    $ sudo apt update
+    $ sudo apt install ros-kinetic-gazebo-ros
+    $ sudo apt install ros-kinetic-grid-map
+    $ mkdir -p ~/ros_workspace/src && cd ~/ros_workspace/src && catkin_init_workspace
     $ git clone https://github.com/husarion/rosbot_description.git
-    $ cd ~/ros_workspace
-    $ catkin_make
+    $ cd ~/ros_workspace && catkin_make
     $ source devel/setup.sh
 ```
 
@@ -289,7 +288,7 @@ We will begin with master by typing in the following code in the ecommand line:
 
 You should see something like this:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_1.png)
+![image](/src/assets/img/ros/man_1_1.png)
 
 Now you can use tools from chapter 2 in order to examine your system,
 don’t worry that you didn’t start any node yet.
@@ -404,7 +403,7 @@ $ roslaunch astra_launch astra.launch
 
 As output you should get something like below:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_2.png)
+![image](/src/assets/img/ros/man_1_2.png)
 
 **Task 1** 
 
@@ -422,7 +421,7 @@ Now you have camera node running, but can not see image from it yet. You will us
 
 As the output you should get:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_3.png)
+![image](/src/assets/img/ros/man_1_3.png)
 
 **Note for simulator**: Simulated environment consist of simple objects (plains, boxes etc.), due to this, image from camera will consist of simple shapes like triangles or rectangles.
 
@@ -442,7 +441,7 @@ the system. In new terminal type in:
 There will be no response in the terminal, but new window will appear. In upper left corner change "Nodes only" option to "Nodes/Topics (active)". You will see:
 
 <!-- change byq77/static_docs/szymon-dev to husarion/static_docs/master -->
-![image](https://raw.githubusercontent.com/byq77/static_docs/szymon-dev/src/assets/img/ros/man_1_4.png)
+![image](/src/assets/img/ros/man_1_4.png)
 
 Interpretation of the graph is as follows:
 
@@ -566,7 +565,7 @@ In case of working with Gazebo:
 ```
 You should get output like this:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_5.png)
+![image](/src/assets/img/ros/man_1_5.png)
 
 Notice that you do not need to run `roscore` before using `roslaunch`,
 if `roscore` is not running already, `roslaunch` will run it before
