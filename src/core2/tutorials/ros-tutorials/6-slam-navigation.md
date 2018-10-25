@@ -172,13 +172,13 @@ Your final file should look like this:
 #include <geometry_msgs/PoseStamped.h>
 #include <tf/transform_broadcaster.h>
 
-static tf::TransformBroadcaster br;
 
 tf::Transform transform;
 tf::Quaternion q;
 
 void pose_callback(const geometry_msgs::PoseStampedPtr &pose)
 {
+    static tf::TransformBroadcaster br;
     q.setX(pose->pose.orientation.x);
     q.setY(pose->pose.orientation.y);
     q.setZ(pose->pose.orientation.z);

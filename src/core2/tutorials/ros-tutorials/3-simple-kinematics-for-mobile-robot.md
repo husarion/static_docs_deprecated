@@ -623,7 +623,7 @@ If you are working with Gazebo:
 Find topic `/odom` and choose `Odometry` and click **OK**.
 
 Then in visualized items list find position `Fixed Frame` and change it
-to `odom`.
+to `base_link`. At this stage, you will need to type it. Later it will be possible to choose frame names from dropdown list, this will be covered in tutorial 6.
 
 After this is done, you should see an arrow representing position and orientation
 of your robot. Move your robot and observe as arrow changes its
