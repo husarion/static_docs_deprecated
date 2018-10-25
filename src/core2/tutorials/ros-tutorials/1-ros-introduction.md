@@ -440,7 +440,6 @@ the system. In new terminal type in:
 
 There will be no response in the terminal, but new window will appear. In upper left corner change "Nodes only" option to "Nodes/Topics (active)". You will see:
 
-<!-- change byq77/static_docs/szymon-dev to husarion/static_docs/master -->
 ![image](/src/assets/img/ros/man_1_4.png)
 
 Interpretation of the graph is as follows:

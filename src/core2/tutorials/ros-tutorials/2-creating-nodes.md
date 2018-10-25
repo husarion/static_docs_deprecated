@@ -467,7 +467,7 @@ Your final code should look like this:
 **Task 3** Run your node with parameter `print_brightness` set to `true`
 and again set to `false`. Observe how behaviour of node changes.
 
-### Publishing topic ###
+### Publishing to topic ###
 
 You will modify node to publish brightness value to a new topic with
 message of type `std_msgs/UInt8`. Message `std_msgs/UInt8` is object
@@ -692,7 +692,11 @@ You can use below `.launch` file:
     </node>
 
 </launch>
-``` 
+```
+
+To delete image files created by this example run following command in your `ros_workspace` directory:
+
+    $ rm $(find image*)
 
 ### Providing a service ###
 
@@ -846,7 +850,7 @@ of `rosservice` is analogical to `rostopic`. To call service type:
 
 As a response you should get something like this:
 
-![image](/assets/img/ros/man_2_6.png)
+![image](/src/assets/img/ros/man_2_7.png)
 
 ## Message types ##
 
