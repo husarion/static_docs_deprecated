@@ -140,7 +140,7 @@ Another option is to use ROS native installation, this requires Ubuntu 16.04 ope
 
 You can also try online simulator at <a href="http://www.theconstructsim.com/">www.theconstructsim.com</a>, it comes with all required packages installed and offer great computing power for a reasonable price.
 
-![ROSbot gazebo](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+![image](/src/assets/img/ROSbot_manual/rosbot_gazebo.png)
 
 ## ROS and CORE2 Work flow
 
@@ -475,7 +475,7 @@ file is located or point the path to it.
 
 #### Structure of .launch file 
 
-Structure of `.launch` file is defined in a markup language derived from XML and it's similar to
+Structure of `.launch` file is defined in a markup language derived from XML and similar to
 HTML. Content of the `.launch` file is inserted between the start and end tags: `<launch>...</launch>` (root element). Other elements including those that define nodes should be placed between them. 
 You can define node using `node` element:
 
