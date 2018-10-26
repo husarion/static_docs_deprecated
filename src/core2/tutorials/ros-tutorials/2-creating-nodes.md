@@ -26,7 +26,8 @@ All of the source files for your nodes will be stored in folder `src`.
 Then you can initialize your workspace with command
 `catkin_init_workspace` executed in `src` folder:
 
-    $ cd ~/ros_workspace/src && catkin_init_workspace
+    $ cd ~/ros_workspace/src
+    $ catkin_init_workspace
 
 Now you can move to your workspace main directory:
 
@@ -71,7 +72,8 @@ For our tutorial we will create package named `tutorial_pkg` which
 depends on package `roscpp`. Package `roscpp` is a basic ROS library for
 C++.
 
-    $ cd ~/ros_workspace/src && catkin_create_pkg tutorial_pkg roscpp
+    $ cd ~/ros_workspace/src 
+    $ catkin_create_pkg tutorial_pkg roscpp
 
 After typing in this command you should get output like this:
 
@@ -205,7 +207,8 @@ the changes and close editor.
 Open terminal, move to workspace main directory and build your project
 with command `catkin_make`:
 
-    $ cd ~/ros_workspace && catkin_make
+    $ cd ~/ros_workspace 
+    $ catkin_make
  
 You should get output like this:
 
