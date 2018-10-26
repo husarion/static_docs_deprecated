@@ -28,9 +28,9 @@ In ROSbot 2.0:
 
 <div class="gallery h300">
 
-![Front](/src/assets/img/ROSbot_manual/colour_front.jpg "Front")
-![Back](/src/assets/img/ROSbot_manual/colour_back.jpg "Back")
-![Perspective](/src/assets/img/ROSbot_manual/colour_perspective.jpg "Perspective")
+![Front](/assets/img/ROSbot_manual/colour_front.jpg "Front")
+![Back](/assets/img/ROSbot_manual/colour_back.jpg "Back")
+![Perspective](/assets/img/ROSbot_manual/colour_perspective.jpg "Perspective")
 
 </div>
 
@@ -40,9 +40,9 @@ In ROSbot 2.0 PRO:
 
 <div class="gallery h300">
 
-![Front](/src/assets/img/ROSbot_manual/pro_colour_front.jpg "Front")
-![Back](/src/assets/img/ROSbot_manual/pro_colour_back.jpg "Back")
-![Perspective](/src/assets/img/ROSbot_manual/pro_colour_perspective.jpg "Perspective")
+![Front](/assets/img/ROSbot_manual/pro_colour_front.jpg "Front")
+![Back](/assets/img/ROSbot_manual/pro_colour_back.jpg "Back")
+![Perspective](/assets/img/ROSbot_manual/pro_colour_perspective.jpg "Perspective")
 
 </div>
 
@@ -52,7 +52,7 @@ If you do not own ROSbot yet, you can purchase it <a href="https://store.husario
 
 You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/rosbot_description">GitHub page</a>.
 
-![ROSbot gazebo](/src/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
 
 You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="https://husarion.com/tutorials/ros-tutorials/1-ros-introduction/">link</a>. They will guide you through different aspects of programming autonomous vehicles in ROS
 
@@ -109,9 +109,9 @@ You can find free <b>ROS tutorials</b> dedicated for ROSbot under this <a href="
 
 ## Components ##
 
-![Side scheme](/src/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
+![Side scheme](/assets/img/ROSbot_manual/scheme_side.png "Side scheme")
 
-![Back](/src/assets/img/ROSbot_manual/colour_back.jpg "Scheme back")
+![Back](/assets/img/ROSbot_manual/colour_back.jpg "Scheme back")
 
 ### Components description ###
 
@@ -203,7 +203,7 @@ In ROSbot 2.0 PRO:
 
 ## Rear panel description ##
 
-![Rear panel description](/src/assets/img/ROSbot_manual/ROSbot2_rear_panel_v1.1.png "Rear panel description")
+![Rear panel description](/assets/img/ROSbot_manual/ROSbot2_rear_panel_v1.1.png "Rear panel description")
 
 <table>
     <tr>
@@ -292,7 +292,7 @@ In ROSbot 2.0 PRO:
 ROSbot is powered from an internal, rechargeable Li-Ion battery pack that contains 3 Li-Ion cells, connected in series. This type of connection is called “3S”. The schematic below explains how the cells are wired together and with the charging connector (on ROSbot side).
 
 <div class="image center h300">
-![Battery connections](/src/assets/img/ROSbot_manual/batt_connection.png "Battery connections")
+![Battery connections](/assets/img/ROSbot_manual/batt_connection.png "Battery connections")
 </div>
 
 The BAT+ and BAT- are the power connections and the “bal Bxx” wires are used to monitor the voltage on each cell. It is strongly recommended to keep equal voltages on each cell during the charging process. The charger included with ROSbot can charge batteries in the described way and, thanks to that, the long life of the battery set is possible.
@@ -309,7 +309,7 @@ Please make sure that the user firmware always contains the function that monito
 ## Charging ROSbot ##
 
 <div class="image center">
-![Charging kit](/src/assets/img/ROSbot_manual/charger+cables+PSU.jpg "Charging kit")
+![Charging kit](/assets/img/ROSbot_manual/charger+cables+PSU.jpg "Charging kit")
 </div>
 
 The ROSbot kit contains the Redox Beta charger. It is an universal charger, suitable for charging NiCd, NiMH, Li-Po, Li-Fe, Li-Ion and Pb (AGM, VRLA) batteries. ROSbot shall be charged using an included charger and cable.
@@ -329,7 +329,7 @@ Charger kit includes:
 7. When the charging will be finished (after about 3 hours), the charger will generate a loud “beep” sound and will finish charging at the same time.
 
 <div class="image center h100">
-![Charge config](/src/assets/img/ROSbot_manual/charge-config.png "Charge config")
+![Charge config](/assets/img/ROSbot_manual/charge-config.png "Charge config")
 </div>
 
 If you need more information about charging, please read the [Charging manual for ROSbot](https://files.husarion.com/docs2/Charging%20manual%20for%20ROSbot.pdf) in PDF format.
@@ -341,7 +341,7 @@ If you need more information about charging, please read the [Charging manual fo
 - Unplug charging connectors carefully. You shall not unplug the charger connectors holding the wires. The balancer connection on ROSbot side has a latching tab (see photo below) that must be pressed before unplugging. On the charger side there is no latching tab but you should also unplug this connector holding the white plug.
 
 <div class="image center h200">
-![Latched connector](/src/assets/img/ROSbot_manual/charger-connector.jpg "Latched connector")
+![Latched connector](/assets/img/ROSbot_manual/charger-connector.jpg "Latched connector")
 </div>
 
 ## Software ##

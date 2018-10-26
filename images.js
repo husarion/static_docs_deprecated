@@ -3,7 +3,7 @@ var Metalsmith = require('metalsmith');
 var convert = require('metalsmith-convert');
 
 var convert_opts = [];
-var convert_src = 'src/assets/img/**/*';
+var convert_src = 'assets/img/**/*';
 
 var big_image_width = 1280;
 var small_image_width = 150;

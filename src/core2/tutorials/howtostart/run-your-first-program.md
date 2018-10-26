@@ -40,41 +40,41 @@ The WiFi bradcasted by CORE2 can be used only for configuration, it does not all
 
 2\. hConfig app will ask you to add a new device. Open https://cloud.husarion.com in your browser and sign in.
 
-![image](/src/assets/img/howToStart/1_signin.png)
+![image](/assets/img/howToStart/1_signin.png)
 
 3\. Click "Add new device".
 
-![image](/src/assets/img/howToStart/2_addNewDevice.png)
+![image](/assets/img/howToStart/2_addNewDevice.png)
 
 4\. Enter a name for your CORE2 powered device.
 
-![image](/src/assets/img/howToStart/3_enterName.png)
+![image](/assets/img/howToStart/3_enterName.png)
 
 5\. Scan QR code using the hConfig app.
 
-![image](/src/assets/img/howToStart/4_scanQr.png)
+![image](/assets/img/howToStart/4_scanQr.png)
 
 6\. Well done! You just added your first device to the cloud!
 
-![image](/src/assets/img/howToStart/5_devAdded.png)
+![image](/assets/img/howToStart/5_devAdded.png)
 
 ### Connecting using only browser ###
 
 1\. Open [Husarion Cloud](https://cloud.husarion.com) in your browser and sign in.
 
-![image](/src/assets/img/howToStart/configuration_1.png)
+![image](/assets/img/howToStart/configuration_1.png)
 
 2\. Click "Add new device".
 
-![image](/src/assets/img/howToStart/configuration_2.png)
+![image](/assets/img/howToStart/configuration_2.png)
 
 3\. Enter a name for your CORE2 powered device.
 
-![image](/src/assets/img/howToStart/configuration_3.png)
+![image](/assets/img/howToStart/configuration_3.png)
 
 4\. Next copy the text code, located below the QR code. It should look similar to this: "prod|7gx9KNhfZhnnmowmDxxxxx"
 
-![image](/src/assets/img/howToStart/configuration_4.png)
+![image](/assets/img/howToStart/configuration_4.png)
 
 5\. Turn on your CORE2-ROS. Wait 20 - 30s until Linux system on SBC boot and hold hCfg button for more than 2 sec. Controller will be in configuration mode after that. Now connect to Wi-Fi:
 
@@ -83,27 +83,27 @@ password: husarion
 
 6\. Then open new tab in your browser and type adress: http://192.168.50.1:8600 
 
-![image](/src/assets/img/howToStart/configuration_5.png)
+![image](/assets/img/howToStart/configuration_5.png)
 
 7\. Chose option "Connect to Wi-Fi network" (unless you are already connected to Wi-Fi) and pick up one of wireless from list. Type the password and click "Continue".
 
-![image](/src/assets/img/howToStart/configuration_6.png)
+![image](/assets/img/howToStart/configuration_6.png)
 
 8\. Now chose "Connect device to cloud.husarion.com account".
 
-![image](/src/assets/img/howToStart/configuration_7.png)
+![image](/assets/img/howToStart/configuration_7.png)
 
 9\. Paste previously copied code and click "Save".
 
-![image](/src/assets/img/howToStart/configuration_8.png)
+![image](/assets/img/howToStart/configuration_8.png)
 
 10\. You will receive message "You might now close this page."
 
-![image](/src/assets/img/howToStart/configuration_9.png)
+![image](/assets/img/howToStart/configuration_9.png)
 
 11\. Now your device should be visible as "Online" in your cloud.
 
-![image](/src/assets/img/howToStart/configuration_10.png)
+![image](/assets/img/howToStart/configuration_10.png)
 
 ### Connecting via the command line ###
 
@@ -119,51 +119,51 @@ If you have CORE2-ROS, you can also connect to the cloud via the command line. T
 
 Click "+" next to your device name and sellect "IDE".
 
-![image](/src/assets/img/howToStart/6_openWebIDE.png)
+![image](/assets/img/howToStart/6_openWebIDE.png)
 
 Click "Create" button to open new project wizard.
 
-![image](/src/assets/img/howToStart/7_createNewProj.png)
+![image](/assets/img/howToStart/7_createNewProj.png)
 
 Select CORE2 board, chose HowToStart project template and enter name, eg. myFirstProject, and click "Create project" button.
 
-![image](/src/assets/img/howToStart/8_projSettings.png)
+![image](/assets/img/howToStart/8_projSettings.png)
 
 This is a web Integrated Development Environment in which you can write a firmware for your device, and upload the firmware through the Internet.
 
-![image](/src/assets/img/howToStart/9_webIDEmain.png)
+![image](/assets/img/howToStart/9_webIDEmain.png)
 
 Click "&lt;none&gt;" next to "selected device" and select "myFirstDev" device.
 
-![image](/src/assets/img/howToStart/10_webIDEselectDev.png)
+![image](/assets/img/howToStart/10_webIDEselectDev.png)
 
 Click a button with a "cloud with arrow" to upload new firmware to your device. Well done! now you can check how your first program works.
 
-![image](/src/assets/img/howToStart/11_webIDEprogram.png)
+![image](/assets/img/howToStart/11_webIDEprogram.png)
 
 In the previous step you have uploaded the firmware into your CORE2. Let's check how it works!<br/>
 
 Go to https://cloud.husarion.com and click the myFirstDev's avatar. It's web user interface will start loading.
 
-![image](/src/assets/img/howToStart/12_openDevUI.png)
+![image](/assets/img/howToStart/12_openDevUI.png)
 
 After a while your device UI will appear. Now spend a few seconds playing with a dev's interface.
 
-![image](/src/assets/img/howToStart/13_devUI.png)
+![image](/assets/img/howToStart/13_devUI.png)
 
 ## Share your device with friends ##
 Husarion Cloud allows you to share your devices conntected to Husarion cloud with other people with just a few clicks.
 
 Click "+" next to your device name at https://cloud.husarion.com and select "Share".
 
-![image](/src/assets/img/howToStart/14_shareSelect.png)
+![image](/assets/img/howToStart/14_shareSelect.png)
 
 Select "Share via Link" and click "Generate link". Now you can send this link to anybody you want to access your device.
 
-![image](/src/assets/img/howToStart/15_shareDetails.png)
+![image](/assets/img/howToStart/15_shareDetails.png)
 
 When you open generated link, you’ll see your device’s web UI.
 
-![image](/src/assets/img/howToStart/16_shareUI.png)
+![image](/assets/img/howToStart/16_shareUI.png)
 
 Now you can share the link with anybody!

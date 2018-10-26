@@ -16,8 +16,8 @@ Standard Markdown syntax is applicable for images, but there is an additional po
 
  ```
 <div class="gallery gallery-6">
-    ![The caption under image](/src/assets/img/image.png "the description shown after enlarging the image")
-    ![The caption under image 2](/src/assets/img/image2.png "the description shown after enlarging the image 2")
+    ![The caption under image](/assets/img/image.png "the description shown after enlarging the image")
+    ![The caption under image 2](/assets/img/image2.png "the description shown after enlarging the image 2")
 </div>
  ```
 The `gallery-6` means 6 images in row. If necessary, also the `gallery-2`, `gallery-3` etc. can be implemented.
