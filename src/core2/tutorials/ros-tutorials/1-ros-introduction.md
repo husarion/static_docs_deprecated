@@ -140,7 +140,7 @@ Another option is to use ROS native installation, this requires Ubuntu 16.04 ope
 
 You can also try online simulator at <a href="http://www.theconstructsim.com/">www.theconstructsim.com</a>, it comes with all required packages installed and offer great computing power for a reasonable price.
 
-![ROSbot gazebo](/assets/img/ROSbot_manual/rosbot_gazebo.png "ROSbot gazebo")
+![image](/src/assets/img/ROSbot_manual/rosbot_gazebo.png)
 
 ## ROS and CORE2 Work flow
 
@@ -193,7 +193,7 @@ Type in your device IP address and click `connect`. If you are working on
 Mac, you can use **Microsoft Remote Desktop** available at **AppStore**.
 If you are working on Ubuntu, you can use **Remmina**.
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_0.png)
+![image](/src/assets/img/ros/man_1_0.png)
 
 The first step in working with ROS is to run master process called roscore.
 This node handles registration of other nodes, topics and services. After
@@ -210,12 +210,12 @@ To start the master process you can use command:
 To start using Gazebo with ROSbot model you need to download our package with model and configuration files to ROS workspace directory. Meaning and structure of workspace will be discussed later, now you will just create it with:
 
 ```bash
-    $ mkdir ~/ros_workspace
-    $ mkdir ~/ros_workspace/src
+    $ mkdir -p ~/ros_workspace/src
     $ cd ~/ros_workspace/src
     $ catkin_init_workspace
+    $ sudo apt update
     $ git clone https://github.com/husarion/rosbot_description.git
-    $ cd ~/ros_workspace
+    $ cd ~/ros_workspace 
     $ catkin_make
     $ source devel/setup.sh
 ```
@@ -228,7 +228,7 @@ From now your system is ready to run Gazebo with ROSbot. To start simulator use 
 
 ### Starting system step by step
 
-You can start ROS by typing each name of each node manually.
+You can start ROS nodes by typing name of each node manually.
 
 To do it you can use the following command:
 
@@ -237,7 +237,7 @@ To do it you can use the following command:
 ``` 
 
 Package\_name and node\_type are names of package and node that you want
-to run.
+to run. `rosrun` executes node in the terminal and outputs text logs to the screen. To start multiple nodes simultaneously use `roslaunch`. You will learn about this tool soon.
 
 #### Defining node name
 
@@ -248,7 +248,7 @@ command, add:
     __name:=new_node_name
 ``` 
 
-Note that there are two underscores before the name.
+Note that there are two underscores before the name. If you want to learn more about naming convention used by ROS see [this](http://wiki.ros.org/ROS/Concepts#Names.Names) docs.
 
 #### Setting parameter
 
@@ -277,10 +277,7 @@ Note that there is no underscore before the old name.
 ### Starting system step by step - Example
 
 In this section, we will set up ROS system that is equipped with a Orbbec Astra 
-camera and show image from camera on display. We are going to work only
-on PC, so you do not need to plug CORE2, Raspberry Pi or any other device
-beside Astra camera. If you are using laptop, integrated or USB camera will be
-OK.
+camera and show image from camera on display. Use remote desktop client of your choice to connect to your ROSbot or Core2ROS. In case of latter remember to plug in Orbbec Astra camera to your SBC. You can also follow the tutorial in simulation mode using Gazebo and Husarion VM.
 
 #### Starting master
 
@@ -292,7 +289,7 @@ We will begin with master by typing in the following code in the ecommand line:
 
 You should see something like this:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_1.png)
+![image](/src/assets/img/ros/man_1_1.png)
 
 Now you can use tools from chapter 2 in order to examine your system,
 don’t worry that you didn’t start any node yet.
@@ -407,7 +404,7 @@ $ roslaunch astra_launch astra.launch
 
 As output you should get something like below:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_2.png)
+![image](/src/assets/img/ros/man_1_2.png)
 
 **Task 1** 
 
@@ -425,7 +422,7 @@ Now you have camera node running, but can not see image from it yet. You will us
 
 As the output you should get:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_3.png)
+![image](/src/assets/img/ros/man_1_3.png)
 
 **Note for simulator**: Simulated environment consist of simple objects (plains, boxes etc.), due to this, image from camera will consist of simple shapes like triangles or rectangles.
 
@@ -442,15 +439,17 @@ the system. In new terminal type in:
 
     $ rqt_graph
 
-There will be no response in the terminal, but new window will appear:
+There will be no response in the terminal, but new window will appear. In upper left corner change "Nodes only" option to "Nodes/Topics (active)". You will see:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_4.png)
+![image](/src/assets/img/ros/man_1_4.png)
 
 Interpretation of the graph is as follows:
 
 -   Ovals represent nodes
 
 -   Rectangles represent topics
+
+-   Big rectangles containing other elements represent namespace (shared part of the name)
 
 -   Arrows pointing from node to topic represent publication to this
     topic
@@ -477,10 +476,9 @@ file is located or point the path to it.
 
 #### Structure of .launch file 
 
-Structure of `.launch` file is defined in a markup language, similar to
-HTML. Every `.launch` file must begin with starting marker: `<launch>`
-and end with closing one: `<\launch>`. Markers defining nodes should be placed between them. 
-You can define node by `node` marker- it’s structure is as follows:
+Structure of `.launch` file is defined in a markup language derived from XML and similar to
+HTML. Content of the `.launch` file is inserted between the start and end tags: `<launch>...</launch>` (root element). Other elements including those that define nodes should be placed between them. 
+You can define node using `node` element:
 
 ``` launch
     <node pkg="package_name" type="node" name="id" required="true" output="screen">
@@ -506,7 +504,7 @@ Meaning of each field:
 
 For each node parameters can be set or topics can be remapped.
 
-For setting parameters use marker `param`:
+For setting parameters use element `param`:
 
 ``` launch
     <param name="name" value="value"/>
@@ -518,7 +516,7 @@ Meaning of the fields:
 
 -   `value` - desired value of the parameter
 
-For remapping the topic names use marker `remap`:
+For remapping the topic names use element `remap`:
 
 ``` launch
     <remap from="/old" to="/new"/>
@@ -567,7 +565,7 @@ In case of working with Gazebo:
 ```
 You should get output like this:
 
-![image](https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_5.png)
+![image](/src/assets/img/ros/man_1_5.png)
 
 Notice that you do not need to run `roscore` before using `roslaunch`,
 if `roscore` is not running already, `roslaunch` will run it before
