@@ -10,8 +10,8 @@ onepager: true
 
 <div class="gallery h300">
 
-![Appearance](/assets/img/core2mini/coremini.jpg "Appearance")
-![Pinout cheatsheet](/assets/img/core2mini/scheme.jpg "Pinout cheatsheet")
+![Appearance](/src/assets/img/core2mini/coremini.jpg "Appearance")
+![Pinout cheatsheet](/src/assets/img/core2mini/scheme.jpg "Pinout cheatsheet")
 
 </div>
 
@@ -85,7 +85,7 @@ The hSensor is intended to be used with many different sensors, such as spatial 
 
 <div class="image center h300">
 
-![](/assets/img/core2-hardware/hsensor.svg)
+![](/src/assets/img/core2-hardware/hsensor.svg)
 
 </div>
 
@@ -196,7 +196,7 @@ You can connect up to 4 servo motors directly to CORE2mini. Power supply is onbo
 
 <div class="image center h300">
 
-![](/assets/img/core2-hardware/hservo.svg)
+![](/src/assets/img/core2-hardware/hservo.svg)
 
 </div>
 
@@ -255,7 +255,7 @@ The encoder interface is compatible with the majority of popular optical and mag
 
 <div class="image center h300">
 
-![](/assets/img/core2-hardware/hmot.svg)
+![](/src/assets/img/core2-hardware/hmot.svg)
 
 </div>
 
@@ -308,7 +308,7 @@ The encoder interface is compatible with the majority of popular optical and mag
 
 <div class="thumb w180 right">
 
-![](/assets/img/core2-hardware/motors_encoders.jpg)
+![](/src/assets/img/core2-hardware/motors_encoders.jpg)
 
 </div>
 
@@ -321,7 +321,7 @@ Remember not to power your motors using higher voltage than recommended in their
 
 <div class="thumb w180 right">
 
-![](/assets/img/core2-hardware/dc_motor.jpg)
+![](/src/assets/img/core2-hardware/dc_motor.jpg)
 
 </div>
 
@@ -333,7 +333,7 @@ Despite the lack of the encoder, you still can recognize the extreme positions o
 
 <div class="thumb w180 right">
 
-![](/assets/img/core2-hardware/lego_motors.jpg)
+![](/src/assets/img/core2-hardware/lego_motors.jpg)
 
 </div>
 
@@ -345,7 +345,7 @@ Remember that LEGO® motors have 9V nominal voltage and when you supply CORE2min
 
 <div class="thumb w180 right">
 
-![](/assets/img/core2-hardware/hstep.png)
+![](/src/assets/img/core2-hardware/hstep.png)
 
 </div>
 
@@ -355,7 +355,7 @@ Connecting a bipolar stepper motor is also possible. In this case, you need two 
 
 <div class="image center h300">
 
-![](/assets/img/core2-hardware/dbg.svg)
+![](/src/assets/img/core2-hardware/dbg.svg)
 
 </div>
 
@@ -383,7 +383,7 @@ Just a connector for a standard microSD card. It uses one of the SPI interfaces 
 
 <div class="thumb w270 right">
 
-![User&apos;s leds](/assets/img/core2-hardware/leds.svg "User&apos;s leds")
+![User&apos;s leds](/src/assets/img/core2-hardware/leds.svg "User&apos;s leds")
 
 </div>
 
@@ -416,7 +416,7 @@ The CORE2mini power supply input has overvoltage (>16V), reverse-polarity and ov
 
 <div class="thumb center">
 
-![](/assets/img/core2-hardware/powersupply.svg)
+![](/src/assets/img/core2-hardware/powersupply.svg)
 
 </div>
 
@@ -532,42 +532,42 @@ There are 2 status LEDs - LR1 and LR2 - controlled directly from the ESP32/RPi d
         <td>Config mode</td>
         <td colspan="2">blinking alternately</td>
 	<td>600 ms</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_config.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_config.gif)</td>
     </tr>
     <tr>
         <td>Connecting</td>
         <td>OFF</td>
         <td>blinking</td>
 	<td>300 ms</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_connecting.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_connecting.gif)</td>
     </tr>
     <tr>
         <td>Connected</td>
         <td>OFF</td>
         <td>ON</td>
 	<td>-</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_connected.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_connected.gif)</td>
     </tr>
     <tr>
         <td>Not configured</td>
         <td>blinking</td>
         <td>OFF</td>
 	<td>100/1000 ms</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_not_conf.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_not_conf.gif)</td>
     </tr>
     <tr>
         <td>Invalid auth.</td>
         <td>blinking</td>
         <td>OFF</td>
 	<td>100 ms</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_invalid_auth.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_invalid_auth.gif)</td>
     </tr>
     <tr>
         <td>No Internet</td>
         <td>blinking</td>
         <td>ON</td>
 	<td>100 ms</td>
-	<td>![](/assets/img/core2-hardware/lr12_gif/LR12_no_internet.gif)</td>
+	<td>![](/src/assets/img/core2-hardware/lr12_gif/LR12_no_internet.gif)</td>
     </tr>
 </tbody>
 </table>
@@ -576,7 +576,7 @@ There are 2 status LEDs - LR1 and LR2 - controlled directly from the ESP32/RPi d
 
 <div class="thumb right w180">
 
-![](/assets/img/core2-hardware/rpi_connector.png "hRPI connector")
+![](/src/assets/img/core2-hardware/rpi_connector.png "hRPI connector")
 
 </div>
 

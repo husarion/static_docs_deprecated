@@ -10,8 +10,8 @@ onepager: true
 
 <div class="gallery h300">
 
-![Front](/assets/img/telepresence_robot_kit/ralph_alu_izo_hd.jpg "Front")
-![Right](/assets/img/telepresence_robot_kit/ralph_alu_right_hd.jpg "Right")
+![Front](/src/assets/img/telepresence_robot_kit/ralph_alu_izo_hd.jpg "Front")
+![Right](/src/assets/img/telepresence_robot_kit/ralph_alu_right_hd.jpg "Right")
 
 </div>
 

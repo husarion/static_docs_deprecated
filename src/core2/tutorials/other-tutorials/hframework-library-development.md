@@ -74,14 +74,14 @@ Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/dev
 	```
 	Compiler should run and create static library for hFramework. After a while, you shall see the following output on the terminal:
 	
-	![image](/assets/img/howToStart/lib_p9.png)
+	![image](/src/assets/img/howToStart/lib_p9.png)
 
 ## Using the library compiled by yourself ##
      
 1. Create a new folder for your project.
 2. In VSCode File -> Open Folder
 
-	![image](/assets/img/howToStart/com_p2.png)
+	![image](/src/assets/img/howToStart/com_p2.png)
 
 3. In the opened window find the directory you just created. Project tree should be empty.
 4. Press [Ctrl]+[Shift]+[P]. Small console will open on the top.
@@ -89,7 +89,7 @@ Then press [Ctrl]+[Shift]+[P] and type `Git: Checkout to...`, choose `origin/dev
 5. Type “Create Husarion project” and press Enter to accept.
 6. In the project tree you should find files like on this screenshot:
 
-	![image](/assets/img/howToStart/com_p5.png)
+	![image](/src/assets/img/howToStart/com_p5.png)
 
 7. Before the first build you have to comment some modules (remember to save "ctrl + s"). 
 Open CMakeLists.txt and comment the lines: 
