@@ -1541,7 +1541,7 @@ And second to be run on another device:
         <param name="frontier_travel_point" type="string" value="middle"/>
     </node>
 
-    <node pkg="hexplore" type="search_assistant_node" name="search_assistant_node" output="screen"/>
+    <node pkg="tutorial_pkg" type="search_manager" name="search_manager" output="screen"/>
 
 </launch>
 ```
