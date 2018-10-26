@@ -210,12 +210,13 @@ To start the master process you can use command:
 To start using Gazebo with ROSbot model you need to download our package with model and configuration files to ROS workspace directory. Meaning and structure of workspace will be discussed later, now you will just create it with:
 
 ```bash
+    $ mkdir -p ~/ros_workspace/src
+    $ cd ~/ros_workspace/src
+    $ catkin_init_workspace
     $ sudo apt update
-    $ sudo apt install ros-kinetic-gazebo-ros
-    $ sudo apt install ros-kinetic-grid-map
-    $ mkdir -p ~/ros_workspace/src && cd ~/ros_workspace/src && catkin_init_workspace
     $ git clone https://github.com/husarion/rosbot_description.git
-    $ cd ~/ros_workspace && catkin_make
+    $ cd ~/ros_workspace 
+    $ catkin_make
     $ source devel/setup.sh
 ```
 
