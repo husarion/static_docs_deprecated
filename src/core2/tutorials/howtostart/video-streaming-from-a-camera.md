@@ -24,17 +24,17 @@ At first, your CORE2 needs to be connected to your account on [cloud.husarion.co
 
 Install the [hVideo](https://play.google.com/store/apps/details?id=com.husarion.video2&hl=en) app on your smartphone or tablet. Enable Wi-Fi or mobile data transmission on the device.
 
-Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
+Login to the Husarion Cloud, find your robot, click ![image](/src/assets/img/howToStart/plus.png) and "Add camera".
 
-<div style="text-align: center">![image](/assets/img/howToStart/cloud_add_camera.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/cloud_add_camera.png)</div>
 
 Click "Generate new QR code" in the pop-up window:
 
-<div style="text-align: center">![image](/assets/img/howToStart/add_camera.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/add_camera.png)</div>
 
 Launch the hVideo app on your smartphone, choose the "Pair with robot" option in the hVideo menu:
 
-<div style="text-align: center">![image](/assets/img/howToStart/pair-with-robot.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/pair-with-robot.png)</div>
 
 and scan the QR code displayed at Husarion Cloud with your smartphone.
 
@@ -46,13 +46,13 @@ CORE2-ROS contains a single board computer with Linux operating system and USB p
 
 At first, your CORE2-ROS needs to be connected to your account on [cloud.husarion.com](https://cloud.husarion.com/).
 
-Login to the Husarion Cloud, find your robot, click ![image](/assets/img/howToStart/plus.png) and "Add camera".
+Login to the Husarion Cloud, find your robot, click ![image](/src/assets/img/howToStart/plus.png) and "Add camera".
 
-<div style="text-align: center">![image](/assets/img/howToStart/cloud_add_camera.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/cloud_add_camera.png)</div>
 
 Click "Enable USB camera" in the pop-up window:
 
-<div style="text-align: center">![image](/assets/img/howToStart/add_camera.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/add_camera.png)</div>
 
 Now reboot the robot. If you don't have a non-standard camera, it shouldn't need any additional configuration and the video stream should now be available in the Web UI of your robot.
 
@@ -62,7 +62,7 @@ Once you have configured the video stream, you can display it in the Web UI of y
 
 Create a new project and use the "UI example" template to see how it can be done:
 
-<div style="text-align: center">![image](/assets/img/howToStart/create-project-webui.png)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/create-project-webui.png)</div>
 
 The stream is enabled in cfgHandler() function:
 ```
@@ -92,4 +92,4 @@ void cfgHandler()
 ```
 Two files: "ui.html" and "ui.css" define the video container, its location and size, together with other page elements. Feel free to modify the template and create your own, great UI for your robot :) See the screenshot from the "4-wheels spy robot" user interface:
 
-<div style="text-align: center">![image](/assets/img/howToStart/interface2.jpg)</div>
+<div style="text-align: center">![image](/src/assets/img/howToStart/interface2.jpg)</div>

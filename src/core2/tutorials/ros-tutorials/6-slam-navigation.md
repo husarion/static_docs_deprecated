@@ -296,7 +296,7 @@ Now click **Add** from object manipulation buttons, in new window select
 `Pose` visualization. You can observe as `robot_base` frame moves
 accordingly to robot movement.
 
-![image](/assets/img/ros/man_6_1.png)
+![image](/src/assets/img/ros/man_6_1.png)
 
 ## SLAM implementation in ROS ##
 
@@ -333,7 +333,7 @@ scanned shape, you may need to adjust one of visualized object options,
 set value of `Style` to `Points`. You should see many points which
 resemble shape of obstacles surrounding your robot.
 
-![image](/assets/img/ros/man_6_2.png)
+![image](/src/assets/img/ros/man_6_2.png)
 
 Shut down `rplidarNode` and run it again, but with some other nodes:
 
@@ -386,7 +386,7 @@ In `rviz` add `Tf` and `/scan`. This time set `Fixed Frame` to `odom`.
 Try to move around your robot, you should see as laser scans change its
 shape accordingly to obstacles passed by robot.
 
-![image](/assets/img/ros/man_6_3.png)
+![image](/src/assets/img/ros/man_6_3.png)
 
 ### Navigation and map building ###
 
@@ -445,13 +445,13 @@ At the beginning there could be no map, you may need to wait few second
 until it is generated. Starting state should be similar to the one on
 picture:
 
-![image](/assets/img/ros/man_6_4.png)
+![image](/src/assets/img/ros/man_6_4.png)
 
 Now drive your robot around and observe as new parts of map are added,
 continue until all places are explored. Final map should look like
 below:
 
-![image](/assets/img/ros/man_6_5.png)
+![image](/src/assets/img/ros/man_6_5.png)
 
 ## Summary ##
 

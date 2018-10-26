@@ -18,7 +18,7 @@ Bellow schematic and source code shows you how to connect [Sharp GP2Y0A41SK0F](h
 
 <div class="thumb center h200">
 
-![](/assets/img/external-modules/sharp.svg)
+![](/src/assets/img/external-modules/sharp.svg)
 
 </div>
 
@@ -45,7 +45,7 @@ MPU-9250 is a nine-axis (gyro, accelerometer, compass) inertial measuerement uni
 
 <div class="thumb center h200">
 
-![](/assets/img/external-modules/mpu9250.svg)
+![](/src/assets/img/external-modules/mpu9250.svg)
 
 </div>
 

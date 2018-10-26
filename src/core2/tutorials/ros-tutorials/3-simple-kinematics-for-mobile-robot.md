@@ -374,7 +374,7 @@ for buttons:
 
 You should get similar view in `rqt_graph`:
 
-![image](/assets/img/ros/man_3_1.png)
+![image](/src/assets/img/ros/man_3_1.png)
 
 ### Determining robot position ###
 
@@ -575,7 +575,7 @@ Remember, that you need to have active window with `teleop_twist_keyboard` to co
 
 You should get something like this on your screen:
 
-![image](/assets/img/ros/man_3_2.png)
+![image](/src/assets/img/ros/man_3_2.png)
 
 ## Robot visualization with Rviz ##
 
@@ -590,7 +590,7 @@ To run it type in terminal:
 
 New window will appear:
 
-![image](/assets/img/ros/man_3_3.png)
+![image](/src/assets/img/ros/man_3_3.png)
 
 Application main view consists of:
 
@@ -629,7 +629,7 @@ After this is done, you should see an arrow representing position and orientatio
 of your robot. Move your robot and observe as arrow changes its
 position.
 
-![image](/assets/img/ros/man_3_5.png)
+![image](/src/assets/img/ros/man_3_5.png)
  
 Visualization of any other item is performed in the same way. In further
 lessons, as you will produce more objects to visualize, you will add them
