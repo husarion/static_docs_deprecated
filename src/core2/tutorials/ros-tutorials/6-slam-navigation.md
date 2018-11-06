@@ -368,8 +368,10 @@ You can use below `launch` file:
 
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
-
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">
+        <param name="angle_compensate" type="bool" value="true"/>
+    </node>
+    
     <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
     <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
@@ -419,8 +421,10 @@ You can use below `launch` file:
 
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
 
-    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
-
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">
+        <param name="angle_compensate" type="bool" value="true"/>
+    </node>
+    
     <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 
     <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
