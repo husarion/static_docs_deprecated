@@ -644,7 +644,7 @@ void scanCallback(const sensor_msgs::LaserScanConstPtr &msg)
     }
     else
     {
-        ROS_ERROR("Transform lookup failed, drop this scan");
+        ROS_WARN("Transform lookup failed, drop this scan");
     }
 }
 
@@ -1413,7 +1413,7 @@ For Gazebo you can use below `launch` file:
     </node>
 
     <node pkg="move_base" type="move_base" name="move_base" output="screen">
-        <param name="controller_frequency" value="10.0"/>
+        <param name="controller_frequency" value="5.0"/>
         <rosparam file="$(find rosbot_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find rosbot_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find rosbot_navigation)/config/local_costmap_params.yaml" command="load" />
