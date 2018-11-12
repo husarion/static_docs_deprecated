@@ -410,7 +410,9 @@ You can use below `launch` file:
 
     <param if="$(arg use_gazebo)" name="use_sim_time" value="true"/>
 
-    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar"/>
+    <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">
+        <param name="angle_compensate" type="bool" value="true"/>
+    </node>
 
     <node if="$(arg use_rosbot)" pkg="tutorial_pkg" type="drive_controller_node" name="drive_controller"/>
 

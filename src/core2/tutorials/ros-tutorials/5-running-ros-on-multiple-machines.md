@@ -28,17 +28,20 @@ network. You will need IP address of every device.
 While working on multiple machines, you need only one `roscore` running.
 Choose one device for it- we will call it `master`.
 
-To connect our devices in one network we will use Husarnet. Full instructions 
-for the use of Husarnet are described in the [husanet tutorial](https://husarion.com/tutorials/husarnet/following-object-using-your-smartphone).
+On the master device open the `.bashrc` file:
 
-If you already connected both your robots to Husarion cloud you can go to the next step, if not, do it before proceeding.
+```
+nano ~/.bashrc
+```
 
-Now log in to the husarion cloud and look at the bottom of the page. You should see heading `Unassigned device` and at least two device.
+And add two lines at file ending, replacing `X.X.X.X` and `Y.Y.Y.Y` with IP address of master device.
 
-Create Husarnet network by clicking `Link to virtual robot` and choosing `Create new virtual robot` and type in a name for your robot. This will create a new Husarnet network.
-Next enter your virtual robot and click `Add component`, then choose correct device from the drop down list and click `Add device`. 
+```
+export ROS_MASTER_URI=http://X.X.X.X:11311
+export ROS_IP=Y.Y.Y.Y
+```
 
-Now you just have to choose which one will be your ROS master. With above configuration, nodes running on different machines will be able to communicate.
+On second robot also open the `.bashrc` file and add two lines at file ending. This time replace `X.X.X.X` with IP address of master device and `Y.Y.Y.Y` with IP address of second robot. 
 
 TIP! Remember that `roscore` must be running on the device indicated as ROS master!!!
 
@@ -701,7 +704,93 @@ You can use below launch file:
 
 ```
 
+## Connecting through Husarnet
 
+Above method will be suitable as long as robots are connected in the same local network. Such an requirement can be satisfied in most experimental or small scale use cases.
+
+In the case when more sophisticated network setup is required, e.g. robots will be connected to internet using LTE modem or different WiFi networks. For easy connecting robots in advanced network configurations, you can use [Husarnet](https://husarnet.com/) - the global LAN network for secure P2P connection between robots and IoT devices.
+
+### Connetion setup
+
+Log in to [Husarnet Dashboard](https://app.husarnet.com/) or create an account if you don't have it yet.
+
+You should see Husarnet Dashboard with no networks nor elements:
+
+![husarnet-dashboard-empty](/assets/img/ros/husarnet_empty_dashboard.png)
+
+Push button "Create network" and in dialog type desired network name into field `Network name`:
+
+![husarnet-add-network-dialog](/assets/img/ros/husarnet_add_network_dialog.png)
+
+After pushing button "Create", you will be redirected to network view:
+
+![husarnet-empty-network](/assets/img/ros/husarnet_empty_network.png)
+
+You can use button "Add element" to add to your network cloud elements or mobile app, but now we will use terminal method.
+
+#### Adding ROS device to network
+
+Before you add device to network, it is required to setup the environment.
+
+Open `.bashrc` file and find lines that ypu added at the beginning of this tutorial:
+
+```
+export ROS_MASTER_URI=http://X.X.X.X:11311
+export ROS_IP=Y.Y.Y.Y
+```
+
+and replace them with:
+
+```
+export ROS_MASTER_URI=http://master:11311
+export ROS_IPV6=on
+```
+
+ROS_IPV6 makes ROS enable IPv6 mode - Husarnet is a IPv6 network.
+Setting ROS_MASTER_URI to http://master:11311 ensures ROS will always connect to host called master - which extactly machine it is depends on the setting on the Husarnet Dashboard.
+
+Execute command:
+
+```
+sudo husarnet websetup
+```
+
+You will get response similar to:
+```
+Go to https://app.husarnet.com/husarnet/fc94cd22622bf708b9bb22d5589275fa8832943ffdb0175bff7e16ce to manage your network from web browser.
+```
+
+Open the provied link in web browser, you will see device configuration dialog:
+
+![husarnet-add-device](/assets/img/ros/husarnet_add_device_dialog.png)
+
+Type desired name of the devide into field `Name for this device`, you will use this name to distinguish your devices in dashboard.
+From `Add to network` dropdown menu choose name of network that you created in previous step.
+ 
+Repeat procedure of adding device with second robot.
+
+
+#### Setting the master
+
+After adding both robots, your network should look like below:
+
+![husarnet-two-elements](/assets/img/ros/husarnet_two_elements.png)
+
+You can set device to be master in its settings. Choose device you want to be master and open configuration dialog by clicking its name, status or address:
+
+![husarnet-set-master](/assets/img/ros/husarnet_set_master.png)
+
+Check `ROS master` checkbox and push button "Update".
+
+When you will start `roscore` on master, message `ROS master (roscore) is not running on robot-2. ` will be gone. 
+
+Your first Huarnet newtork is configured and ready:
+
+![husarnet-network-ready](/assets/img/ros/husarnet_network_ready.png)
+
+### Running the nodes with Husarnet
+
+Husarnet provide encrypted and direct virtual network for your devices, but it does not modify the ROS workflow. Just go back to section "Running the nodes on ROSbots", start required nodes and oberve as your robots perform the task.
 
 ## Summary ##
 
