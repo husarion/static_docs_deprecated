@@ -12,7 +12,7 @@ order: 1
 "The Robot Operating System (ROS) is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behavior across a wide variety of robotic platforms." - according to the official [ROS webpage](http://www.ros.org/about-ros/).
 
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/ros_logo.jpeg" width="70%" height="70%" /></center>
+<center><img src="./../../../assets/img/ros/ros_logo.jpeg" width="70%" height="70%" /></center>
 </div>
 
 We prepared a set of tutorials to help you start building advanced robots. They are prepared to work with Husarion CORE2-ROS controller but they are also a valuable portion of knowledge for anybody interested in ROS.
@@ -125,11 +125,11 @@ The platform contains:
 And this is how it looks like:
 
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="45%" /></center>
+<center><img src="./../../../assets/img/ROSbot_manual/colour_perspective.jpg" width="50%" height="45%" /></center>
 </div>
 
 <div>
-<center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
+<center><img src="./../../../assets/img/ROSbot_manual/colour_back.jpg" width="50%" height="50%" /></center>
 </div>
 
 You can also test the performance of ROSbot using our simulation model in Gazebo environment. It is available here, at our <a href="https://github.com/husarion/rosbot_description">GitHub page</a>.
@@ -187,7 +187,7 @@ If you are working on Windows, press `WinKey + r` then type `mstsc`.
 
 You will see a window appear:
 
-<div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src/assets/img/ros/man_1_1a.png" /></center></div>
+<div><center><img src="./../../../assets/img/ros/man_1_1a.png" /></center></div>
 
 Type in your device IP address and click `connect`. If you are working on
 Mac, you can use **Microsoft Remote Desktop** available at **AppStore**.
