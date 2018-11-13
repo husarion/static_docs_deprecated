@@ -597,13 +597,11 @@ Start PlotJuggler:
 ```bash
 	$ rosrun plotjuggler PlotJuggler
 ```
-<!--
 In case your image lacks this tool you can install it by typing:
  ```bash
  	$ sudo apt-get update
  	$ sudo apt-get install ros-kinetic-plotjuggler 
  ```
--->
 From menu bar select **Streaming > Start: ROS_Topic_Streamer**. In pop-up menu that will appear choose **/pose** from available topic names and press ok.
 
 ![image](/assets/img/ros/man_3_6.png)
