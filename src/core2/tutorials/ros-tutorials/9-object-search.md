@@ -13,6 +13,8 @@ order: 9
 
 Object search task defines a mission in which robot has to explore environment while observing if given object exists in explored area. For this purpose it is necessary to use two different approaches, one for exploration and second for object recognition. In prevoius tutorial we already discussed object environment exploration and object recognition as separate tasks. Beside launching them together, it is necessary to keep track of which obstacles were checked by the object recognition process. Task is considered as finished when object is succesfully recognized or all abstacles were checked with no object detection.
 
+![image](/assets/img/ros/man_9_find_object_2d.png)
+
 ## Object search in ROS ##
 
 It is possible to use configurations from prevoius tutorials for area exloration and object detection. We will use:
@@ -40,6 +42,8 @@ Before continuing with object detection task certain requirements must be met, r
 ### System architecture
 
 Our search system will consist of many cooperating ROS nodes, before we start configuring them, we need to specify overall data flow and principle of operation. For performing the search task we will use two main sensors, this will be laser scanner and RGB-D camera. Laser scanner will be used for robot localization and mapping, RDB-D camera will be used for object detection. The key role of the system will be played by our own node, we will name it `search_manager`, this node will be controlling state of other tasks like exploration or path planning. Furhtermore, `search_manager` will keep track of found obstacles and which of them were checked, for this, it will need to subscribe `/map` from `gmapping`, `/objects` from `find_object_2d` and `proj_scan` containing `sensor_msgs/LaserScan` projected from depth image.
+
+![image](/assets/img/ros/man_9_rqt_graph.png)
 
 Due to the fact that all computations would be exccesive load for SBC in the robot, some of the tasks will be moved to other computer.
 
@@ -1447,7 +1451,7 @@ For Gazebo you can use below `launch` file:
 
 </launch>
 ```
-
+![image](/assets/img/ros/man_9_gazebo.png)
 
 #### ROSbot version
 
@@ -1545,6 +1549,8 @@ And second to be run on another device:
 
 </launch>
 ```
+
+![image](/assets/img/ros/man_9_rviz.png)
 
 ## Summary ##
 
