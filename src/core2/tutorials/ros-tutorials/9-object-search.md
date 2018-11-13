@@ -11,7 +11,7 @@ order: 9
 
 ## Introduction ##
 
-Object search task defines a mission in which robot has to explore environment while observing if given object exists in explored area. For this purpose it is necessary to use two different approaches, one for exploration and second for object recognition. In prevoius tutorial we already discussed object environment exploration and object recognition as separate tasks. Beside launching them together, it is necessary to keep track of which obstacles were checked by the object recognition process. Task is considered as finished when object is succesfully recognized or all abstacles were checked with no object detection.
+Object search task defines a mission in which robot has to explore environment while observing if given object exists in explored area. For this purpose it is necessary to use two different approaches, one for exploration and second for object recognition. In prevoius tutorial we already discussed object environment exploration and object recognition as separate tasks. Beside launching them together, it is necessary to keep track of which obstacles were checked by the object recognition process. Task is considered as finished when object is succesfully recognized or all obstacles were checked with no object detection.
 
 ![image](/assets/img/ros/man_9_find_object_2d.png)
 
