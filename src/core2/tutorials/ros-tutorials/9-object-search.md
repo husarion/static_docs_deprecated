@@ -1540,6 +1540,21 @@ And second to be run on another device:
 
 ![image](/assets/img/ros/man_9_rviz.png)
 
+### Observing the progresses ###
+
+Object search progresses are published as `nav_msgs/OccupancyGrid`, obstacles that are detected by mapping node and waiting to be checked are published on `/obstacles/pending` topic and obstacles that were already inspected are published on `/obstacles/checked`.
+
+To view them in Rviz add objects:
+
+-   `/obstacles/pending/Map`
+
+-   `/obstacles/checked/Map` - for this one chenge `Color Scheme` to `costmap`, it will be easier to distinguish maps
+
+-   `/proj_scan/LaserScan` - these are obstacles observed by the camera
+
+-   From menu "Add" -> "By display type" choose "Robot model" - this will let you see where robot travelled
+
+
 ## Summary ##
 
 After completing this tutorial you should be familiar with controlling tasks using `actionlib` library. You will also know basic usage of `grid_map` library to load, edit, create from scratch and publish `nav_msgs/OccupancyGrid` maps. Finally you will be able to configure your robot to search for an object in selected area.
