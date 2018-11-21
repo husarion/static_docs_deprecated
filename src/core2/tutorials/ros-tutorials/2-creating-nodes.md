@@ -389,7 +389,8 @@ You can use below `.launch` file:
 
     <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
-
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
+    
     <node pkg="tutorial_pkg" type="tutorial_pkg_node" name="tutorial_pkg_node" output="screen">
     </node>
 
@@ -683,6 +684,7 @@ You can use below `.launch` file:
 
     <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node pkg="image_view" type="image_saver" name="image_saver">
         <param name="save_all_image" value="false" />

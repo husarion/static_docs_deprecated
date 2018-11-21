@@ -407,7 +407,8 @@ You can use below `launch` file:
     <arg name="use_gazebo" default="false"/>
 
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
-
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
+    
     <param if="$(arg use_gazebo)" name="use_sim_time" value="true"/>
 
     <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">

@@ -1374,22 +1374,10 @@ For Gazebo you can use below `launch` file:
     <arg name="headless" default="false"/>
     <arg name="debug" default="false"/>
 
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find rosbot_gazebo)/worlds/search.world"/>
-        <arg name="paused" value="$(arg paused)"/>
-        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-        <arg name="gui" value="$(arg gui)"/>
-        <arg name="headless" value="$(arg headless)"/>
-        <arg name="debug" value="$(arg debug)"/>
-    </include>
-
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find rosbot_description)/urdf/rosbot.xacro'"/>
-
-    <node name="rosbot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model rosbot" />
+    <include file="$(find rosbot_gazebo)/launch/search_world.launch"/>
+    <include file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node pkg="tf" type="static_transform_publisher" name="laser_broadcaster" args="0.019 0 0 3.14 0 0 base_link laser 100" />
-
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
     <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depthimage_to_laserscan" required="true">
         <remap from="/image" to="/camera/depth/image_raw"/>
@@ -1417,7 +1405,7 @@ For Gazebo you can use below `launch` file:
     </node>
 
     <node pkg="move_base" type="move_base" name="move_base" output="screen">
-        <param name="controller_frequency" value="5.0"/>
+        <param name="controller_frequency" value="10.0"/>
         <rosparam file="$(find rosbot_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find rosbot_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
         <rosparam file="$(find rosbot_navigation)/config/local_costmap_params.yaml" command="load" />

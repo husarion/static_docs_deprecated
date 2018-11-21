@@ -367,6 +367,7 @@ You can use below `launch` file:
     <arg name="use_gazebo" default="false"/>
 
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">
         <param name="angle_compensate" type="bool" value="true"/>
@@ -420,6 +421,7 @@ You can use below `launch` file:
     <arg name="use_gazebo" default="false"/>
 
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/maze_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node if="$(arg use_rosbot)" pkg="rplidar_ros" type="rplidarNode" name="rplidar">
         <param name="angle_compensate" type="bool" value="true"/>

@@ -140,6 +140,8 @@ Another option is to use ROS native installation, this requires Ubuntu 16.04 ope
 
 You can also try online simulator at <a href="http://www.theconstructsim.com/">www.theconstructsim.com</a>, it comes with all required packages installed and offer great computing power for a reasonable price.
 
+We also created package with all nodes and launch files from our ROS tutorials. You can download ready to use pkg from <a href="https://github.com/husarion/tutorial_pkg">GitHub page</a>.
+
 ![image](/assets/img/ROSbot_manual/rosbot_gazebo.png)
 
 ## ROS and CORE2 Work flow
@@ -542,12 +544,13 @@ At first you will need a `.launch` file.
 
     <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot_world.launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node pkg="image_view" type="image_view" name="image_view">
         <remap from="/image" to="/camera/rgb/image_raw"/>
     </node>
 
-</launch>
+</launch>  
 ``` 
 
 Copy the above code to text editor (and other parameters if needed) and save it to file `tutorial_1.launch` in your home directory.

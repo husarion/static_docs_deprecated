@@ -59,6 +59,7 @@ You can use below `launch` file:
 
     <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/$(arg chosen_world).launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
@@ -421,6 +422,7 @@ You can use below `launch` file:
 
     <include if="$(arg use_rosbot)" file="$(find astra_launch)/launch/astra.launch"/>
     <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/$(arg chosen_world).launch"/>
+    <include if="$(arg use_gazebo)" file="$(find rosbot_gazebo)/launch/rosbot.launch"/>
 
     <node name="teleop_twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen"/>
 
