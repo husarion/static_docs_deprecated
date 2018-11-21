@@ -1538,8 +1538,6 @@ And second to be run on another device:
 </launch>
 ```
 
-![image](/assets/img/ros/man_9_rviz.png)
-
 ### Observing the progresses ###
 
 Object search progresses are published as `nav_msgs/OccupancyGrid`, obstacles that are detected by mapping node and waiting to be checked are published on `/obstacles/pending` topic and obstacles that were already inspected are published on `/obstacles/checked`.
@@ -1554,6 +1552,7 @@ To view them in Rviz add objects:
 
 -   From menu "Add" -> "By display type" choose "Robot model" - this will let you see where robot travelled
 
+![image](/assets/img/ros/man_9_rviz.png)
 
 ## Summary ##
 
