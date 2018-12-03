@@ -224,13 +224,13 @@ To begin, you need to have an active AWS account.
 
 **Congratulations!**
 
-You’ve just run Gazebo version of [Tutorial 9](https://husarion.com/tutorials/ros-tutorials/9-object-search/) on AWS RoboMaker cloud computing platform. More tutorials can be launch by editing “RoboMakerSettings.json” and launch files found in:
+You’ve just run Gazebo version of [Tutorial 9](https://husarion.com/tutorials/ros-tutorials/9-object-search/) on AWS RoboMaker cloud computing platform. More tutorials can be launched by editing “RoboMakerSettings.json” and launch files found in:
 
 ```bash
     ./ROSbotTutorial/simulation_ws/install/tutorial_pkg/share/tutorial_pkg/launch
 ```
 
-We will provide a instructions on how to do it soon.
+We will provide instruction on how to do it soon.
 
 ## Summary
 
@@ -240,6 +240,6 @@ Possibility of outsourcing computation to powerful cloud servers opens doors for
 
 ---------
 
-*by Łukasz Mitka, AGH Krakow*
+*by Łukasz Mitka, Husarion*
 
 *Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*
