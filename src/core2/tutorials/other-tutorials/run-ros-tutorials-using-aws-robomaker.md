@@ -228,7 +228,7 @@ You’ve just run Gazebo version of [Tutorial 9](https://husarion.com/tutorials/
 
 After completing this tutorial you should be familiar with AWS RoboMaker Service. You should be able to create your own environment and run various robotics simulations (in this case Husarion ROS Tutorial 9).
 
-Possibility of outsourcing computation to powerful cloud servers hardware opens doors for even more advanced robotics simulation for users that are not equipped with efficient work stations. We hope that this tutorial will help you understand basics of this process.
+Possibility of outsourcing computation to powerful cloud servers hardware opens doors for even more advanced robotics simulations for users that are not equipped with efficient work stations. It also gives you an opportunity to share the same workspace among different devices and run simulations on them regardless of their computation power. We hope this tutorial will encourage you to experiment with more advanced use cases of your projects.
 
 ---------
 
