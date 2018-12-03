@@ -683,6 +683,6 @@ of your robot using `rviz`.
 
 ---------
 
-*by Łukasz Mitka, AGH Krakow*
+*by Łukasz Mitka, Husarion*
 
 *Do you need any support with completing this tutorial or have any difficulties with software or hardware? Feel free to describe your thoughts on our community forum: https://community.husarion.com/ or to contact with our support: support@husarion.com*
