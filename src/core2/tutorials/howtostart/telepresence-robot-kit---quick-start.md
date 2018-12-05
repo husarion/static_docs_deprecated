@@ -10,7 +10,7 @@ order: 4
 
 <iframe width="800" height="388" src="https://www.youtube.com/embed/JkIj5ssHpKw" frameborder="0" gesture="media" allowfullscreen></iframe>
 
-Telepresence robot kit allows you to build your own telepresence robot in just about minutes. It's source code is open, and is available at our <a hfref="https://github.com/husarion/self-balancing-telepresence-robot">GitHub page</a> or at IDE in <a href="https://cloud.husarion.com/">Husarion cloud</a>. Feel free to modify that code, add your own sensors or actuators on top of the robot. To read more about algorithm working on the self balancing robot visit our <a href="https://medium.com/husarion-blog/fresh-look-at-self-balancing-robot-algorithm-d50d41711d58">article at Medium</a>.
+Telepresence robot kit allows you to build your own telepresence robot in just about minutes. It's source code is open, and is available at our <a href="https://github.com/husarion/self-balancing-telepresence-robot">GitHub page</a> or at IDE in <a href="https://cloud.husarion.com/">Husarion cloud</a>. Feel free to modify that code, add your own sensors or actuators on top of the robot. To read more about algorithm working on the self balancing robot visit our <a href="https://medium.com/husarion-blog/fresh-look-at-self-balancing-robot-algorithm-d50d41711d58">article at Medium</a>.
 
 If you don't have one, you can purchase the complete kit <a href="https://store.husarion.com/">here</a>.
 
