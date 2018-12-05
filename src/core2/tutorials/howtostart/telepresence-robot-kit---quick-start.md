@@ -73,9 +73,9 @@ Connect the peripherals:
 /></center></div>
 * When robot is programmed, open its user interface from <a href="https://cloud.husarion.com/">Husarion cloud main page</a> (left-click it's name).
 
-## Calibrating procedure ##
+## Calibration procedure ##
 
-After uploading a new software to the robot, you have to calibrate it's IMU to work properly. You can do it in a couple easy steps:
+After uploading a new firmware to the robot, you have to calibrate it's IMU to work properly. You can do it in a couple easy steps:
 * In opened Web UI of your robot press "start" button in Web UI to hide a leg. Hold lightly robot on the top to prepare falling (when it's not configured it may happen)
 * Press "f" button on your keyboard to turn off motors (keep holding your robot - without that it will fall)
 * Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation (a point in which it is neither falling forward or backward) and press "c" (calibrate) button in opened Web UI to save that stable angle.
