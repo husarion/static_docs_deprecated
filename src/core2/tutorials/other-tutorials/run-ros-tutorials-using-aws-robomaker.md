@@ -23,7 +23,7 @@ In this tutorial we will show you how to setup environment at AWS RoboMaker to l
 8. [Unknown environment exploration](https://husarion.com/tutorials/ros-tutorials/8-unknown-environment-exploration/ )
 9. [Object search](https://husarion.com/tutorials/ros-tutorials/9-object-search/ )
 
-IMPORTANT: AWS RoboMaker is a paid service and you may be charged based on the usage of some of its functionalities. For pricing info visit https://aws.amazon.com/robomaker/pricing/ . 
+*IMPORTANT: AWS RoboMaker is a paid service and you may be charged based on the usage of some of its functionalities. For pricing info visit https://aws.amazon.com/robomaker/pricing/* .
 
 ## Setting up Husarion ROS tutorial on AWS
 
