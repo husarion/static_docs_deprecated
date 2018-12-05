@@ -10,7 +10,7 @@ order: 4
 
 <iframe width="800" height="388" src="https://www.youtube.com/embed/JkIj5ssHpKw" frameborder="0" gesture="media" allowfullscreen></iframe>
 
-This kit allows you to build your own telepresence robot in just about minutes. 
+Telepresence robot kit allows you to build your own telepresence robot in just about minutes. It's source code is open, and is available at our <a hfref="https://github.com/husarion/self-balancing-telepresence-robot">GitHub page</a> or at IDE in <a href="https://cloud.husarion.com/">Husarion cloud</a>. Feel free to modify that code, add your own sensors or actuators on top of the robot. To read more about algorithm working on the self balancing robot visit our <a href="https://medium.com/husarion-blog/fresh-look-at-self-balancing-robot-algorithm-d50d41711d58">article at Medium</a>.
 
 If you don't have one, you can purchase the complete kit <a href="https://store.husarion.com/">here</a>.
 
@@ -55,27 +55,33 @@ Connect the peripherals:
 * Turn on a power switch.
 * When blue and red LEDs start blinking, release the hCfg button.
 * Connect your mobile device to Husarion Wi-Fi and open hConfig app (<a href="https://itunes.apple.com/us/app/hconfig/id1283536270?mt=8">hConfig in AppStore</a> or <a href="https://play.google.com/store/apps/details?id=com.husarion.configtool2">hConfig in Google Play</a>) to connect CORE2 to the Wi-Fi network and your user account at <a href="https://cloud.husarion.com">cloud.husarion.com</a> (<a href="https://husarion.com/core2/tutorials/howtostart/run-your-first-program/#run-your-first-program-connecting-to-the-cloud">how to do this</a>).
-* Install (<a href="https://play.google.com/store/apps/details?id=com.husarion.video2">hVideo app</a>) on your tablet/smartphone.
+* Install (<a href="https://play.google.com/store/apps/details?id=com.husarion.video2">hVideo app</a>) on your tablet/smartphone that you are going to integrate into robot.
 * Open hVideo app, and click "Add camera" next to your robot name at <a href="https://cloud.husarion.com">cloud.husarion.com</a>.
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/add_camera_ralph.png"
 /></center></div>
 
 * Scan QR Code - your device is now paired with your robot.
-* Insert device to your robot and screw on mounting elements.
+* Insert a tablet/smartphone to your robot and screw on mounting elements.
 
 ## Programming ##
 
 * Place your robot with CORE2 facing up and turn it on.
-* Open WebIDE (cloud.husarion.com) and create a new project using template 'self-balancing telepresence' and upload it to your CORE2.
+* Open WebIDE at <a href="https://cloud.husarion.com/">Husarion cloud</a> and create a new project using a template ***'08. self-balancing telepresence MPU9250 DMP (CORE2)'*** or '07. self-balancing telepresence - deprecated (CORE2)' and upload it to your CORE2.
 
 <div><center><img src="https://raw.githubusercontent.com/husarion/static_docs/master/src//assets/img/howToStart/create_new_project_ralph.png"
 /></center></div>
-* When robot is programmed, open its user interface and click 'Turn off motors'.
-* Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation.
-* When you find proper position (when you are using the less force to hold it stable) click on 'Calibrate' button in Web UI.
-* Now after clicking 'turn on motors' your robot will start balancing correctly.
+* When robot is programmed, open its user interface from <a href="https://cloud.husarion.com/">Husarion cloud main page</a> (left-click it's name).
 
+## Calibrating procedure ##
 
+After uploading a new software to the robot, you have to calibrate it's IMU to work properly. You can do it in a couple easy steps:
+* In opened Web UI of your robot press "start" button in Web UI to hide a leg. Hold lightly robot on the top to prepare falling (when it's not configured it may happen)
+* Press "f" button on your keyboard to turn off motors (keep holding your robot - without that it will fall)
+* Pinch upper part of your robot and by pushing it back and forward set it to balanced vertical orientation (a point in which it is neither falling forward or backward) and press "c" (calibrate) button in opened Web UI to save that stable angle.
+* Press "f" once more to turn on motors.
+* Now robot is calibrated and ready to use. That procedure need only be done once after programming, but you can modify 'angle0' initial value in RobotController.cpp file to hard code proper calibrated value for your hardware.
 
-To steer your robot use WSAD keys or arrows. Use G key to switch leg position and 1, 2, 3 keys to change gears.
+## Controlling ##
+
+To steer your robot use WSAD keys or arrows. Use 'P' key to switch leg position and 'U', 'I', 'O' keys to change max speed.
