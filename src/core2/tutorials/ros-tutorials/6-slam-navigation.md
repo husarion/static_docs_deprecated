@@ -134,7 +134,7 @@ structure into transform message, publish transform:
        transform.setOrigin( tf::Vector3(pose->pose.position.x, pose->pose.position.y, 0.0) );
        transform.setRotation(q);
 
-       br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "base_link"));
+       br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "odom", "base_link"));
     }
 ``` 
 

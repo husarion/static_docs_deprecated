@@ -420,7 +420,7 @@ Function for publishing robot position:
 ```cpp
 void initPosePublisher()
 {
-	pose.header.frame_id = "base_link";
+	pose.header.frame_id = "odom";
 	pose.pose.orientation = tf::createQuaternionFromYaw(0);
 	pose_pub = new ros::Publisher("/pose", &pose);
 	nh.advertise(*pose_pub);
@@ -515,7 +515,7 @@ void initBatteryPublisher()
 
 void initPosePublisher()
 {
-	pose.header.frame_id = "base_link";
+	pose.header.frame_id = "odom";
 	pose.pose.orientation = tf::createQuaternionFromYaw(0);
 	pose_pub = new ros::Publisher("/pose", &pose);
 	nh.advertise(*pose_pub);
@@ -661,7 +661,7 @@ If you are working with Gazebo:
 Find topic `/odom` and choose `Odometry` and click **OK**.
 
 Then in visualized items list find position `Fixed Frame` and change it
-to `base_link`. At this stage, you will need to type it. Later it will be possible to choose frame names from dropdown list, this will be covered in tutorial 6.
+to `odom`. At this stage, you will need to type it. Later it will be possible to choose frame names from dropdown list, this will be covered in tutorial 6.
 
 After this is done, you should see an arrow representing position and orientation
 of your robot. Move your robot and observe as arrow changes its
