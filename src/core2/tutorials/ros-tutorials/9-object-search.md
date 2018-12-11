@@ -15,6 +15,10 @@ Object search task defines a mission in which robot has to explore environment w
 
 ![image](/assets/img/ros/man_9_find_object_2d.png)
 
+We have prepared ready to go virtual environment for tests od ROSDS, you can use below button to use it:
+
+![run-on-ROSDS](/assets/img/ros/Run-on-ROSDS-button.png)
+
 ## Object search in ROS ##
 
 It is possible to use configurations from prevoius tutorials for area exloration and object detection. We will use:
