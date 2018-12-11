@@ -17,7 +17,10 @@ Object search task defines a mission in which robot has to explore environment w
 
 We have prepared ready to go virtual environment with end effect of following this tutorial. It is available on ROSDS:
 
- <a href="https://rds.theconstructsim.com/tc_projects/use_project_share_link/1a7c4b62-12d5-4f7c-8f2f-f2a2b8ecdb23">![run-on-ROSDS](/assets/img/ros/Run-on-ROSDS-button.png)</a>
+<div><center>
+<a href="https://rds.theconstructsim.com/tc_projects/use_project_share_link/1a7c4b62-12d5-4f7c-8f2f-f2a2b8ecdb23">
+<img alt="run-on-ROSDS" src="./../../../assets/img/ros/Run-on-ROSDS-button.png" width="250px"/></a>
+</center></div>
 
 ## Object search in ROS ##
 
