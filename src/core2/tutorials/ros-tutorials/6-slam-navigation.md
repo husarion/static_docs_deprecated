@@ -320,7 +320,9 @@ To test it you can run only this one node:
     $ rosrun rplidar_ros rplidarNode
 ```
 
-For **Gazebo** you do not need any additional nodes, just start simulator and laser scans will be already published to appropriate topic.
+For **Gazebo** you do not need any additional nodes, just start simulator and laser scans will be already published to appropriate topic. 
+
+In case there are no scans showing, there may be a problem with laser scanner plugin for Gazebo. Some GPUs, mainly the integrated ones have problems with proper rendering of laser scanner. To solve it, you will have to change the used plugin to CPU based. Go to file `rosbot.gazebo` located in `rosbot_description/src/rosbot_description/urdf`, comment out section succeeding `<!-- RpLidar using GPU -->` line with `<!--` to begin comment and `-->` to end comment and uncomment section succeeding `<!-- RpLidar using CPU -->` line by deleting `<!--` and `-->`.
 
 You should have `/scan` topic in your system. You can examine it with
 `rostopic info` but better do not try to echo it, it is possible but you
