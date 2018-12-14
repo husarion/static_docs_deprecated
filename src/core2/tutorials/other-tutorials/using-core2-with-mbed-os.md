@@ -63,8 +63,7 @@ Everything up and ready? Proceed to the next step then.
 
 `mbed-cli` is a package name of **Arm Mbed CLI**, a command-line tool that enables use of Mbed build system, GIT/Mercurial-based version control, dependencies management and more. Check [Mbed CLI GitHub page](https://github.com/ARMmbed/mbed-cli) or [Mbed documentation](https://os.mbed.com/docs/v5.10/tools/developing-mbed-cli.html) for details about the tool.  
 
-To install `mbed-cli` follow a tutorial from the Mbed documentation. 
-https://os.mbed.com/docs/v5.10/tools/installation-and-setup.html
+To install `mbed-cli` follow [this](https://os.mbed.com/docs/v5.10/tools/installation-and-setup.html) tutorial from the Mbed documentation. 
 
 Installers for both Windows and macOS are provided. Linux users have to install tool manually. In case you are user of the latter system check if you have both Git and Mercurial installed before you start. See [Requirements](https://os.mbed.com/docs/v5.10/tools/requirements.html) page for more details.
 
@@ -162,18 +161,18 @@ Only two last entries are necessary. You can learn more about ignoring files [he
 
 We will start by setting up a template project. You can use it as starting point for all of your mbed applications. 
 
-Just download the zip : https://github.com/byq77/core2-mbed-template/archive/master.zip and extract it in your workspace.
+Just download the zip : https://github.com/husarion/core2-mbed-template/archive/master.zip and extract it in your workspace.
 
 On Linux:
 
 ```bash
-    $ wget https://github.com/byq77/core2-mbed-template/archive/master.zip && unzip master.zip
+    $ wget https://github.com/husarion/core2-mbed-template/archive/master.zip && unzip master.zip
 ```
 
 You can also clone the repository using GIT:
 
 ```bash
-    $ git clone https://github.com/byq77/core2-mbed-template.git
+    $ git clone https://github.com/husarion/core2-mbed-template.git
 ```
 
 Open the directory in Visual Studio Code. In file `setting.json` from directory `.vscode` change the value of `C_cpp.default.compilerPath` to match location of `arm-none-eabi-gcc` on your system:
