@@ -227,13 +227,13 @@ Press `CTRL + SHIFT + B`. It will run `CLEAN BUILD (RELEASE)` task. Wait until c
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img6.png" width="800px" alt=""/></center>
 </div> 
 
-Connect your ST-LINK programmer to debug pins of CORE2 and make sure it's connected to your computer. Press `CTRL + SHIFT + P` and in Command Pallete type `Task: Run Task`. Select `FLASH FIRMWARE (RELEASE)`. You should get:
+Connect your ST-LINK programmer to debug pins of CORE2 and make sure it's connected to your computer. Press `CTRL + SHIFT + P` and in Command Pallete type `Task: Run Task`. Select `FLASH FIRMWARE (RELEASE)`. The firmware flashing procedure should begin
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img7.png" width="800px" alt=""/></center>
 </div> 
 
-Leds on your board should start blinking accordingly. Congratulations! You've just build and flashed your first Mbed application for CORE2!
+If leds start blinking like on the animation below then congratulations! You've just successfuly built and flashed your first Mbed application for CORE2!
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-animation.gif" alt="result"/></center>
