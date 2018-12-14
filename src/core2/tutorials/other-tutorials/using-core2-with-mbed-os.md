@@ -11,11 +11,9 @@ order: 5
 
 ## Introduction
 
-<div>
-<center><img src="./../../../assets/img/mbed-tutorials/logo.png" width="600px" alt="Mbed OS logo"/></center>
-</div>
 
-**Mbed OS** is free, open-source platform and embedded operating system designed for IoT devices based on Arm Cortex-M family of microcontrollers. It is developed as collaborative project by *Arm*, its partners and growing community of individual devs from across the world. Mbed OS is distributed under the [Apache-2.0 License](https://en.wikipedia.org/wiki/Apache_License) and it's available on project's GitHub page : https://github.com/ARMmbed/mbed-os.
+**Mbed OS** is free, open-source platform and embedded operating system designed for IoT devices based on Arm Cortex-M family of microcontrollers. It is developed as collaborative project by *Arm*, its partners and growing community of individual devs from across the world. Mbed OS is distributed under the [Apache-2.0 License](https://en.wikipedia.org/wiki/Apache_License) and it's available on project's [GitHub page](https://github.com/ARMmbed/mbed-os).
+
 
 Besides support for variety of boards from different manufacturers the framework has features like:
 * built-in support for connectivity options like *Bluetooth LE*, *Wi-Fi*, *Ethernet*, *Cellular*, *LoRa LPWAN*, *NFC* and others,
@@ -23,15 +21,23 @@ Besides support for variety of boards from different manufacturers the framework
 * *Hardware Enforced Security* and *Communications Security*,
 * easy and portable API.
 
-You can learn more about Mbed OS on its [official webpage](https://www.mbed.com/en/platform/mbed-os/).
+<p>
+<img src="./../../../assets/img/mbed-tutorials/logo.png" width="400px" alt="Mbed OS logo"/>
+</p>
 
-Useful links:
+* [Official Webpage](https://www.mbed.com/en/platform/mbed-os/)
 * [Mbed OS documentation](https://os.mbed.com/docs/v5.10/)
 * [Mbed OS Doxygen API](https://os.mbed.com/docs/v5.10/mbed-os-api-doxy/modules.html)
 
 ## First Steps
 
-In this tutorial we will show you how to build, compile and run mbed applications on CORE2 using mbed offline tools. You will be introduced to basics of mbed API, learn how to use rosserial library to connect your mbed application with SBC and more. Let's hack!
+In this tutorial we will show you how to build, compile and run mbed applications on **CORE2** using mbed offline tools. You will be introduced to basics of mbed API, learn how to use rosserial library to connect your mbed application with SBC and more. Let's hack!
+
+<p>
+<center>
+<img src="https://cdn.shopify.com/s/files/1/2545/8446/products/CORE2-ROS_1024x1024@2x.png?v=1520001976" width="400px" alt="Mbed OS logo"/>
+</center>
+</p>
 
 ### Prerequisites
 
@@ -251,7 +257,7 @@ If LEDs start blinking like on the animation below then congratulations! You've 
 If you made it this far you must be really into this stuff! Let's do something more interesting and learn how to communicate with devices running ROS using mbed. For this purpose we will use [rosserial for mbed platforms](http://wiki.ros.org/rosserial_mbed). 
 
 <div>
-<center><img src="./../../../assets/img/mbed-tutorials/ros_logo.png" alt="result"/></center>
+<center><img src="./../../../assets/img/mbed-tutorials/ros_logo.png" width="400px" alt="result"/></center>
 </div> 
 
 ### Example publisher
@@ -374,15 +380,6 @@ If you would like to know more about mbed specific code check [Mbed API](https:/
 * [Thread](https://os.mbed.com/docs/v5.10/apis/thread.html),
 * [Ticker](https://os.mbed.com/docs/v5.10/apis/ticker.html),
 * [DigitalOut](https://os.mbed.com/docs/v5.10/apis/digitalout.html).
-
-> **Tip**
->
-> Good practice when learning new things is to take notes. These days it's even more relevant than ever due to our over-reliance on google. You sometimes end up searching for the same information over and over again just because you've already forgotten it. 
-> We encourage you to create "cheat sheets" when learning new programming language or framework/API. They help quickly revise and reuse code.   Create "Mbed cheat sheet" using GitHub Gist or note in Evernote. At the beginning add links to main documentation pages and another useful sites on topic. In next sections make short references to API with code snippets. It may look like this:
-> 
-> <div>
-> <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img9.png" width="800px" alt="Cheat sheet in Marxi.co"/></center>
-> </div> 
 
 #### Running the code
 
@@ -582,12 +579,6 @@ To publish new message to "input_raw" topic open a new tab and run:
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img12.png" width="800px" alt=""/></center> 
-</div>
-
-You can use sites like http://aes.online-domain-tools.com/ to decrypt your message and check if encryption works.
-
-<div>
-<center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img13.png" width="800px" alt=""/></center> 
 </div>
 
 If you want to learn more - check official [rosserial mbed tutorials](http://wiki.ros.org/rosserial_mbed/Tutorials) from **ros.org**. 
