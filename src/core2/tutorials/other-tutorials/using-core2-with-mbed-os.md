@@ -19,7 +19,7 @@ order: 5
 
 Besides support for variety of boards from different manufacturers the framework has features like:
 * built-in support for connectivity options like *Bluetooth LE*, *Wi-Fi*, *Ethernet*, *Cellular*, *LoRa LPWAN*, *NFC* and others,
-* RTOS core based on open-source *CMSIS-RTOS RTX* (it is also possible to build projects without it),
+* RTOS core based on open-source *CMSIS-RTOS RTX*,
 * *Hardware Enforced Security* and *Communications Security*,
 * easy and portable API.
 
@@ -57,7 +57,7 @@ Everything up and ready? Proceed to the next step then.
 
 `mbed-cli` is a package name of **Arm Mbed CLI**, a command-line tool that enables use of Mbed build system, GIT/Mercurial-based version control, dependencies management and more. Check [Mbed CLI GitHub page](https://github.com/ARMmbed/mbed-cli) or [Mbed documentation](https://os.mbed.com/docs/v5.10/tools/developing-mbed-cli.html) for details about the tool.  
 
-To install `mbed-cli` follow a tutorial from the official Mbed documentation. 
+To install `mbed-cli` follow a tutorial from the Mbed documentation. 
 https://os.mbed.com/docs/v5.10/tools/installation-and-setup.html
 
 Installers for both Windows and macOS are provided. Linux users have to install tool manually. In case you are user of the latter system check if you have both Git and Mercurial installed before you start. See [Requirements](https://os.mbed.com/docs/v5.10/tools/requirements.html) page for more details.
@@ -154,7 +154,7 @@ Only two last entries are necessary. You can learn more about ignoring files [he
 
 ### Template Project
 
-We will start by setting up a template project. You can use it as starting point for other, more advanced ones. 
+We will start by setting up a template project. You can use it as starting point for all of your mbed applications. 
 
 Just download the zip : https://github.com/byq77/core2-mbed-template/archive/master.zip and extract it in your workspace.
 
@@ -164,7 +164,7 @@ On Linux:
     $ wget https://github.com/byq77/core2-mbed-template/archive/master.zip && unzip master.zip
 ```
 
-You can also clone the repo using GIT:
+You can also clone the repository using GIT:
 
 ```bash
     $ git clone https://github.com/byq77/core2-mbed-template.git
@@ -176,7 +176,7 @@ Open the directory in Visual Studio Code. In file `setting.json` from directory 
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img2.png" width="800px" alt=""/></center>
 </div> 
 
-It will enable more accurate IntelliSense feature in editor.
+This setting enables more accurate IntelliSense feature in editor.
 
 #### Template files
 
@@ -186,7 +186,7 @@ Open the template directory and select `src/main.cpp`. You should see:
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img1.png" width="800px" alt=""/></center>
 </div> 
 
-As you no doubt have guessed this simple code just lights up three on-board leds in some sequence. We instantiate `BusOut` object that allows to control multiple digital pins at the same time. It's used to blink leds in order described by `leds_mask` array at the interval introduced by function `ThisThread::sleep_for(1000)`.    
+As you no doubt have guessed this simple code just lights up three on-board LEDs in particular sequence. We instantiate `BusOut` object that allows to control multiple digital pins at the same time regardless of ports they're assigned to. On-board LEDs blink in order described by `leds_mask` array at the interval introduced by function `ThisThread::sleep_for(1000)`.    
 
 Let's explore other important files of template project. Open file `custom_target.json`:
 
@@ -194,7 +194,10 @@ Let's explore other important files of template project. Open file `custom_targe
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img3.png" width="800px" alt=""/></center>
 </div> 
 
-Mbed OS Configuration system use this file to define user's custom targets. Since CORE2 is not officially supported by Mbed OS `custom_target.json` and files from `TARGET_CORE2` are used to describe our board. You can learn more about configuration system [here](https://os.mbed.com/docs/v5.10/reference/configuration.html).
+Mbed OS Configuration system uses this file to add user's custom targets making it possible to run system on boards that aren't officially supported. 
+We use `custom_target.json` and files from `TARGET_CORE2` to define CORE2 target.
+
+Although CORE2 is not officially supported by Mbed OS it is possible to define multiple custom targets using Mbed configuration files. `custom_target.json`  are used to describe our board. You can learn more about configuration system [here](https://os.mbed.com/docs/v5.10/reference/configuration.html).
 
 In folder `TARGET_CORE2` you can find files `PinNames.h` and `PeripheralPins.c`. First one defines pin names of mcu and the latter defines peripherals that can be used on each pin.
 
@@ -211,13 +214,11 @@ In this file you can override default settings for application, define new confi
 
 You can learn details of each settings from documentation.
 
-The last important file you should be aware of is `task.json` from `.vscode` directory. It defines tasks that are recognized by Visual Studio Code IDE. They can be accessed by pressing `CTRL + SHIFT + P` and typing `Task: Run Task` in Command Pallete.
+The last file we will check is `task.json` from `.vscode` directory. It defines tasks that are recognized by Visual Studio Code IDE. They can be accessed by pressing `CTRL + SHIFT + P` and typing `Task: Run Task` in Command Pallete.
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img5.png" width="800px" alt=""/></center>
 </div> 
-
-Both Mbed OS and VS Code configuration use simple JSON syntax. 
 
 #### Building and flashing firmware
 
@@ -227,22 +228,22 @@ Press `CTRL + SHIFT + B`. It will run `CLEAN BUILD (RELEASE)` task. Wait until c
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img6.png" width="800px" alt=""/></center>
 </div> 
 
-Connect your ST-LINK programmer to debug pins of CORE2 and make sure it's connected to your computer. Press `CTRL + SHIFT + P` and in Command Pallete type `Task: Run Task`. Select `FLASH FIRMWARE (RELEASE)`. The firmware flashing procedure should begin
+Connect your ST-LINK programmer to debug pins of CORE2 and make sure it's connected to your computer. Press `CTRL + SHIFT + P` and in Command Pallete type `Task: Run Task`. Select `FLASH FIRMWARE (RELEASE)`. The firmware flashing procedure should start:
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img7.png" width="800px" alt=""/></center>
 </div> 
 
-If leds start blinking like on the animation below then congratulations! You've just successfuly built and flashed your first Mbed application for CORE2!
+If LEDs start blinking like on the animation below then congratulations! You've just successfully built and flashed your first Mbed application for CORE2!
 
 <div>
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-animation.gif" alt="result"/></center>
 </div> 
 
 #### Tasks
-- Modify the program so as the on-board leds blink in Gray code. 
+- Modify existing application so as the on-board leds blink in Gray code. 
 - Add [Serial](https://os.mbed.com/docs/v5.10/apis/serial.html) to print current sequence to the stdout (micro-usb port on CORE2) at the same time. 
-- Change baudrate to 38400 in configuration files. 
+- In configuration files change baudrate to 9600. 
 - Check target's files and learn which UART instance is connected to pins `USBTX` and `USBRX`.    
 
 ## Rosserial library
@@ -255,7 +256,7 @@ If you made it this far you must be really into this stuff! Let's do something m
 
 ### Example publisher
 
-First we will create a new project directory. Just simply duplicate previous project and name it `example-publisher`:
+First we will create a new project directory. Just simply duplicate template project and name it `example-publisher`:
 
 ```bash
     $ cp -rf core2-mbed-template example-publisher
@@ -265,11 +266,11 @@ Another way is to create empty mbed project using Mbed CLI. Just type:
 ```bash
   $ mbed new <project-name> --program
 ```
-After that copy content of template project except `.git` directory.
+After that copy content of template project except `.git` directory to your newly created program directory.
 
 > **Tip**
 >
-> If you cloned your template project from online repo and you don't want to have version control in it just delete `.git` directory:
+> If you cloned your template project from online repository and you don't want to have version control in it just delete `.git` directory:
 > ```bash
 >   $ rm -rf ./core2-mbed-template/.git/
 > ```
