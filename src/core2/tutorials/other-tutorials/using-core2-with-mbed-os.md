@@ -199,10 +199,7 @@ Let's explore other important files of template project. Open file `custom_targe
 <center><img src="./../../../assets/img/mbed-tutorials/mbed-tutorial-img3.png" width="800px" alt=""/></center>
 </div> 
 
-Mbed OS Configuration system uses this file to add user's custom targets making it possible to run system on boards that aren't officially supported. 
-We use `custom_target.json` and files from `TARGET_CORE2` to define CORE2 target.
-
-Although CORE2 is not officially supported by Mbed OS it is possible to define multiple custom targets using Mbed configuration files. `custom_target.json`  are used to describe our board. You can learn more about configuration system [here](https://os.mbed.com/docs/v5.10/reference/configuration.html).
+Mbed OS Configuration system uses this file to add user's custom targets making it possible to run system on boards that aren't officially supported. We use `custom_target.json` and files from `TARGET_CORE2` to define CORE2 target. You can learn more about configuration system [here](https://os.mbed.com/docs/v5.10/reference/configuration.html).
 
 In folder `TARGET_CORE2` you can find files `PinNames.h` and `PeripheralPins.c`. First one defines pin names of mcu and the latter defines peripherals that can be used on each pin.
 
