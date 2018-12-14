@@ -55,9 +55,11 @@ Everything up and ready? Proceed to the next step then.
 
 ### mbed-cli installation
 
-`mbed-cli` is a package name of **Arm Mbed CLI**, a command-line tool that enables use of Mbed build system, GIT/Mercurial-based version control, dependencies management and so on. Check [Mbed CLI GitHub page](https://github.com/ARMmbed/mbed-cli) or [Mbed documentation](https://os.mbed.com/docs/v5.10/tools/developing-mbed-cli.html) to learn more about the tool.  
+`mbed-cli` is a package name of **Arm Mbed CLI**, a command-line tool that enables use of Mbed build system, GIT/Mercurial-based version control, dependencies management and more. Check [Mbed CLI GitHub page](https://github.com/ARMmbed/mbed-cli) or [Mbed documentation](https://os.mbed.com/docs/v5.10/tools/developing-mbed-cli.html) for details about the tool.  
 
-Official documentation provides tutorial on mbed-cli installation. You can access it [here](https://os.mbed.com/docs/v5.10/tools/installation-and-setup.html).
+To install `mbed-cli` follow a tutorial from the official Mbed documentation. 
+https://os.mbed.com/docs/v5.10/tools/installation-and-setup.html
+
 Installers for both Windows and macOS are provided. Linux users have to install tool manually. In case you are user of the latter system check if you have both Git and Mercurial installed before you start. See [Requirements](https://os.mbed.com/docs/v5.10/tools/requirements.html) page for more details.
 
 To check if installation was successful open terminal and run:
@@ -590,7 +592,7 @@ You can use sites like http://aes.online-domain-tools.com/ to decrypt your messa
 If you want to learn more - check official [rosserial mbed tutorials](http://wiki.ros.org/rosserial_mbed/Tutorials) from **ros.org**. 
 
 #### Tasks
-* Create an application that monitors the on-board button and publish the number of pushes to topic "button" every time the button's state changes. Use [InterruptIn]() object. 
+* Create an application that monitors the on-board button and publish the number of pushes to topic "button" every time the button's state changes. Use [InterruptIn](https://os.mbed.com/docs/v5.10/apis/interruptin.html) object. 
 * Create an application that lights up on-board leds accordingly to the mask value received on "led_mask" topic. Use `std_msgs::Uint8` type for ROS communication.
 
 <!-- TODO: MOTOR SECTION -->
