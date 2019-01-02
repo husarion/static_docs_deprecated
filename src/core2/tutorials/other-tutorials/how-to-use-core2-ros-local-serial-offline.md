@@ -76,5 +76,9 @@ On Raspberry Pi:
 ```
 /opt/husarion/tools/rpi-linux/ros-core2-client /dev/serial0
 ```
+On UpBoard:
+```
+/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyS4
+```
 
 
