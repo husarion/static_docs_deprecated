@@ -20,6 +20,7 @@ Few lines that should including your code flashed on CORE2:
 ```cpp
 void hMain()
 {
+    //RPi.init(230400); // uncomment if using UpBoard
     platform.begin(&RPi);
     nh.getHardware()->initWithDevice(&platform.LocalSerial);
     nh.initNode();
@@ -61,6 +62,17 @@ void hMain()
     nh.subscribe(sub);
 // ...
 ```
+or if you using UpBoard:
+```cpp
+void hMain()
+{
+    RPi.init(230400); // uncomment if using UpBoard
+    //platform.begin(&RPi); // comment this line
+    nh.getHardware()->initWithDevice(&RPi); // change here
+    nh.initNode();
+    nh.subscribe(sub);
+// ...
+```
 
 Next as always we have to open a terminal and run:
 ```
@@ -78,7 +90,7 @@ On Raspberry Pi:
 ```
 On UpBoard:
 ```
-/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyS4
+/opt/husarion/tools/rpi-linux/ros-core2-client /dev/ttyS4 _baud:=230400
 ```
 
 
