@@ -100,11 +100,11 @@ You will control ROSbot in the `x-y` plane by manipulating the `x` component of 
 You will use keyboard to control the movement of your robot. For getting the
 key events and converting them to `geometry_msgs/Twist` messages you can
 use `teleop_twist_keyboard.py` node from package
-`teleop_twist_keyboard`.
+[`teleop_twist_keyboard`](http://wiki.ros.org/teleop_twist_keyboard).
 
 Alternatively you can use joystick to control your robot, then you will
-need `universal_teleop` node from `universal_teleop` package and
-`keyboard` node from `keyboard` package
+need `joy_node` node from [`joy`](http://wiki.ros.org/joy) package and
+`teleop_node` node from [`teleop_twist_joy`](http://wiki.ros.org/teleop_twist_joy) package.
 
 ### Converting motion command to motor drive signal ###
 
